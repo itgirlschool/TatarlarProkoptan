@@ -1,7 +1,7 @@
 import style from "./App.module.scss";
 
 function App() {
-  return <div></div>;
+  return <div>Hello world</div>;
 }
 
 export default App;
