@@ -3,7 +3,7 @@ import style from "./ModalForm.module.scss";
 import { useState } from "react";
 import Checkbox from "../../assets/svg/checkbox.svg";
 
-export default function ModalForm() {
+export default function ModalForm({openFeedBack}) {
   const [statusModal, setStatusModal] = useState(`${style.container__opened}`);
   const [statusChecked, setStatusChecked] = useState(false);
   const checkboxClasses = [style.checkbox, style.checkbox__hidden];
@@ -20,7 +20,7 @@ export default function ModalForm() {
     handleSubmit,
     setError,
     reset,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting, isSubmitSuccessful},
   } = useForm({
     defaultValues: {
       lastName: "",
@@ -40,6 +40,9 @@ export default function ModalForm() {
       reset();
       setStatusChecked(!statusChecked);
       setStatusCheckbox(`${style.checkbox}`);
+      openFeedBack(true);
+      if (isSubmitSuccessful) {
+      setStatusModal(`${style.container__closed}`);}
     } catch (err) {
       setError("email", { message: "Введенный email уже занят" });
       setError("phone", { message: "Введенный телефон уже занят" });

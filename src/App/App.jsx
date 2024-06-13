@@ -1,12 +1,12 @@
 import style from "./App.module.scss";
-import ModalForm from "../Components/ModalForm/ModalForm";
+import ModalFormPage from "../Components/ModalForm/ModalFormPage";
 
 function App() {
   return (
     <div>
-      <ModalForm />
+      <ModalFormPage />
     </div>
-  );
+  )
 }
 
 export default App;
