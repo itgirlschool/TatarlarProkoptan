@@ -24,17 +24,20 @@ export default function HomePage(){
 
     return(
         <>
-        <h1 className={styles.title}>татары Прокопьевска</h1>
-        <h2>Прокопьевск</h2>
+        <h1 className={styles.title}>Татары Прокопьевска</h1>
+        <div className={styles.info}>
+            <div>
+        <h2 className={styles.title__video}>Прокопьевск</h2>
         <p>Город на юге Кузбасса. 189 км от столицы</p>
-        <div>
-        <div><iframe width="560" height="315" src="https://www.youtube.com/embed/bWqBGrflpqE?si=GOt3IbzR3VF3anQT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-        <div>
+        <div className={styles.video}><iframe width="560" height="315" src="https://www.youtube.com/embed/bWqBGrflpqE?si=GOt3IbzR3VF3anQT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+        </div>
+        <div className={styles.info__video}>
+          
             <p>Основан: 1931 год</p>
             <p>Население: 196 406 человек&#42;</p>
             <p>Численность татар: 7412 человек&#42;&#42;</p>
-        </div>
-        <button onClick={openModal}>История</button>
+    
+        <button className={styles.button} onClick={openModal}>История</button>
         <Modal open={modalIsOpen} onOk={handleOk} onCancel={handleCancel}>
         <p>История</p>
         <img width='300px' src={prokopevsk} alt="Прокопьевск"/>
@@ -42,15 +45,26 @@ export default function HomePage(){
         <p>Вторая волна заселения мусульман пришлась на 50-60годы ХХ столетия. Это люди, прибывшие в основном по направлению различных учебных заведений на трудовую практику. Молодежь создавали семьи, получали жилье и оставались жить на Прокопьевской земле. Браки были смешанные и соответственно мусульманские обычаи стали ослабевать. Не было ни мечетей, ни медресе, истинные мусульмане с годами уходили в мир иной унося с собой строгие устои и каноны.</p>
         <p>В конце 90-х годов правительство страны признало любое вероисповедание свободным и допустимым. У мусульман появилась возможность получать духовное и нравственное наставничество что, безусловно, способствовало возрождению и укреплению национальных традиций.</p>
         </Modal>
-
         </div>
-        <img width='200px' height="80px" src={ornament} alt="ornament" />
-        <div>
-            <img width="300px" src={homepage} alt="татары Прокопьевска" />
+        </div>
+        <div className={styles.note}>
+        <p>*Данные о наслении актуальны на 2024 год</p>
+        <p>**Данные о численности татар актуальны на 2010 год</p>
+        </div>
+        <div className={styles.ornament}>
+        <img className={styles.ornament__img} src={ornament} alt="ornament" />
+        </div>
+        <hr />
+        <div className={styles.welcome}>
+            <div className={styles.container__welcomeimg}>
+            <img width="500px" src={homepage} alt="татары Прокопьевска" className={styles.welcome__img}/>
+            </div>
+            <div className={styles.welcome__text}>
             <p>Исенмесез Дуслар! </p>
             <p>Ообщественная организация "Татарская национально-культурная автономия города Прокопьевск" приветствует вас на своем сайте! 
 Целью нашей организации является объединение граждан Российской Федерации, относящих себя к этнической общности татар, и проживающих на территории города Прокопьевск и Кемеровской области-Кузбасс. Мы содействуем возрождению и развитию национального самосознания и самобытности татар, проживающих в Прокопьевске, устанавливаем и поддерживаем культурные связи с татарами других регионов РФ и мира. Мы содействуем изучению и сохранению татарского языка, организации национального краеведения и охране национальных памятников истории и культуры. Мы знакомим широкую общественность с историческим и культурным наследием, а также традициям и историей татарского народа. Мы организуем и проводим мероприятия и встречи. </p>
 <p>Добро пожаловать! Рахим итегез!</p>
+</div>
         </div>
     </>
     )
