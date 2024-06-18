@@ -1,1 +1,8 @@
-/*# sourceMappingURL=index.css.map */
+@font-face {
+  font-family: "Mono";
+  src: url("../assets/fonts/MonoTC.ttf") format("ttf");
+}
+@font-face {
+  font-family: "SansMono";
+  src: url("../assets/fonts/SansMono.ttf") format("ttf");
+}/*# sourceMappingURL=index.css.map */

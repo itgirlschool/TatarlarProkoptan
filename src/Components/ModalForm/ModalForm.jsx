@@ -5,6 +5,7 @@ import Checkbox from "../../assets/svg/checkbox.svg";
 import postData from "./postData";
 import Loader from "../Loader/Loader";
 import FeedbackWindow from "./FeedBackWindow";
+import mask from './inputTel';
 
 export default function ModalForm({ onClose }) {
   const [statusChecked, setStatusChecked] = useState(false);
@@ -80,7 +81,7 @@ export default function ModalForm({ onClose }) {
                 Фамилия*
               </label>
               <input
-                className={errors.lastName? style.input__empty :style.input }
+                className={errors.lastName ? style.input__empty : style.input}
                 type="text"
                 id="lastName"
                 {...register("lastName", {
@@ -96,7 +97,7 @@ export default function ModalForm({ onClose }) {
                 Имя*
               </label>
               <input
-                className={errors.firstName? style.input__empty :style.input }
+                className={errors.firstName ? style.input__empty : style.input}
                 type="text"
                 id="firstName"
                 {...register("firstName", {
@@ -112,7 +113,7 @@ export default function ModalForm({ onClose }) {
                 Отчество*
               </label>
               <input
-                className={errors.surName? style.input__empty :style.input }
+                className={errors.surName ? style.input__empty : style.input}
                 type="text"
                 id="surName"
                 {...register("surName", {
@@ -128,15 +129,15 @@ export default function ModalForm({ onClose }) {
                 Номер телефона*
               </label>
               <input
-                className={errors.phone? style.input__empty :style.input }
-                type="tel"
+                className={errors.phone ? style.input__empty : style.input}
+                type="tel" onClick={mask}
                 id="phone"
                 {...register("phone", {
                   required: "Пожалуйста, заполните поле",
                   pattern: {
-                    value: /(?:\+|\d)[\d\-\(\) ]{9,}\d/g,
+                    value: /^\+7\([0-9]{3}\)[0-9]{3}-[0-9]{4}$/,
                     message:
-                      "Номер телефона может содержать только цифры, пробелы и знаки +, -, (, )",
+                      "Пожалуйста, введите номер телефона в формате +7(999)999-9999",
                   },
                 })}
               />
@@ -149,7 +150,7 @@ export default function ModalForm({ onClose }) {
                 Электронная почта*
               </label>
               <input
-                className={errors.email? style.input__empty :style.input }
+                className={errors.email ? style.input__empty : style.input}
                 type="text"
                 id="email"
                 {...register("email", {
