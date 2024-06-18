@@ -1,0 +1,55 @@
+@import '../../style/vars';
+
+.header {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 15px; 
+  background-color: $header-background-color;
+  font-size: $header-font-size;
+}
+
+.logo {
+  width: 230px;
+  height: 120px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav__link {
+  margin: 0 10px;  
+  color: $header-text-color; 
+  font-family: $font;
+}
+
+.button {
+  font-family: $font;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 20px;
+  background-color: $header-text-color;
+  color: #00a45c;
+  border: none;
+  font-size: 15px;
+}
+
+.icons {
+  display: flex;
+  gap: 10px;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
