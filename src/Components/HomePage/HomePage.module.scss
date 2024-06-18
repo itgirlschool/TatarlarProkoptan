@@ -1,7 +1,11 @@
+@import '../../style/vars.scss';
+
 .title{
     color:rgb(6, 100, 6);
     text-align: center;
-    font-size: 40px;
+    font-size: 50px;
+    font-family: $font;
+    
 }
 
 .info{
@@ -12,6 +16,7 @@
     justify-content: space-around;
     flex-wrap: wrap;
     gap: 20px;
+  
 }
 
 .video{
@@ -22,6 +27,7 @@
 
 .title__video{
     width: 50%;
+  
 }
 
 .info__video{
@@ -31,6 +37,7 @@
     justify-content: center;
     font-size: 25px;
     align-items: center;
+    
 }
 
 
@@ -45,6 +52,7 @@
     font-size: 20px;
     font-weight: 400;
 }
+   
 .button:hover{
     background-color: goldenrod;
 }
@@ -53,11 +61,11 @@
     width: 100%;
     margin-top: 10px;
     font-size: 12px;
+    
 }
 
 .ornament{
 margin-top: 40px;
-
 text-align: center;
 height: 100px;
    
@@ -74,6 +82,7 @@ height: 100px;
     min-height: 400px;
     gap: 30px;
     margin: 20px;
+   
 }
 .container__welcomeimg{
     background-color: rgba(248, 219, 33, 0.5);
