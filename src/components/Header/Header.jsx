@@ -24,7 +24,7 @@ export default function Header() {
         <a href="mailto:yourmail@example.com">
           <img src={MailIcon} alt="Mail" className={styles.icon} />
         </a>
-        <a href="tel:+1234567890">
+        <a href="tel:+79019292782">
           <img src={PhoneIcon} alt="Phone" className={styles.icon} />
         </a>
       </div>

@@ -10,7 +10,6 @@ export default function NavLink() {
       <li className={style.nav__link}>Сабантуй</li>
       <li className={style.nav__link}>Благотворительность</li>
       <li className={style.nav__link}>Мы вместе</li>
-      <li className={style.nav__link}>Галерея</li>
     </ul>
   );
 }
