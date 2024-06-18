@@ -1,5 +1,5 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import style from "./AuthorizationPage.module.scss";
@@ -14,13 +14,34 @@ const AuthorizationPage = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = async (data) => {
-    console.log(data);
-    // Обработка данных формы, например, отправка на сервер
-  };
+  // const [passwordError, setPasswordError] = useState(false);
+  // const [showRecovery, setShowRecovery] = useState(false);
 
+  const onSubmit = async (data) => {
+    const { email, password } = data;
+
+  //   if (email === "user@test.com" && password === "password123") {
+  // console.log("Вход выполнен");
+  // setPasswordError(false);
+  //   } else{
+  //     console.log("Неверный логин или пароль");
+  //     setPasswordError(true);
+  //     setShowRecovery(true);
+  //   }
+  // };
+
+  // const handlePasswordChange = () => {
+  //   setPasswordError(false);
+  // };
+  // const handleRecoveryPassword = () => {
+
+  };
   return (
     <div className={style.container}>
+              <img src="src/assets/logo/logo.png" 
+        className={style.image__logo}
+        alt="logo"
+        />
       <h2 className={style.header}>Авторизация</h2>
       <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={style.input__wrapper}>
@@ -48,7 +69,9 @@ const AuthorizationPage = () => {
           Подтвердить
         </button>
         </div>
+
       </form>
+
     </div>
   );
 };
