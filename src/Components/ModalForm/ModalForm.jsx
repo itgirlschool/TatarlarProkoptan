@@ -73,72 +73,97 @@ export default function ModalForm({ onClose }) {
           onSubmit={handleSubmit(onSubmit)}
         >
           <h2 className={style.header}>Заявка на вступление в автономию</h2>
-          <p className={style.paragragh}>Заполните, пожалуйста, форму:</p>
+          {/* <p className={style.paragragh}>Заполните, пожалуйста, форму:</p> */}
           <div className={style.container__inputs}>
-            <input
-              className={style.input}
-              type="text"
-              placeholder="Фамилия*"
-              {...register("lastName", {
-                required: "Поле не заполнено",
-              })}
-            />
-            {errors.lastName && (
-              <p className={style.error}>{errors.lastName.message}</p>
-            )}
-            <input
-              className={style.input}
-              type="text"
-              placeholder="Имя*"
-              {...register("firstName", {
-                required: "Поле не заполнено",
-              })}
-            />
-            {errors.firstName && (
-              <p className={style.error}>{errors.firstName.message}</p>
-            )}
-            <input
-              className={style.input}
-              type="text"
-              placeholder="Отчество*"
-              {...register("surName", {
-                required: "Поле не заполнено",
-              })}
-            />
-            {errors.surName && (
-              <p className={style.error}>{errors.surName.message}</p>
-            )}
-            <input
-              className={style.input}
-              type="tel"
-              placeholder="Телефон*"
-              {...register("phone", {
-                required: "Поле не заполнено",
-                pattern: {
-                  value: /(?:\+|\d)[\d\-\(\) ]{9,}\d/g,
-                  message:
-                    "Номер телефона может содержать только цифры, пробелы и знаки +, -, (, )",
-                },
-              })}
-            />
-            {errors.phone && (
-              <p className={style.error}>{errors.phone.message}</p>
-            )}
-            <input
-              className={style.input}
-              type="text"
-              placeholder="email*"
-              {...register("email", {
-                required: "Поле не заполнено",
-                pattern: {
-                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                  message: "Адрес должен содержать @ и.",
-                },
-              })}
-            />
-            {errors.email && (
-              <p className={style.error}>{errors.email.message}</p>
-            )}
+            <div className={style.input__wrapper}>
+              <label className={style.label} htmlFor="lastName">
+                Фамилия*
+              </label>
+              <input
+                className={errors.lastName? style.input__empty :style.input }
+                type="text"
+                id="lastName"
+                {...register("lastName", {
+                  required: "Пожалуйста, заполните поле",
+                })}
+              />
+              {errors.lastName && (
+                <p className={style.error}>{errors.lastName.message}</p>
+              )}
+            </div>
+            <div className={style.input__wrapper}>
+              <label className={style.label} htmlFor="firstName">
+                Имя*
+              </label>
+              <input
+                className={errors.firstName? style.input__empty :style.input }
+                type="text"
+                id="firstName"
+                {...register("firstName", {
+                  required: "Пожалуйста, заполните поле",
+                })}
+              />
+              {errors.firstName && (
+                <p className={style.error}>{errors.firstName.message}</p>
+              )}
+            </div>
+            <div className={style.input__wrapper}>
+              <label className={style.label} htmlFor="surName">
+                Отчество*
+              </label>
+              <input
+                className={errors.surName? style.input__empty :style.input }
+                type="text"
+                id="surName"
+                {...register("surName", {
+                  required: "Пожалуйста, заполните поле",
+                })}
+              />
+              {errors.surName && (
+                <p className={style.error}>{errors.surName.message}</p>
+              )}
+            </div>
+            <div className={style.input__wrapper}>
+              <label className={style.label} htmlFor="phone">
+                Номер телефона*
+              </label>
+              <input
+                className={errors.phone? style.input__empty :style.input }
+                type="tel"
+                id="phone"
+                {...register("phone", {
+                  required: "Пожалуйста, заполните поле",
+                  pattern: {
+                    value: /(?:\+|\d)[\d\-\(\) ]{9,}\d/g,
+                    message:
+                      "Номер телефона может содержать только цифры, пробелы и знаки +, -, (, )",
+                  },
+                })}
+              />
+              {errors.phone && (
+                <p className={style.error}>{errors.phone.message}</p>
+              )}
+            </div>
+            <div className={style.input__wrapper}>
+              <label className={style.label} htmlFor="email">
+                Электронная почта*
+              </label>
+              <input
+                className={errors.email? style.input__empty :style.input }
+                type="text"
+                id="email"
+                {...register("email", {
+                  required: "Пожалуйста, заполните поле",
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                    message: "Адрес должен содержать @ и.",
+                  },
+                })}
+              />
+              {errors.email && (
+                <p className={style.error}>{errors.email.message}</p>
+              )}
+            </div>
             <div className={style.container__agreement}>
               {statusChecked && (
                 <img src={Checkbox} alt="checkbox" className={style.checked} />
@@ -149,28 +174,28 @@ export default function ModalForm({ onClose }) {
                 type="checkbox"
                 id="agreement"
                 {...register("agreement", {
-                  required: "Поле не заполнено",
+                  required: "Пожалуйста, заполните поле",
                 })}
               />
               <label htmlFor="agreement" className={style.agreement}>
                 Я соглашаюсь с политикой конфиденциальности и обработки
                 персональных данных*
               </label>
+              {errors.agreement && (
+                <p className={style.error}>{errors.agreement.message}</p>
+              )}
             </div>
-            {errors.agreement && (
-              <p className={style.error}>{errors.agreement.message}</p>
-            )}
           </div>
           <div className={style.container__buttons}>
             <button onClick={onHandleClose} className={style.button__cancel}>
-              Отмена
+              ОТМЕНА
             </button>
             <button
               disabled={isSubmitting}
               className={style.button__submit}
               type="submit"
             >
-              {isSubmitting ? <Loader /> : "Отправить"}
+              {isSubmitting ? <Loader /> : "ОТПРАВИТЬ"}
             </button>
           </div>
         </form>

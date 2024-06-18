@@ -27,7 +27,7 @@ export default function FeedbackWindow({ responseStatus, onCloseFeedback }) {
                 <h2 className={style.header__feedback}>
                   Ваша заявка принята, спасибо!
                 </h2>
-                <p className={style.paragragh}>
+                <p className={style.paragragh__feedback}>
                   Здесь можно оставить инфо о том, что что-то придет по почте
                   или еще что-то для вновь вступивших
                 </p>
@@ -37,7 +37,7 @@ export default function FeedbackWindow({ responseStatus, onCloseFeedback }) {
                 <h2 className={style.header__feedback}>
                   Сервер временно не доступен!
                 </h2>
-                <p className={style.paragragh}>Пожалуйста, попробуйте позже</p>
+                <p className={style.paragragh__feedback}>Пожалуйста, попробуйте позже</p>
               </>
             )}
             <button
