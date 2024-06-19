@@ -1,0 +1,122 @@
+.footer {
+    background-color: #3b9d6c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer__container {
+    outline: 1px solid red;
+    max-width: 1800px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.footer__document {
+    width: 90px;
+    height: 90px;
+    background-color: #e0cb79;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;    
+    transition: transform 0.3s ease;
+    position: relative;
+
+    & a {
+        color: #3b9d6c;
+        font-size: 20px;
+        text-decoration: none;
+        font-weight: bolder;
+        text-transform: uppercase;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.footer__document:hover {
+    transform: scale(1.2);
+}
+
+.footer__contacts {
+    outline: 1px solid blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    & p {
+        display: block;
+        margin: 5px;
+        color: #e0cb79;
+        color: #faf0df;
+    }
+
+    & p > a {
+        text-decoration: none;
+        color: #faf0df;
+    }
+}
+
+.contacts__phone, .contacts__mail {
+    position: relative;
+    padding-left: 20px; /* Отступ для иконки */
+}
+
+.contacts__phone::before {
+    content: "";
+    display: inline-block;
+    background-image: url('../../assets/icon/phone.svg');
+    background-size: contain;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.contacts__mail::before {
+    content: "";
+    display: inline-block;
+    background-image: url('../../assets/icon/mailto.svg');
+    background-size: contain;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+.nav__vkontakte {
+    width: 16px;
+    height: 16px;
+}
+
+.nav__hamburgerMenu {
+    width: 16px;
+    height: 16px;
+}
+
+.world {
+    color: #faf0df;
+}
+
+.another {
+    color: #cbb28c;
+}
