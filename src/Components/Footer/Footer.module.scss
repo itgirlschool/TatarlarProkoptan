@@ -1,5 +1,7 @@
+@import '../../style/vars.scss';
+
 .footer {
-    background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
+    background-image: $footer-background-color;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,9 +9,9 @@
     position: fixed;
     bottom: 0;
     width: 100%;
-    font-family: "Mono";
-    font-size: 14px;
-
+    font-family: $fontLifehackRegular;
+    font-size: 16px;
+    letter-spacing: 1px;
 }
 
 .footer__container {
@@ -35,7 +37,7 @@
 }
 
 .footer__document {
-    background: linear-gradient(0deg, rgba(195,190,34,1) 0%, rgba(224,203,121,1) 100%);
+    background: $footer-yellow-color;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -47,7 +49,7 @@
     padding: 2px;
   
     & a {
-      color: #3b9d6c;
+      color: $footer-text-color-green;
       font-size: 14px;
       text-decoration: none;
       font-weight: bolder;
@@ -60,8 +62,7 @@
   
   .footer__document:hover {
     transform: scale(1.2);
-  }
-  
+  }  
 
 .footer__contacts {
     display: flex;
@@ -73,7 +74,7 @@
         text-align: center;
 
         margin: 5px;
-        color: #faf0df;
+        color: $footer-text-color-white;
 
         @media screen and (max-width: 1060px) {
             display: inline;
@@ -82,7 +83,7 @@
 
     & p > a {
         text-decoration: none;
-        color: #faf0df;
+        color: $footer-text-color-white;
     }
 }
 
