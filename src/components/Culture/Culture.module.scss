@@ -1,22 +1,46 @@
 .culture {
     text-align: center;
-    padding: 20px;
   }
   
   .blocks_container {
-    display: flex;
-    flex-wrap: wrap;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: 1fr 400px 1fr;
+    grid-template-rows: 400px 400px;
+    margin: 0 auto;
     justify-content: center;
-    gap: 20px;
   }
   
-  .block {
-    width: 400px;
+  .block,
+  .block5,
+  .block2 {
     height: 300px;
     background-color: lightgray;
-    display: flex;
     align-items: center;
-    justify-content: center;
     border: 1px solid black;
     font-size: 14px;
+    margin: 10px;
+    display: flex;
+    justify-content: center; /* Центрирование текста по горизонтали */
+    align-items: center; /* Центрирование текста по вертикали */
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Добавлен transition для box-shadow */
   }
+  
+  .block:hover,
+  .block5:hover,
+  .block2:hover {
+    transform: scale(1.05); /* Увеличение размера при наведении */
+    box-shadow: 0 0 30px rgba(18, 215, 18, 0.3); /* Подсветка при наведении */
+  }
+  
+  .block5 {
+    grid-column: 1 / 3; /* Занимает первые две колонки */
+  }
+  
+  .block2 {
+    grid-column-start: 1; /* Начинается с первой колонки */
+    grid-row-end: 3; /* Занимает две строки (третью и четвертую) */
+  }
+  
