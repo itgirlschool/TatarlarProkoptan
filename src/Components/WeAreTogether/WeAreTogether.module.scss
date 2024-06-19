@@ -1,0 +1,45 @@
+@import '../../style/vars';
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: $font;
+  background: rgb(2, 44, 66);
+  background: radial-gradient(
+    circle,
+    rgba(2, 44, 66, 1) 0%,
+    rgba(4, 30, 49, 1) 100%
+  );
+}
+.content__img {
+  text-align: center;
+}
+.header,
+.header__img {
+  color: #dca702;
+  margin: 0;
+  padding: 20px;
+}
+.header {
+  font-size: 2.5rem;
+}
+.header__img {
+  font-size: 1.8rem;
+}
+.text {
+  color: white;
+  font-size: 1.5rem;
+  width: 70vw;
+}
+.carousel {
+  width: 60vw;
+}
+.gallery__content {
+  height: 55vw;
+  margin: 0;
+}
+.gallery__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
