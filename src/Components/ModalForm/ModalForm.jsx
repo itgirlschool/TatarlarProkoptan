@@ -1,11 +1,11 @@
-import { useForm } from "react-hook-form";
+import { useForm, useFieldArray } from "react-hook-form";
 import style from "./ModalForm.module.scss";
 import { useState } from "react";
 import Checkbox from "../../assets/svg/checkbox.svg";
 import postData from "./postData";
 import Loader from "../Loader/Loader";
 import FeedbackWindow from "./FeedBackWindow";
-import mask from './inputTel';
+import mask from "./inputTel";
 
 export default function ModalForm({ onClose }) {
   const [statusChecked, setStatusChecked] = useState(false);
@@ -78,7 +78,7 @@ export default function ModalForm({ onClose }) {
           <div className={style.container__inputs}>
             <div className={style.input__wrapper}>
               <label className={style.label} htmlFor="lastName">
-                Фамилия*
+                Фамилия
               </label>
               <input
                 className={errors.lastName ? style.input__empty : style.input}
@@ -94,7 +94,7 @@ export default function ModalForm({ onClose }) {
             </div>
             <div className={style.input__wrapper}>
               <label className={style.label} htmlFor="firstName">
-                Имя*
+                Имя
               </label>
               <input
                 className={errors.firstName ? style.input__empty : style.input}
@@ -110,7 +110,7 @@ export default function ModalForm({ onClose }) {
             </div>
             <div className={style.input__wrapper}>
               <label className={style.label} htmlFor="surName">
-                Отчество*
+                Отчество
               </label>
               <input
                 className={errors.surName ? style.input__empty : style.input}
@@ -126,18 +126,19 @@ export default function ModalForm({ onClose }) {
             </div>
             <div className={style.input__wrapper}>
               <label className={style.label} htmlFor="phone">
-                Номер телефона*
+                Номер телефона
               </label>
               <input
                 className={errors.phone ? style.input__empty : style.input}
-                type="tel" onClick={mask}
+                type="tel"
+                onInput={mask}
                 id="phone"
                 {...register("phone", {
                   required: "Пожалуйста, заполните поле",
                   pattern: {
-                    value: /^\+7\([0-9]{3}\)[0-9]{3}-[0-9]{4}$/,
+                    value:/^\+7 [\d]{10}$/,
                     message:
-                      "Пожалуйста, введите номер телефона в формате +7(999)999-9999",
+                      "Пожалуйста, введите номер телефона в формате +7 9999999999",
                   },
                 })}
               />
@@ -147,7 +148,7 @@ export default function ModalForm({ onClose }) {
             </div>
             <div className={style.input__wrapper}>
               <label className={style.label} htmlFor="email">
-                Электронная почта*
+                Электронная почта
               </label>
               <input
                 className={errors.email ? style.input__empty : style.input}
@@ -180,7 +181,7 @@ export default function ModalForm({ onClose }) {
               />
               <label htmlFor="agreement" className={style.agreement}>
                 Я соглашаюсь с политикой конфиденциальности и обработки
-                персональных данных*
+                персональных данных
               </label>
               {errors.agreement && (
                 <p className={style.error}>{errors.agreement.message}</p>
