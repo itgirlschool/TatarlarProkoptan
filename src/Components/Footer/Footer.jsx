@@ -1,7 +1,7 @@
 import React from "react";
-import hamburgerMenu from "/hamburger-menu.svg";
 import logoVkonakte from "/vkontakte.svg";
 import Footer_nav from "./Footer_nav";
+import pattern from "/pattern.svg";
 
 export default function Footer() {
   return (
@@ -47,6 +47,8 @@ export default function Footer() {
             <Footer_nav />
           </div>
         </div>
+        <img alt="" className="pattern pattern-left" src={pattern} />
+        <img alt="" className="pattern pattern-right" src={pattern} />
       </footer>
     </div>
   );
