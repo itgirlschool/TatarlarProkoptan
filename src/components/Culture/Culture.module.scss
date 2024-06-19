@@ -1,0 +1,22 @@
+.culture {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .blocksContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .block {
+    width: 400px;
+    height: 300px;
+    background-color: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    font-size: 14px;
+  }
