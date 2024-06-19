@@ -5,7 +5,7 @@ function Culture() {
   return (
     <div className={styles.culture}>
       <h1>Культура</h1>
-      <div className={styles.blocksContainer}>
+      <div className={styles.blocks_container}>
         <div className={styles.block}>Культура татар Прокопьевска</div>
         <div className={styles.block}>Хранители традиций</div>
         <div className={styles.block}>Мечеть</div>
