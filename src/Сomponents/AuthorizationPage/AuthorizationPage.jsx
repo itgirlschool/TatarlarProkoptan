@@ -14,26 +14,10 @@ const AuthorizationPage = () => {
     resolver: yupResolver(schema),
   });
 
-  // const [passwordError, setPasswordError] = useState(false);
-  // const [showRecovery, setShowRecovery] = useState(false);
 
   const onSubmit = async (data) => {
     const { email, password } = data;
 
-  //   if (email === "user@test.com" && password === "password123") {
-  // console.log("Вход выполнен");
-  // setPasswordError(false);
-  //   } else{
-  //     console.log("Неверный логин или пароль");
-  //     setPasswordError(true);
-  //     setShowRecovery(true);
-  //   }
-  // };
-
-  // const handlePasswordChange = () => {
-  //   setPasswordError(false);
-  // };
-  // const handleRecoveryPassword = () => {
 
   };
   return (
