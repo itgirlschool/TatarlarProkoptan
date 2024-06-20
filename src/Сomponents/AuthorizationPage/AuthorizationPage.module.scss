@@ -1,16 +1,16 @@
 .container {
-  width:100%;
-  max-width: 800px; 
-  margin: 50px auto; 
+  width: 100%;
+  max-width: 800px;
+  margin: 70px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  // border: 1px solid rgb(255, 255, 255);
-  box-shadow: 0 2px 5px  rgb(224, 194, 27);
+  box-shadow: 0 2px 5px rgb(224, 194, 27);
   border-radius: 10px;
-  color:white;
+  color: white;
   font-family: "Mono", sans-serif;
-  position: relative; 
+  position: relative;
+  background-color: rgb(74, 147, 149);
 }
 
 .form {
@@ -19,13 +19,13 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-bottom: 50px;
+  margin-bottom: 70px;
 }
 
 .input__wrapper {
   display: grid;
   grid-template-columns: 12% 70%;
-  gap: 10px;
+  gap: 15px;
   align-items: center;
 }
 
@@ -44,8 +44,8 @@
   background-color: #f0f0f0;
   outline: none;
 }
-.input:hover{
-background-color: #E0C21B;
+.input:hover {
+  background-color: rgb(224, 194, 27);
 }
 .input__empty {
   grid-area: 1/2/2/3;
@@ -57,7 +57,7 @@ background-color: #E0C21B;
   outline: none;
 }
 
-.button__container{
+.button__container {
   width: 100%;
   display: flex;
   gap: 10px;
@@ -67,7 +67,7 @@ background-color: #E0C21B;
   width: 100%;
   max-width: 200px;
   height: 40px;
-  background-color: rgb(42, 52, 75);
+  background-color: rgb(47, 106, 108);
   border: none;
   color: white;
   font-weight: bold;
@@ -80,17 +80,17 @@ background-color: #E0C21B;
   transform: scale(1.05);
   transition: all 0.3s ease-in-out;
   background-color: rgb(17, 131, 60);
-  
 }
 
 .error {
   margin: 10px;
-  font-size: 12px;
-  color: rgb(216, 90, 90);
+  font-size: 16px;
+  -webkit-text-stroke: 1px rgb(224, 194, 27);
   white-space: nowrap;
+
 }
 
-.header{
+.header {
   margin-top: 20px;
   font-size: 35px;
   font-family: "Mono", sans-serif;
@@ -103,24 +103,13 @@ background-color: #E0C21B;
   font-style: normal;
 }
 
-// .image__logo{
-//   margin-top: 10px;
-//   left: 20;
-//   width: 25%;
-//   height: 25%;
-//   object-fit: cover; 
-//   position: absolute; 
-//   opacity: 0.2;
-// }
-.header{
-  margin-top: 100px;
+.header {
+  margin-top: 150px;
 }
-.tatar__ornament{
-  opacity: 0.2;
+.tatar__ornament {
   width: 100%;
-  height: 95%;
   position: absolute;
-  margin-top: -13%;
+  margin-top: 2%;
 }
 
 @media (max-width: 768px) {

@@ -29,15 +29,10 @@ const AuthorizationPage = () => {
   };
   return (
     <div className={style.container}>
-      {/* <img
-        src="src/assets/logo/logo.png"
-        className={style.image__logo}
-        alt="logo"
-      /> */}
       <img
         src="src/assets/pictures/tatar_ornament.png"
         className={style.tatar__ornament}
-        alt="decoration"
+        alt="tatar ornament"
       />
       <h2 className={style.header}>Авторизация</h2>
       <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
@@ -78,7 +73,6 @@ const AuthorizationPage = () => {
             Подтвердить
           </button>
         </div>
-       
       </form>
     </div>
   );
