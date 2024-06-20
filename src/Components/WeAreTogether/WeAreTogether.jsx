@@ -4,6 +4,7 @@ import children from '../../Servisec/children.json'
 import help from '../../Servisec/help.json'
 import gallery from '../../Servisec/gallery.json'
 
+
 const WeAreTogether = () => {
 	return (
 		<section className={style.content}>
@@ -12,47 +13,47 @@ const WeAreTogether = () => {
 			<article className={style.content__img}>
 				<h2 className={style.header__img}>Наша молодежь</h2>
 				<Carousel className={style.carousel} effect='fade' arrows draggable >
-				{children.map((item) => {
-					return(
-					<div key={item.id}>
-						<h3 className={style.gallery__content}>
-							<img className={style.gallery__img} 
-							src={item.img} 
-							alt="img"/>
-						</h3>
-					</div>
-				)})}
-			</Carousel>
+					{children.map((item) => {
+						return(
+						<div key={item.id}>
+							<h3 className={style.gallery__content}>
+								<img className={style.gallery__img} 
+								src={item.img} 
+								alt="img"/>
+							</h3>
+						</div>
+					)})}
+				</Carousel>
 			</article>
 			<article className={style.content__img}>
 				<h2 className={style.header__img}>Помогаем в трудную минуту</h2>
 				<Carousel className={style.carousel} effect='fade' arrows draggable >
-				{help.map((item) => {
-					return(
-					<div key={item.id}>
-						<h3 className={style.gallery__content}>
-							<img className={style.gallery__img} 
-							src={item.img} 
-							alt="img"/>
-						</h3>
-					</div>
-				)})}
-			</Carousel>
+					{help.map((item) => {
+						return(
+						<div key={item.id}>
+							<h3 className={style.gallery__content}>
+								<img className={style.gallery__img} 
+								src={item.img} 
+								alt="img"/>
+							</h3>
+						</div>
+					)})}
+				</Carousel>
 			</article>
 			<article className={style.content__img}>
 				<h2 className={style.header__img}>Галерея</h2>
 				<Carousel className={style.carousel} effect='fade' arrows draggable >
-				{gallery.map((item) => {
-					return(
-					<div key={item.id}>
-						<h3 className={style.gallery__content}>
-							<img className={style.gallery__img} 
-							src={item.img} 
-							alt="img"/>
-						</h3>
-					</div>
-				)})}
-			</Carousel>
+					{gallery.map((item) => {
+						return(
+						<div key={item.id}>
+							<h3 className={style.gallery__content}>
+								<img className={style.gallery__img} 
+								src={item.img} 
+								alt="img"/>
+							</h3>
+						</div>
+					)})}
+				</Carousel>
 			</article>
 		</section>
 	)

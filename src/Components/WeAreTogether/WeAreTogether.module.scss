@@ -4,10 +4,10 @@
   flex-direction: column;
   align-items: center;
   font-family: $font;
-  background: rgb(2, 44, 66);
+  background: rgb(95, 207, 159);
   background: radial-gradient(
     circle,
-    rgba(2, 44, 66, 1) 0%,
+    rgba(95, 207, 159, 1) 0%,
     rgba(4, 30, 49, 1) 100%
   );
 }
@@ -17,6 +17,7 @@
 .header,
 .header__img {
   color: #dca702;
+  text-shadow: 1px 1px 2px #041e31;
   margin: 0;
   padding: 20px;
 }
@@ -29,12 +30,13 @@
 .text {
   color: white;
   font-size: 1.5rem;
-  width: 70vw;
+  width: 80vw;
 }
 .carousel {
   width: 60vw;
 }
 .gallery__content {
+  background-position: center;
   height: 55vw;
   margin: 0;
 }
