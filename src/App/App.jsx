@@ -1,12 +1,11 @@
 import style from "./App.module.scss";
-import Footer from "../Components/Footer/Footer";
+
+
 
 function App() {
-  return (
-    <div>
-      <Footer />
-    </div>
-  );
+  return <div>
+ 
+  </div>;
 }
 
 export default App;
