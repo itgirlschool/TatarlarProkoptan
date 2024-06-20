@@ -1,0 +1,59 @@
+@import '../../style/vars.scss';
+
+* {
+    font-family: $fontLifehackRegular;
+  }
+  
+  .nav {
+    max-width: 250px;
+    width: 100%;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .nav__button {
+    position: relative;
+    display: inline-block;
+    color: #3b9d6c;
+    // background-color: #e0cb79;
+    background: linear-gradient(0deg, rgba(195,190,34,1) 0%, rgba(224,203,121,1) 100%);
+    border: none;
+    cursor: pointer;
+  
+    &:hover {
+      background: #fff;
+      color: #3b9d6c;
+    }
+  }
+  
+  .nav__menu {
+    position: absolute;
+    bottom: -60%;
+    right: 100%;
+    transform: translate(60%, 0%);
+    z-index: 1;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid lightgray;
+    border-radius: 3px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+
+    @media screen and (max-width: 1060px) {
+      bottom: -50%;
+  }
+  
+  @media screen and (max-width: 500px) {
+    bottom: 100%;
+    right: -160%;
+}
+  
+  }
+  
+  .nav__menu_visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0, 0);
+  }
+  
