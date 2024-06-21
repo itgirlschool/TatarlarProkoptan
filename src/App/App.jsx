@@ -6,20 +6,21 @@ import Mosques from '../components/Culture/Mosques/Mosques';
 import Traditions from '../components/Culture/Traditions/Traditions';
 import Cuisine from '../components/Culture/Сuisine/Cuisine';
 import Partners from '../components/Culture/Partners/Partners';
+import Footer from "../components/Footer/Footer";
 
 function App() {
-  console.log('App component rendered');
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Culture />} />
-        <Route path="/tatar_culture" element={<TatarCulture />} />
-        <Route path="/mosques" element={<Mosques />} />
-        <Route path="/traditions" element={<Traditions />} />
-        <Route path="/cuisine" element={<Cuisine />} />
-        <Route path="/partners" element={<Partners />} />
-      </Routes>
-    </Router>
+  <Router>
+  <Routes>
+    <Route path="/" element={<Culture />} />
+    <Route path="/tatar_culture" element={<TatarCulture />} />
+    <Route path="/mosques" element={<Mosques />} />
+    <Route path="/traditions" element={<Traditions />} />
+    <Route path="/cuisine" element={<Cuisine />} />
+    <Route path="/partners" element={<Partners />} />
+  </Routes>
+  <Footer />
+</Router>
   );
 }
 
