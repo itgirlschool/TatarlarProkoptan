@@ -1,33 +1,47 @@
-import styles from "./Header.module.scss";
-import logo from "../../assets/images/newLogo.png";
+import style from "./Header.module.scss";
+import logo from "../../assets/images/logo.png";
 import NavLink from "./NavLink";
 import TelegramIcon from "../../assets/images/telegram.svg";
 import MailIcon from "../../assets/images/mail.svg";
 import PhoneIcon from "../../assets/images/phone.svg";
+import FamilyIconImage from "../../assets/images/family.svg";
 
-export default function Header() {
+const Header = () => {
   return (
-    <header className={styles.header}>
-      <img src={logo} alt="Logo" className={styles.logo} />
-      <nav className={styles.navbar}>
+    <header className={style.header}>
+      <div className={style.logo__container}>
+        <img src={logo} alt="Logo" className={style.logo} />
+      </div>
+      <nav className={style.navbar}>
         <NavLink />
       </nav>
-      <button className={styles.button}>Вступить в автономию</button>
-      <div className={styles.icons}>
-        <a
-          href="https://t.me/yourtelegram"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src={TelegramIcon} alt="Telegram" className={styles.icon} />
-        </a>
-        <a href="mailto:yourmail@example.com">
-          <img src={MailIcon} alt="Mail" className={styles.icon} />
-        </a>
-        <a href="tel:+79019292782">
-          <img src={PhoneIcon} alt="Phone" className={styles.icon} />
-        </a>
+      <div className={style.action__container}>
+        <div className={style.icons}>
+          <a
+            href="https://t.me/yourtelegram"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={TelegramIcon} alt="Telegram" className={style.icon} />
+          </a>
+          <a href="mailto:rahma_li@mail.ru">
+            <img src={MailIcon} alt="Mail" className={style.icon} />
+          </a>
+          <a href="tel:+79050698829">
+            <img src={PhoneIcon} alt="Phone" className={style.icon} />
+          </a>
+        </div>
+        <div className={style.family__and__button}>
+          <img
+            src={FamilyIconImage}
+            alt="Family"
+            className={style.family__icon}
+          />
+          <button className={style.button}>Вступить в автономию</button>
+        </div>
       </div>
     </header>
   );
-}
+};
+
+export default Header;

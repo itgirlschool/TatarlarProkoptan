@@ -1,8 +1,13 @@
-@use './vars.scss';
+@use './vars.scss' as vars;
+@import url(../components/Footer/Footer.jsx);
 
 @font-face {
-    font-family: vars.$font;
-    src: url('../assets/fonts/Mono.woff2') format('woff2');
+    font-family: vars.$fontLifehackRegular;
+    src: url('../assets/fonts/Lifehack Sans Regular.ttf') format('truetype');
+}
+
+* {
+    margin: 0;
 }
 
 body {
