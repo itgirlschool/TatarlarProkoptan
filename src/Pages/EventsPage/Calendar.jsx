@@ -5,62 +5,54 @@ import { Badge, Calendar } from 'antd';
 const getListData = (value) => {
   let listData;
   switch (value.date()) {
-    case 8:
+    case 1:
       listData = [
         {
           type: 'Event',
-          content: 'Сабантуй',
-        },
-        {
-          type: 'success',
-          content: 'This is usual event.',
+          content: 'Участие и проведение праздника День защиты детей',
         },
       ];
       break;
-    case 10:
+    case 12:
       listData = [
         {
-          type: 'warning',
-          content: 'This is warning event.',
-        },
-        {
-          type: 'success',
-          content: 'This is usual event.',
-        },
-        {
-          type: 'error',
-          content: 'This is error event.',
+          type: 'Event',
+          content: 'Участие в городских мероприятиях, посвященных Дню России',
         },
       ];
       break;
-    case 15:
+    case 17:
       listData = [
         {
-          type: 'warning',
-          content: 'This is warning event',
-        },
-        {
-          type: 'success',
-          content: 'This is very long usual event......',
-        },
-        {
-          type: 'error',
-          content: 'This is error event 1.',
-        },
-        {
-          type: 'error',
-          content: 'This is error event 2.',
-        },
-        {
-          type: 'error',
-          content: 'This is error event 3.',
-        },
-        {
-          type: 'error',
-          content: 'This is error event 4.',
+          type: 'Event',
+          content: 'Курбан Байрам',
         },
       ];
       break;
+    case 21:
+        listData = [
+          {
+            type: 'Event',
+            content: 'Татар-Пати (татарская дискотека), посвященная Дню Молодёжи',
+          },
+        ];
+        break;
+      case 23:
+        listData = [
+          {
+            type: 'Event',
+            content: 'Участие в городском празднике День Молодёжи',
+          },
+        ];
+        break;
+      case 30:
+        listData = [
+          {
+            type: 'Event',
+            content: 'Международный федеральный Шахтерский Сабантуй',
+          },
+        ];
+        break;
     default:
   }
   return listData || [];
