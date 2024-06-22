@@ -25,12 +25,12 @@
     
 }
 .modal__content{
-  
-    background-color: aliceblue;
+    background-color: white;
     border-radius: 12px;
     width: 80%;
     height: 80%;
     overflow: scroll;
+    padding: 10px;
 
 }
 .close__btn{
@@ -51,7 +51,7 @@
 }
 .modal__info{
     padding: 20px;
-    font-size: 18px;
+    font-size: 20px;
     width: 80%;
 }
 

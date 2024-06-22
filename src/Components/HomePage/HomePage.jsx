@@ -1,6 +1,5 @@
 //import style from './HomePage/HomePage.module.scss';
 import homepage from '../../assets/homepage.jpg';
-import ornament from '../../assets/tatarornament.png';
 import { useState } from 'react';
 import style from '../HomePage/HomePage.module.scss';
 import ModalHomePage from './ModalHomePage';
@@ -8,7 +7,7 @@ import ModalHomePage from './ModalHomePage';
 
 export default function HomePage(){
 
-    const[modalActive, setModalActive] = useState(true);
+    const[modalActive, setModalActive] = useState(false);
 
     return(
         <>
@@ -33,19 +32,15 @@ export default function HomePage(){
         <p>*Данные о наслении актуальны на 2024 год</p>
         <p>**Данные о численности татар актуальны на 2010 год</p>
         </div>
-        <div className={style.ornament}>
-        <img className={style.ornament__img} src={ornament} alt="ornament" />
-        </div>
-        <hr />
+        <p className={style.welcome__title}>Исенмесез Дуслар! </p>
         <div className={style.welcome}>
             <div className={style.container__welcomeimg}>
             <img width="500px" src={homepage} alt="татары Прокопьевска" className={style.welcome__img}/>
             </div>
             <div className={style.welcome__text}>
-            <p>Исенмесез Дуслар! </p>
             <p>Ообщественная организация "Татарская национально-культурная автономия города Прокопьевск" приветствует вас на своем сайте! 
 Целью нашей организации является объединение граждан Российской Федерации, относящих себя к этнической общности татар, и проживающих на территории города Прокопьевск и Кемеровской области-Кузбасс. Мы содействуем возрождению и развитию национального самосознания и самобытности татар, проживающих в Прокопьевске, устанавливаем и поддерживаем культурные связи с татарами других регионов РФ и мира. Мы содействуем изучению и сохранению татарского языка, организации национального краеведения и охране национальных памятников истории и культуры. Мы знакомим широкую общественность с историческим и культурным наследием, а также традициям и историей татарского народа. Мы организуем и проводим мероприятия и встречи. </p>
-<p>Добро пожаловать! Рахим итегез!</p>
+<p className={style.welcome__end}>Добро пожаловать! Рахим итегез!</p>
 </div>
         </div>
     </>
