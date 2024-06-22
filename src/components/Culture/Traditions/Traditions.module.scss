@@ -1,0 +1,39 @@
+.traditions {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.traditions_images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding-top: 20px;
+}
+
+.traditions_image_wrapper {
+    width: 100%;
+    padding-top: 75%;
+    position: relative;
+}
+
+.traditions_image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.traditions_image:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 30px rgba(0, 123, 255, 0.8);
+}
