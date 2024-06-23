@@ -1,22 +1,18 @@
 @import '../../style/vars';
+
 .content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: $font;
-  background: rgb(95, 207, 159);
-  background: radial-gradient(
-    circle,
-    rgba(95, 207, 159, 1) 0%,
-    rgba(4, 30, 49, 1) 100%
-  );
+  font-family: $fontLifehackRegular;
+  background: #f4eae1;
 }
 .content__img {
   text-align: center;
 }
 .header,
 .header__img {
-  color: #dca702;
+  color: black;
   text-shadow: 1px 1px 2px #041e31;
   margin: 0;
   padding: 20px;
@@ -28,7 +24,7 @@
   font-size: 1.8rem;
 }
 .text {
-  color: white;
+  color: black;
   font-size: 1.5rem;
   width: 80vw;
 }
