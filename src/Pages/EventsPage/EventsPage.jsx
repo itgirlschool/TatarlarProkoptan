@@ -1,10 +1,10 @@
 import EventsCalendar from "./Calendar";
-// import style from '../EventsPage/EventsPage.module.scss';
+import style from '../EventsPage/EventsPage.module.scss';
 
 const EventsPage = () => {
     return(
-        <div>
-            <h3>Узнай о наших ближайших мероприятиях</h3>
+        <div className={style.eventsPage}>
+            <h1 className={style.h1}>Узнай о наших ближайших мероприятиях</h1>
             <EventsCalendar />
         </div>
     )

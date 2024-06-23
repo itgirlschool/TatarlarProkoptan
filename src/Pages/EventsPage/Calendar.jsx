@@ -1,6 +1,6 @@
 import React from 'react';
 import { Badge, Calendar } from 'antd';
-// import style from "../EventsPage/EventsPage.module.scss";
+import style from "../EventsPage/EventsPage.module.scss";
 
 const getListData = (value) => {
   let listData;
@@ -66,7 +66,7 @@ const EventsCalendar = () => {
   const monthCellRender = (value) => {
     const num = getMonthData(value);
     return num ? (
-      <div className="notes-month">
+      <div className={style.notes-month}>
         <section>{num}</section>
         <span>Backlog number</span>
       </div>
@@ -75,13 +75,14 @@ const EventsCalendar = () => {
   const dateCellRender = (value) => {
     const listData = getListData(value);
     return (
-      <ul className="events">
-        {listData.map((item) => (
-          <li key={item.content}>
-            <Badge status={item.type} text={item.content} />
-          </li>
-        ))}
-      </ul>
+        <div>
+          {listData.map((item) => (
+            <p key={item.content} className={style.events}>
+              <Badge status={item.type} text={item.content} />
+              <button className={style.button}>Записаться</button>
+            </p>
+          ))}
+        </div>
     );
   };
   const cellRender = (current, info) => {
@@ -89,6 +90,6 @@ const EventsCalendar = () => {
     if (info.type === 'month') return monthCellRender(current);
     return info.originNode;
   };
-  return <Calendar cellRender={cellRender} />;
+  return <Calendar cellRender={cellRender}  className={style.calendar}/>;
 };
 export default EventsCalendar;

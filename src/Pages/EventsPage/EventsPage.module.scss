@@ -1,24 +1,52 @@
-// @import '../../style/vars.scss';
+@import '../../style/vars.scss';
 
-// .events {
-//     margin: 0;
-//     padding: 0;
-//     list-style: none;
-// }
+.eventsPage {
+    margin: 0 auto;
+    padding-top: 30px;
+    background-color: #F4EAE1;
+}
 
-// .events .ant-badge-status {
-//     width: 100%;
-//     overflow: hidden;
-//     font-size: 12px;
-//     white-space: nowrap;
-//     text-overflow: ellipsis;
-// }
+.h1 {
+    text-align: center;
+    padding: 10px;
+}
 
-// .notes-month {
-//     font-size: 28px;
-//     text-align: center;
-// }
+.calendar {
+    max-width: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-// .notes-month section {
-//     font-size: 28px;
-// }
+.events {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-image: $footer-background-color;
+    border-radius: 3px;
+    text-align: center;
+    margin: 2px;
+}
+
+.button {
+    background: $footer-yellow-color;
+    border-radius: 3px;
+    border-color: #F4EAE1;
+}
+
+.events .ant-badge-status {
+    width: 100%;
+    overflow: hidden;
+    font-size: 12px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.notes-month {
+    font-size: 28px;
+    text-align: center;
+}
+
+.notes-month section {
+    font-size: 28px;
+}
