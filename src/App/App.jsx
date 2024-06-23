@@ -1,12 +1,14 @@
 import style from "./App.module.scss";
-import WeAreTogether from '../Components/WeAreTogether/WeAreTogether'
-
+import Footer from "../Components/Footer/Footer";
 
 
 function App() {
-  return <div>
-    <WeAreTogether/>
-  </div>;
+  return (
+    <div>
+      <Footer />
+    </div>
+  );
 }
 
 export default App;
+
