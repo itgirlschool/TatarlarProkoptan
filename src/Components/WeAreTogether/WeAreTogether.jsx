@@ -1,8 +1,8 @@
 import style from './WeAreTogether.module.scss'
 import { Carousel } from 'antd'
-import children from '../../Servisec/children.json'
-import help from '../../Servisec/help.json'
-import gallery from '../../Servisec/gallery.json'
+import children from '../../Common/children.json'
+import help from '../../Common/help.json'
+import gallery from '../../Common/gallery.json'
 
 
 const WeAreTogether = () => {
@@ -19,7 +19,7 @@ const WeAreTogether = () => {
 							<h3 className={style.gallery__content}>
 								<img className={style.gallery__img} 
 								src={item.img} 
-								alt="img"/>
+								alt='фотографии с нашей молодежью'/>
 							</h3>
 						</div>
 					)})}
@@ -34,7 +34,7 @@ const WeAreTogether = () => {
 							<h3 className={style.gallery__content}>
 								<img className={style.gallery__img} 
 								src={item.img} 
-								alt="img"/>
+								alt='фотографии помощи бойцам сво'/>
 							</h3>
 						</div>
 					)})}
@@ -49,7 +49,7 @@ const WeAreTogether = () => {
 							<h3 className={style.gallery__content}>
 								<img className={style.gallery__img} 
 								src={item.img} 
-								alt="img"/>
+								alt='фотографии людей'/>
 							</h3>
 						</div>
 					)})}
