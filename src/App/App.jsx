@@ -1,6 +1,7 @@
 import style from "./App.module.scss";
 
 
+
 function App() {
   return (
     <div>
@@ -10,3 +11,4 @@ function App() {
 }
 
 export default App;
+
