@@ -3,9 +3,6 @@ import Document from "../../assets/gif/document.gif";
 import Reject from "../../assets/gif/attention.gif";
 
 export default function FeedbackWindow({ responseStatus, onCloseFeedback }) {
-  const onHandleClose = () => {
-    onCloseFeedback(false);
-  };
 
   return (
     <div className={style.modal__window}>
@@ -42,7 +39,7 @@ export default function FeedbackWindow({ responseStatus, onCloseFeedback }) {
             )}
             <button
               type="button"
-              onClick={onHandleClose}
+              onClick={()=>onCloseFeedback(false)}
               className={style.button__submit}
             >
               OK

@@ -5,7 +5,7 @@
   width: 100%;
   height: 100%;
   align-items: start;
-  background-color: rgba(110, 175, 60, 0.112);
+  background-color: rgba(60, 175, 165, 0.112);
   z-index: 100;
   overflow: auto;
 }
@@ -17,12 +17,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #45c35a;
+  background-color: #39a4a6;
   padding-bottom: 15px;
   z-index: 2;
   overflow: auto;
   color: white;
+  border-radius: 10px;
   font-family: $font;
+  @media screen and (max-width: 428px) {
+    width: 100vw;
+    height: 100vh;
+  }
 }
 .overlay {
   position: absolute;
@@ -82,8 +87,9 @@
   justify-self: end;
   grid-area: 1/1/2/2;
   position: relative;
+  text-align: end;
 }
-.label::after{
+.label::after {
   content: "*";
   position: absolute;
   font-size: 60%;
@@ -129,7 +135,7 @@
   width: 100%;
   max-width: 200px;
   height: 50px;
-  background-color: #45c35a;
+  background-color: transparent;
   border: none;
   color: rgb(216, 90, 90);
   font-weight: bold;
@@ -144,7 +150,7 @@
   width: 100%;
   max-width: 200px;
   height: 50px;
-  background-color: #45c35a;
+  background-color: transparent;
   border: none;
   color: white;
   font-weight: bold;
@@ -176,7 +182,7 @@
   grid-area: 1/2/2/3;
   position: relative;
 }
-.agreement::after{
+.agreement::after {
   content: "*";
   position: absolute;
   font-size: 60%;
@@ -207,5 +213,4 @@
 }
 .feedback__image {
   width: 60%;
-  border-radius: 15px;
 }

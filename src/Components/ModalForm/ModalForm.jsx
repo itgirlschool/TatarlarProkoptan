@@ -27,7 +27,7 @@ export default function ModalForm({ onClose }) {
     handleSubmit,
     setError,
     reset,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
+    formState: { errors, isSubmitting, isSubmittSuccessful },
   } = useForm({
     defaultValues: {
       lastName: "",
@@ -44,13 +44,6 @@ export default function ModalForm({ onClose }) {
       setStatusCheckbox(`${style.checkbox}`);
       setIsFeedbackOpen(true);
       setResponseStatus(true);
-      // if (isSubmitSuccessful) {
-      //   setStatusModal(`${style.container__closed}`);
-      //   setIsFeedbackOpen(true);
-      //   setResponseStatus(true);
-      // } else {
-      //   setResponseStatus(false);
-      // }
     } catch (err) {
       setError("email", { message: "Введенный email уже занят" });
       setError("phone", { message: "Введенный телефон уже занят" });
@@ -58,9 +51,6 @@ export default function ModalForm({ onClose }) {
     }
   };
 
-  const onHandleClose = () => {
-    onClose(false);
-  };
 
   const onCloseFeedback = (value) => {
     onClose(value);
@@ -74,7 +64,6 @@ export default function ModalForm({ onClose }) {
           onSubmit={handleSubmit(onSubmit)}
         >
           <h2 className={style.header}>Заявка на вступление в автономию</h2>
-          {/* <p className={style.paragragh}>Заполните, пожалуйста, форму:</p> */}
           <div className={style.container__inputs}>
             <div className={style.input__wrapper}>
               <label className={style.label} htmlFor="lastName">
@@ -189,7 +178,7 @@ export default function ModalForm({ onClose }) {
             </div>
           </div>
           <div className={style.container__buttons}>
-            <button onClick={onHandleClose} className={style.button__cancel}>
+            <button onClick={()=>onClose(false)} className={style.button__cancel}>
               ОТМЕНА
             </button>
             <button
