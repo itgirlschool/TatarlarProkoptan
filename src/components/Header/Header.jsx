@@ -1,6 +1,6 @@
 import style from "./Header.module.scss";
 import logo from "../../assets/images/logo.png";
-import NavLink from "./NavLink";
+import BurgerMenu from "./BurgerMenu";
 import TelegramIcon from "../../assets/images/telegram.svg";
 import MailIcon from "../../assets/images/mail.svg";
 import PhoneIcon from "../../assets/images/phone.svg";
@@ -13,7 +13,15 @@ const Header = () => {
         <img src={logo} alt="Logo" className={style.logo} />
       </div>
       <nav className={style.navbar}>
-        <NavLink />
+        <ul className={style.nav}>
+          <li className={style.nav__link}>О нас</li>
+          <li className={style.nav__link}>Мероприятия</li>
+          <li className={style.nav__link}>Культура</li>
+          <li className={style.nav__link}>Сабантуй</li>
+          <li className={style.nav__link}>Благотворительность</li>
+          <li className={style.nav__link}>Мы вместе</li>
+        </ul>
+        <BurgerMenu />
       </nav>
       <div className={style.action__container}>
         <div className={style.icons}>
