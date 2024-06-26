@@ -1,7 +1,7 @@
 import { useForm, useFieldArray } from "react-hook-form";
 import style from "./ModalForm.module.scss";
 import { useState } from "react";
-import Checkbox from "../../assets/svg/checkbox.svg";
+import Checkbox from "../../assets/images/checkbox.svg";
 import postData from "./postData";
 import Loader from "../Loader/Loader";
 import FeedbackWindow from "./FeedBackWindow";
@@ -12,7 +12,7 @@ export default function ModalForm({ onClose }) {
   const checkboxClasses = [style.checkbox, style.checkbox__hidden];
   const [statusCheckbox, setStatusCheckbox] = useState(checkboxClasses[0]);
   const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
-  const [responseStatus, setResponseStatus] = useState(true);
+  const [responseStatus, setResponseStatus] = useState(false);
 
   const onHandleChecked = () => {
     setStatusChecked(!statusChecked);
@@ -51,14 +51,16 @@ export default function ModalForm({ onClose }) {
     }
   };
 
-
   const onCloseFeedback = (value) => {
     onClose(value);
   };
 
   return !isFeedbackOpen ? (
-    <div className={style.modal__window}>
-      <div className={style.modal__container}>
+    <div className={style.modal__window} onClick={() => onClose(false)}>
+      <div
+        className={style.modal__container}
+        onClick={(e) => e.stopPropagation()}
+      >
         <form
           className={style.container__form}
           onSubmit={handleSubmit(onSubmit)}
@@ -120,12 +122,12 @@ export default function ModalForm({ onClose }) {
               <input
                 className={errors.phone ? style.input__empty : style.input}
                 type="tel"
-                onInput={mask}
+                onClick={mask}
                 id="phone"
                 {...register("phone", {
                   required: "Пожалуйста, заполните поле",
                   pattern: {
-                    value:/^\+7 [\d]{10}$/,
+                    value: /^\+7 [\d]{10}$/,
                     message:
                       "Пожалуйста, введите номер телефона в формате +7 9999999999",
                   },
@@ -178,7 +180,10 @@ export default function ModalForm({ onClose }) {
             </div>
           </div>
           <div className={style.container__buttons}>
-            <button onClick={()=>onClose(false)} className={style.button__cancel}>
+            <button
+              onClick={() => onClose(false)}
+              className={style.button__cancel}
+            >
               ОТМЕНА
             </button>
             <button

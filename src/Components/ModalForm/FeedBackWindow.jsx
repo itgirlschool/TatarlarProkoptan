@@ -1,12 +1,14 @@
 import style from "./ModalForm.module.scss";
-import Document from "../../assets/gif/document.gif";
-import Reject from "../../assets/gif/attention.gif";
+import Reject from "../../assets/images/errorrequest.svg";
+import Document from "../../assets/images/document.svg";
 
 export default function FeedbackWindow({ responseStatus, onCloseFeedback }) {
-
   return (
-    <div className={style.modal__window}>
-      <div className={style.modal__container}>
+    <div className={style.modal__window} onClick={() => onCloseFeedback(false)}>
+      <div
+        className={style.modal__container}
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className={style.feedback__wrapper}>
           {responseStatus ? (
             <img
@@ -34,13 +36,15 @@ export default function FeedbackWindow({ responseStatus, onCloseFeedback }) {
                 <h2 className={style.header__feedback}>
                   Сервер временно не доступен!
                 </h2>
-                <p className={style.paragragh__feedback}>Пожалуйста, попробуйте позже</p>
+                <p className={style.paragragh__feedback}>
+                  Пожалуйста, попробуйте позже
+                </p>
               </>
             )}
             <button
               type="button"
-              onClick={()=>onCloseFeedback(false)}
-              className={style.button__submit}
+              onClick={() => onCloseFeedback(false)}
+              className={style.button__feedback}
             >
               OK
             </button>
