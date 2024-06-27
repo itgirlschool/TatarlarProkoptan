@@ -19,7 +19,7 @@ function App() {
   return (
     <div className={style.app}>
       <Header />
-      <main>
+      <main className={style.main}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about-us" element={<AboutUs />} />
