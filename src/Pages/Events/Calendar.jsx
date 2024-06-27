@@ -1,6 +1,6 @@
 import React from 'react';
 import { Badge, Calendar } from 'antd';
-import style from "../EventsPage/EventsPage.module.scss";
+import style from "./Events.module.scss";
 
 const getListData = (value) => {
   let listData;
