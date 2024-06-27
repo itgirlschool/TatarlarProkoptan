@@ -79,7 +79,6 @@ const EventsCalendar = () => {
           {listData.map((item) => (
             <p key={item.content} className={style.events}>
               <Badge status={item.type} text={item.content} />
-              <button className={style.button}>Записаться</button>
             </p>
           ))}
         </div>
