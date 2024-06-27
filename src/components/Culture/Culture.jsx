@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from './Culture.module.scss';
 import culture1 from '../../assets/cultureImg/culture1.jpg';
 import culture2 from '../../assets/cultureImg/culture2.jpg';
+import culture3 from '../../assets/cultureImg/culture3.jpg';
 import culture4 from '../../assets/cultureImg/culture4.jpg';
 import culture5 from '../../assets/cultureImg/culture5.jpg';
 
@@ -20,7 +21,7 @@ function Culture() {
           <h2>Хранители традиций</h2>
         </Link>
         <Link to="/mosques" className={styles.block}>
-          <img className={styles.culture1} src={culture1} alt="мечеть" />
+          <img className={styles.culture1} src={culture3} alt="мечеть" />
           <h2>Мечеть</h2>
         </Link>
         <Link to="/cuisine" className={styles.block}>
