@@ -1,4 +1,4 @@
-@import '../../style/vars.scss';
+@import '../../style/vars';
 
 .title{
     color:rgb(6, 100, 6);
@@ -6,7 +6,7 @@
     font-size: 50px;
     font-family: $fontLifehackRegular;
     font-weight: 700;
-    
+
 }
 
 .info{
@@ -18,30 +18,29 @@
     flex-wrap: wrap;
     gap: 20px;
     font-family: $fontLifehackRegular;
-  
+
 }
 
 .video{
     background-color: rgba(248, 219, 33, 0.5);
     padding: 20px;
-    border-radius: 10px; 
+    border-radius: 10px;
 }
 
 .title__video{
     width: 50%;
-  
+
 }
 
 .info__video{
     display: flex;
     flex-direction: column;
     min-height: 450px;
-    justify-content: center;
     font-size: 25px;
     align-items: center;
     font-family: $fontLifehackRegular;
     justify-content: flex-end;
-   
+
 }
 
 
@@ -57,7 +56,7 @@
     font-weight: 400;
     font-family: $fontLifehackRegular;
 }
-   
+
 .button:hover{
     background-color: goldenrod;
 }
@@ -86,22 +85,22 @@
     font-family: $fontLifehackRegular;
     justify-content: center;
     flex-wrap: wrap;
-   
+
 }
 .container__welcomeimg{
     background-color: rgba(248, 219, 33, 0.5);
     padding: 5px;
     border-radius: 5px;
-  
+
 }
 .info__text{
     margin-bottom: 20px;
-    
+
 }
 .text{
     color: rgb(220, 167, 0);
     font-weight: 600;
-   
+
 }
 .welcome__img{
     border-radius: 10px;

@@ -1,6 +1,4 @@
-@use './vars.scss' as vars;
-@import url(../components/Footer/Footer.jsx);
-
+@import './vars.scss';
 @font-face {
     font-family: 'Lifehack Sans Regular';
     src: url('../assets/fonts/Lifehack\ Sans\ Regular.ttf') format('truetype');
@@ -17,5 +15,5 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-color: $body-background-color;
+    // background-color: $body-background-color;
 }
