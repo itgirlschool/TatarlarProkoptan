@@ -43,22 +43,46 @@
   }
   
   .pattern-left {
-    top: 10;
+    top: 26px;
     left: 30px;
     transform: rotate(-90deg);
 
     @media screen and (max-width: 1140px) {
         left: 10px;
     }
+
+    @media screen and (max-width: 970px) {
+        top: 65px;
+    }
+
+    @media screen and (max-width: 875px) {
+        top: 110px;
+    }
+
+    @media screen and (max-width: 442px) {
+        top: 130px;
+    }
   }
   
   .pattern-right {
-    top: 10;
+    top: 26px;
     right: 30px;
     transform: rotate(90deg);
 
     @media screen and (max-width: 1140px) {
         right: 10px;
+    }
+
+    @media screen and (max-width: 970px) {
+        top: 65px;
+    }
+
+    @media screen and (max-width: 875px) {
+        top: 110px;
+    }
+
+    @media screen and (max-width: 442px) {
+        top: 130px;
     }
   }
 
