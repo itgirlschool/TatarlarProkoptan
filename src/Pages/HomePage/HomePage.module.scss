@@ -1,0 +1,122 @@
+@import '../../style/vars';
+
+.title{
+    color:rgb(6, 100, 6);
+    text-align: center;
+    font-size: 50px;
+    font-family: $fontLifehackRegular;
+    font-weight: 700;
+
+}
+
+.info{
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-family: $fontLifehackRegular;
+
+}
+
+.video{
+    background-color: rgba(248, 219, 33, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.title__video{
+    width: 50%;
+
+}
+
+.info__video{
+    display: flex;
+    flex-direction: column;
+    min-height: 450px;
+    font-size: 25px;
+    align-items: center;
+    font-family: $fontLifehackRegular;
+    justify-content: flex-end;
+
+}
+
+
+.button{
+    width: 200px;
+    margin-top: 110px;
+    height: 50px;
+    background-color: darkgreen;
+    border: none;
+    border-radius: 5px;
+    color: aliceblue;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: $fontLifehackRegular;
+}
+
+.button:hover{
+    background-color: goldenrod;
+}
+.note{
+    text-align: center;
+    width: 100%;
+    margin-top: 50px;
+    font-size: 12px;
+    font-family: $fontLifehackRegular;
+}
+
+
+.welcome__title{
+    text-align: center;
+    margin-top:  50px;
+    font-size: 30px;
+}
+
+.welcome{
+    display: flex;
+    padding-bottom: 50px;
+    width: 100%;
+    align-items: center;
+    min-height: 400px;
+    margin-top: 20px;
+    font-family: $fontLifehackRegular;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+.container__welcomeimg{
+    background-color: rgba(248, 219, 33, 0.5);
+    padding: 5px;
+    border-radius: 5px;
+
+}
+.info__text{
+    margin-bottom: 20px;
+
+}
+.text{
+    color: rgb(220, 167, 0);
+    font-weight: 600;
+
+}
+.welcome__img{
+    border-radius: 10px;
+}
+
+.welcome__text{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+    margin-left: 10px;
+    font-size: 20px;
+
+}
+
+.welcome__end{
+    text-align: center;
+    margin-top: 30px;
+}

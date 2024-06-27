@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "firebase": "firebase deploy",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
@@ -13,14 +14,15 @@
     "@hookform/resolvers": "^3.6.0",
     "@reduxjs/toolkit": "^2.2.5",
     "antd": "^5.18.0",
+    "firebase": "^10.12.2",
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.52.0",
     "react-query": "^3.39.3",
-    "react-router-dom": "^6.23.1",
-    "uuid": "^10.0.0",
-    "yup": "^1.4.0"
+    "react-redux": "^9.1.2",
+    "react-router-dom": "^6.24.0",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

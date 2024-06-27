@@ -2,6 +2,7 @@ import React from "react";
 import logoVkonakte from "/vkontakte.svg";
 import Footer_nav from "./Footer_nav";
 import pattern from "/pattern.svg";
+import './Footer.scss'
 
 export default function Footer() {
   return (

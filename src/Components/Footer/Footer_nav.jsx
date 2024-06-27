@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import { Button, Menu } from "antd";
-import styles from "../Footer/Footer_nav.module.scss";
+import styles from "./Footer_nav.module.scss";
 
 const items = [
   {
