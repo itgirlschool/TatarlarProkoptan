@@ -1,5 +1,4 @@
-@use './vars.scss' as vars;
-
+@import './vars.scss';
 @font-face {
     font-family: 'Lifehack Sans Regular';
     src: url('../assets/fonts/Lifehack\ Sans\ Regular.ttf') format('truetype');
