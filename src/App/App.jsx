@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Culture from '../components/Culture/Culture';
-import TatarCulture from '../components/Culture/TatarCulture/TatarCulture';
-import Mosques from '../components/Culture/Mosques/Mosques';
-import Traditions from '../components/Culture/Traditions/Traditions';
-import Cuisine from '../components/Culture/Сuisine/Cuisine';
-import Partners from '../components/Culture/Partners/Partners';
-import Footer from "../components/Footer/Footer";
+import Culture from '../Pages/Culture/Culture';
+import TatarCulture from '../Pages/Culture/TatarCulture/TatarCulture';
+import Mosques from '../Pages/Culture/Mosques/Mosques';
+import Traditions from '../Pages/Culture/Traditions/Traditions';
+import Cuisine from '../Pages/Culture/Cuisine/Cuisine';
+import Partners from '../Pages/Culture/Partners/Partners';
+import Footer from "../Components/Footer/Footer";
 
 function App() {
   return (
@@ -19,7 +19,6 @@ function App() {
     <Route path="/cuisine" element={<Cuisine />} />
     <Route path="/partners" element={<Partners />} />
   </Routes>
-  <Footer />
 </Router>
   );
 }
