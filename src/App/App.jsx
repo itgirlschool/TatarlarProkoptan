@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes, Link } from "react-router-dom";
 import {
+  AuthorizationPage,
   HomePage,
   Charity,
   Culture,
@@ -27,6 +28,7 @@ function App() {
           <Route path="/partners" element={<Partners />} />
           <Route path="/sabantui" element={<Sabantui />} />
           <Route path="/we-are-together" element={<WeAreTogether />} />
+          <Route path="/login" element={<AuthorizationPage/>} />
         </Routes>
       </main>
       <Footer />
