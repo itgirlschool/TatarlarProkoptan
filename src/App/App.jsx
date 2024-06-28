@@ -1,32 +1,38 @@
 import React from "react";
-import {Route, Routes, Link } from "react-router-dom";
-import  {HomePage,AboutUs,Charity,Culture,Events,Partners,Sabantui,WeAreTogether} from  '../Pages'
+import { Route, Routes, Link } from "react-router-dom";
+import {
+  HomePage,
+  AboutUs,
+  Charity,
+  Culture,
+  Events,
+  Partners,
+  Sabantui,
+  WeAreTogether,
+} from "../Pages";
 import Header from "../Components/Header/Header.jsx";
 import Footer from "../Components/Footer/Footer.jsx";
 
 import style from "./App.module.scss";
 
-
 function App() {
   return (
-
-      <div className={style.app}>
-        <Header/>
-          <main>
-              <Routes>
-                  <Route path="/" element={<HomePage />} />
-                  <Route path="/about-us" element={<AboutUs />} />
-                  <Route path="/charity" element={<Charity />} />
-                  <Route path="/culture" element={<Culture />} />
-                  <Route path="/events" element={<Events />} />
-                  <Route path="/partners" element={<Partners />} />
-                  <Route path="/sabantui" element={<Sabantui />} />
-                  <Route path="/we-are-together" element={<WeAreTogether />} />
-              </Routes>
-          </main>
-        <Footer/>
-      </div>
-
+    <div className={style.app}>
+      <Header />
+      <main className={style.main}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/charity" element={<Charity />} />
+          <Route path="/culture" element={<Culture />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/partners" element={<Partners />} />
+          <Route path="/sabantui" element={<Sabantui />} />
+          <Route path="/we-are-together" element={<WeAreTogether />} />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
   );
 }
 
