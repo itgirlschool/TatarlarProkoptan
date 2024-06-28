@@ -1,0 +1,27 @@
+.block__currentyear {
+  max-width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.gallery__current {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0px;
+  justify-content: center;
+}
+
+.photo__current {
+  max-width: 400px;
+  max-height: 250px;
+  width: 100%;
+  object-fit: cover;
+  margin: 15px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  transition: transform 0.7s ease-in-out;
+}
+
+.photo__current:hover {
+  transform: scale(2);
+}
