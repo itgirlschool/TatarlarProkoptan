@@ -17,6 +17,13 @@ const Header = () => {
   const closeModal = (value) => {
     setIsModalOpen(value);
   };
+  const getStyle =({isActive})=>{
+    return {
+      borderBottom: isActive ? '1px solid #f5e9e1': '',
+    }
+  }
+
+
   return (
     <>
       <header className={style.header}>
@@ -24,22 +31,13 @@ const Header = () => {
           <img src={logo} alt="Logo" className={style.logo} />
         </div>
         <nav className={style.navbar}>
-
-          {/*Links оставлены для теста*/}
-          {/*
-
-
-
-
-
-        <Link to="/we-are-together">We Are Together</Link> */}
           <ul className={style.nav}>
-            <li className={style.nav__link}><NavLink to="/about-us">About Us</NavLink></li>
-            <li className={style.nav__link}><NavLink to="/events">Events</NavLink></li>
-            <li className={style.nav__link}><NavLink to="/culture">Culture</NavLink></li>
-            <li className={style.nav__link}><NavLink to="/sabantui">Sabantui</NavLink></li>
-            <li className={style.nav__link}><NavLink to="/charity">Charity</NavLink></li>
-            <li className={style.nav__link}><NavLink to="/partners">Partners</NavLink></li>
+            <li className={style.nav__link}><NavLink style={getStyle}  to="/">About Us</NavLink></li>
+            <li className={style.nav__link}><NavLink style={getStyle} to="/events">Events</NavLink></li>
+            <li className={style.nav__link}><NavLink style={getStyle} to="/culture">Culture</NavLink></li>
+            <li className={style.nav__link}><NavLink style={getStyle} to="/sabantui">Sabantui</NavLink></li>
+            <li className={style.nav__link}><NavLink style={getStyle} to="/charity">Charity</NavLink></li>
+            <li className={style.nav__link}><NavLink style={getStyle} to="/partners">Partners</NavLink></li>
           </ul>
           <BurgerMenu />
         </nav>

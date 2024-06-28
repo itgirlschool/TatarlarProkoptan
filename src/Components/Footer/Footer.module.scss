@@ -15,7 +15,6 @@
 
 .footer__container {
     background-color: $header-background-color;
-    max-width: 1800px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -28,9 +27,8 @@
     position: absolute;
     width: 60px;
   }
-  
+
   .pattern-left {
-    top: 10;
     left: 30px;
     transform: rotate(-90deg);
 
@@ -42,9 +40,8 @@
         left: 1px;
     }
   }
-  
+
   .pattern-right {
-    top: 10;
     right: 30px;
     transform: rotate(90deg);
 
@@ -54,7 +51,7 @@
     @media screen and (max-width: 560px) {
         right: 1px;
     }
-  }  
+  }
 
 .footer__contacts {
     display: flex;
@@ -84,8 +81,8 @@
     @media screen and (max-width: 720px) {
         flex-direction: column;
         gap: 5px;
-        padding: 0 30px;        
-    }        
+        padding: 0 30px;
+    }
     }
 
 .logos__wrapper {
@@ -95,7 +92,7 @@
     gap: 20px;
 
     @media screen and (max-width: 720px) {
-        gap: 10px;        
+        gap: 10px;
     }
 }
 
