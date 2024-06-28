@@ -1,0 +1,53 @@
+@import '../../style/vars.scss';
+
+.eventsPage {
+    margin: 0 auto;
+    padding-top: 30px;
+    background-color: #F4EAE1;
+}
+
+.h1 {
+    text-align: center;
+    padding: 10px;
+}
+
+.calendar {
+    max-width: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.events {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-image: $footer-background-color;
+    border-radius: 3px;
+    text-align: center;
+    margin: 2px;
+    line-height: 100%;
+}
+
+.button {
+    background: $footer-yellow-color;
+    border-radius: 3px;
+    border-color: #F4EAE1;
+}
+
+.events .ant-badge-status {
+    width: 100%;
+    overflow: hidden;
+    font-size: 12px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.notes-month {
+    font-size: 28px;
+    text-align: center;
+}
+
+.notes-month section {
+    font-size: 28px;
+}
