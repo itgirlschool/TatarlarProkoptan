@@ -33,13 +33,15 @@
   margin: 0;
 }
 
-.nav__link {
+.nav__link a {
   margin: 0 10px;
   color: $header-text-color;
   font-family: $fontLifehackRegular;
   font-size: 25px;
   cursor: pointer;
+  text-decoration: none;
 }
+
 
 .action__container {
   display: flex;
@@ -48,7 +50,7 @@
 
   @media (max-width: 1200px) {
     padding-left: 20px;
-    padding-right: 55px; 
+    padding-right: 55px;
   }
 }
 
@@ -100,5 +102,11 @@
     display: none;
   }
 }
+.nav__a{
 
+}
+
+.active{
+  border-bottom: 1px solid $header-text-color; ;
+}
 

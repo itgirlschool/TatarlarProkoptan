@@ -32,17 +32,17 @@ const Header = () => {
         </div>
         <nav className={style.navbar}>
           <ul className={style.nav}>
-            <li className={style.nav__link}><NavLink style={getStyle}  to="/">About Us</NavLink></li>
-            <li className={style.nav__link}><NavLink style={getStyle} to="/events">Events</NavLink></li>
-            <li className={style.nav__link}><NavLink style={getStyle} to="/culture">Culture</NavLink></li>
-            <li className={style.nav__link}><NavLink style={getStyle} to="/sabantui">Sabantui</NavLink></li>
-            <li className={style.nav__link}><NavLink style={getStyle} to="/charity">Charity</NavLink></li>
-            <li className={style.nav__link}><NavLink style={getStyle} to="/partners">Partners</NavLink></li>
+            <li className={style.nav__link}><NavLink style={getStyle} to="/">О нас</NavLink></li>
+            <li className={style.nav__link}><NavLink style={getStyle} to="/events">События</NavLink></li>
+            <li className={style.nav__link}><NavLink style={getStyle} to="/culture">Культура</NavLink></li>
+            <li className={style.nav__link}><NavLink style={getStyle} to="/sabantui">Сабантуй</NavLink></li>
+            <li className={style.nav__link}><NavLink style={getStyle} to="/charity">Благотворительность</NavLink></li>
+            <li className={style.nav__link}><NavLink style={getStyle} to="/we-are-together">Мы вместе</NavLink></li>
           </ul>
-          <BurgerMenu />
+          <BurgerMenu/>
         </nav>
         <div className={style.action__container}>
-          <div className={style.icons}>
+        <div className={style.icons}>
             <a
               href="https://t.me/yourtelegram"
               target="_blank"
