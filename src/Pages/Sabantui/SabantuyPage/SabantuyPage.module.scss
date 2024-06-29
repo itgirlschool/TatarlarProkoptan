@@ -1,7 +1,19 @@
+@import "../../../style/vars";
+
 .sabantuy__container {
+  width: 80%;
   margin: 0 auto;
   text-align: center;
 }
+
+.sabantuy_title {
+  color: rgb(6, 100, 6);
+  text-align: center;
+  font-size: 50px;
+  font-family: $fontLifehackRegular;
+  font-weight: 700;
+}
+
 .sabantuy__photo {
   width: 20%;
   border: 5px solid #ccc;
