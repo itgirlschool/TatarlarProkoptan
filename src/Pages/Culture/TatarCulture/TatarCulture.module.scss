@@ -3,25 +3,25 @@
     margin: 0 auto;
     padding-top: 30px;
   }
-  
+
   .tatar_culture {
+    margin-bottom: 20px;
     font-size: 18px;
     line-height: 1.6;
-    margin-bottom: 20px;
   }
-  
+
   .tatar_images {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
   }
-  
+
   .tatar_image_wrapper {
+    position: relative;
     width: 100%;
     padding-top: 75%;
-    position: relative;
   }
-  
+
   .tatar_image {
     position: absolute;
     top: 0;
@@ -33,26 +33,26 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-  
+
   .tatar_image:hover {
     transform: scale(1.1);
     box-shadow: 0 4px 30px rgba(0, 123, 255, 0.8);
   }
-  
+
   .expanded_view {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
     z-index: 1000;
     cursor: pointer;
   }
-  
+
   .expanded_image {
     max-width: 100%;
     max-height: 90%;
@@ -61,12 +61,12 @@
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   }
-  
+
   .read_more {
     text-align: right;
     padding-top: 20px;
   }
-  
+
   .read_more a {
     text-decoration: none;
     font-weight: bolder;
@@ -75,34 +75,32 @@
   .read_more a:hover {
     color: #0056b3;
   }
-  
+
   @media (max-width: 1440px) {
     .tatar_container {
       max-width: 800px;
     }
-  
+
     .tatar_images {
       grid-template-columns: repeat(2, 1fr);
     }
   }
-  
+
   @media (max-width: 768px) {
     .tatar_container {
       max-width: 600px;
       margin-left: 10px;
       margin-right: 10px;
     }
-  
+
     .tatar_images {
       grid-template-columns: repeat(1, 1fr);
     }
   }
-  
+
   @media (max-width: 375px) {
     .tatar_container {
       padding-top: 10px;
       max-width: 90%;
     }
   }
-  
-  

@@ -1,15 +1,15 @@
 .culture {
-  text-align: center;
   margin-top: 20px;
+  text-align: center;
 }
 
 .blocks_container {
-  max-width: 1000px;
   display: grid;
+  max-width: 1000px;
+  justify-content: center;
   grid-template-columns: 1fr 400px 1fr;
   grid-template-rows: 400px 400px;
   margin: 0 auto;
-  justify-content: center;
   font-size: larger;
   font-weight: bolder;
 }
@@ -18,14 +18,14 @@
 .block5,
 .block2 {
   position: relative;
-  height: 300px;
-  background-color: lightgray;
-  border: 1px solid black;
-  font-size: 14px;
-  margin: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 300px;
+  margin: 10px;
+  font-size: 14px;
+  background-color: lightgray;
+  border: 1px solid black;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -54,8 +54,8 @@ img {
 
 h2 {
   position: absolute;
-  color: white;
   padding: 5px;
+  color: white;
   border-radius: 5px;
   text-shadow: 2px 2px 20px rgba(243, 245, 242, 0.2);
 }
@@ -72,16 +72,13 @@ h2 {
   filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
 }
 
-/* Медиа-запросы для адаптации под различные размеры экранов */
 
-/* 1440px */
 @media (max-width: 1440px) {
   .blocks_container {
     grid-template-columns: 1fr 300px 1fr;
   }
 }
 
-/* 768px */
 @media (max-width: 768px) {
   .blocks_container {
     grid-template-columns: 1fr;
@@ -104,7 +101,6 @@ h2 {
   }
 }
 
-/* 375px */
 @media (max-width: 375px) {
   .blocks_container {
     grid-template-columns: 1fr;

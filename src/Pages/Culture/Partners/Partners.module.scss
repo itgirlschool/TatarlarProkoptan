@@ -12,12 +12,6 @@
   align-items: stretch;
 }
 
-@media (max-width: 1920px) {
-  .partners {
-    max-width: 1400px;
-  }
-}
-
 @media (max-width: 1440px) {
   .partners {
     max-width: 1000px;
@@ -32,6 +26,7 @@
 
   .cards_container {
     justify-content: flex-start;
+    align-items: stretch;
   }
 }
 
