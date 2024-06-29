@@ -1,0 +1,41 @@
+.sabantuy__blocks {
+  display: flex;
+  margin: 0 auto;
+  padding: 15px;
+  gap: 20px;
+  width: 40%;
+}
+
+.cover__image {
+  object-fit: cover;
+  width: 100%;
+}
+
+.card {
+  transition: transform 0.5s ease-in-out;
+}
+
+.card:hover {
+  border: 5px solid #ccc;
+  border-radius: 10px;
+  transform: scale(1.1);
+}
+
+.card__title {
+  font-size: 26px;
+  font-weight: bold;
+  margin-top: 0;
+  color: black;
+}
+
+.card__title:hover {
+  color: blue;
+}
+
+.card__link {
+  text-decoration: none;
+}
+
+.card__link:hover {
+  text-decoration: underline blue;
+}
