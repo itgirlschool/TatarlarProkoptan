@@ -3,26 +3,22 @@
     height: 1000px;
     margin: 0 auto;
     padding-top: 30px;
-}
-
-h1 {
-    text-align: center;
-}
-
-.traditions_images {
+  }
+  
+  .traditions_images {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     padding-top: 20px;
-}
-
-.traditions_image_wrapper {
+  }
+  
+  .traditions_image_wrapper {
     width: 100%;
     padding-top: 75%;
     position: relative;
-}
-
-.traditions_image {
+  }
+  
+  .traditions_image {
     position: absolute;
     top: 0;
     left: 0;
@@ -32,13 +28,14 @@ h1 {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.traditions_image:hover {
+  }
+  
+  .traditions_image:hover {
     transform: scale(1.1);
     box-shadow: 0 4px 30px rgba(0, 123, 255, 0.8);
-}
-.expanded_view {
+  }
+  
+  .expanded_view {
     position: fixed;
     top: 0;
     left: 0;
@@ -50,13 +47,66 @@ h1 {
     align-items: center;
     z-index: 1000;
     cursor: pointer;
-}
-
-.expanded_image {
+  }
+  
+  .expanded_image {
     max-width: 100%;
     max-height: 90%;
     object-fit: contain;
     margin-top: 20px;
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-}
+  }
+  
+  .read_more {
+    text-align: right;
+    padding-top: 20px;
+  }
+  
+  .read_more a {
+    text-decoration: none;
+    font-weight: bolder;
+  }
+  
+  .read_more a:hover {
+    color: #0056b3;
+  }
+  
+  @media (max-width: 1920px) {
+    .traditions {
+      max-width: 1200px;
+    }
+  }
+  
+  @media (max-width: 1440px) {
+    .traditions {
+      max-width: 1000px;
+      height: auto;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  
+    .traditions_images {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .traditions {
+      max-width: 700px;
+      height: auto;
+      padding-top: 20px;
+    }
+  
+    .traditions_images {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  
+  @media (max-width: 375px) {
+    .traditions {
+      max-width: 90%;
+      padding-top: 10px;
+    }
+  }
+  

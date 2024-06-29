@@ -1,46 +1,59 @@
 .card {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    width: 400px; /* Увеличиваем максимальную ширину карточки */
-    margin: 10px; /* Уменьшаем внешние отступы до 10 пикселей */
-    padding: 20px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 400px;
+  margin: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.content {
+  text-align: center;
+  flex-grow: 1;
+}
+
+.content h1 {
+  margin-bottom: 10px;
+}
+
+.content p {
+  margin: 10px 0;
+}
+
+.content a {
+  display: block;
+  margin: 10px 0;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.content a:hover {
+  text-decoration: underline;
+}
+
+.map {
+  width: 100%;
+  height: 200px;
+  margin-top: auto;
+}
+
+@media (max-width: 400px) {
+  .card {
+    width: calc(100% - 20px);
+    margin: 10px;
   }
-  
-  .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  }
-  
-  .content {
-    text-align: center;
-  }
-  
-  .content h1 {
-    margin-bottom: 10px;
-  }
-  
-  .content p {
-    margin: 10px 0;
-  }
-  
-  .content a {
-    display: block;
-    margin: 10px 0;
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .content a:hover {
-    text-decoration: underline;
-  }
-  
+
   .map {
-    width: 70%; /* Устанавливаем ширину карты на 70% от ширины карточки */
-    margin: 0 auto; /* Центрируем карту по горизонтали */
-    margin-top: 10px; /* Добавляем отступ сверху */
+    height: 160px;
   }
-  
+}
