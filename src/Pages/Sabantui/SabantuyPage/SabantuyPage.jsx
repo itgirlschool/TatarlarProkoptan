@@ -5,7 +5,7 @@ import SabantuyBlocks from "../SabantuyBlocks/SabantuyBlocks.jsx";
 export default function SabantuyPage() {
   return (
     <div className={style.sabantuy__container}>
-      <h1>Сабантуй</h1>
+      <h1 className={style.sabantuy_title}>Сабантуй</h1>
       <img src={sabantuy} alt="Sabantuy" className={style.sabantuy__photo} />
       <h2>
         Сабантуй - любимый праздник татарского народа.
