@@ -1,8 +1,17 @@
+@import '../../../style/vars';
+
 .partners {
   max-width: 1200px;
   text-align: center;
   margin: 0 auto;
   padding-bottom: 30px;
+  font-family: $fontLifehackRegular;
+}
+
+.h1 {
+  color: red;
+  font-size: 36px;
+  font-weight: bolder;
 }
 
 .cards_container {

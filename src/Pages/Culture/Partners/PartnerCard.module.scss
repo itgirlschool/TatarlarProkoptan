@@ -1,13 +1,20 @@
+@import '../../../style/vars';
+
 .card {
   width: 400px;
   margin: 10px;
   padding: 20px;
-  background-color: white;
+  font-family: $fontLifehackRegular;
+  background-color: rgb(238, 238, 127);
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
+}
+
+h1 {
+  color: $header-background-color;
 }
 
 .card:hover {
@@ -31,12 +38,14 @@
 .content a {
   display: block;
   margin: 10px 0;
-  color: #007bff;
+  color: green;
+  font-size: larger;
+  font-weight: bolder;
   text-decoration: none;
 }
 
-.content a:hover {
-  text-decoration: underline;
+.content a :hover {
+  box-shadow: 0 0 20px rgba(249, 8, 8, 0.5);
 }
 
 .map {

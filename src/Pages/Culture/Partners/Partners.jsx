@@ -7,7 +7,7 @@ import partnerData from '../../../Services/CultureData/partners.json';
 function Partners  ()  {
   return (
     <div className={styles.partners}>
-      <h1>Наши партнеры</h1>
+      <p className={styles.h1}>Наши партнеры</p>
       <div className={styles.cards_container}>
         {partnerData.map((partner, index) => (
           <PartnerCard
@@ -15,6 +15,7 @@ function Partners  ()  {
             title={partner.title}
             description={partner.description}
             link={partner.link}
+            phone={partner.phone}
             location={partner.location}
             coordinates={partner.coordinates}
           />

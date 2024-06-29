@@ -1,0 +1,112 @@
+@import '../../style/vars';
+
+.header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 15px;
+  background-color: $header-background-color;
+  font-size: $header-font-size;
+  padding: 10px;
+}
+
+.logo__container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.logo {
+  width: 120px;
+  height: 120px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav__link a {
+  margin: 0 10px;
+  color: $header-text-color;
+  font-family: $fontLifehackRegular;
+  font-size: 25px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+
+.action__container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  @media (max-width: 1200px) {
+    padding-left: 20px;
+    padding-right: 55px;
+  }
+}
+
+.icons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.family__icon {
+  display: block;
+
+  @media (max-width: 530px) {
+    display: none;
+  }
+}
+
+.family__and__button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.button {
+  font-family: $fontLifehackRegular;
+  font-size: 20px;
+  padding: 10px 18px;
+  cursor: pointer;
+  border-radius: 20px;
+  background-color: $header-text-color;
+  color: #39a4a6;
+  border: none;
+}
+
+@media (min-width: 1201px) {
+  .nav {
+    display: flex;
+  }
+}
+
+@media (max-width: 1200px) {
+  .nav {
+    display: none;
+  }
+}
+.nav__a{
+
+}
+
+.active{
+  border-bottom: 1px solid $header-text-color; ;
+}
+

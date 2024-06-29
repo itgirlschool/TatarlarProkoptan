@@ -1,6 +1,9 @@
+@import '../../style/vars';
 .culture {
   margin-top: 20px;
   text-align: center;
+  font-family: $fontLifehackRegular;
+  color: $header-background-color;
 }
 
 .blocks_container {
@@ -39,7 +42,7 @@
   grid-row-end: 3;
 }
 
-img {
+.culture1, .culture2, .culture4, .culture5 {
   position: absolute;
   left: 0;
   top: 0;
