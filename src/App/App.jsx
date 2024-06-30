@@ -19,6 +19,7 @@ function App() {
     <div className={style.app}>
       <Header />
       <main className={style.main}>
+        {" "}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/charity" element={<Charity />} />
@@ -27,7 +28,7 @@ function App() {
           <Route path="/partners" element={<Partners />} />
           <Route path="/sabantui" element={<Sabantui />} />
           <Route path="/we-are-together" element={<WeAreTogether />} />
-        </Routes>
+        </Routes>{" "}
       </main>
       <Footer />
     </div>
