@@ -7,7 +7,7 @@ function PartnerCard  ({ title, description, link,phone,location, coordinates })
   return (
     <div className={styles.card}>
       <div className={styles.content}>
-        <h1>{title}</h1>
+        <h1 className={styles.title_h1}>{title}</h1>
         <p>{description}</p>
         {link ? (
           <a href={link} target="_blank" rel="noopener noreferrer">Подробнее</a>
