@@ -1,6 +1,10 @@
+@import "../style/vars.scss";
+
 body{
     margin: 0;
+    background-color: $body-background-color;
 }
+
 .root {
   width: 100%;
   height: 100%;

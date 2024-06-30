@@ -42,7 +42,6 @@
   text-decoration: none;
 }
 
-
 .action__container {
   display: flex;
   flex-direction: column;
@@ -102,11 +101,8 @@
     display: none;
   }
 }
-.nav__a{
-
-}
 
 .active{
-  border-bottom: 1px solid $header-text-color; ;
+  border-bottom: 1px solid $header-text-color;
 }
 

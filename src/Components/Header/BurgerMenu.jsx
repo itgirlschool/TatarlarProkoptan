@@ -1,13 +1,14 @@
 import { useState } from "react";
-import styles from "./BurgerMenu.module.scss";
+import { NavLink } from "react-router-dom";
+import style from "./BurgerMenu.module.scss";
 
 const links = [
-  "О нас",
-  "Мероприятия",
-  "Культура",
-  "Сабантуй",
-  "Благотворительность",
-  "Мы вместе",
+  { name: "О нас", path: "/" },
+  { name: "События", path: "/events" },
+  { name: "Культура", path: "/culture" },
+  { name: "Сабантуй", path: "/sabantui" },
+  { name: "Благотворительность", path: "/charity" },
+  { name: "Мы вместе", path: "/we-are-together" },
 ];
 
 function BurgerMenu() {
@@ -15,31 +16,26 @@ function BurgerMenu() {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-  const isOpen = isMenuOpen ? styles.open : "";
-
-  const onClick = (href) => {
-    toggleMenu();
-    console.log(`Clicked on ${href}`);
-  };
+  const isOpen = isMenuOpen ? style.open : "";
 
   return (
     <>
       <button
-        className={`${styles.burger} ${isOpen}`}
+        className={`${style.burger} ${isOpen}`}
         onClick={toggleMenu}
       ></button>
-      <div className={`${styles.background} ${isOpen}`}></div>
-      <div className={`${styles.menu} ${isOpen}`}>
+      <div className={`${style.background} ${isOpen}`}></div>
+      <div className={`${style.menu} ${isOpen}`}>
         <nav>
           {links.map((link, index) => (
-            <a
-              key={link}
-              className={isMenuOpen ? styles.appear : ""}
+            <NavLink
+              key={link.name}
+              to={link.path}
               style={{ animationDelay: `0.${index + 1}s` }}
-              onClick={() => onClick(link)}
+              onClick={toggleMenu}
             >
-              {link}
-            </a>
+              {link.name}
+            </NavLink>
           ))}
         </nav>
       </div>
