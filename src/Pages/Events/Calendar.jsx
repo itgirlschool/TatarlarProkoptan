@@ -1,5 +1,5 @@
 import React from 'react';
-import { Badge, Calendar } from 'antd';
+import { Badge, Calendar, Divider } from 'antd';
 import style from "./Events.module.scss";
 
 const getListData = (value) => {
@@ -75,18 +75,18 @@ const EventsCalendar = () => {
   const dateCellRender = (value) => {
     const listData = getListData(value);
     return (
-        <div>
+        <div className={style.color}>
           {listData.map((item) => (
-            <p key={item.content} className={style.events}>
-              <Badge status={item.type} text={item.content} />
-            </p>
+            <div key={item.content} className={style.events}>
+              <Badge status={item.type} text={item.content} className={style.events}/>
+            </div>
           ))}
         </div>
     );
   };
   const cellRender = (current, info) => {
     if (info.type === 'date') return dateCellRender(current);
-    if (info.type === 'month') return monthCellRender(current);
+    // if (info.type === 'month') return monthCellRender(current);
     return info.originNode;
   };
   return <Calendar cellRender={cellRender}  className={style.calendar}/>;

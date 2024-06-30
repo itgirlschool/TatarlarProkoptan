@@ -4,6 +4,7 @@
     margin: 0 auto;
     padding-top: 30px;
     background-color: #F4EAE1;
+    font-family: $fontLifehackRegular;
 }
 
 .h1 {
@@ -16,24 +17,34 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+
 }
 
 .events {
     margin: 0;
     padding: 0;
     list-style: none;
-    background-image: $footer-background-color;
+    background-color: $footer-text-color-green;
+    overflow: hidden;
+    font-family: $fontLifehackRegular;
     border-radius: 3px;
     text-align: center;
-    margin: 2px;
     line-height: 100%;
+
+
 }
 
-.button {
-    background: $footer-yellow-color;
-    border-radius: 3px;
-    border-color: #F4EAE1;
-}
+// .color {
+//     background-color: $footer-text-color-green;
+//     background: $footer-text-color-green;
+//     height: 100%;
+// }
+
+// .button {
+//     background: $footer-yellow-color;
+//     border-radius: 3px;
+//     border-color: #F4EAE1;
+// }
 
 .events .ant-badge-status {
     width: 100%;
