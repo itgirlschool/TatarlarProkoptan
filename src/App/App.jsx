@@ -9,6 +9,7 @@ import {
   Sabantui,
   WeAreTogether,
 } from "../Pages";
+import HomePageMobile from "../Pages/HomePage/HomePageMobile.jsx";
 import Header from "../Components/Header/Header.jsx";
 import Footer from "../Components/Footer/Footer.jsx";
 
@@ -27,6 +28,7 @@ function App() {
           <Route path="/partners" element={<Partners />} />
           <Route path="/sabantui" element={<Sabantui />} />
           <Route path="/we-are-together" element={<WeAreTogether />} />
+          <Route path="/homePageMobile" element={<HomePageMobile />} />
         </Routes>
       </main>
       <Footer />
