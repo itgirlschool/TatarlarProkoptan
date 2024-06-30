@@ -1,0 +1,60 @@
+@import "../../style/vars";
+
+.sabantuy__container {
+  width: 95%;
+  margin: 0 auto;
+  text-align: center;
+  font-family: $fontLifehackRegular;
+}
+
+.sabantuy_title {
+  color: rgb(6, 100, 6);
+  text-align: center;
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.sabantuy__text {
+  font-size: 28px;
+}
+
+.sabantuy__name {
+  color: red;
+  font-weight: bold;
+}
+
+.sabantuy__photo {
+  width: 20%;
+  border: 5px solid #ccc;
+  border-radius: 10px;
+  margin: 5px;
+}
+
+@media (max-width: 768px) {
+  .sabantuy_title {
+    font-size: 35px;
+  }
+
+  .sabantuy__text {
+    font-size: 22px;
+  }
+
+  .sabantuy__photo {
+    width: 40%;
+  }
+}
+
+@media (max-width: 375px) {
+  .sabantuy_title {
+    font-size: 30px;
+  }
+
+  .sabantuy__text {
+    font-size: 20px;
+  }
+
+  .sabantuy__photo {
+    width: 80%;
+    margin: 10px;
+  }
+}
