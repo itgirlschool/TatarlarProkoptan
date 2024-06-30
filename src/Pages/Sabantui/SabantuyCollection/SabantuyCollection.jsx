@@ -1,10 +1,20 @@
+import { useState } from "react";
 import style from "./SabantuyCollection.module.scss";
 import { Link } from "react-router-dom";
 import video from "../../../../public/imgs/Sabantuy/Зимний Сабантуй в Прокопьевске -2023.mp4";
-import stage from "../../../../public/imgs/Sabantuy/stage.jpg";
-import open from "../../../../public/imgs/Sabantuy/open.jpg";
+import collectionData from "../../../Common/Sabantuy/sabantuyCollection.json";
 
 export default function SabantuyCollection() {
+  const [fullscreenPhoto, setFullscreenPhoto] = useState(null);
+
+  const handlePhotoClick = (photo) => {
+    setFullscreenPhoto(photo);
+  };
+
+  const closeFullscreen = () => {
+    setFullscreenPhoto(null);
+  };
+
   return (
     <div className={style.block__collection}>
       <h1 className={style.title}>Коллекция Сабантуев</h1>
@@ -25,10 +35,26 @@ export default function SabantuyCollection() {
         <div>
           <h2>Фотогалерея</h2>
         </div>
-        <div>
-          <img src={stage} alt="ava" className={style.photo} />
-          <img src={open} alt="ava" className={style.photo} />
+        <div className={style.photos}>
+          {collectionData.map((photo, index) => (
+            <img
+              key={index}
+              src={photo.img}
+              alt={`Sabantuy photo ${index + 1}`}
+              className={style.photo}
+              onClick={() => handlePhotoClick(photo)}
+            />
+          ))}
         </div>
+        {fullscreenPhoto && (
+          <div className={style.fullscreen__overlay} onClick={closeFullscreen}>
+            <img
+              src={fullscreenPhoto.img}
+              alt="Fullscreen"
+              className={style.fullscreen__photo}
+            />
+          </div>
+        )}
       </div>
     </div>
   );
