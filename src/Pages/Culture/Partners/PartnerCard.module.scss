@@ -5,7 +5,6 @@
   margin: 10px;
   padding: 20px;
   font-family: $fontLifehackRegular;
-  background-color: rgb(238, 238, 127);
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
@@ -14,7 +13,7 @@
 }
 
 h1 {
-  color: $header-background-color;
+  color: red;
 }
 
 .card:hover {
