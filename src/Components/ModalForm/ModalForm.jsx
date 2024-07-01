@@ -6,6 +6,8 @@ import postData from "./postData";
 import Loader from "../Loader/Loader";
 import FeedbackWindow from "./FeedBackWindow";
 import mask from "./inputTel";
+import { getAutonomyAllUsers } from "../../Services/AutonomyFB/autonomy";
+import { isPhoneTaken } from "../../Services/AutonomyFB/autonomy";
 
 export default function ModalForm({ onClose }) {
   const [statusChecked, setStatusChecked] = useState(false);
@@ -37,13 +39,19 @@ export default function ModalForm({ onClose }) {
     },
   });
   const onSubmit = async ({ lastName, firstName, surName, phone, email }) => {
+    getAutonomyAllUsers();
     try {
-      await postData(lastName, firstName, surName, phone, email);
-      reset();
-      setStatusChecked(!statusChecked);
-      setStatusCheckbox(`${style.checkbox}`);
-      setIsFeedbackOpen(true);
-      setResponseStatus(true);
+      const isPhoneNumberTaken= await isPhoneTaken(phone);
+      if (isPhoneNumberTaken) {
+        throw new Error();
+      } else {
+        // await postData(lastName, firstName, surName, phone, email);
+        reset();
+        setStatusChecked(!statusChecked);
+        setStatusCheckbox(`${style.checkbox}`);
+        setIsFeedbackOpen(true);
+        setResponseStatus(true);
+      }
     } catch (err) {
       setError("email", { message: "Введенный email уже занят" });
       setError("phone", { message: "Введенный телефон уже занят" });

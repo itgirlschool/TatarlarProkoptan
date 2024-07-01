@@ -1,3 +1,6 @@
+import { getAutonomyAllUsers } from "../../Services/AutonomyFB/autonomy";
+import {addUserAutonomy} from "../../Services/AutonomyFB/autonomy";
+
 const prepareNameData = (data) => {
   const dataPost = data.trim()[0].toUpperCase() + data.trim().slice(1);
   return dataPost;
@@ -19,9 +22,18 @@ const postData = async (lastName, firstName, surName, phone, email) => {
   const surnamePost = prepareNameData(surName);
   const phonePost = preparePhoneData(phone);
   const emailPost = prepareOtherData(email);
-  console.log(lastNamePost, firstNamePost, surnamePost, phonePost, emailPost);
+  const dataNewUserAutonomy={
+    "фамалия": lastNamePost,
+    "имя": firstNamePost,
+    "отчество": surnamePost,
+    "телефон": phonePost,
+    "email": emailPost,
+  }
+  getAutonomyAllUsers();
+  console.log(dataNewUserAutonomy);
   try {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await addUserAutonomy(dataNewUserAutonomy);
+    getAutonomyAllUsers();
   } catch (err) {
     console.log(err);
   }
