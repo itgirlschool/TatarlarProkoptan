@@ -3,6 +3,7 @@ import { set, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import style from "./AuthorizationPage.module.scss";
+// import { signIn } from "../../Services/AutonomyFB/autonomy.js";
 
 const schema = yup.object().shape({
   email: yup
@@ -26,7 +27,14 @@ const AuthorizationPage = () => {
 
   const onSubmit = async (data) => {
     const { email, password } = data;
+    // try {
+    //   await signIn(email, password);
+    //   alert("Вы успешно авторизованы");
+    // } catch (error) {
+    //   alert("Ошибка авторизации:" + error.message);
+    // }
   };
+
   return (
     <div className={style.container}>
       <img

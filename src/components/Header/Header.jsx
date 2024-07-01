@@ -38,7 +38,7 @@ const Header = () => {
             <li className={style.nav__link}><NavLink style={getStyle} to="/sabantui">Сабантуй</NavLink></li>
             <li className={style.nav__link}><NavLink style={getStyle} to="/charity">Благотворительность</NavLink></li>
             <li className={style.nav__link}><NavLink style={getStyle} to="/we-are-together">Мы вместе</NavLink></li>
-            <li className={style.nav__link}><NavLink style={getStyle} to="/authotizationpage">Войти</NavLink></li>
+            <li className={style.nav__link}><NavLink style={getStyle} to="/authorizationpage">Войти</NavLink></li>
           </ul>
           <BurgerMenu/>
         </nav>
