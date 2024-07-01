@@ -16,7 +16,7 @@ const useResize = () => {
   };
   
   const Events = () => {
-    if (window.innerWidth > 300) {
+    if (window.innerWidth > 767) {
       return <div className={style.eventsPage}>
       <h1 className={style.h1}>Узнай о наших ближайших мероприятиях</h1>
       <EventsCalendar />
