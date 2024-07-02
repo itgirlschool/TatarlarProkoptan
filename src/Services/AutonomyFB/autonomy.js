@@ -1,43 +1,49 @@
 import { dbFB } from "../../main.jsx";
+import { preparePhoneData } from "../../Components/ModalForm/postData.js";
+import { prepareOtherData } from "../../Components/ModalForm/postData.js";
 
 export async function getAutonomyAllUsers() {
   try {
     const snapshot = await dbFB.ref("autonomy").once("value");
-    console.log(snapshot.val());
     return snapshot.val();
   } catch (error) {
     console.error(error);
   }
 }
 
-// export async function isPhoneTaken(data) {
-//   try {
-
-//     const snapshot = await dbFB.ref("autonomy").orderBy('телефон').isEqual(data).once("value");
-//     console.log(snapshot.exists());
-//     if (snapshot.exists()) {
-//       return true;
-//     }
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-
 export async function isPhoneTaken(data) {
+  const postData = preparePhoneData(data);
   try {
-    dbFB
-      .ref("autonomy")
-      .child("phone")
-      .child(data)
-      .get()
-      .then((snapshot) => {
-        if (snapshot.exists()) {
-            console.log(snapshot.val());
-          return true;
-        } else {
-          return false;
-        }
-      });
+    const base = await getAutonomyAllUsers();
+    const baseArray = Object.values(base);
+    const allPhones = [];
+    baseArray.forEach((item) => {
+      allPhones.push(item.телефон);
+    });
+    if (allPhones.includes(postData)) {
+      return true;
+    } else {
+      return false;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function isEmailTaken(data) {
+  const postData = prepareOtherData(data);
+  try {
+    const base = await getAutonomyAllUsers();
+    const baseArray = Object.values(base);
+    const allEmails = [];
+    baseArray.forEach((item) => {
+      allEmails.push(item.email);
+    });
+    if (allEmails.includes(postData)) {
+      return true;
+    } else {
+      return false;
+    }
   } catch (error) {
     console.error(error);
   }

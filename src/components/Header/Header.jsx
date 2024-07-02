@@ -13,9 +13,11 @@ const Header = () => {
   const [isModalOpened, setIsModalOpen] = useState(false);
   const openModal = () => {
     setIsModalOpen(true);
+    document.body.style.overflow = 'hidden';
   };
   const closeModal = (value) => {
     setIsModalOpen(value);
+    document.body.style.overflow = 'auto';
   };
   const getStyle =({isActive})=>{
     return {

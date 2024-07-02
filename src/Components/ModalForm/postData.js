@@ -1,17 +1,17 @@
-import { getAutonomyAllUsers } from "../../Services/AutonomyFB/autonomy";
-import {addUserAutonomy} from "../../Services/AutonomyFB/autonomy";
+import { addUserAutonomy } from "../../Services/AutonomyFB/autonomy";
 
-const prepareNameData = (data) => {
-  const dataPost = data.trim()[0].toUpperCase() + data.trim().slice(1);
+export const prepareNameData = (data) => {
+  const dataSliced = data.trim();
+  const dataPost = dataSliced[0].toUpperCase() + dataSliced.slice(1);
   return dataPost;
 };
 
-const preparePhoneData = (data) => {
+export const preparePhoneData = (data) => {
   const dataPost =
     data.slice(0, 2) + " (" + data.slice(3, 6) + ") " + data.slice(6);
   return dataPost;
 };
-const prepareOtherData = (data) => {
+export const prepareOtherData = (data) => {
   const dataPost = data.trim();
   return dataPost;
 };
@@ -22,18 +22,15 @@ const postData = async (lastName, firstName, surName, phone, email) => {
   const surnamePost = prepareNameData(surName);
   const phonePost = preparePhoneData(phone);
   const emailPost = prepareOtherData(email);
-  const dataNewUserAutonomy={
-    "фамалия": lastNamePost,
-    "имя": firstNamePost,
-    "отчество": surnamePost,
-    "телефон": phonePost,
-    "email": emailPost,
-  }
-  getAutonomyAllUsers();
-  console.log(dataNewUserAutonomy);
+  const dataNewUserAutonomy = {
+    фамилия: lastNamePost,
+    имя: firstNamePost,
+    отчество: surnamePost,
+    телефон: phonePost,
+    email: emailPost,
+  };
   try {
     await addUserAutonomy(dataNewUserAutonomy);
-    getAutonomyAllUsers();
   } catch (err) {
     console.log(err);
   }

@@ -1,13 +1,13 @@
-import { useForm, useFieldArray } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import style from "./ModalForm.module.scss";
 import { useState } from "react";
 import Checkbox from "../../assets/images/checkbox.svg";
 import postData from "./postData";
 import Loader from "../Loader/Loader";
 import FeedbackWindow from "./FeedBackWindow";
-import mask from "./inputTel";
-import { getAutonomyAllUsers } from "../../Services/AutonomyFB/autonomy";
+import mask from "./inputPhone";
 import { isPhoneTaken } from "../../Services/AutonomyFB/autonomy";
+import { isEmailTaken } from "../../Services/AutonomyFB/autonomy";
 
 export default function ModalForm({ onClose }) {
   const [statusChecked, setStatusChecked] = useState(false);
@@ -34,18 +34,28 @@ export default function ModalForm({ onClose }) {
     defaultValues: {
       lastName: "",
       firstName: "",
+      surName: "",
       phone: "",
       email: "",
     },
   });
   const onSubmit = async ({ lastName, firstName, surName, phone, email }) => {
-    getAutonomyAllUsers();
     try {
-      const isPhoneNumberTaken= await isPhoneTaken(phone);
-      if (isPhoneNumberTaken) {
-        throw new Error();
+      const isPhoneNumberTaken = await isPhoneTaken(phone);
+      const isEmailAddressTaken = await isEmailTaken(email);
+      if (isPhoneNumberTaken || isEmailAddressTaken) {
+        if (isPhoneNumberTaken) {
+          setError("phone", {
+            message: "Введенный телефон уже указан в другой заявке",
+          });
+        }
+        if (isEmailAddressTaken) {
+          setError("email", {
+            message: "Введенный email уже указан в другой заявке",
+          });
+        }
       } else {
-        // await postData(lastName, firstName, surName, phone, email);
+        await postData(lastName, firstName, surName, phone, email);
         reset();
         setStatusChecked(!statusChecked);
         setStatusCheckbox(`${style.checkbox}`);
@@ -53,9 +63,7 @@ export default function ModalForm({ onClose }) {
         setResponseStatus(true);
       }
     } catch (err) {
-      setError("email", { message: "Введенный email уже занят" });
-      setError("phone", { message: "Введенный телефон уже занят" });
-      console.log(err);
+      setResponseStatus(false);
     }
   };
 
@@ -129,7 +137,8 @@ export default function ModalForm({ onClose }) {
               </label>
               <input
                 className={errors.phone ? style.input__empty : style.input}
-                type="tel"
+                type="text"
+                onInput={mask}
                 onClick={mask}
                 id="phone"
                 {...register("phone", {

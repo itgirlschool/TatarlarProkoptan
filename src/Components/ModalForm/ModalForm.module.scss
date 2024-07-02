@@ -4,7 +4,6 @@
   display: flex;
   width: 100%;
   min-height: 100%;
-  // height: 100vh;
   justify-content: center;
   align-items: start;
   background-color: rgba(31, 92, 87, 0.6);
@@ -174,14 +173,21 @@ input:-webkit-autofill:focus {
 }
 .input__empty {
   grid-area: 1/2/2/3;
-  width: 95%;
+  width: 100%;
+  min-width: 250px;
   max-width: 375px;
   height: 30px;
   padding-left: 5%;
   border-radius: 10px;
-  border: 1px solid rgb(216, 90, 90);
+  border: 2px solid rgb(151, 51, 51);
+  color: $header-background-color;
   outline: none;
-  background-color: rgb(249, 225, 225);
+  background-color:  $header-text-color;
+  font-family: $fontLifehackRegular;
+  font-size: 20px;
+  @media screen and (max-width: 530px) {
+    min-width: 100%;
+  }
 }
 .button__cancel {
   width: 100%;
@@ -273,4 +279,4 @@ input:-webkit-autofill:focus {
   width: 80%;
   opacity: 0;
   animation: checked 2s forwards;
-}
+} 
