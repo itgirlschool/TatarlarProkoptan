@@ -1,4 +1,5 @@
 import { addUserAutonomy } from "../../Services/AutonomyFB/autonomy";
+import { getAutonomyAllUsers } from "../../Services/AutonomyFB/autonomy";
 
 export const prepareNameData = (data) => {
   const dataSliced = data.trim();
@@ -15,6 +16,44 @@ export const prepareOtherData = (data) => {
   const dataPost = data.trim();
   return dataPost;
 };
+
+export async function isPhoneTaken(data) {
+  const postData = preparePhoneData(data);
+  try {
+    const base = await getAutonomyAllUsers();
+    const baseArray = Object.values(base);
+    const allPhones = [];
+    baseArray.forEach((item) => {
+      allPhones.push(item.телефон);
+    });
+    if (allPhones.includes(postData)) {
+      return true;
+    } else {
+      return false;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function isEmailTaken(data) {
+  const postData = prepareOtherData(data);
+  try {
+    const base = await getAutonomyAllUsers();
+    const baseArray = Object.values(base);
+    const allEmails = [];
+    baseArray.forEach((item) => {
+      allEmails.push(item.email);
+    });
+    if (allEmails.includes(postData)) {
+      return true;
+    } else {
+      return false;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 const postData = async (lastName, firstName, surName, phone, email) => {
   const lastNamePost = prepareNameData(lastName);

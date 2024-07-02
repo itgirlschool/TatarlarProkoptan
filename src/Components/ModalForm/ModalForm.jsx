@@ -6,8 +6,8 @@ import postData from "./postData";
 import Loader from "../Loader/Loader";
 import FeedbackWindow from "./FeedBackWindow";
 import mask from "./inputPhone";
-import { isPhoneTaken } from "../../Services/AutonomyFB/autonomy";
-import { isEmailTaken } from "../../Services/AutonomyFB/autonomy";
+import { isPhoneTaken } from "./postData";
+import { isEmailTaken } from "./postData";
 
 export default function ModalForm({ onClose }) {
   const [statusChecked, setStatusChecked] = useState(false);
