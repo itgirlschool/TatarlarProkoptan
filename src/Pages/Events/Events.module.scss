@@ -7,6 +7,14 @@
     font-family: $fontLifehackRegular;
 }
 
+.eventsPageMobile {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    // overflow-y: scroll;
+
+}
+
 .h1 {
     text-align: center;
     padding: 10px;
@@ -17,7 +25,14 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
 
+.mobileCalendar {
+    font-family: $fontLifehackRegular;
+    font-weight: bolder;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
 }
 
 .events {
@@ -30,8 +45,6 @@
     border-radius: 3px;
     text-align: center;
     line-height: 100%;
-
-
 }
 
 // .color {
@@ -40,11 +53,7 @@
 //     height: 100%;
 // }
 
-// .button {
-//     background: $footer-yellow-color;
-//     border-radius: 3px;
-//     border-color: #F4EAE1;
-// }
+
 
 .events .ant-badge-status {
     width: 100%;
