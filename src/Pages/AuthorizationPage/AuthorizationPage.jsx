@@ -1,9 +1,11 @@
 import React from "react";
-import { set, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import style from "./AuthorizationPage.module.scss";
-// import { signIn } from "../../Services/AutonomyFB/autonomy.js";
+import {getAutonomyAllUsers} from "../../Services/AutonomyFB/autonomy";
+import { useDispatch, useSelector } from "react-redux";
+import {setUser} from "../../store/slice/UserAuthSlice.js";
 
 const schema = yup.object().shape({
   email: yup
@@ -17,6 +19,7 @@ const schema = yup.object().shape({
 });
 
 const AuthorizationPage = () => {
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -25,14 +28,17 @@ const AuthorizationPage = () => {
     resolver: yupResolver(schema),
   });
 
+  const users = useSelector((state) => state.autonomy.users);
+  
   const onSubmit = async (data) => {
     const { email, password } = data;
-    // try {
-    //   await signIn(email, password);
-    //   alert("Вы успешно авторизованы");
-    // } catch (error) {
-    //   alert("Ошибка авторизации:" + error.message);
-    // }
+    try {
+      const user = await getAutonomyAllUsers(email, password);
+      dispatch(setUser(user));
+      alert(`Вы успешно авторизованы, ${user.email}`);
+    } catch (error) {
+      alert("Ошибка авторизации: " + error.message);
+    }
   };
 
   return (
@@ -52,6 +58,7 @@ const AuthorizationPage = () => {
             className={errors.email ? style.input__empty : style.input}
             type="email"
             id="email"
+            placeholder=" Е-mail"
             {...register("email")}
           />
           {errors.email && (
@@ -66,6 +73,7 @@ const AuthorizationPage = () => {
             className={errors.password ? style.input__empty : style.input}
             type="password"
             id="password"
+            placeholder=" Пароль"
             {...register("password")}
           />
           {errors.password && (

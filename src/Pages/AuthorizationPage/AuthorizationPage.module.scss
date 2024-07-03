@@ -7,12 +7,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 2px 5px rgb(224, 194, 27);
+  box-shadow: 0 2px 5px rgb(83, 83, 80);
   border-radius: 10px;
-  color: white;
+  color: $header-text-color;
   font-family: "Mono", sans-serif;
   position: relative;
-  background-color: rgb(48, 149, 149);
+  background-color: $header-background-color;
   font-family: $fontLifehackRegular;
 }
 
@@ -27,37 +27,43 @@
 
 .input__wrapper {
   display: grid;
-  grid-template-columns: 12% 70%;
-  gap: 15px;
+  grid-template-columns: 30px 2fr 30px;
+  gap: 30px;
   align-items: center;
 }
 
 .label {
-  justify-self: end;
-  grid-area: 1/1/2/2;
+  font-size: 23px;
+  text-align: right;
+  padding-right: 10px;
 }
 
 .input {
-  grid-area: 1/2/2/3;
-  width: 100%;
+  border: 1px solid #ccc;
+  width: 130%;
   height: 30px;
-  padding-left: 5px;
   border: none;
-  border-radius: 5px;
-  background-color: #f0f0f0;
+  border-radius: 10px;
+  background-color: $header-text-color;
   outline: none;
+  font-family: $fontLifehackRegular;
 }
 .input:hover {
   background-color: rgb(224, 194, 27);
 }
 .input__empty {
-  grid-area: 1/2/2/3;
+  grid-area: input;
   width: 100%;
   height: 30px;
-  padding-left: 5px;
-  border-radius: 5px;
-  border: 1px solid rgb(216, 90, 90);
+  border-radius: 10px;
+  border: 1px solid $header-text-color;
   outline: none;
+}
+
+.error {
+  font-size: 26px;
+  -webkit-text-stroke: 1px rgb(224, 194, 27);
+  white-space: nowrap;
 }
 
 .button__container {
@@ -66,38 +72,39 @@
   gap: 10px;
   justify-content: center;
 }
+
 .button__submit {
   width: 100%;
   max-width: 200px;
-  height: 40px;
-  background-color: rgb(47, 106, 108);
-  border: none;
-  color: white;
+  height: 50px;
+  margin-top: 10px;
+  background-color: transparent;
+  border: 2px solid $header-text-color;
+  border-color: $fontLifehackRegular;
+  border-radius: 10px;
   font-weight: bold;
-  font-size: 25px;
-  border-radius: 5px;
-  cursor: pointer;
   font-family: $fontLifehackRegular;
+  font-size: 30px;
+  font-weight: 400;
+  color: $header-text-color;
+  cursor: pointer;
 }
 
 .button__submit:hover {
   transform: scale(1.05);
   transition: all 0.3s ease-in-out;
-  background-color: rgb(17, 131, 60);
-}
-
-.error {
-  margin: 10px;
-  font-size: 16px;
-  -webkit-text-stroke: 1px rgb(224, 194, 27);
-  white-space: nowrap;
+  background-color: rgb(224, 194, 27);
 }
 
 .header {
   margin-top: 20px;
   margin-bottom: 10px;
-  font-size: 45px;
   font-family: $fontLifehackRegular;
+  align-self: center;
+  width: 100%;
+  text-align: center;
+  font-weight: 400;
+  font-size: 40px;
 }
 
 .header {
@@ -148,7 +155,7 @@
     max-width: 100%;
     gap: 10px;
     margin-bottom: 20px;
-    margin-top:10px;
+    margin-top: 10px;
   }
 
   .input__wrapper {
@@ -161,7 +168,7 @@
     margin-top: 90px;
   }
 
-  .tatar__ornament{
+  .tatar__ornament {
     width: 100%;
     max-width: 100%;
   }
