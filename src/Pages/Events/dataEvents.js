@@ -1,5 +1,6 @@
 export const options = [
     {
+        id: '1',
         value: '08.07.2024',
         label: '08.07.2024',
         children: [
@@ -10,6 +11,7 @@ export const options = [
         ],
     },
     {
+        id: '2',
         value: '14.07.2024',
         label: '14.07.2024',
         children: [
@@ -20,6 +22,7 @@ export const options = [
         ],
     },
     {
+        id: '3',
         value: '27.07.2024',
         label: '27.07.2024',
         children: [
@@ -30,26 +33,29 @@ export const options = [
         ],
     },
     {
+        id: '4',
         value: '**.08.2024',
         label: '**.08.2024',
         children: [
             {
-                value: 'Праздник Татарского меда *Татар Балы Туй*',
-                label: 'Праздник Татарского меда *Татар Балы Туй*',
+                value: 'Праздник Татарского меда "Татар Балы Туй"',
+                label: 'Праздник Татарского меда "Татар Балы Туй"',
             },
         ],
     },
     {
+        id: '5',
         value: '15.08.2024',
         label: '15.08.2024',
         children: [
             {
-                value: 'Национальный праздник дружбы *Мы вместе - Без бергэ!*',
-                label: 'Национальный праздник дружбы *Мы вместе - Без бергэ!*',
+                value: 'Праздник дружбы "Мы вместе - Без бергэ!"',
+                label: 'Праздник дружбы "Мы вместе - Без бергэ!"',
             },
         ],
     },
     {
+        id: '6',
         value: '22.08.2024',
         label: '22.08.2024',
         children: [
@@ -60,6 +66,7 @@ export const options = [
         ],
     },
     {
+        id: '7',
         value: '28.08.2024',
         label: '28.08.2024',
         children: [
@@ -70,6 +77,7 @@ export const options = [
         ],
     },
     {
+        id: '8',
         value: '01.09.2024',
         label: '01.09.2024',
         children: [
@@ -80,6 +88,7 @@ export const options = [
         ],
     },
     {
+        id: '9',
         value: '15.09.2024',
         label: '15.09.2024',
         children: [
@@ -90,6 +99,7 @@ export const options = [
         ],
     },
     {
+        id: '10',
         value: '16.09.2024',
         label: '16.09.2024',
         children: [
@@ -100,6 +110,7 @@ export const options = [
         ],
     },
     {
+        id: '11',
         value: '**.09.2024',
         label: '**.09.2024',
         children: [
@@ -110,6 +121,7 @@ export const options = [
         ],
     },
     {
+        id: '12',
         value: '10.10.2024',
         label: '10.10.2024',
         children: [
@@ -120,6 +132,7 @@ export const options = [
         ],
     },
     {
+        id: '13',
         value: '27.10.2024',
         label: '27.10.2024',
         children: [
@@ -130,6 +143,7 @@ export const options = [
         ],
     },
     {
+        id: '14',
         value: '07.11.2024',
         label: '07.11.2024',
         children: [
@@ -140,6 +154,7 @@ export const options = [
         ],
     },
     {
+        id: '15',
         value: '19.11.2024',
         label: '19.11.2024',
         children: [
@@ -150,6 +165,7 @@ export const options = [
         ],
     },
     {
+        id: '16',
         value: '30.11.2024',
         label: '30.11.2024',
         children: [
@@ -160,6 +176,7 @@ export const options = [
         ],
     },
     {
+        id: '17',
         value: '01.12.2024',
         label: '01.12.2024',
         children: [
@@ -170,6 +187,7 @@ export const options = [
         ],
     },
     {
+        id: '18',
         value: '23.12.2024',
         label: '23.12.2024',
         children: [
@@ -180,6 +198,7 @@ export const options = [
         ],
     },
     {
+        id: '19',
         value: '28.12.2024',
         label: '28.12.2024',
         children: [

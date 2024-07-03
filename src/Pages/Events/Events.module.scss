@@ -3,16 +3,17 @@
 .eventsPage {
     margin: 0 auto;
     padding-top: 30px;
-    background-color: #F4EAE1;
+    background-color: $body-background-color;
     font-family: $fontLifehackRegular;
+    height: 100%;
 }
 
 .eventsPageMobile {
-    text-align: center;
+    text-align: left;
     margin-left: auto;
     margin-right: auto;
-    // overflow-y: scroll;
-
+    overflow-y: scroll;
+    overflow: hidden;
 }
 
 .h1 {
@@ -32,28 +33,25 @@
     font-weight: bolder;
     margin-left: auto;
     margin-right: auto;
-    width: 60%;
+    width: 50%;
 }
 
 .events {
     margin: 0;
     padding: 0;
-    list-style: none;
+
     background-color: $footer-text-color-green;
-    overflow: hidden;
     font-family: $fontLifehackRegular;
     border-radius: 3px;
-    text-align: center;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     line-height: 100%;
+    min-height: 80px;
+    text-wrap: balance;
+    overflow: hidden;
 }
-
-// .color {
-//     background-color: $footer-text-color-green;
-//     background: $footer-text-color-green;
-//     height: 100%;
-// }
-
-
 
 .events .ant-badge-status {
     width: 100%;

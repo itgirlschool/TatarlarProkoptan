@@ -75,7 +75,7 @@ const EventsCalendar = () => {
   const dateCellRender = (value) => {
     const listData = getListData(value);
     return (
-        <div className={style.color}>
+        <div>
           {listData.map((item) => (
             <div key={item.content} className={style.events}>
               <Badge status={item.type} text={item.content} className={style.events}/>
