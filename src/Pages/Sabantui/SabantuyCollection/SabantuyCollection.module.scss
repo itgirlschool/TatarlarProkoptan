@@ -5,13 +5,13 @@
   font-family: $fontLifehackRegular;
 }
 
-h1 {
+.title__collection {
   color: rgb(6, 100, 6);
   font-size: 50px;
   font-weight: 700;
 }
 
-h2 {
+.suptitle__collection {
   font-size: 40px;
   font-weight: 700;
 }
@@ -23,7 +23,7 @@ h2 {
   margin: 20px;
 }
 
-video {
+.video {
   margin: 0 auto;
   max-width: 500px;
   width: 100%;
@@ -49,7 +49,6 @@ video {
 
 .link__video:hover {
   background-color: #ccc;
-  border: 1px solid black;
   color: blue;
   text-decoration: underline blue;
 }
@@ -95,11 +94,11 @@ video {
 }
 
 @media (max-width: 1440px) {
-  h1 {
+  .title__collection {
     font-size: 45px;
   }
 
-  h2 {
+  .suptitle__collection {
     font-size: 35px;
   }
 
@@ -115,11 +114,11 @@ video {
 }
 
 @media (max-width: 768px) {
-  h1 {
+  .title__collection {
     font-size: 35px;
   }
 
-  h2 {
+  .suptitle__collection {
     font-size: 30px;
   }
 
@@ -143,11 +142,11 @@ video {
 }
 
 @media (max-width: 375px) {
-  h1 {
+  .title__collection {
     font-size: 25px;
   }
 
-  h2 {
+  .suptitle__collection {
     font-size: 20px;
   }
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import style from "./SabantuyCollection.module.scss";
 import { Link } from "react-router-dom";
-import video from "../../../../public/imgs/Sabantuy/Зимний Сабантуй в Прокопьевске -2023.mp4";
+import video from "../../../assets/images/Sabantuy/Зимний Сабантуй в Прокопьевске -2023.mp4";
 import collectionData from "../../../Common/Sabantuy/sabantuyCollection.json";
 
 export default function SabantuyCollection() {
@@ -17,9 +17,9 @@ export default function SabantuyCollection() {
 
   return (
     <div className={style.block__collection}>
-      <h1 className={style.title}>Коллекция Сабантуев</h1>
+      <h1 className={style.title__collection}>Коллекция Сабантуев</h1>
       <div className={style.gallery__video}>
-        <video controls>
+        <video className={style.video} controls>
           <source src={video} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
@@ -33,12 +33,12 @@ export default function SabantuyCollection() {
       </div>
       <div className={style.gallery__photo}>
         <div>
-          <h2>Фотогалерея</h2>
+          <h2 className={style.suptitle__collection}>Фотогалерея</h2>
         </div>
         <div className={style.photos}>
           {collectionData.map((photo, index) => (
             <img
-              key={index}
+              key={photo.id}
               src={photo.img}
               alt={`Sabantuy photo ${index + 1}`}
               className={style.photo}

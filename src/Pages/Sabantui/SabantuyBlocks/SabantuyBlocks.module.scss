@@ -1,9 +1,9 @@
 .sabantuy__blocks {
   display: flex;
   margin: 0 auto;
-  padding: 15px;
+  padding: 20px;
   gap: 20px;
-  width: 40%;
+  width: 50%;
 }
 
 .cover__image {
@@ -12,12 +12,10 @@
 }
 
 .card {
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.7s ease-in-out;
 }
 
 .card:hover {
-  border: 5px solid #ccc;
-  border-radius: 10px;
   text-decoration: underline blue;
   transform: scale(1.1);
   .card__title {

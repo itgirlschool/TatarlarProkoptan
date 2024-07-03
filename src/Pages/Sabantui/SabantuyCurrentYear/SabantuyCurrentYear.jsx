@@ -15,11 +15,11 @@ export default function SabantuyCurrentYear() {
 
   return (
     <div className={style.block__currentyear}>
-      <h1>Сабантуй 2024</h1>
+      <h1 className={style.title__current}>Сабантуй 2024</h1>
       <div className={style.gallery__current}>
         {currentData.map((photo, index) => (
           <img
-            key={index}
+            key={photo.id}
             src={photo.img}
             alt={`Sabantuy photo ${index + 1}`}
             className={style.photo__current}

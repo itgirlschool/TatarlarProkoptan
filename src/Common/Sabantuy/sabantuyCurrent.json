@@ -1,6 +1,6 @@
 [
-  { "id": 0, "img": "../../../public/imgs/Sabantuy/about.jpg" },
-  { "id": 1, "img": "../../../public/imgs/Sabantuy/timeline.jpg" },
-  { "id": 2, "img": "../../../public/imgs/Sabantuy/map.jpg" },
-  { "id": 3, "img": "../../../public/imgs/Sabantuy/place.jpg" }
+  { "id": 0, "img": "../../src/assets/images/Sabantuy/about.jpg" },
+  { "id": 1, "img": "../../src/assets/images/Sabantuy/timeline.jpg" },
+  { "id": 2, "img": "../../src/assets/images/Sabantuy/map.jpg" },
+  { "id": 3, "img": "../../src/assets/images/Sabantuy/place.jpg" }
 ]

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import cover2 from "../../../../public/imgs/Sabantuy/original.svg";
-import cover from "../../../../public/imgs/Sabantuy/original_no_text.svg";
+import cover2 from "../../../assets/images/Sabantuy/original.svg";
+import cover from "../../../assets/images/Sabantuy/original_no_text.svg";
 import style from "./SabantuyBlocks.module.scss";
 
 export default function SabantuyBlocks() {

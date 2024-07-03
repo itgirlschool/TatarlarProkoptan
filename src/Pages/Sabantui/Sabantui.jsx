@@ -1,5 +1,5 @@
 import style from "./Sabantui.module.scss";
-import sabantuy from "../../../public/imgs/Sabantuy/main.jpg";
+import sabantuy from "../../../src/assets/images/Sabantuy/main.jpg";
 import SabantuyBlocks from "../Sabantui/SabantuyBlocks/SabantuyBlocks";
 
 export default function Sabantui() {
