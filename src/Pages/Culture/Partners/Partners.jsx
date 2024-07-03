@@ -3,15 +3,14 @@ import PartnerCard from './PartnerCard';
 import styles from './Partners.module.scss';
 import partnerData from '../../../Services/CultureData/partners.json';
 
-
-function Partners  ()  {
+function Partners() {
   return (
     <div className={styles.partners}>
-      <p className={styles.h1}>Наши партнеры</p>
+      <p className={styles.partners_p}>Наши партнеры</p>
       <div className={styles.cards_container}>
-        {partnerData.map((partner, index) => (
+        {partnerData.map((partner) => (
           <PartnerCard
-            key={index}
+            key={partner.id}
             title={partner.title}
             description={partner.description}
             link={partner.link}
@@ -23,6 +22,6 @@ function Partners  ()  {
       </div>
     </div>
   );
-};
+}
 
 export default Partners;

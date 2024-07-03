@@ -5,13 +5,13 @@ import cuisineData from '../../../Services/CultureData/cuisine.json';
 function Cuisine() {
   return (
     <div className={styles.cuisine_container}>
-      <h1>Национальная кухня</h1>
+      <h1 className={styles.cuisine_h1}>Национальная кухня</h1>
       <p className={styles.cuisine}>
-        Кухня татарского народа воплотила в себе культурные, этнические и религиозные традиции, формировавшиеся на протяжении многих веков. Сегодня она имеет репутацию одной из наиболее сытных и вкусных, одновременно простой и изысканной. Свои самобытные черты татарская кухня сохранила до наших дней.Татарский народ бережно хранит традиции приготовления национальных блюд, передавая их из поколения в поколение. Некоторые блюда татарской кухни сохранились практически такими же, как и много лет назад.
+        Кухня татарского народа воплотила в себе культурные, этнические и религиозные традиции, формировавшиеся на протяжении многих веков. Сегодня она имеет репутацию одной из наиболее сытных и вкусных, одновременно простой и изысканной. Свои самобытные черты татарская кухня сохранила до наших дней. Татарский народ бережно хранит традиции приготовления национальных блюд, передавая их из поколения в поколение. Некоторые блюда татарской кухни сохранились практически такими же, как и много лет назад.
       </p>
       <div className={styles.cuisine_images}>
-        {cuisineData.map((image, index) => (
-          <TemplateCuisine key={index} image={image} />
+        {cuisineData.map((cuisine) => (
+          <TemplateCuisine key={cuisine.id} image={cuisine} />
         ))}
       </div>
     </div>
@@ -20,9 +20,11 @@ function Cuisine() {
 
 function TemplateCuisine({ image }) {
   const [isFlipped, setIsFlipped] = useState(false);
+
   const handleClick = () => {
     setIsFlipped(!isFlipped);
   };
+
   return (
     <div className={`${styles.card_container} ${isFlipped ? styles.flipped : ''}`} onClick={handleClick}>
       <div className={styles.card}>
@@ -30,7 +32,7 @@ function TemplateCuisine({ image }) {
           <img src={image.src} alt={image.alt} className={styles.cuisine_image} />
         </div>
         <div className={styles.card_back}>
-<h3>{image.name}</h3>
+          <h3>{image.name}</h3>
           <p className={styles.recipe}>{image.recipe}</p>
         </div>
       </div>

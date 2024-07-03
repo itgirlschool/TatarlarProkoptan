@@ -8,11 +8,11 @@ function Mosques() {
     <div className={styles.mosques_сontainer}>
       <h1>Мечеть</h1>
       <div className={styles.mosques_images}>
-        {mosquesData.map((image, index) => (
+        {mosquesData.map((mosque) => (
           <div
-          key={index}
+          key={mosque.id}
           className={styles.mosques_image_wrapper}>
-            <img src={image.src} alt={image.alt} className={styles.mosques_image} />
+            <img src={mosque.src} alt={mosque.alt} className={styles.mosques_image} />
           </div>
         ))}
       </div>

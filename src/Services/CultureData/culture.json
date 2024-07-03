@@ -1,8 +1,8 @@
 [
-    { "src": "/src/assets/cultureImg/cult1.jpg", "alt": "Культура 1" },
-    { "src": "/src/assets/cultureImg/cult2.jpg", "alt": "Культура 2" },
-    { "src": "/src/assets/cultureImg/cult3.jpg", "alt": "Культура 3" },
-    { "src": "/src/assets/cultureImg/cult4.jpg", "alt": "Культура 4" },
-    { "src": "/src/assets/cultureImg/cult5.jpg", "alt": "Культура 5" },
-    { "src": "/src/assets/cultureImg/cult6.jpg", "alt": "Культура 6" }
+    { "id": "1", "src": "/src/assets/cultureImg/cult1.jpg", "alt": "Культура 1" },
+    { "id": "2", "src": "/src/assets/cultureImg/cult2.jpg", "alt": "Культура 2" },
+    { "id": "3", "src": "/src/assets/cultureImg/cult3.jpg", "alt": "Культура 3" },
+    { "id": "4", "src": "/src/assets/cultureImg/cult4.jpg", "alt": "Культура 4" },
+    { "id": "5", "src": "/src/assets/cultureImg/cult5.jpg", "alt": "Культура 5" },
+    { "id": "6", "src": "/src/assets/cultureImg/cult6.jpg", "alt": "Культура 6" }
 ]
