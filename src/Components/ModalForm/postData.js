@@ -1,5 +1,4 @@
 import { addUserAutonomy } from "../../Services/AutonomyFB/autonomy";
-import { getAutonomyAllUsers } from "../../Services/AutonomyFB/autonomy";
 
 export const prepareNameData = (data) => {
   const dataSliced = data.trim();
@@ -17,11 +16,10 @@ export const prepareOtherData = (data) => {
   return dataPost;
 };
 
-export async function isPhoneTaken(data) {
+export async function isPhoneTaken(data, dataArray) {
   const postData = preparePhoneData(data);
   try {
-    const base = await getAutonomyAllUsers();
-    const baseArray = Object.values(base);
+    const baseArray = Object.values(dataArray);
     const allPhones = [];
     baseArray.forEach((item) => {
       allPhones.push(item.телефон);
@@ -36,11 +34,10 @@ export async function isPhoneTaken(data) {
   }
 }
 
-export async function isEmailTaken(data) {
+export async function isEmailTaken(data, dataArray) {
   const postData = prepareOtherData(data);
   try {
-    const base = await getAutonomyAllUsers();
-    const baseArray = Object.values(base);
+    const baseArray = Object.values(dataArray);
     const allEmails = [];
     baseArray.forEach((item) => {
       allEmails.push(item.email);

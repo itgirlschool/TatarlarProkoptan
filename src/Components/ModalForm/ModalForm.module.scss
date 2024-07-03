@@ -6,9 +6,9 @@
   min-height: 100%;
   justify-content: center;
   align-items: start;
-  background-color: rgba(31, 92, 87, 0.6);
+  background-color: rgba(5, 15, 14, 0.7);
   z-index: 100;
-  overflow: hidden;
+  overflow: auto;
   animation: appearance 0.3s ease-in-out;
 }
 @keyframes appearance {
@@ -23,7 +23,7 @@
   max-width: 1800px;
   width: auto;
   padding: 20px 70px;
-  margin-top: 3vh;
+  margin: 3vh auto auto auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -43,7 +43,7 @@
   width: 100%;
   min-height: 100%;
   z-index: 1;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 .feedback__wrapper {
   width: auto;
@@ -101,8 +101,8 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 80%;
-  max-width: 800px;
+  width: 100%;
+  max-width: 900px;
   margin: 30px auto;
   font-family: $fontLifehackRegular;
   font-size: 24px;
@@ -110,7 +110,7 @@
 .input__wrapper {
   display: grid;
   grid-template-columns: 30% 70%;
-  gap: 5px;
+  gap: 15px;
   align-items: center;
 }
 .label {
@@ -133,7 +133,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
 }
 .container__buttons {
   display: flex;

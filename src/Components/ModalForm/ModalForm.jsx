@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import style from "./ModalForm.module.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Checkbox from "../../assets/images/checkbox.svg";
 import postData from "./postData";
 import Loader from "../Loader/Loader";
@@ -8,6 +8,8 @@ import FeedbackWindow from "./FeedBackWindow";
 import mask from "./inputPhone";
 import { isPhoneTaken } from "./postData";
 import { isEmailTaken } from "./postData";
+import { fetchUsersAutonomy } from "../../store/slice/AutonomySlice";
+import { useSelector, useDispatch } from "react-redux";
 
 export default function ModalForm({ onClose }) {
   const [statusChecked, setStatusChecked] = useState(false);
@@ -15,6 +17,12 @@ export default function ModalForm({ onClose }) {
   const [statusCheckbox, setStatusCheckbox] = useState(checkboxClasses[0]);
   const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
   const [responseStatus, setResponseStatus] = useState(false);
+
+  const dispatch = useDispatch();
+  const usersAutonomy = useSelector((state) => state.autonomy.users);
+  useEffect(() => {
+    dispatch(fetchUsersAutonomy());
+  }, []);
 
   const onHandleChecked = () => {
     setStatusChecked(!statusChecked);
@@ -41,8 +49,8 @@ export default function ModalForm({ onClose }) {
   });
   const onSubmit = async ({ lastName, firstName, surName, phone, email }) => {
     try {
-      const isPhoneNumberTaken = await isPhoneTaken(phone);
-      const isEmailAddressTaken = await isEmailTaken(email);
+      const isPhoneNumberTaken = await isPhoneTaken(phone, usersAutonomy);
+      const isEmailAddressTaken = await isEmailTaken(email, usersAutonomy);
       if (isPhoneNumberTaken || isEmailAddressTaken) {
         if (isPhoneNumberTaken) {
           setError("phone", {
