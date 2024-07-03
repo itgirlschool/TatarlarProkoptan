@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import styles from './Cuisine.module.scss';
 import cuisineData from '../../../Services/CultureData/cuisine.json';
+import ChakChak from './Recipe/ChakChak';
+import Echpochmak from './Recipe/Echpochmak';
+import Kostybai from './Recipe/Kostybai';
+
 
 function Cuisine() {
   return (
@@ -25,6 +29,19 @@ function TemplateCuisine({ image }) {
     setIsFlipped(!isFlipped);
   };
 
+  const renderRecipeComponent = () => {
+    switch (image.recipe) {
+      case 'ChakChak':
+        return <ChakChak />;
+      case 'Echpochmak':
+        return <Echpochmak />;
+      case 'Kostybai':
+        return <Kostybai />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className={`${styles.card_container} ${isFlipped ? styles.flipped : ''}`} onClick={handleClick}>
       <div className={styles.card}>
@@ -33,7 +50,7 @@ function TemplateCuisine({ image }) {
         </div>
         <div className={styles.card_back}>
           <h3>{image.name}</h3>
-          <p className={styles.recipe}>{image.recipe}</p>
+          {renderRecipeComponent()}
         </div>
       </div>
     </div>
