@@ -1,8 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchCharityUsers, addCharityUser } from '../../store/slice/CharitySlice';
 
 import style from './CharityModal.module.scss';
 
 const CharityModal = ({ openModal, closeModal, updateCounter }) => {
+
+    const dispatch = useDispatch();
+    const users = useSelector(state => state.charity.users);
+    const status = useSelector(state => state.charity.status);
+    const error = useSelector(state => state.charity.error);
 
     const [formData, setFormData] = useState({
         lastName: '',
@@ -15,8 +22,26 @@ const CharityModal = ({ openModal, closeModal, updateCounter }) => {
     const [errors, setErrors] = useState({});
     const [successMessage, setSuccessMessage] = useState('');
     const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+    const [duplicateError, setDuplicateError] = useState(false);
 
-    if (!openModal) return null;
+    useEffect(() => {
+        if (openModal && status === 'idle') {
+            dispatch(fetchCharityUsers());
+        }
+    }, [openModal, status, dispatch]);
+
+    useEffect(() => {
+        if (status === 'succeeded') {
+            checkForDuplicates();
+        }
+    }, [status, users]);
+
+    const checkForDuplicates = () => {
+        const isDuplicate = users.some(user =>
+            user.email === formData.email || user.phone === formData.phone
+        );
+        setDuplicateError(isDuplicate);
+    };
 
     const validate = () => {
         const newErrors = {};
@@ -47,6 +72,7 @@ const CharityModal = ({ openModal, closeModal, updateCounter }) => {
         const newErrors = validate();
         if (Object.keys(newErrors).length === 0) {
             try {
+                await dispatch(addCharityUser(formData));
                 console.log('Данные отправлены');
                 setSuccessMessage('Заявка успешно отправлена!');
                 updateCounter();
@@ -62,7 +88,7 @@ const CharityModal = ({ openModal, closeModal, updateCounter }) => {
                         agreeToTerms: false
                     });
                     setErrors({});
-                    setSuccessMessage('')
+                    setSuccessMessage('');
                     setShowSuccessMessage(false);
                 }, 2000);
             } catch (error) {
@@ -87,7 +113,8 @@ const CharityModal = ({ openModal, closeModal, updateCounter }) => {
     };
 
     return (
-        <>
+
+        openModal && (
             < div className={style.modal}>
 
                 <div className={style.content}>
@@ -104,6 +131,8 @@ const CharityModal = ({ openModal, closeModal, updateCounter }) => {
                     ) : (
                         <>
                             <h2 className={style.content__title}>Стать волонтером</h2>
+
+                            {duplicateError && <p className={style.error}>Данные уже существуют!</p>}
 
                             <form className={style.form}
                                 onSubmit={handleSubmit} >
@@ -181,7 +210,7 @@ const CharityModal = ({ openModal, closeModal, updateCounter }) => {
                                         <span className={style.confident__checkmark}></span>
                                     </label>
 
-                                    <p className={`${style.confident__text} ${errors.agreeToTerms ? style.confident__text_error : ''}`}>Я соглашаюсь с политикой конфиденциальности и обработки персональных данных</p>
+                                    <p className={`${style.confident__text} ${formData.agreeToTerms ? style.confident__text_error : ''}`}>Я соглашаюсь с политикой конфиденциальности и обработки персональных данных</p>
                                 </div>
 
                                 <div className={style.button__wrap}>
@@ -202,7 +231,7 @@ const CharityModal = ({ openModal, closeModal, updateCounter }) => {
                     )}
                 </div >
             </div >
-        </>
+        )
     );
 };
 export default CharityModal;
