@@ -1,7 +1,6 @@
 import  {configureStore} from "@reduxjs/toolkit";
 import userAuthReducer from "./slice/UserAuthSlice.js";
 import autonomyReducer from "./slice/AutonomySlice.js";
-import userMiddleware from "./userMiddleware.js";
 
 
 export const store = configureStore({
@@ -10,7 +9,7 @@ export const store = configureStore({
         autonomy: autonomyReducer
     },
     middleware: (getDefaultMiddleware) => 
-        getDefaultMiddleware().concat(userMiddleware),
+        getDefaultMiddleware().concat(),
 });
 
 store.dispatch({type:'app/start'});

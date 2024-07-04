@@ -1,11 +1,14 @@
+
 import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import style from "./AuthorizationPage.module.scss";
-import {getAutonomyAllUsers} from "../../Services/AutonomyFB/autonomy";
+import style from "./AuthorizationPage.module.scss"; 
 import { useDispatch, useSelector } from "react-redux";
-import {setUser} from "../../store/slice/UserAuthSlice.js";
+import { setUser } from "../../store/slice/UserAuthSlice";
+import { Link } from "react-router-dom";
+import { getAutonomyAllUsers } from "../../Services/UsersFB/users"; 
+import { useNavigate } from "react-router-dom";
 
 const schema = yup.object().shape({
   email: yup
@@ -14,17 +17,14 @@ const schema = yup.object().shape({
     .required("Требуется email"),
   password: yup
     .string()
-    .min(6, "Пароль должен содердать от 6 символов")
+    .min(6, "Пароль должен содержать от 6 символов")
     .required("Требуется пароль"),
 });
 
 const AuthorizationPage = () => {
   const dispatch = useDispatch();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-  } = useForm({
+  const navigate = useNavigate();
+  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm({
     resolver: yupResolver(schema),
   });
 
@@ -36,6 +36,7 @@ const AuthorizationPage = () => {
       const user = await getAutonomyAllUsers(email, password);
       dispatch(setUser(user));
       alert(`Вы успешно авторизованы, ${user.email}`);
+      navigate("/home");
     } catch (error) {
       alert("Ошибка авторизации: " + error.message);
     }
@@ -86,8 +87,14 @@ const AuthorizationPage = () => {
             className={style.button__submit}
             disabled={isSubmitting}
           >
-            Подтвердить
+            Войти
           </button>
+        </div>
+        <div className={style.link__container}> 
+          Нет аккаунта?
+          <Link to="/registrationpage">
+            <p className={style.link}>Регистрация</p>
+          </Link>
         </div>
       </form>
     </div>

@@ -9,6 +9,7 @@ import {
   Sabantui,
   WeAreTogether,
   AuthorizationPage,
+  RegistrationPage,
 } from "../Pages";
 import Header from "../Components/Header/Header.jsx";
 import Footer from "../Components/Footer/Footer.jsx";
@@ -29,6 +30,7 @@ function App() {
           <Route path="/sabantui" element={<Sabantui />} />
           <Route path="/we-are-together" element={<WeAreTogether />} />
           <Route path="/authorizationpage" element={<AuthorizationPage/>} />
+          <Route path="/registrationpage" element={<RegistrationPage/>} />
         </Routes>
       </main>
       <Footer />
