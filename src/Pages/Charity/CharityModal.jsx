@@ -120,7 +120,7 @@ const CharityModal = ({ openModal, closeModal, updateCounter }) => {
                 <div className={style.content}>
                     <button
                         className={style.close}
-                        onClick={closeModal}>
+                        onClick={handleCancel}>
                         &times;
                     </button>
 
