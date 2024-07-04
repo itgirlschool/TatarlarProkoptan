@@ -4,7 +4,6 @@ import style from './CharityModal.module.scss';
 
 const CharityModal = ({ openModal, closeModal, updateCounter }) => {
 
-    const [errors, setErrors] = useState({});
     const [formData, setFormData] = useState({
         lastName: '',
         firstName: '',
@@ -13,7 +12,9 @@ const CharityModal = ({ openModal, closeModal, updateCounter }) => {
         email: '',
         agreeToTerms: false
     });
+    const [errors, setErrors] = useState({});
     const [successMessage, setSuccessMessage] = useState('');
+    const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
     if (!openModal) return null;
 
@@ -39,13 +40,6 @@ const CharityModal = ({ openModal, closeModal, updateCounter }) => {
             ...formData,
             [name]: type === 'checkbox' ? checked : value
         });
-
-        if (name === 'agreeToTerms') {
-            setErrors({
-                ...errors,
-                agreeToTerms: !checked ? 'Необходимо согласиться с политикой конфиденциальности' : ''
-            });
-        }
     };
 
     const handleSubmit = async (e) => {
@@ -53,18 +47,24 @@ const CharityModal = ({ openModal, closeModal, updateCounter }) => {
         const newErrors = validate();
         if (Object.keys(newErrors).length === 0) {
             try {
+                console.log('Данные отправлены');
                 setSuccessMessage('Заявка успешно отправлена!');
                 updateCounter();
-                closeModal();
-                setFormData({
-                    lastName: '',
-                    firstName: '',
-                    middleName: '',
-                    phone: '',
-                    email: '',
-                    agreeToTerms: false
-                });
-                setErrors({});
+                setShowSuccessMessage(true);
+                setTimeout(() => {
+                    closeModal();
+                    setFormData({
+                        lastName: '',
+                        firstName: '',
+                        middleName: '',
+                        phone: '',
+                        email: '',
+                        agreeToTerms: false
+                    });
+                    setErrors({});
+                    setSuccessMessage('')
+                    setShowSuccessMessage(false);
+                }, 2000);
             } catch (error) {
                 console.error('Ошибка при отправке email:', error);
             }
@@ -88,112 +88,121 @@ const CharityModal = ({ openModal, closeModal, updateCounter }) => {
 
     return (
         <>
-            <div className={style.modal}>
+            < div className={style.modal}>
+
                 <div className={style.content}>
                     <button
                         className={style.close}
                         onClick={closeModal}>
                         &times;
                     </button>
-                    <h2 className={style.content__title}>Стать волонтером</h2>
 
-                    {/* {successMessage && <p className={style.success}>{successMessage}</p>} */}
-
-                    <form className={style.form}
-                        onSubmit={handleSubmit} >
-
-                        <div className={style.form__field}>
-                            <label>Фамилия</label>
-                            <input
-                                type="text"
-                                name="lastName"
-                                placeholder="Фамилия"
-                                value={formData.lastName}
-                                onChange={handleChange} />
-                            {errors.lastName && <p className={style.error}>{errors.lastName}</p>}
+                    {showSuccessMessage ? (
+                        <div className={style.success}>
+                            <h2 className={style.success__title}>{successMessage}</h2>
                         </div>
+                    ) : (
+                        <>
+                            <h2 className={style.content__title}>Стать волонтером</h2>
 
-                        <div className={style.form__field}>
-                            <label>Имя</label>
-                            <input
-                                type="text"
-                                name="firstName"
-                                placeholder="Имя"
-                                value={formData.firstName}
-                                onChange={handleChange} />
-                            {errors.firstName && <p className={style.error}>{errors.firstName}</p>}
-                        </div>
+                            <form className={style.form}
+                                onSubmit={handleSubmit} >
 
-                        <div className={style.form__field}>
-                            <label>Отчество</label>
-                            <input
-                                type="text"
-                                name="middleName"
-                                placeholder="Отчество"
-                                value={formData.middleName}
-                                onChange={handleChange} />
-                            {errors.middleName && <p className={style.error}>{errors.middleName}</p>}
-                        </div>
+                                <div className={style.form__field}>
+                                    <label className={style.form__label}>Фамилия</label>
+                                    {errors.lastName && <p className={style.error}>{errors.lastName}</p>}
+                                    <input
+                                        className={style.form__input}
+                                        type="text"
+                                        name="lastName"
+                                        placeholder="Фамилия"
+                                        value={formData.lastName}
+                                        onChange={handleChange} />
+                                </div>
 
-                        <div className={style.form__field}>
-                            <label>Телефон</label>
-                            <input
-                                type="tel"
-                                name="phone"
-                                placeholder="+..."
-                                value={formData.phone}
-                                onChange={handleChange} />
-                            {errors.phone && <p className={style.error}>{errors.phone}</p>}
-                        </div>
+                                <div className={style.form__field}>
+                                    <label className={style.form__label}>Имя</label>
+                                    {errors.firstName && <p className={style.error}>{errors.firstName}</p>}
+                                    <input
+                                        className={style.form__input}
+                                        type="text"
+                                        name="firstName"
+                                        placeholder="Имя"
+                                        value={formData.firstName}
+                                        onChange={handleChange} />
+                                </div>
 
-                        <div className={style.form__field}>
-                            <label>Электронная почта</label>
-                            <input
-                                type="email"
-                                name="email"
-                                placeholder="e-mail"
-                                value={formData.email}
-                                onChange={handleChange} />
-                            {errors.email && <p className={style.error}>{errors.email}</p>}
-                        </div>
+                                <div className={style.form__field}>
+                                    <label className={style.form__label}>Отчество</label>
+                                    {errors.middleName && <p className={style.error}>{errors.middleName}</p>}
+                                    <input
+                                        className={style.form__input}
+                                        type="text"
+                                        name="middleName"
+                                        placeholder="Отчество"
+                                        value={formData.middleName}
+                                        onChange={handleChange} />
+                                </div>
 
-                        <div className={style.confident}>
-                            <label className={style.confident__checkbox}>
-                                <label for="checkbox"></label>
-                                <input
-                                    id="checkbox"
-                                    type="checkbox"
-                                    name="agreeToTerms"
-                                    checked={formData.agreeToTerms}
-                                    onChange={handleChange} />
-                                <span className={style.confident__checkmark}></span>
-                            </label>
+                                <div className={style.form__field}>
+                                    <label className={style.form__label}>Телефон</label>
+                                    {errors.phone && <p className={style.error}>{errors.phone}</p>}
+                                    <input
+                                        className={style.form__input}
+                                        type="tel"
+                                        name="phone"
+                                        placeholder="+..."
+                                        value={formData.phone}
+                                        onChange={handleChange} />
+                                </div>
 
-                            <p className={style.confident__text}>Я соглашаюсь с политикой конфиденциальности и обработки персональных данных</p>
-                            {errors.agreeToTerms && <p className={style.error}>{errors.agreeToTerms}</p>}
-                        </div>
+                                <div className={style.form__field}>
+                                    <label className={style.form__label}>Электронная почта</label>
+                                    {errors.email && <p className={style.error}>{errors.email}</p>}
+                                    <input
+                                        className={style.form__input}
+                                        type="email"
+                                        name="email"
+                                        placeholder="e-mail"
+                                        value={formData.email}
+                                        onChange={handleChange} />
+                                </div>
 
-                        <div className={style.button__wrap}>
-                            <button
-                                className={style.button__wrap_btn}
-                                type="submit">
-                                Принять участие
-                            </button>
-                            <button
-                                className={style.button__wrap_btn}
-                                type="button"
-                                onClick={handleCancel}>
-                                Отмена
-                            </button>
-                        </div>
-                    </form>
+                                <div className={style.confident}>
+                                    <label className={style.confident__checkbox}>
+                                        <label for="checkbox"></label>
+                                        <input
+                                            className={style.confident__checkbox_input}
+                                            id="checkbox"
+                                            type="checkbox"
+                                            name="agreeToTerms"
+                                            checked={formData.agreeToTerms}
+                                            onChange={handleChange} />
+                                        <span className={style.confident__checkmark}></span>
+                                    </label>
+
+                                    <p className={`${style.confident__text} ${errors.agreeToTerms ? style.confident__text_error : ''}`}>Я соглашаюсь с политикой конфиденциальности и обработки персональных данных</p>
+                                </div>
+
+                                <div className={style.button__wrap}>
+                                    <button
+                                        className={style.button__wrap_btn}
+                                        type="submit">
+                                        Принять участие
+                                    </button>
+                                    <button
+                                        className={style.button__wrap_btn}
+                                        type="button"
+                                        onClick={handleCancel}>
+                                        Отмена
+                                    </button>
+                                </div>
+                            </form>
+                        </>
+                    )}
                 </div >
             </div >
         </>
-
-
-
     );
-
 };
 export default CharityModal;
