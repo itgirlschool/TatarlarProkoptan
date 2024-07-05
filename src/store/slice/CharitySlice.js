@@ -1,14 +1,14 @@
 import {createSlice} from "@reduxjs/toolkit";
 
 
-const charitySlice  = createSlice({
+const charitySlice = createSlice({
     name: "charity",
     initialState: {
-        users:null
+        users: null
     },
     reducers: {
         setUserCharity(state, action) {
-            state.users = action.payload
+            state.users = Object.values(action.payload)
 
         },
     },

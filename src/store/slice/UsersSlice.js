@@ -8,7 +8,7 @@ const usersSlice  = createSlice({
     },
     reducers: {
         setUsers(state, action) {
-            state.users = action.payload
+            state.users = Object.values(action.payload)
 
         },
     },
