@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Cuisine.module.scss';
 import cuisineData from '../../../Services/CultureData/cuisine.json';
 import ChakChak from './Recipe/ChakChak';
@@ -9,6 +10,7 @@ import Kostybai from './Recipe/Kostybai';
 function Cuisine() {
   return (
     <div className={styles.cuisine_container}>
+      <Link to="/culture" className={styles.back_button_cuisine}>Назад</Link>
       <h1 className={styles.cuisine_h1}>Национальная кухня</h1>
       <p className={styles.cuisine}>
         Кухня татарского народа воплотила в себе культурные, этнические и религиозные традиции, формировавшиеся на протяжении многих веков. Сегодня она имеет репутацию одной из наиболее сытных и вкусных, одновременно простой и изысканной. Свои самобытные черты татарская кухня сохранила до наших дней. Татарский народ бережно хранит традиции приготовления национальных блюд, передавая их из поколения в поколение. Некоторые блюда татарской кухни сохранились практически такими же, как и много лет назад.

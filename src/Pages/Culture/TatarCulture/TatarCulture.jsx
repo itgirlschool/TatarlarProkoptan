@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './TatarCulture.module.scss';
 import tatarData from '../../../Services/CultureData/culture.json';
 
@@ -15,6 +16,7 @@ function TatarCulture() {
 
   return (
     <div className={styles.tatar_container}>
+      <Link to="/culture" className={styles.back_button_culture}>Назад</Link>
       <h1 className={styles.tatar_h1}>Культура Татар Прокопьевска</h1>
       <p className={styles.tatar_culture}>
         Одна из самых многочисленных диаспор в Кузбассе — татарская. Татары проживают в нашем регионе как компактными

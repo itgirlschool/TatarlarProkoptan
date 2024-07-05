@@ -3,8 +3,27 @@
 .tatar_container {
   max-width: 1000px;
   margin: 0 auto;
-  padding-top: 30px;
+  padding-top: 10px;
   font-family: $fontLifehackRegular;
+}
+
+.back_button_culture {
+  display: inline-block;
+  width: 50px;
+  text-decoration: none;
+  text-align: center;
+  color: $header-background-color;
+  font-size: 24px;
+  font-weight: bolder;
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease;
+}
+
+.back_button_culture:hover {
+  background: $header-background-color;
+  color: #fff;
 }
 
 .tatar_culture {
@@ -77,6 +96,7 @@
 }
 
 .read_more a {
+  color: $header-background-color;
   text-decoration: none;
   font-weight: bolder;
 }
@@ -98,6 +118,7 @@
 @media (max-width: 768px) {
   .tatar_container {
     max-width: 600px;
+    margin: 0 auto;
     margin-left: 10px;
     margin-right: 10px;
   }

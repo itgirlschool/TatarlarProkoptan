@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { YMaps, Map,Placemark } from '@pbe/react-yandex-maps';
 import styles from './Mosques.module.scss';
 import mosquesData from '../../../Services/CultureData/mosques.json';
@@ -6,7 +7,8 @@ import mosquesData from '../../../Services/CultureData/mosques.json';
 function Mosques() {
   return (
     <div className={styles.mosques_сontainer}>
-      <h1>Мечеть</h1>
+      <Link to="/culture" className={styles.back_button_mosques}>Назад</Link>
+      <h1 className={styles.mosque_h1}>Мечеть</h1>
       <div className={styles.mosques_images}>
         {mosquesData.map((mosque) => (
           <div

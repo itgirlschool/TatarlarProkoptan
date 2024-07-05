@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import traditionData from '../../../Services/CultureData/traditions.json';
 import styles from './Traditions.module.scss';
 
@@ -15,6 +16,7 @@ function Traditions() {
 
   return (
     <div className={styles.traditions}>
+      <Link to="/culture" className={styles.back_button_traditions}>Назад</Link>
       <h1 className={styles.traditions_h1}>Хранители традиций</h1>
       <p>
         Татары Прокопьевска — хранители уникальных традиций, которые объединяют прошлое и настоящее, связывая поколения и создавая богатую культурную историю нашего города. Мы гордимся нашими корнями и стремимся сохранить это богатство для будущих поколений.

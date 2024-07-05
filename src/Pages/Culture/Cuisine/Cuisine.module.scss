@@ -8,6 +8,25 @@
   font-family: $fontLifehackRegular;
 }
 
+.back_button_cuisine {
+  display: inline-block;
+  width: 50px;
+  text-decoration: none;
+  text-align: center;
+  color: $header-background-color;
+  font-size: 24px;
+  font-weight: bolder;
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease;
+}
+
+.back_button_cuisine:hover {
+  background: $header-background-color;
+  color: #fff;
+}
+
 .cuisine_h1 {
   text-align: center;
   color: $header-background-color;
