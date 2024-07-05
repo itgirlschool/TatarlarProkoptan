@@ -8,8 +8,9 @@ import FeedbackWindow from "./FeedBackWindow";
 import mask from "./inputPhone";
 import { isPhoneTaken } from "./postData";
 import { isEmailTaken } from "./postData";
-import { fetchUsersAutonomy } from "../../store/slice/AutonomySlice";
-import { useSelector, useDispatch } from "react-redux";
+import middlewareListenersAutonomyUsers from "../../store/middleware/middleWareAutonomy";
+import { useSelector } from "react-redux";
+import { store } from "../../store";
 
 export default function ModalForm({ onClose }) {
   const [statusChecked, setStatusChecked] = useState(false);
@@ -18,10 +19,9 @@ export default function ModalForm({ onClose }) {
   const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
   const [responseStatus, setResponseStatus] = useState(false);
 
-  const dispatch = useDispatch();
   const usersAutonomy = useSelector((state) => state.autonomy.users);
   useEffect(() => {
-    dispatch(fetchUsersAutonomy());
+    store.dispatch(middlewareListenersAutonomyUsers('SUBSCRIBE_TO_AUTONOMY_USERS'));
   }, []);
 
   const onHandleChecked = () => {
