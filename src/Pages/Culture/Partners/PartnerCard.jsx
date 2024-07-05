@@ -18,7 +18,7 @@ function PartnerCard  ({ title, description, link,phone,location, coordinates })
         {coordinates && (
           <YMaps>
             <div className={styles.map}>
-              <Map defaultState={{ center: coordinates, zoom: 15 }}>
+              <Map defaultState={{ center: coordinates, zoom: 15 }} width="100%" height="100%" >
                 <Placemark geometry={coordinates} />
               </Map>
             </div>

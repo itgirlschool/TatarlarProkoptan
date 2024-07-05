@@ -19,7 +19,7 @@ function Mosques() {
       <p>г. Прокопьевск, ул. Серова 17</p>
       <div className={styles.map_container}>
         <YMaps>
-          <Map defaultState={{center: [53.8757, 86.7402], zoom: 13}}  width="100%" height="100%">
+          <Map defaultState={{center: [53.8757, 86.7402], zoom: 13}} width="100%" height="100%">
             <Placemark geometry={[53.8757, 86.7402]} />
           </Map>
         </YMaps>
