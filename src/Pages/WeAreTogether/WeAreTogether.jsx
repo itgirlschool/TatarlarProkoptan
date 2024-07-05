@@ -43,7 +43,6 @@ const WeAreTogether = () => {
 				 </div> 
 				 </article>) : (
 					<article className={style.content__img}>
-				 
 				 <Carousel className={style.carousel} effect='fade' arrows draggable>
 					{children.map((item) => { 
 					 return( 
@@ -66,7 +65,6 @@ const WeAreTogether = () => {
 				 </div> 
 				 </article>) :(
 					<article className={style.content__img}>
-				
 				 <Carousel className={style.carousel} effect='fade' arrows draggable >
 					 {help.map((item) => { 
 						 return( 
@@ -78,8 +76,7 @@ const WeAreTogether = () => {
 							 </h3> 
 					 </div> 
 					 )})} 
-				 </Carousel> 
-				
+				 </Carousel> 	
 			</article>
 			)}
 			{ activeGallery ? (<article className={style.content__img}>
