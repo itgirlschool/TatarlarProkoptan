@@ -1,0 +1,24 @@
+@import '../../style/vars.scss';
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #39a4a5;
+  font-family: $fontLifehackRegular;
+  margin: auto;
+}
+.title {
+  color: white;
+  font-size: 3vw;
+}
+.button {
+  border: 2px solid white;
+  color: white;
+  border-radius: 10px;
+  background-color: #39a4a5;
+  font-size: 2.5vw;
+  padding: 5px;
+  font-family: $fontLifehackRegular;
+}
