@@ -9,25 +9,23 @@ import galleryImg from '../../assets/images/gallery4.jpg';
 import { useState } from 'react'
 
 
-
-
-
-
 const WeAreTogether = () => {
 
 	const [activeChildren, setActiveChildren] = useState(true);
-	const [activeHelp, setActiveHelp] = useState(true)
-	const [activeGallery, setActiveGallery] = useState(true)
-
+	const [activeHelp, setActiveHelp] = useState(true);
+	const [activeGallery, setActiveGallery] = useState(true);
 
 	const handleClickChildren =()=>{
 	setActiveChildren((prev) => !prev);
+	
 	}
 	const handleClickHelp =()=>{
 		setActiveHelp((prev) => !prev);
+		
 		}
 	const handleClickGallery =()=>{
 		setActiveGallery((prev) => !prev);
+		
 		}
 
 	return (
@@ -40,11 +38,12 @@ const WeAreTogether = () => {
 			{ activeChildren ? (
 			<article className={style.content__img}>
 				<div className={style.img__block}>
-				<img src={childrenImg} alt='наша молодежь' className={style.img} onClick={handleClickChildren}/>
+				<img src={childrenImg} alt='наша молодежь' className={style.img} />
+				<h2 className={style.header__img} onClick={handleClickChildren}>Наша молодежь</h2> 
 				 </div> 
 				 </article>) : (
 					<article className={style.content__img}>
-				{/* <h2 className={style.header__img}>Наша молодежь</h2> */}
+				 
 				 <Carousel className={style.carousel} effect='fade' arrows draggable>
 					{children.map((item) => { 
 					 return( 
@@ -62,11 +61,12 @@ const WeAreTogether = () => {
 			{activeHelp ? (
 			<article className={style.content__img}>
 			<div className={style.img__block}>
-				<img src={helpImg} alt='мы помогаем' className={style.img} onClick={handleClickHelp}/>
+				<img src={helpImg} alt='мы помогаем' className={style.img} />
+				<h2 className={style.header__img} onClick={handleClickHelp}>Помогаем в трудную минуту</h2>
 				 </div> 
 				 </article>) :(
 					<article className={style.content__img}>
-				{/* <h2 className={style.header__img}>Помогаем в трудную минуту</h2> */}
+				
 				 <Carousel className={style.carousel} effect='fade' arrows draggable >
 					 {help.map((item) => { 
 						 return( 
@@ -79,17 +79,19 @@ const WeAreTogether = () => {
 					 </div> 
 					 )})} 
 				 </Carousel> 
+				
 			</article>
 			)}
 			{ activeGallery ? (<article className={style.content__img}>
 			<div className={style.img__block}>
-				<img src={galleryImg} alt='наша галерея' className={style.img} onClick={handleClickGallery}/>
+				<img src={galleryImg} alt='наша галерея' className={style.img} />
+				<h2 className={style.header__img} onClick={handleClickGallery}>Галерея</h2> 
 				 </div> 
 				 </article>) 
 				 :
 			(<article className={style.content__img}>
-				{/* <h2 className={style.header__img}>Галерея</h2> */}
-				 <Carousel className={style.carousel} effect='fade' arrows draggable > 
+				
+				 <Carousel className={style.carousel} effect='fade' arrows  > 
 					 {gallery.map((item) => {
 						 return( 
 						 <div key={item.id} onClick={handleClickGallery}> 
