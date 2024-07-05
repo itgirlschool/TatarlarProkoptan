@@ -8,7 +8,7 @@ const charitySlice = createSlice({
     },
     reducers: {
         setUserCharity(state, action) {
-            state.users = action.payload
+            state.users = Object.values(action.payload)
 
         },
     },
