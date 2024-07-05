@@ -26,8 +26,8 @@
 }
 
 .back_button_mosques:hover {
-  background: $header-background-color;
-  color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 4px 30px  $header-background-color;
 }
 
 .mosques_images {

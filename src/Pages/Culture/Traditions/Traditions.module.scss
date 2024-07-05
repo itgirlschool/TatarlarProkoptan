@@ -23,8 +23,8 @@
 }
 
 .back_button_traditions:hover {
-  background: $header-background-color;
-  color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 4px 30px  $header-background-color;
 }
 
 .traditions_h1 {
