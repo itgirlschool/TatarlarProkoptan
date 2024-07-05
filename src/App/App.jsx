@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { Route, Routes, Link } from "react-router-dom";
 import {
   HomePage,
@@ -13,8 +14,34 @@ import Header from "../Components/Header/Header.jsx";
 import Footer from "../Components/Footer/Footer.jsx";
 
 import style from "./App.module.scss";
+import Loader from "../Components/Loader/Loader.jsx";
 
 function App() {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser(null);
+      }
+      setLoading(false);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className={style.loaderContainer}>
+        <Loader />
+      </div>
+    );
+  }
+
   return (
     <div className={style.app}>
       <Header />
