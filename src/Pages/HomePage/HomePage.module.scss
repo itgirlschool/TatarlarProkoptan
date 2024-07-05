@@ -1,12 +1,15 @@
 @import '../../style/vars';
 
+.container {
+    background-color: $body-background-color;
+}
+
 .title{
     color:rgb(6, 100, 6);
     text-align: center;
     font-size: 50px;
     font-family: $fontLifehackRegular;
     font-weight: 700;
-
 }
 
 .info{
@@ -16,20 +19,24 @@
     align-items: center;
     justify-content: space-around;
     flex-wrap: wrap;
-    gap: 20px;
     font-family: $fontLifehackRegular;
-
 }
 
 .video{
     background-color: rgba(248, 219, 33, 0.5);
     padding: 20px;
     border-radius: 10px;
+    text-align: center;
+}
+
+.iframe {
+    width: 560px;
+    height: 315px;
+    margin: 0 auto;
 }
 
 .title__video{
     width: 50%;
-
 }
 
 .info__video{
@@ -40,9 +47,7 @@
     align-items: center;
     font-family: $fontLifehackRegular;
     justify-content: flex-end;
-
 }
-
 
 .button{
     width: 200px;
@@ -51,7 +56,7 @@
     background-color: darkgreen;
     border: none;
     border-radius: 5px;
-    color: aliceblue;
+    color: $body-background-color;
     font-size: 20px;
     font-weight: 400;
     font-family: $fontLifehackRegular;
@@ -68,39 +73,40 @@
     font-family: $fontLifehackRegular;
 }
 
-
 .welcome__title{
     text-align: center;
     margin-top:  50px;
     font-size: 30px;
+    font-family: $fontLifehackRegular;
 }
 
 .welcome{
     display: flex;
     padding-bottom: 50px;
-    width: 100%;
     align-items: center;
-    min-height: 400px;
     margin-top: 20px;
     font-family: $fontLifehackRegular;
     justify-content: center;
     flex-wrap: wrap;
-
 }
+
+.welcome__img {
+    width:500px;
+}
+
 .container__welcomeimg{
     background-color: rgba(248, 219, 33, 0.5);
     padding: 5px;
     border-radius: 5px;
-
+    display: flex;
+    justify-content: center;
 }
 .info__text{
     margin-bottom: 20px;
-
 }
 .text{
     color: rgb(220, 167, 0);
     font-weight: 600;
-
 }
 .welcome__img{
     border-radius: 10px;
@@ -113,10 +119,63 @@
     width: 50%;
     margin-left: 10px;
     font-size: 20px;
-
 }
 
 .welcome__end{
     text-align: center;
     margin-top: 30px;
+}
+
+@media (max-width: 1024px) {
+    .info__video {
+        min-height: 0;
+    }
+
+    .button{
+        margin-top: 0;
+    }
+
+    .note{
+        margin-top: 10px;
+    }
+
+    .video__container {
+        margin: 0 10%;
+    }
+
+    .info{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        gap: 10px;
+        width: calc(100% - 10px);
+        margin: 0 5px;
+    }
+
+    .iframe {
+        width: calc(100% - 20px);
+    }
+
+    .video{
+        padding: 10px;
+    }
+
+    .container__welcomeimg {
+        width: 80%;
+    }
+
+    .welcome__img {
+        width: 98%;
+        margin: 0 auto;
+    }
+
+    .welcome__text{
+        width: 80%;
+    }
+}
+
+@media (max-width: 430px) {
+    .iframe {
+        height: auto;
+    }
 }

@@ -6,7 +6,7 @@ import MailIcon from "../../assets/images/mail.svg";
 import PhoneIcon from "../../assets/images/phone.svg";
 import FamilyIconImage from "../../assets/images/family.svg";
 import { useState } from "react";
-import { NavLink }  from  "react-router-dom";
+import { NavLink } from "react-router-dom";
 import ModalForm from "../ModalForm/ModalForm";
 
 const Header = () => {
@@ -17,12 +17,11 @@ const Header = () => {
   const closeModal = (value) => {
     setIsModalOpen(value);
   };
-  const getStyle =({isActive})=>{
+  const getStyle = ({ isActive }) => {
     return {
-      borderBottom: isActive ? '1px solid #f5e9e1': '',
-    }
-  }
-
+      borderBottom: isActive ? "1px solid #f5e9e1" : "",
+    };
+  };
 
   return (
     <>
@@ -32,17 +31,41 @@ const Header = () => {
         </div>
         <nav className={style.navbar}>
           <ul className={style.nav}>
-            <li className={style.nav__link}><NavLink style={getStyle} to="/">О нас</NavLink></li>
-            <li className={style.nav__link}><NavLink style={getStyle} to="/events">События</NavLink></li>
-            <li className={style.nav__link}><NavLink style={getStyle} to="/culture">Культура</NavLink></li>
-            <li className={style.nav__link}><NavLink style={getStyle} to="/sabantui">Сабантуй</NavLink></li>
-            <li className={style.nav__link}><NavLink style={getStyle} to="/charity">Благотворительность</NavLink></li>
-            <li className={style.nav__link}><NavLink style={getStyle} to="/we-are-together">Мы вместе</NavLink></li>
+            <li className={style.nav__link}>
+              <NavLink style={getStyle} to="/">
+                О нас
+              </NavLink>
+            </li>
+            <li className={style.nav__link}>
+              <NavLink style={getStyle} to="/events">
+                События
+              </NavLink>
+            </li>
+            <li className={style.nav__link}>
+              <NavLink style={getStyle} to="/culture">
+                Культура
+              </NavLink>
+            </li>
+            <li className={style.nav__link}>
+              <NavLink style={getStyle} to="/sabantui">
+                Сабантуй
+              </NavLink>
+            </li>
+            <li className={style.nav__link}>
+              <NavLink style={getStyle} to="/charity">
+                Благотворительность
+              </NavLink>
+            </li>
+            <li className={style.nav__link}>
+              <NavLink style={getStyle} to="/we-are-together">
+                Мы вместе
+              </NavLink>
+            </li>
           </ul>
-          <BurgerMenu/>
+          <BurgerMenu />
         </nav>
         <div className={style.action__container}>
-        <div className={style.icons}>
+          <div className={style.icons}>
             <a
               href="https://t.me/yourtelegram"
               target="_blank"
