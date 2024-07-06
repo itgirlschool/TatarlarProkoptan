@@ -1,16 +1,20 @@
-export const Form = (options, handleTitle, isSelected) => {
+const Form = (options, handleTitle, isSelected) => {
+    function handleClick () {
+        handleTitle();
+    }
     return isSelected ? (
         <form>
-            <div>{options.label}</div>
+            <div>{options.title}</div>
             <div className="openForm">
-                <p>{options.text}</p>
+                <p>{options.lable}</p>
                 <button>Записаться</button>
             </div>
-
         </form>
     )  : (
         <form>
-            <div onClick={handleTitle}>{options.label}</div>
+            <div onClick={handleClick}>{options.title}</div>
         </form>
     )
 }
+
+export default Form;
