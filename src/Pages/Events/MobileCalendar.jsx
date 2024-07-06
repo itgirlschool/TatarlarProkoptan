@@ -1,17 +1,38 @@
-import React from 'react';
-import { Cascader } from 'antd';
+import {React, useState} from 'react';
 import { options } from './dataEvents';
 import style from './Events.module.scss';
+import { Form } from './Form';
 
-options;
+function handleTitle () {
+const [isSelected, setIsSelected] = useState(false);
+setIsSelected(isSelected);
+}
 
-const onChange = (value) => {
-    console.log(value);
-};
+const MobileCalendar = () => {
+    return (
+        <div className={style.eventsPageMobile}>
+            {options.map((option)=> (
+            <Form key={options.key} {...option} handleTitle={handleTitle}/>
+            ))}
+        </div>
+    )
+}
 
-const MobileCalendar = () => 
-<div className={style.eventsPageMobile}>
-<Cascader options={options} onChange={onChange} placeholder="Выберете мероприятие" className={style.mobileCalendar}/>
-</div>
+
+// const listItems = options.map((option) =>
+//     <li>{options.text}</li>
+//   );
+
+
+
+// const items = options;
+// const MobileCalendar = () => {
+//   const onChange = (key) => {
+//     console.log(key);
+//   };
+//   return <div>
+//   <Collapse items={items} defaultActiveKey={['1']} onChange={onChange} />
+//   </div>
+// };
 
 export default MobileCalendar;

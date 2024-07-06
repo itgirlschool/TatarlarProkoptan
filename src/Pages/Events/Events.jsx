@@ -18,12 +18,12 @@ const useResize = () => {
   const Events = () => {
     if (window.innerWidth > 768) {
       return <div className={style.eventsPage}>
-      <h1 className={style.h1}>Узнай о наших ближайших мероприятиях</h1>
+      <h1 className={style.h1_events}>Узнай о наших ближайших мероприятиях</h1>
       <EventsCalendar />
       </div>
     } else {
       return <div className={style.eventsPage}>
-      <h1 className={style.h1}>Узнай о наших ближайших мероприятиях</h1>
+      <h1 className={style.h1_events}>Узнай о наших ближайших мероприятиях</h1>
       < MobileCalendar />
       </div>
     }

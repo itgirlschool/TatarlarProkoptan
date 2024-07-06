@@ -12,11 +12,9 @@
     text-align: left;
     margin-left: auto;
     margin-right: auto;
-    overflow-y: scroll;
-    overflow: hidden;
 }
 
-.h1 {
+.h1_events {
     text-align: center;
     padding: 10px;
 }
@@ -39,7 +37,6 @@
 .events {
     margin: 0;
     padding: 0;
-
     background-color: $footer-text-color-green;
     font-family: $fontLifehackRegular;
     border-radius: 3px;
