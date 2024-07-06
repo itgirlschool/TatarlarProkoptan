@@ -5,6 +5,30 @@
   font-family: $fontLifehackRegular;
 }
 
+.button__collection {
+  position: absolute;
+  padding: 1%;
+}
+
+.back__button__collection {
+  display: inline-block;
+  width: 100px;
+  text-decoration: none;
+  text-align: center;
+  color: $header-background-color;
+  font-size: 36px;
+  font-weight: bolder;
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease;
+}
+
+.back__button__collection:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 30px $header-background-color;
+}
+
 .title__collection {
   color: rgb(6, 100, 6);
   font-size: 50px;

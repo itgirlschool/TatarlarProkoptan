@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {Link} from "react-router-dom"
 import currentData from "../../../Common/Sabantuy/sabantuyCurrent";
 import style from "./SabantuyCurrentYear.module.scss";
 
@@ -15,6 +16,9 @@ export default function SabantuyCurrentYear() {
 
   return (
     <div className={style.block__currentyear}>
+      <div className={style.button__current}>
+      <Link to="/sabantui" className={style.back__button__current}>назад</Link>
+      </div>
       <h1 className={style.title__current}>Сабантуй 2024</h1>
       <div className={style.gallery__current}>
         {currentData.map((photo, index) => (

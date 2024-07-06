@@ -3,7 +3,7 @@
   margin: 0 auto;
   padding: 20px;
   gap: 20px;
-  width: 50%;
+  width: 70%;
 }
 
 .cover__image {
@@ -24,7 +24,7 @@
 }
 
 .card__title {
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
   margin-top: 0;
   color: black;
@@ -36,6 +36,6 @@
 
 @media (max-width: 375px) {
   .card__title {
-    font-size: 15px;
+    font-size: 20px;
   }
 }
