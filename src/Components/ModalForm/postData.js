@@ -8,7 +8,7 @@ export const prepareNameData = (data) => {
 
 export const preparePhoneData = (data) => {
   const dataPost =
-    data.slice(0, 2) + " (" + data.slice(3, 6) + ") " + data.slice(6);
+    data.slice(0, 2) + " (" + data.slice(2, 5) + ") " + data.slice(5);
   return dataPost;
 };
 export const prepareOtherData = (data) => {

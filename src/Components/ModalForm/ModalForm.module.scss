@@ -8,7 +8,8 @@
   align-items: start;
   background-color: rgba(5, 15, 14, 0.7);
   z-index: 100;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   animation: appearance 0.3s ease-in-out;
 }
 @keyframes appearance {
@@ -22,20 +23,25 @@
 .modal__container {
   max-width: 1800px;
   width: auto;
-  padding: 20px 70px;
-  margin: 3vh auto auto auto;
+  padding: 20px 50px;
+  margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: $header-background-color;
   z-index: 2;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   color: $header-text-color;
   border-radius: 10px;
   font-family: $fontLifehackRegular;
   @media screen and (max-width: 530px) {
+    display: flex;
+    justify-content: flex-start;
     padding: 20px;
+    width: 100%;
+    height: 100vh;
   }
 }
 .overlay {
@@ -110,18 +116,18 @@
 .input__wrapper {
   display: grid;
   grid-template-columns: 30% 70%;
-  gap: 15px;
   align-items: center;
+  @media screen and (max-width: 530px) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 .label {
   min-width: 150px;
-  justify-self: end;
   grid-area: 1/1/2/2;
   position: relative;
-  text-align: end;
-  @media screen and (max-width: 530px) {
-    font-size: 20px;
-  }
+  text-align: start;
 }
 .label::after {
   content: "*";
@@ -171,24 +177,6 @@ input:-webkit-autofill:focus {
   background-color: $header-text-color;
   transition: background-color 5000s ease-in-out 0s;
 }
-.input__empty {
-  grid-area: 1/2/2/3;
-  width: 100%;
-  min-width: 250px;
-  max-width: 375px;
-  height: 30px;
-  padding-left: 5%;
-  border-radius: 10px;
-  border: 2px solid rgb(151, 51, 51);
-  color: $header-background-color;
-  outline: none;
-  background-color:  $header-text-color;
-  font-family: $fontLifehackRegular;
-  font-size: 20px;
-  @media screen and (max-width: 530px) {
-    min-width: 100%;
-  }
-}
 .button__cancel {
   width: 100%;
   max-width: 200px;
@@ -227,7 +215,7 @@ input:-webkit-autofill:focus {
   grid-area: 2/2/3/3;
   margin: 0;
   font-size: 15px;
-  color: $header-text-color;;
+  color: $header-text-color;
   font-weight: 500;
 }
 .container__agreement {
@@ -235,10 +223,19 @@ input:-webkit-autofill:focus {
   grid-template-columns: 30% 70%;
   align-items: center;
   gap: 10px;
+  @media screen and (max-width: 530px) {
+    display: flex;
+  }
 }
 .checkbox {
   grid-area: 1/1/2/2;
   justify-self: flex-end;
+}
+.checkbox__empty {
+  grid-area: 1/1/2/2;
+  justify-self: flex-end;
+  border-radius: 5px;
+  outline: 1.5px solid rgb(151, 51, 51);
 }
 .agreement {
   max-width: 375px;
@@ -279,4 +276,4 @@ input:-webkit-autofill:focus {
   width: 80%;
   opacity: 0;
   animation: checked 2s forwards;
-} 
+}
