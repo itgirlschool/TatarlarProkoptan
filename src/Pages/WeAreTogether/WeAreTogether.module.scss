@@ -27,15 +27,15 @@
 .header,
 .header__img {
   color: #39a4a6;
-  text-shadow: 1px 1px 2px #041e31;
   margin: 0;
   padding: 20px;
 }
 .header {
   font-size: 2.5rem;
+  font-weight: 800;
   text-align: right;
   width: 100%;
-  padding-right: 100px;
+  padding-right: 80px;
   padding-top: 50px;
  
   @media screen and (max-width:720px){
@@ -57,7 +57,7 @@
   bottom: 0;
   width: 100%;
   height: 100%;
-  background-color: $footer-text-color-green;
+  background-color: #39a4a6;
   opacity: 0;
   -webkit-transition: all 0.7s ease-in-out;
   -moz-transition: all 0.7s ease-in-out;
