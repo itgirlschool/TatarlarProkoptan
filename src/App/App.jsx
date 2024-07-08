@@ -62,24 +62,6 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/charity" element={<Charity />} />
           <Route path="/culture" element={<Culture />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/partners" element={<Partners />} />
-          <Route path="/sabantui" element={<Sabantui />} />
-          <Route path="/we-are-together" element={<WeAreTogether />} />
-          <Route path="/homePageMobile" element={<HomePageMobile />} />
-        </Routes>
-      </main>
-      <Footer />
-    </div>
-  );
-  return (
-    <div className={style.app}>
-      <Header />
-      <main className={style.main}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/charity" element={<Charity />} />
-          <Route path="/culture" element={<Culture />} />
           <Route path="/culture/tatar_culture" element={<TatarCulture />} />
           <Route path="/culture/mosques" element={<Mosques />} />
           <Route path="/culture/traditions" element={<Traditions />} />
@@ -89,6 +71,7 @@ function App() {
           <Route path="/partners" element={<Partners />} />
           <Route path="/sabantui" element={<Sabantui />} />
           <Route path="/we-are-together" element={<WeAreTogether />} />
+          <Route path="/homePageMobile" element={<HomePageMobile />} />
         </Routes>
       </main>
       <Footer />
