@@ -32,13 +32,10 @@
     width: 100vw;
     height: 100vh;
 
-    @media screen and (max-width:720px){
-      width: 50vw;
-     }
-     @media screen and (max-width: 560px){
-      width: 60vw;
   
-    }
+
+
+
 }
 
 .gallery__content {
@@ -51,7 +48,7 @@
   }
 
   .gallery__img {
-    width: 90%;
+    width: 100%;
     height: 90%;
     object-fit: cover;
     border-radius: 5px;
@@ -61,6 +58,12 @@
         height: 80%;
         width: 100%;
         
+    }
+    @media screen and (max-width:870px){
+        height: 60%;
+        padding-top: 300px;
+        width: 100%;
+    
     }
    
   }
@@ -80,4 +83,3 @@
   border: none;
  
   }
-
