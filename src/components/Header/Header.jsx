@@ -15,8 +15,9 @@ const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const screenWidth = window.screen.width;
+
   const openModal = () => {
-    if (screenWidth < 530 && location.pathname !== "/autonomy") {
+    if (screenWidth <= 530 && location.pathname !== "/autonomy") {
       navigate("/autonomy");
     } else if (screenWidth > 530) {
       setIsModalOpen(true);

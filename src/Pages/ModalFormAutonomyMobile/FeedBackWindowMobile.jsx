@@ -1,4 +1,4 @@
-import style from "../../Components/ModalForm/ModalForm.module.scss";
+import style from "./ModalFormMobile.module.scss";
 import Reject from "../../assets/images/errorrequest.svg";
 import Document from "../../assets/images/document.svg";
 import { useNavigate } from "react-router-dom";

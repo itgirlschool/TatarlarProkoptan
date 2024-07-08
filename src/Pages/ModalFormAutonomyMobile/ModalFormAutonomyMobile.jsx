@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import style from "../../Components/ModalForm/ModalForm.module.scss";
+import style from "./ModalFormMobile.module.scss";
 import { useState, useEffect } from "react";
 import Checkbox from "../../assets/images/checkboxGreen.svg";
 import postData from "../../Components/ModalForm/postData";
