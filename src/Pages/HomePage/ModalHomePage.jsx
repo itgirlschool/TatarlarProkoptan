@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import prokopevsk from "../../assets/prokopevsk.jpg";
 import closeImg from "../../assets/images/icon-black.svg";
 import carousel1 from "../../assets/images/carousel1.jpg";
@@ -11,6 +12,17 @@ import carousel8 from "../../assets/images/carousel8.jpg";
 import style from "./ModalHomePage.module.scss";
 
 export default function ModalHomePage({ active, setActive }) {
+  useEffect(() => {
+    if (active) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [active]);
+
   return (
     <>
       <div className={active ? `${style.active}` : `${style.modal}`}>
@@ -67,6 +79,7 @@ export default function ModalHomePage({ active, setActive }) {
                   «Танышу клубы». С 1998 г. проводится Сабантуй. Состоялся
                   городской конкурс красоты «Татар кызы – 2016».
                 </p>
+                <br></br>
                 <i>Известные уроженцы </i>
                 <p>
                   Среди уроженцев города: доктор биологических наук
@@ -94,6 +107,9 @@ export default function ModalHomePage({ active, setActive }) {
                   что, безусловно, способствовало возрождению и укреплению
                   национальных традиций.
                 </p>
+                <a onClick={() => setActive(false)} className={style.back__btn}>
+                  НАЗАД
+                </a>
               </div>
             </div>
             <div className={style.grid__item}>

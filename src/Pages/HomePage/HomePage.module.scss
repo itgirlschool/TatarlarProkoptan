@@ -5,6 +5,7 @@
 }
 
 .title{
+    padding-top: 5%;
     color:rgb(6, 100, 6);
     text-align: center;
     font-size: 50px;
@@ -126,9 +127,37 @@
     margin-top: 30px;
 }
 
+@media (max-width: 1039px) {
+    .video{
+        margin-top: 2%;
+    }
+
+    .info__video{
+        min-height: 260px;
+    }
+
+    .button {
+        margin-top: 30px;
+    }
+
+    .container__welcomeimg {
+        margin-bottom: 2%;
+    }
+
+    .welcome__text{
+        text-align: center;
+    }
+}
+
 @media (max-width: 1024px) {
     .info__video {
         min-height: 0;
+    }
+
+    .title__video, .text__video {
+        width: 100%;
+        text-align: center; 
+        margin: 0 auto;
     }
 
     .button{
@@ -172,6 +201,8 @@
     .welcome__text{
         width: 80%;
     }
+
+    
 }
 
 @media (max-width: 430px) {

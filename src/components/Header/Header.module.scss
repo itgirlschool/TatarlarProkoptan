@@ -1,13 +1,14 @@
 @import '../../style/vars';
 
 .header {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 15px;
   background-color: $header-background-color;
   font-size: $header-font-size;
   padding: 10px;
+  z-index: 5;
 }
 
 .logo__container {
@@ -22,8 +23,9 @@
 
 .navbar {
   display: flex;
-  justify-content: center;
   align-items: center;
+  flex-grow: 1;
+  justify-content: center;
 }
 
 .nav {
@@ -41,7 +43,6 @@
   cursor: pointer;
   text-decoration: none;
 }
-
 
 .action__container {
   display: flex;
@@ -91,6 +92,10 @@
   border: none;
 }
 
+.active{
+  border-bottom: 1px solid $header-text-color; ;
+}
+
 @media (min-width: 1201px) {
   .nav {
     display: flex;
@@ -102,11 +107,9 @@
     display: none;
   }
 }
-.nav__a{
 
+@media (max-width: 530px) {
+  .burger {
+    top: 15px;
+  }
 }
-
-.active{
-  border-bottom: 1px solid $header-text-color; ;
-}
-

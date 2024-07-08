@@ -36,7 +36,9 @@ export default function HomePage() {
       <div className={style.info}>
         <div className={style.video__container}>
           <h2 className={style.title__video}>Прокопьевск</h2>
-          <p>Город на юге Кузбасса. 189 км от столицы</p>
+          <p className={style.text__video}>
+            Город на юге Кузбасса. 189 км от столицы
+          </p>
           <div className={style.video}>
             <iframe
               className={style.iframe}

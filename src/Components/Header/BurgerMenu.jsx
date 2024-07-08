@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom"; // Импорт NavLink
+import { NavLink } from "react-router-dom";
 import styles from "./BurgerMenu.module.scss";
 
 const links = [

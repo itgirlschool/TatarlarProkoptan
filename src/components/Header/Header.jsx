@@ -27,7 +27,9 @@ const Header = () => {
     <>
       <header className={style.header}>
         <div className={style.logo__container}>
-          <img src={logo} alt="Logo" className={style.logo} />
+          <NavLink to="/" className={style.logo__link}>
+            <img src={logo} alt="Logo" className={style.logo} />
+          </NavLink>
         </div>
         <nav className={style.navbar}>
           <ul className={style.nav}>
@@ -38,7 +40,7 @@ const Header = () => {
             </li>
             <li className={style.nav__link}>
               <NavLink style={getStyle} to="/events">
-                События
+                Мероприятия
               </NavLink>
             </li>
             <li className={style.nav__link}>
