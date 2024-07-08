@@ -10,6 +10,11 @@
     height: 100%;
     overflow: auto;
     background-color: rgba(0,0,0,0.4);
+
+    @media (max-width:767px) {
+        position: static;
+        background-color: transparent;
+    }
 }
 .content {
     position: relative;
@@ -25,12 +30,23 @@
     box-sizing: border-box;
     overflow-y: auto;
 
+    @media (max-width: 768px) {
+        width: 100%;
+        max-height: none;
+        padding: 20px;
+        border-radius: 0;
+    }
+
     &__title{
         padding-bottom: 24px;
         font-family: $fontLifehackRegular;
         font-weight: 700;
         font-size: 36px;
         color:white;
+
+        @media (max-width: 768px){
+            font-size: 28px;
+        }
     }
 
     .close{
@@ -48,6 +64,12 @@
     
         &:hover {
             color: #888;
+        }
+
+        @media (max-width: 768px) {
+            top: 5px;
+            right: 10px;
+            font-size: 32px;
         }
     }
 }
@@ -69,6 +91,10 @@
         font-size: 36px;
         text-align: center;
         color:white;
+
+        @media (max-width: 768px) {
+            font-size: 28px;
+        }
     }
 }
 
@@ -100,10 +126,22 @@
             color: red;
             font-size: 20px;
         }
+
+        @media (max-width: 768px) {
+            grid-template-columns: 100%;
+            gap: 10px;
+            .error {
+                grid-area: 2/1/2/2;
+            }
+        }
     }
 
     &__label{
-        grid-area: 2/1/2/2; 
+        grid-area: 2/1/2/2;
+
+        @media (max-width: 768px) {
+            grid-area: 1/1/1/1;
+        }
     }
 
     &__input{
@@ -117,6 +155,10 @@
         border: none;
         border-radius: 10px;
         box-sizing: border-box;
+
+        @media (max-width: 768px){
+            grid-area: 2/1/2/2;
+        }
     }
 }
 
@@ -225,6 +267,12 @@
             box-shadow: 7px 5px 56px -10px white;
         }
     }
+
+    @media (max-width: 768px) {
+        width: 100%;
+        padding: 8px 20px;
+        font-size: 20px;
+    }
 }
 
 @media (max-width: 1920px) {
@@ -236,15 +284,15 @@
 
 @media (max-width: 1440px) {
     .content {
-        width: 45%;
+        width: 80%;
         margin: 10% auto;
     }
 }
 
 @media (max-width: 768px) {
     .content {
-        width: 60%;
-        margin: 15% auto;
+        width: 80%;
+        margin: 5% auto;
     }
 
     .form { 
@@ -290,7 +338,7 @@
 @media (max-width: 375px) {
     .content {
         width: 80%;
-        margin: 20% auto;
+        margin: 5% auto;
         padding: 20px;
     }
 
