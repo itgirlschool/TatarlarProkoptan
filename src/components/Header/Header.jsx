@@ -15,11 +15,16 @@ const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const screenWidth = window.screen.width;
+  const [isMobile, setIsMobile] = useState(screenWidth);
+
+  window.onresize = () => {
+    setIsMobile(screenWidth);
+  };
 
   const openModal = () => {
-    if (screenWidth <= 530 && location.pathname !== "/autonomy") {
+    if (isMobile <= 530 && location.pathname !== "/autonomy") {
       navigate("/autonomy");
-    } else if (screenWidth > 530) {
+    } else if (isMobile > 530) {
       setIsModalOpen(true);
       document.body.style.overflow = "hidden";
     }
