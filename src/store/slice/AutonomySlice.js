@@ -8,11 +8,10 @@ const autonomySlice = createSlice({
     },
     reducers: {
         setUserAutonomy(state, action) {
-            state.users = action.payload.users
+            state.users = Object.values(action.payload)
 
         },
     },
-
 })
 export const {setUserAutonomy} = autonomySlice.actions
 

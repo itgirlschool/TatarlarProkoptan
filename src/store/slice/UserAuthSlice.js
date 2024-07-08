@@ -4,18 +4,18 @@ const userAuthSlice = createSlice({
     name: "userAuth",
     initialState: {
         email: null,
-        displayName:null,
-        password:null,
-        phone:null,
-        date:null,
-        statusUser:null,
-        id:null,
-        key:null,
+        displayName: null,
+        password: null,
+        phone: null,
+        date: null,
+        statusUser: null,
+        id: null,
+        key: null,
     },
     reducers: {
-        setUser(state, action) {
+        setUserAuth(state, action) {
             state.email = action.payload.email
-            state.displayName =action.payload.displayName
+            state.displayName = action.payload.displayName
             state.password = action.payload.password
             state.phone = action.payload.phone
             state.date = action.payload.date
@@ -25,7 +25,7 @@ const userAuthSlice = createSlice({
 
 
         },
-        removeUser(state) {
+        removeUserAuth(state) {
             state.email = null
             state.id = null
             state.displayName = null
@@ -38,8 +38,7 @@ const userAuthSlice = createSlice({
         }
     },
 
-});
-
-export const {setUser, removeUser} = userAuthSlice.actions
+})
+export const {setUserAuth, removeUserAuth} = userAuthSlice.actions
 
 export default userAuthSlice.reducer;

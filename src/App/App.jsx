@@ -1,5 +1,7 @@
-import React from "react";
-import { Route, Routes, Link } from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import {getAuth, onAuthStateChanged} from "firebase/auth";
+import {useDispatch} from "react-redux";
+import {Route, Routes, Link} from "react-router-dom";
 import {
   HomePage,
   Charity,
@@ -15,6 +17,7 @@ import Header from "../Components/Header/Header.jsx";
 import Footer from "../Components/Footer/Footer.jsx";
 
 import style from "./App.module.scss";
+import Loader from "../Components/Loader/Loader.jsx";
 
 function App() {
   return (
