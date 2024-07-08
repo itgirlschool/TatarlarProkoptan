@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import style from "./ModalForm.module.scss";
 import { useState, useEffect } from "react";
-import Checkbox from "../../assets/images/checkbox.svg";
+import Checkbox from "../../assets/images/checkboxLight.svg";
 import postData from "./postData";
 import Loader from "../Loader/Loader";
 import FeedbackWindow from "./FeedBackWindow";
@@ -12,7 +12,7 @@ import middlewareListenersAutonomyUsers from "../../store/middleware/middleWareA
 import { useSelector } from "react-redux";
 import { store } from "../../store";
 
-export default function ModalForm({ onClose }) {
+export default function ModalFormAutonomy({ onClose }) {
   const [statusChecked, setStatusChecked] = useState(false);
   const checkboxClasses = [style.checkbox, style.checkbox__hidden];
   const [statusCheckbox, setStatusCheckbox] = useState(checkboxClasses[0]);

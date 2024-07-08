@@ -1,5 +1,6 @@
-body{
-    margin: 0;
+@import "../style/vars.scss";
+body {
+  margin: 0;
 }
 .root {
   width: 100%;
@@ -12,6 +13,7 @@ body{
 }
 .main {
   flex: 1;
+  background-color: $body-background-color;
 }
 .loaderContainer {
   display: flex;
