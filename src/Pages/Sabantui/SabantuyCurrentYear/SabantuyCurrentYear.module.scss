@@ -1,7 +1,7 @@
 @import "../../../style/vars";
 
 .block__currentyear {
-  margin: 0 auto;
+  margin: 1% auto;
   text-align: center;
   font-family: $fontLifehackRegular;
 }
@@ -22,7 +22,7 @@
   background: #fff;
   border-radius: 2px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: background 0.3s ease;
+  transition: background 1s ease-in-out;
 }
 
 .back__button__current:hover {
@@ -77,8 +77,13 @@
 }
 
 @media (max-width: 1440px) {
+  .back__button__current {
+    width: 70px;
+    font-size: 24px;
+  }
+
   .title__current {
-    font-size: 45px;
+    font-size: 40px;
   }
 
   .photo__current {
@@ -88,8 +93,13 @@
 }
 
 @media (max-width: 768px) {
+  .back__button__current {
+    width: 50px;
+    font-size: 20px;
+  }
+
   .title__current {
-    font-size: 35px;
+    font-size: 30px;
   }
 
   .block__currentyear {
@@ -103,8 +113,13 @@
 }
 
 @media (max-width: 375px) {
+  .back__button__current {
+    width: 30px;
+    font-size: 14px;
+  }
+
   .title__current {
-    font-size: 30px;
+    font-size: 20px;
   }
 
   .photo__current {

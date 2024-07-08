@@ -3,6 +3,7 @@
 .block__collection {
   text-align: center;
   font-family: $fontLifehackRegular;
+  margin: 1% auto;
 }
 
 .button__collection {
@@ -21,7 +22,7 @@
   background: #fff;
   border-radius: 2px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: background 0.3s ease;
+  transition: background 1s ease-in-out;
 }
 
 .back__button__collection:hover {
@@ -118,8 +119,13 @@
 }
 
 @media (max-width: 1440px) {
+  .back__button__collection {
+    width: 70px;
+    font-size: 24px;
+  }
+
   .title__collection {
-    font-size: 45px;
+    font-size: 40px;
   }
 
   .suptitle__collection {
@@ -138,12 +144,17 @@
 }
 
 @media (max-width: 768px) {
+  .back__button__collection {
+    width: 50px;
+    font-size: 20px;
+  }
+
   .title__collection {
-    font-size: 35px;
+    font-size: 30px;
   }
 
   .suptitle__collection {
-    font-size: 30px;
+    font-size: 25px;
   }
 
   .gallery__video {
@@ -166,12 +177,17 @@
 }
 
 @media (max-width: 375px) {
+  .back__button__collection {
+    width: 30px;
+    font-size: 14px;
+  }
+
   .title__collection {
-    font-size: 25px;
+    font-size: 20px;
   }
 
   .suptitle__collection {
-    font-size: 20px;
+    font-size: 16px;
   }
 
   .gallery__video {

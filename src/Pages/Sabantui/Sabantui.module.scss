@@ -1,10 +1,12 @@
 @import "../../style/vars";
 
 .sabantuy__container {
-  width: 95%;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
   font-family: $fontLifehackRegular;
+  background-color: #F4EAE1;
+
 }
 
 .sabantuy_title {
@@ -27,7 +29,7 @@
   width: 25%;
   border: 5px solid #ccc;
   border-radius: 10px;
-  margin: 5px;
+  margin: 1%;
 }
 
 @media (max-width: 768px) {
@@ -55,6 +57,5 @@
 
   .sabantuy__photo {
     width: 80%;
-    margin: 10px;
   }
 }
