@@ -1,18 +1,13 @@
-import {React, useState} from 'react';
+import {React} from 'react';
 import { options } from './dataEvents';
-import Form from './Form';
+import MobileForm from './MobileForm';
 import style from './Events.module.scss';
-
-const handleTitle = () => {
-    const [isSelected, setIsSelected] = useState(false);
-    setIsSelected(isSelected);
-    }
 
 const MobileCalendar = () => {
     return (
         <div className={style.eventsPageMobile}>
             {options.map((option)=> (
-            <Form key={options.key} {...option} handleTitle={handleTitle}/>
+            <MobileForm key={options.id} {...option} />
             ))}
         </div>
     )
