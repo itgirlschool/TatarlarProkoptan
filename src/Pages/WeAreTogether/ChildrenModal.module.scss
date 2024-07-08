@@ -28,14 +28,11 @@
 
 .carousel__modal{
     border-radius: 3px;
-    background-color: $header-background-color;
+    background-color: rgba(41, 40, 40, 0.8);
     width: 100vw;
     height: 100vh;
 
   
-
-
-
 }
 
 .gallery__content {
@@ -60,9 +57,9 @@
         
     }
     @media screen and (max-width:870px){
-        height: 60%;
-        padding-top: 300px;
-        width: 100%;
+       
+        padding-top: 100px;
+       
     
     }
    
@@ -71,8 +68,8 @@
   .close__button{
   width: 60px;
   padding: 5px;
-  margin-left: 5px;
-  margin-top: 5px;
+  margin-left: 20px;
+  margin-top: 20px;
   text-decoration: none;
   text-align: center;
   color: $footer-text-color-green;
