@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addCharityUser } from '../../store/slice/CharitySlice';
@@ -6,7 +6,7 @@ import { database } from '../../store/index';
 
 import style from './CharityModal.module.scss';
 
-const CharityModal = ({ openModal, closeModal, updateCounter }) => {
+const CharityModal = ({ closeModal, updateCounter }) => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -25,7 +25,7 @@ const CharityModal = ({ openModal, closeModal, updateCounter }) => {
 
     const validate = () => {
         const newErrors = {};
-        const nameRegex = /^[a-zA-Zа-яА-Я]+$/;
+        const nameRegex = /^[a-zA-Zа-яА-Я]+(?:-[a-zA-Zа-яА-Я]+)*(?: [a-zA-Zа-яА-Я]+(?:-[a-zA-Zа-яА-Я]+)*)*$/;
         const phoneRegex = /^\+?\d{1,15}$/
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -187,24 +187,25 @@ const CharityModal = ({ openModal, closeModal, updateCounter }) => {
                                         name="agreeToTerms"
                                         checked={formData.agreeToTerms}
                                         onChange={handleChange} />
-                                    <span className={style.confident__checkmark}></span>
+                                    <span className={`${style.confident__checkmark} ${errors.agreeToTerms ? style.confident__checkmark_invalid : ''}`}></span>
                                 </label>
 
-                                <p className={`${style.confident__text} ${errors.agreeToTerms ? style.confident__text_error : ''}`}>Я соглашаюсь с политикой конфиденциальности и обработки персональных данных</p>
+                                <p className={style.confident__text}>Я соглашаюсь с политикой конфиденциальности и обработки персональных данных</p>
                             </div>
 
                             <div className={style.button__wrap}>
-                                <button
-                                    className={style.button__wrap_btn}
-                                    type="submit">
-                                    Принять участие
-                                </button>
                                 <button
                                     className={style.button__wrap_btn}
                                     type="button"
                                     onClick={handleCancel}>
                                     Отмена
                                 </button>
+                                <button
+                                    className={style.button__wrap_btn}
+                                    type="submit">
+                                    Принять участие
+                                </button>
+
                             </div>
                         </form>
                     </>
