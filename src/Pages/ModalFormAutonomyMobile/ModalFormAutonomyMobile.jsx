@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import style from "./ModalFormMobile.module.scss";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Checkbox from "../../assets/images/checkboxGreen.svg";
 import postData from "../../Components/ModalForm/postData";
 import Loader from "../../Components/Loader/Loader";
@@ -8,9 +8,7 @@ import FeedbackWindowMobile from "./FeedBackWindowMobile";
 import mask from "../../Components/ModalForm/inputPhone";
 import { isPhoneTaken } from "../../Components/ModalForm/postData";
 import { isEmailTaken } from "../../Components/ModalForm/postData";
-import middlewareListenersAutonomyUsers from "../../store/middleware/middleWareAutonomy";
 import { useSelector } from "react-redux";
-import { store } from "../../store";
 import { useNavigate } from "react-router-dom";
 
 export default function ModalFormAutonomyMobile() {
@@ -23,11 +21,6 @@ export default function ModalFormAutonomyMobile() {
   const navigate = useNavigate();
 
   const usersAutonomy = useSelector((state) => state.autonomy.users);
-  useEffect(() => {
-    store.dispatch(
-      middlewareListenersAutonomyUsers("SUBSCRIBE_TO_AUTONOMY_USERS")
-    );
-  }, []);
 
   const onHandleChecked = () => {
     setStatusChecked(!statusChecked);
@@ -181,7 +174,6 @@ export default function ModalFormAutonomyMobile() {
               className={style.input}
               type="text"
               id="email"
-              autocomplete="email"
               {...register("email", {
                 required: "Пожалуйста, заполните поле",
                 pattern: {

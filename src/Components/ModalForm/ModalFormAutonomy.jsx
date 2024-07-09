@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import style from "./ModalForm.module.scss";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Checkbox from "../../assets/images/checkboxLight.svg";
 import postData from "./postData";
 import Loader from "../Loader/Loader";
@@ -8,9 +8,7 @@ import FeedbackWindow from "./FeedBackWindow";
 import mask from "./inputPhone";
 import { isPhoneTaken } from "./postData";
 import { isEmailTaken } from "./postData";
-import middlewareListenersAutonomyUsers from "../../store/middleware/middleWareAutonomy";
 import { useSelector } from "react-redux";
-import { store } from "../../store";
 
 export default function ModalFormAutonomy({ onClose }) {
   const [statusChecked, setStatusChecked] = useState(false);
@@ -20,11 +18,6 @@ export default function ModalFormAutonomy({ onClose }) {
   const [responseStatus, setResponseStatus] = useState(false);
 
   const usersAutonomy = useSelector((state) => state.autonomy.users);
-  useEffect(() => {
-    store.dispatch(
-      middlewareListenersAutonomyUsers("SUBSCRIBE_TO_AUTONOMY_USERS")
-    );
-  }, []);
 
   const onHandleChecked = () => {
     setStatusChecked(!statusChecked);
@@ -185,12 +178,12 @@ export default function ModalFormAutonomy({ onClose }) {
                 className={style.input}
                 type="text"
                 id="email"
-                autocomplete="email"
                 {...register("email", {
                   required: "Пожалуйста, заполните поле",
                   pattern: {
                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                    message: "Адрес должен быть написан латинскими буквами, содержать символы @ и .",
+                    message:
+                      "Адрес должен быть написан латинскими буквами, содержать символы @ и .",
                   },
                 })}
               />
