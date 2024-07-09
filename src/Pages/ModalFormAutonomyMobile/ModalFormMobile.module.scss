@@ -1,53 +1,21 @@
 @import "../../style/vars.scss";
-.modal__window {
-  position: absolute;
-  display: flex;
-  width: 100%;
-  min-height: 100%;
-  justify-content: center;
-  align-items: start;
-  background-color: rgba(5, 15, 14, 0.7);
-  z-index: 100;
-  overflow-y: auto;
-  overflow-x: hidden;
-  animation: appearance 0.3s ease-in-out;
-}
-@keyframes appearance {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 .modal__container {
   max-width: 1800px;
-  width: auto;
-  padding: 20px 50px;
-  margin: auto;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: $header-background-color;
-  z-index: 2;
-  overflow-y: auto;
-  overflow-x: hidden;
-  color: $header-text-color;
-  border-radius: 10px;
-  font-family: $fontLifehackRegular;
-}
-.overlay {
-  position: fixed;
   width: 100%;
-  min-height: 100%;
-  z-index: 1;
+  padding: 20px 50px;
   overflow: hidden;
+  border-radius: 0px;
+  align-items: stretch;
+  background-color: $body-background-color;
+  color: $header-background-color;
+  font-family: $fontLifehackRegular;
 }
 .feedback__wrapper {
   width: auto;
   display: grid;
   grid-template-columns: 150px 1fr;
+  margin: auto;
   align-items: center;
   justify-items: center;
   @media screen and (max-width: 530px) {
@@ -99,15 +67,13 @@
 .container__form {
   display: flex;
   flex-direction: column;
+  align-items: stretch;
   gap: 20px;
   width: 100%;
   max-width: 900px;
   margin: 30px auto;
   font-family: $fontLifehackRegular;
   font-size: 24px;
-  @media screen and (max-width: 530px) {
-    align-items: stretch;
-  }
 }
 .input__wrapper {
   display: grid;
@@ -159,6 +125,9 @@
   outline: none;
   font-size: 24px;
   color: $header-background-color;
+  min-width: 100%;
+  height: 35px;
+  border:1.5px solid $header-background-color;
 }
 .input::placeholder {
   color: $header-background-color;
@@ -197,7 +166,7 @@ input:-webkit-autofill:focus {
   font-family: $fontLifehackRegular;
   font-size: 30px;
   font-weight: 400;
-  color: $header-text-color;
+  color: $header-background-color;
   cursor: pointer;
 }
 .button__submit:hover {
@@ -208,7 +177,7 @@ input:-webkit-autofill:focus {
   grid-area: 2/2/3/3;
   margin: 0;
   font-size: 15px;
-  color: $header-text-color;
+  color: rgb(151, 51, 51);;
   font-weight: 500;
 }
 .container__agreement {

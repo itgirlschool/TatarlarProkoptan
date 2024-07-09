@@ -11,4 +11,3 @@ export async function addUserAutonomy(userData) {
         console.error(error);
     }
 }
-

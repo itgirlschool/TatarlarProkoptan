@@ -1,18 +1,23 @@
-import { useForm, useFieldArray } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import style from "./ModalForm.module.scss";
 import { useState } from "react";
-import Checkbox from "../../assets/images/checkbox.svg";
+import Checkbox from "../../assets/images/checkboxLight.svg";
 import postData from "./postData";
 import Loader from "../Loader/Loader";
 import FeedbackWindow from "./FeedBackWindow";
-import mask from "./inputTel";
+import mask from "./inputPhone";
+import { isPhoneTaken } from "./postData";
+import { isEmailTaken } from "./postData";
+import { useSelector } from "react-redux";
 
-export default function ModalForm({ onClose }) {
+export default function ModalFormAutonomy({ onClose }) {
   const [statusChecked, setStatusChecked] = useState(false);
   const checkboxClasses = [style.checkbox, style.checkbox__hidden];
   const [statusCheckbox, setStatusCheckbox] = useState(checkboxClasses[0]);
   const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
   const [responseStatus, setResponseStatus] = useState(false);
+
+  const usersAutonomy = useSelector((state) => state.autonomy.users);
 
   const onHandleChecked = () => {
     setStatusChecked(!statusChecked);
@@ -32,22 +37,36 @@ export default function ModalForm({ onClose }) {
     defaultValues: {
       lastName: "",
       firstName: "",
+      surName: "",
       phone: "",
       email: "",
     },
   });
   const onSubmit = async ({ lastName, firstName, surName, phone, email }) => {
     try {
-      await postData(lastName, firstName, surName, phone, email);
-      reset();
-      setStatusChecked(!statusChecked);
-      setStatusCheckbox(`${style.checkbox}`);
-      setIsFeedbackOpen(true);
-      setResponseStatus(true);
+      const isPhoneNumberTaken = await isPhoneTaken(phone, usersAutonomy);
+      const isEmailAddressTaken = await isEmailTaken(email, usersAutonomy);
+      if (isPhoneNumberTaken || isEmailAddressTaken) {
+        if (isPhoneNumberTaken) {
+          setError("phone", {
+            message: "Введенный телефон уже указан в другой заявке",
+          });
+        }
+        if (isEmailAddressTaken) {
+          setError("email", {
+            message: "Введенный email уже указан в другой заявке",
+          });
+        }
+      } else {
+        await postData(lastName, firstName, surName, phone, email);
+        reset();
+        setStatusChecked(!statusChecked);
+        setStatusCheckbox(`${style.checkbox}`);
+        setIsFeedbackOpen(true);
+        setResponseStatus(true);
+      }
     } catch (err) {
-      setError("email", { message: "Введенный email уже занят" });
-      setError("phone", { message: "Введенный телефон уже занят" });
-      console.log(err);
+      setResponseStatus(false);
     }
   };
 
@@ -72,11 +91,15 @@ export default function ModalForm({ onClose }) {
                 Фамилия
               </label>
               <input
-                className={errors.lastName ? style.input__empty : style.input}
+                className={style.input}
                 type="text"
                 id="lastName"
                 {...register("lastName", {
                   required: "Пожалуйста, заполните поле",
+                  pattern: {
+                    value: /[^\s]/,
+                    message: "Пожалуйста, заполните поле",
+                  },
                 })}
               />
               {errors.lastName && (
@@ -88,11 +111,15 @@ export default function ModalForm({ onClose }) {
                 Имя
               </label>
               <input
-                className={errors.firstName ? style.input__empty : style.input}
+                className={style.input}
                 type="text"
                 id="firstName"
                 {...register("firstName", {
                   required: "Пожалуйста, заполните поле",
+                  pattern: {
+                    value: /[^\s]/,
+                    message: "Пожалуйста, заполните поле",
+                  },
                 })}
               />
               {errors.firstName && (
@@ -104,11 +131,15 @@ export default function ModalForm({ onClose }) {
                 Отчество
               </label>
               <input
-                className={errors.surName ? style.input__empty : style.input}
+                className={style.input}
                 type="text"
                 id="surName"
                 {...register("surName", {
                   required: "Пожалуйста, заполните поле",
+                  pattern: {
+                    value: /[^\s]/,
+                    message: "Пожалуйста, заполните поле",
+                  },
                 })}
               />
               {errors.surName && (
@@ -120,16 +151,18 @@ export default function ModalForm({ onClose }) {
                 Номер телефона
               </label>
               <input
-                className={errors.phone ? style.input__empty : style.input}
-                type="tel"
+                className={style.input}
+                type="text"
+                onInput={mask}
                 onClick={mask}
+                onFocus={mask}
                 id="phone"
                 {...register("phone", {
                   required: "Пожалуйста, заполните поле",
                   pattern: {
-                    value: /^\+7 [\d]{10}$/,
+                    value: /^\+7[\d]{10}$/,
                     message:
-                      "Пожалуйста, введите номер телефона в формате +7 9999999999",
+                      "Пожалуйста, введите номер телефона в формате +79999999999",
                   },
                 })}
               />
@@ -142,14 +175,15 @@ export default function ModalForm({ onClose }) {
                 Электронная почта
               </label>
               <input
-                className={errors.email ? style.input__empty : style.input}
+                className={style.input}
                 type="text"
                 id="email"
                 {...register("email", {
                   required: "Пожалуйста, заполните поле",
                   pattern: {
                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                    message: "Адрес должен содержать @ и.",
+                    message:
+                      "Адрес должен быть написан латинскими буквами, содержать символы @ и .",
                   },
                 })}
               />
@@ -163,7 +197,9 @@ export default function ModalForm({ onClose }) {
               )}
               <input
                 onClick={onHandleChecked}
-                className={statusCheckbox}
+                className={
+                  errors.agreement ? style.checkbox__empty : statusCheckbox
+                }
                 type="checkbox"
                 id="agreement"
                 {...register("agreement", {
@@ -174,9 +210,6 @@ export default function ModalForm({ onClose }) {
                 Я соглашаюсь с политикой конфиденциальности и обработки
                 персональных данных
               </label>
-              {errors.agreement && (
-                <p className={style.error}>{errors.agreement.message}</p>
-              )}
             </div>
           </div>
           <div className={style.container__buttons}>
