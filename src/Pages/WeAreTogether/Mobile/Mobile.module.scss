@@ -60,3 +60,9 @@
     border: none;
    
     }
+  
+  .close__button:hover{
+      color: $body-background-color;
+      background-color:$footer-text-color-green;
+      cursor: pointer;
+    }

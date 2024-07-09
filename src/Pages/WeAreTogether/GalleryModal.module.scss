@@ -53,6 +53,7 @@
     object-fit: cover;
     border-radius: 5px;
     margin: 0 auto;
+ 
 
     @media screen and (max-width: 1024px){
         height: 80%;
@@ -82,4 +83,10 @@
   border-radius: 2px;
   border: none;
  
+  }
+
+  .close__button:hover{
+    color: $body-background-color;
+    background-color:$footer-text-color-green;
+    cursor: pointer;
   }
