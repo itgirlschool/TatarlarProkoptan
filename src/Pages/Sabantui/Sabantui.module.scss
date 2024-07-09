@@ -3,14 +3,13 @@
 .sabantuy__container {
   width: 100%;
   margin: 0 auto;
+  padding: 1% 2% 2% 2%;
   text-align: center;
   font-family: $fontLifehackRegular;
-  background-color: #F4EAE1;
-
 }
 
 .sabantuy_title {
-  color: rgb(6, 100, 6);
+  color: $header-background-color;
   text-align: center;
   font-size: 50px;
   font-weight: 700;

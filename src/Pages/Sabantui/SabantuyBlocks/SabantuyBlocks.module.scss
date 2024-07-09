@@ -12,7 +12,12 @@
 }
 
 .card {
-  transition: transform 0.7s ease-in-out;
+  margin: 0 auto;
+  width: 30%;
+  border: 3px solid #ccc;
+  border-radius: 10px;
+  background-color: white;
+  transition: transform 0.5s ease-in-out;
 }
 
 .card:hover {
@@ -34,13 +39,41 @@
   text-decoration: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+  .card {
+    width: 30%;
+  }
+
   .card__title {
     font-size: 20px;
   }
 }
 
+@media (max-width: 768px) {
+  .card {
+    width: 40%;
+  }
+
+  .card__title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 425px) {
+  .card {
+    width: 50%;
+  }
+
+  .card__title {
+    font-size: 16px;
+  }
+}
+
 @media (max-width: 375px) {
+  .card {
+    width: 80%;
+  }
+
   .card__title {
     font-size: 14px;
   }

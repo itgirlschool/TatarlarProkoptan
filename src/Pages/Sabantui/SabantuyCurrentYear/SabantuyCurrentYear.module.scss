@@ -22,7 +22,7 @@
   background: #fff;
   border-radius: 2px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: background 1s ease-in-out;
+  transition: background 0.5s ease-in-out;
 }
 
 .back__button__current:hover {
@@ -31,7 +31,7 @@
 }
 
 .title__current {
-  color: rgb(6, 100, 6);
+  color: $header-background-color;
   text-align: center;
   font-size: 50px;
   font-weight: 700;
@@ -52,7 +52,7 @@
   border: 2px solid #ccc;
   border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.7s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 .photo__current:hover {
@@ -65,10 +65,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.9);
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 }
 
 .fullscreen__photo {
