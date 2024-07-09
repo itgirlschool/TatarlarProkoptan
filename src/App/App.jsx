@@ -10,6 +10,7 @@ import Partners from '../Pages/Culture/Partners/Partners';
 import {
   HomePage,
   Charity,
+  CharityModal,
   Culture,
   Events,
   Sabantui,
@@ -61,6 +62,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/charity" element={<Charity />} />
+          <Route path="/modal" element={<CharityModal />} />
           <Route path="/culture" element={<Culture />} />
           <Route path="/culture/tatar_culture" element={<TatarCulture />} />
           <Route path="/culture/mosques" element={<Mosques />} />

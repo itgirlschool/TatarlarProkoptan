@@ -8,4 +8,4 @@ import Sabantui from "./Sabantui/Sabantui.jsx";
 import WeAreTogether from "./WeAreTogether/WeAreTogether.jsx";
 import ModalFormAutonomyMobile from "./ModalFormAutonomyMobile/ModalFormAutonomyMobile.jsx";
 
-export { HomePage, Charity, Culture, Events, Partners, Sabantui, WeAreTogether, ModalFormAutonomyMobile }
+export { HomePage, Charity, CharityModal, Culture, Events, Partners, Sabantui, WeAreTogether, ModalFormAutonomyMobile }
