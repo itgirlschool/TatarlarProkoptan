@@ -6,23 +6,41 @@ import MailIcon from "../../assets/images/mail.svg";
 import PhoneIcon from "../../assets/images/phone.svg";
 import FamilyIconImage from "../../assets/images/family.svg";
 import { useState } from "react";
-import { NavLink }  from  "react-router-dom";
-import ModalForm from "../ModalForm/ModalForm";
+import { NavLink } from "react-router-dom";
+import ModalFormAutonomy from "../ModalForm/ModalFormAutonomy";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [isModalOpened, setIsModalOpen] = useState(false);
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-  const closeModal = (value) => {
-    setIsModalOpen(value);
-  };
-  const getStyle =({isActive})=>{
-    return {
-      borderBottom: isActive ? '1px solid #f5e9e1': '',
-    }
-  }
+  const navigate = useNavigate();
+  const location = useLocation();
+  const screenWidth = window.screen.width;
+  const [isMobile, setIsMobile] = useState(screenWidth);
 
+  window.onresize = () => {
+    setIsMobile(screenWidth);
+  };
+
+  const openModal = () => {
+    if (isMobile <= 530 && location.pathname !== "/autonomy") {
+      navigate("/autonomy");
+    } else if (isMobile > 530) {
+      setIsModalOpen(true);
+      document.body.style.overflow = "hidden";
+    }
+  };
+
+  const closeModal = (value) => {
+    if (screenWidth > 530) {
+      setIsModalOpen(value);
+      document.body.style.overflow = "auto";
+    }
+  };
+  const getStyle = ({ isActive }) => {
+    return {
+      borderBottom: isActive ? "1px solid #f5e9e1" : "",
+    };
+  };
 
   return (
     <>
@@ -32,17 +50,41 @@ const Header = () => {
         </div>
         <nav className={style.navbar}>
           <ul className={style.nav}>
-            <li className={style.nav__link}><NavLink style={getStyle} to="/">О нас</NavLink></li>
-            <li className={style.nav__link}><NavLink style={getStyle} to="/events">События</NavLink></li>
-            <li className={style.nav__link}><NavLink style={getStyle} to="/culture">Культура</NavLink></li>
-            <li className={style.nav__link}><NavLink style={getStyle} to="/sabantui">Сабантуй</NavLink></li>
-            <li className={style.nav__link}><NavLink style={getStyle} to="/charity">Благотворительность</NavLink></li>
-            <li className={style.nav__link}><NavLink style={getStyle} to="/we-are-together">Мы вместе</NavLink></li>
+            <li className={style.nav__link}>
+              <NavLink style={getStyle} to="/">
+                О нас
+              </NavLink>
+            </li>
+            <li className={style.nav__link}>
+              <NavLink style={getStyle} to="/events">
+                События
+              </NavLink>
+            </li>
+            <li className={style.nav__link}>
+              <NavLink style={getStyle} to="/culture">
+                Культура
+              </NavLink>
+            </li>
+            <li className={style.nav__link}>
+              <NavLink style={getStyle} to="/sabantui">
+                Сабантуй
+              </NavLink>
+            </li>
+            <li className={style.nav__link}>
+              <NavLink style={getStyle} to="/charity">
+                Благотворительность
+              </NavLink>
+            </li>
+            <li className={style.nav__link}>
+              <NavLink style={getStyle} to="/we-are-together">
+                Мы вместе
+              </NavLink>
+            </li>
           </ul>
-          <BurgerMenu/>
+          <BurgerMenu />
         </nav>
         <div className={style.action__container}>
-        <div className={style.icons}>
+          <div className={style.icons}>
             <a
               href="https://t.me/yourtelegram"
               target="_blank"
@@ -69,7 +111,7 @@ const Header = () => {
           </div>
         </div>
       </header>
-      {isModalOpened && <ModalForm onClose={closeModal} />}
+      {isModalOpened && <ModalFormAutonomy onClose={closeModal} />}
     </>
   );
 };
