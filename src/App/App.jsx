@@ -1,22 +1,7 @@
-<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { Route, Routes, Link } from "react-router-dom";
-import {
-  HomePage,
-  Charity,
-  CharityModal,
-  Culture,
-  Events,
-  Partners,
-  Sabantui,
-  WeAreTogether,
-=======
-import React, {useEffect, useState} from "react";
-import {getAuth, onAuthStateChanged} from "firebase/auth";
-import {useDispatch} from "react-redux";
-import {Route, Routes, Link} from "react-router-dom";
 import TatarCulture from '../Pages/Culture/TatarCulture/TatarCulture';
 import Mosques from '../Pages/Culture/Mosques/Mosques';
 import Traditions from '../Pages/Culture/Traditions/Traditions';
@@ -30,7 +15,6 @@ import {
   Sabantui,
   WeAreTogether,
   ModalFormAutonomyMobile,
->>>>>>> master
 } from "../Pages";
 import Header from "../Components/Header/Header.jsx";
 import Footer from "../Components/Footer/Footer.jsx"
