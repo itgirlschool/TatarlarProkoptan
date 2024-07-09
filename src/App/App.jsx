@@ -14,6 +14,7 @@ import {
   Events,
   Sabantui,
   WeAreTogether,
+  ModalFormAutonomyMobile,
 } from "../Pages";
 import Header from "../Components/Header/Header.jsx";
 import Footer from "../Components/Footer/Footer.jsx"
@@ -21,38 +22,37 @@ import style from "./App.module.scss";
 import Loader from "../Components/Loader/Loader.jsx";
 
 function App() {
-    const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch({ type: "SUBSCRIBE_TO_AUTONOMY_USERS" });
+    dispatch({ type: "SUBSCRIBE_TO_CHARITY_USERS" });
+    dispatch({ type: "SUBSCRIBE_TO_USERS" });
+  }, [dispatch]);
 
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch({type: 'SUBSCRIBE_TO_AUTONOMY_USERS'})
-        dispatch({type: 'SUBSCRIBE_TO_CHARITY_USERS'})
-        dispatch({type: 'SUBSCRIBE_TO_USERS'})
-    }, [dispatch])
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser(null);
+      }
+      setLoading(false);
+    });
 
-    useEffect(() => {
-        const auth = getAuth();
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setUser(user);
-            } else {
-                setUser(null);
-            }
-            setLoading(false);
-        });
+    return () => unsubscribe();
+  }, []);
 
-        return () => unsubscribe();
-    }, []);
-
-    if (loading) {
-        return (
-            <div className={style.loaderContainer}>
-                <Loader/>
-            </div>
-        );
-    }
+  if (loading) {
+    return (
+      <div className={style.loaderContainer}>
+        <Loader />
+      </div>
+    );
+  }
 
     return (
         <div className={style.app}>
@@ -71,6 +71,8 @@ function App() {
                     <Route path="/partners" element={<Partners/>}/>
                     <Route path="/sabantui" element={<Sabantui/>}/>
                     <Route path="/we-are-together" element={<WeAreTogether/>}/>
+                    <Route path="/autonomy" element={<ModalFormAutonomyMobile />} />
+
                 </Routes>
             </main>
             <Footer/>
