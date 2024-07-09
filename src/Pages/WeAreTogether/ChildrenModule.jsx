@@ -7,7 +7,7 @@ import { Carousel } from 'antd'
 export default function ChildrenModule ({active, setActive}){
     return(
         <article className={active ? `${style.active}` : `${style.content__modal}`}>
-				  <Carousel className={style.carousel__modal} effect='fade' autoplay arrows> 
+				  <Carousel className={style.carousel__modal} effect='fade'  arrows> 
 					 {children.map((item) => {  
 					  return(  
 						  <div key={item.id} >  
