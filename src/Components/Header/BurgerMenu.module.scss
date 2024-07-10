@@ -6,11 +6,11 @@
 
 .burger,
 .menu {
-  position: fixed;
+  position: absolute;
 }
 
 .burger {
-  z-index: 4;
+  z-index: 18;
   top: 10px;
   right: 10px;
   width: 48px;
@@ -31,7 +31,7 @@
 
 .background {
   position: fixed;
-  z-index: 2;
+  z-index: 17 !important;
   top: 24px;
   right: 20px;
   aspect-ratio: 1 / 1;
@@ -49,7 +49,7 @@
 }
 
 .menu {
-  z-index: 3;
+  z-index: 17;
   top: 0;
   right: 0;
   display: flex;
@@ -79,6 +79,7 @@
   font-size: 24px;
   padding: 10px 10px 10px 0;
   text-decoration: none;
+  font-family: $fontLifehackRegular;
   opacity: 0;
   cursor: pointer;
   transition: 0.4s;

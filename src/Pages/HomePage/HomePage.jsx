@@ -1,28 +1,53 @@
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import homepage from "../../assets/homepage.jpg";
-import { useState } from "react";
 import style from "./HomePage.module.scss";
 import ModalHomePage from "./ModalHomePage.jsx";
 
 export default function HomePage() {
   const [modalActive, setModalActive] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const checkWindowSize = () => {
+      setIsMobile(window.innerWidth <= 465);
+    };
+
+    checkWindowSize();
+    window.addEventListener("resize", checkWindowSize);
+
+    return () => {
+      window.removeEventListener("resize", checkWindowSize);
+    };
+  }, []);
+
+  const handleHistoryClick = () => {
+    if (isMobile) {
+      navigate("/homePageMobile");
+    } else {
+      setModalActive(true);
+    }
+  };
 
   return (
-    <>
+    <div className={style.container}>
       <h1 className={style.title}>Татары Прокопьевска</h1>
       <div className={style.info}>
-        <div>
+        <div className={style.video__container}>
           <h2 className={style.title__video}>Прокопьевск</h2>
-          <p>Город на юге Кузбасса. 189 км от столицы</p>
+          <p className={style.text__video}>
+            Город на юге Кузбасса. 189 км от столицы
+          </p>
           <div className={style.video}>
             <iframe
-              width="560"
-              height="315"
+              className={style.iframe}
               src="https://www.youtube.com/embed/bWqBGrflpqE?si=GOt3IbzR3VF3anQT"
               title="YouTube video player"
-              frameborder="0"
+              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
             ></iframe>
           </div>
         </div>
@@ -40,31 +65,30 @@ export default function HomePage() {
               человек&#42;&#42;
             </div>
           </div>
-          <button className={style.button} onClick={() => setModalActive(true)}>
+          <button className={style.button} onClick={handleHistoryClick}>
             История
           </button>
           <ModalHomePage active={modalActive} setActive={setModalActive} />
         </div>
       </div>
       <div className={style.note}>
-        <p>*Данные о наслении актуальны на 2024 год</p>
+        <p>*Данные о населении актуальны на 2024 год</p>
         <p>**Данные о численности татар актуальны на 2010 год</p>
       </div>
       <p className={style.welcome__title}>Исенмесез Дуслар! </p>
       <div className={style.welcome}>
         <div className={style.container__welcomeimg}>
           <img
-            width="500px"
+            className={style.welcome__img}
             src={homepage}
             alt="татары Прокопьевска"
-            className={style.welcome__img}
           />
         </div>
         <div className={style.welcome__text}>
           <p>
-            Ообщественная организация "Татарская национально-культурная
-            автономия города Прокопьевск" приветствует вас на своем сайте! Целью
-            нашей организации является объединение граждан Российской Федерации,
+            Общественная организация "Татарская национально-культурная автономия
+            города Прокопьевск" приветствует вас на своем сайте! Целью нашей
+            организации является объединение граждан Российской Федерации,
             относящих себя к этнической общности татар, и проживающих на
             территории города Прокопьевск и Кемеровской области-Кузбасс. Мы
             содействуем возрождению и развитию национального самосознания и
@@ -74,11 +98,11 @@ export default function HomePage() {
             национального краеведения и охране национальных памятников истории и
             культуры. Мы знакомим широкую общественность с историческим и
             культурным наследием, а также традициям и историей татарского
-            народа. Мы организуем и проводим мероприятия и встречи.{" "}
+            народа. Мы организуем и проводим мероприятия и встречи.
           </p>
           <p className={style.welcome__end}>Добро пожаловать! Рахим итегез!</p>
         </div>
       </div>
-    </>
+    </div>
   );
 }
