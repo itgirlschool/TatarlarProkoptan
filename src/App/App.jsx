@@ -7,6 +7,8 @@ import Mosques from '../Pages/Culture/Mosques/Mosques';
 import Traditions from '../Pages/Culture/Traditions/Traditions';
 import Cuisine from '../Pages/Culture/Cuisine/Cuisine';
 import Partners from '../Pages/Culture/Partners/Partners';
+import SabantuyCollection from "../Pages/Sabantui/SabantuyCollection/SabantuyCollection"
+import SabantuyCurrentYear from "../Pages/Sabantui/SabantuyCurrentYear/SabantuyCurrentYear"
 import {
   HomePage,
   Charity,
@@ -54,7 +56,6 @@ function App() {
       </div>
     );
   }
-
   return (
     <div className={style.app}>
       <Header />
@@ -74,7 +75,6 @@ function App() {
           <Route path="/sabantui" element={<Sabantui />} />
           <Route path="/we-are-together" element={<WeAreTogether />} />
           <Route path="/autonomy" element={<ModalFormAutonomyMobile />} />
-
         </Routes >
       </main >
       <Footer />

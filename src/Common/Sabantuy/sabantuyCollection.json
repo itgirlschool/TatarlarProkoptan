@@ -1,0 +1,12 @@
+[
+  { "id": 0, "img": "../src/assets/images/Sabantuy/1.jpg" },
+  { "id": 1, "img": "../src/assets/images/Sabantuy/2.jpg" },
+  { "id": 2, "img":  "../src/assets/images/Sabantuy/3.jpg"},
+  { "id": 3, "img":  "../src/assets/images/Sabantuy/4.jpg"},
+  { "id": 4, "img": "../src/assets/images/Sabantuy/5.jpg" },
+  { "id": 5, "img": "../src/assets/images/Sabantuy/6.jpg" },
+  { "id": 6, "img": "../src/assets/images/Sabantuy/7.jpg" },
+  { "id": 7, "img":  "../src/assets/images/Sabantuy/8.jpg"},
+  { "id": 8, "img": "../src/assets/images/Sabantuy/9.jpg"},
+  { "id": 9, "img":  "../src/assets/images/Sabantuy/10.jpg"}
+]
