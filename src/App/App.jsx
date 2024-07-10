@@ -24,6 +24,9 @@ import Header from "../Components/Header/Header.jsx";
 import Footer from "../Components/Footer/Footer.jsx";
 import style from "./App.module.scss";
 import Loader from "../Components/Loader/Loader.jsx";
+import ChildrenMobile from "../Pages/WeAreTogether/Mobile/ChildrenMobile";
+import HelpMobile from "../Pages/WeAreTogether/Mobile/HelpMobile";
+import GalleryMobile from "../Pages/WeAreTogether/Mobile/GalleryMobile";
 
 function App() {
   const [user, setUser] = useState(null);
