@@ -1,4 +1,4 @@
-import {setUserCharity} from '../slice/CharitySlice.js'
+import { setUserCharity, setCounter, updateCounter } from '../slice/CharitySlice.js'
 
 const middlewareListenersCharityUsers = (database) => {
     return (store) => (next) => (action) => {
@@ -8,6 +8,19 @@ const middlewareListenersCharityUsers = (database) => {
                 store.dispatch(setUserCharity(data));
             });
         }
+
+        if (action.type === 'SUBSCRIBE_TO_COUNTER') {
+            database.ref('counter').on('value', (snapshot) => {
+                const data = snapshot.val();
+                store.dispatch(setCounter(data));
+            });
+        }
+
+        if (action.type === updateCounter.type) {
+            const currentCounter = store.getState().charity.counter;
+            database.ref('counter').set(currentCounter);
+        }
+
         return next(action);
     }
 }
