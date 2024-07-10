@@ -7,7 +7,6 @@ export default function ModalHomePage({active, setActive}) {
         <>
             <div className={active ? `${style.active}` : `${style.modal}`}>
                 <div className={style.modal__content}>
-
                     <p className={style.modal__title}>История</p>
                     <div className={style.img__container}>
                         <img width='300px' src={prokopevsk} alt="Прокопьевск" className={style.modal__img}/>
