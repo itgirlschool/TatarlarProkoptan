@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 
 const autonomySlice = createSlice({
@@ -15,4 +15,4 @@ const autonomySlice = createSlice({
 })
 export const {setUserAutonomy} = autonomySlice.actions
 
-export default autonomySlice.reducer
+export default autonomySlice.reducer;
