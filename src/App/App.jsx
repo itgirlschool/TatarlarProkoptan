@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { Route, Routes, Link } from "react-router-dom";
-import TatarCulture from '../Pages/Culture/TatarCulture/TatarCulture';
-import Mosques from '../Pages/Culture/Mosques/Mosques';
-import Traditions from '../Pages/Culture/Traditions/Traditions';
-import Cuisine from '../Pages/Culture/Cuisine/Cuisine';
-import Partners from '../Pages/Culture/Partners/Partners';
-import SabantuyCollection from "../Pages/Sabantui/SabantuyCollection/SabantuyCollection"
-import SabantuyCurrentYear from "../Pages/Sabantui/SabantuyCurrentYear/SabantuyCurrentYear"
+import TatarCulture from "../Pages/Culture/TatarCulture/TatarCulture";
+import Mosques from "../Pages/Culture/Mosques/Mosques";
+import Traditions from "../Pages/Culture/Traditions/Traditions";
+import Cuisine from "../Pages/Culture/Cuisine/Cuisine";
+import Partners from "../Pages/Culture/Partners/Partners";
+import SabantuyCollection from "../Pages/Sabantui/SabantuyCollection/SabantuyCollection";
+import SabantuyCurrentYear from "../Pages/Sabantui/SabantuyCurrentYear/SabantuyCurrentYear";
 import {
   HomePage,
   Charity,
@@ -19,8 +19,9 @@ import {
   WeAreTogether,
   ModalFormAutonomyMobile,
 } from "../Pages";
+import HomePageMobile from "../Pages/HomePage/HomePageMobile.jsx";
 import Header from "../Components/Header/Header.jsx";
-import Footer from "../Components/Footer/Footer.jsx"
+import Footer from "../Components/Footer/Footer.jsx";
 import style from "./App.module.scss";
 import Loader from "../Components/Loader/Loader.jsx";
 
@@ -75,10 +76,11 @@ function App() {
           <Route path="/sabantui" element={<Sabantui />} />
           <Route path="/we-are-together" element={<WeAreTogether />} />
           <Route path="/autonomy" element={<ModalFormAutonomyMobile />} />
-        </Routes >
-      </main >
+          <Route path="/homePageMobile" element={<HomePageMobile />} />
+        </Routes>
+      </main>
       <Footer />
-    </div >
+    </div>
   );
 }
 

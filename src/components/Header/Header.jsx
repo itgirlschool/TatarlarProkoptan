@@ -57,7 +57,7 @@ const Header = () => {
             </li>
             <li className={style.nav__link}>
               <NavLink style={getStyle} to="/events">
-                События
+                Мероприятия
               </NavLink>
             </li>
             <li className={style.nav__link}>
