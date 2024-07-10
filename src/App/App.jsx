@@ -7,6 +7,8 @@ import Mosques from '../Pages/Culture/Mosques/Mosques';
 import Traditions from '../Pages/Culture/Traditions/Traditions';
 import Cuisine from '../Pages/Culture/Cuisine/Cuisine';
 import Partners from '../Pages/Culture/Partners/Partners';
+import SabantuyCollection from "../Pages/Sabantui/SabantuyCollection/SabantuyCollection"
+import SabantuyCurrentYear from "../Pages/Sabantui/SabantuyCurrentYear/SabantuyCurrentYear"
 import {
   HomePage,
   Charity,
@@ -69,7 +71,9 @@ function App() {
                     <Route path="/culture/partners" element={<Partners />} />
                     <Route path="/events" element={<Events/>}/>
                     <Route path="/partners" element={<Partners/>}/>
-                    <Route path="/sabantui" element={<Sabantui/>}/>
+                    <Route path="/sabantui/*" element={<Sabantui/>}/>
+                    <Route path="/collection" element={<SabantuyCollection/>}/>
+                    <Route path="/current" element={<SabantuyCurrentYear/>}/>
                     <Route path="/we-are-together" element={<WeAreTogether/>}/>
                     <Route path="/autonomy" element={<ModalFormAutonomyMobile />} />
 
