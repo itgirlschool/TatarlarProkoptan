@@ -1,3 +1,4 @@
+
 @import "../../style/vars";
 
 .container {
@@ -17,30 +18,33 @@
 
 .form {
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
   margin-bottom: 70px;
+  margin-left: -17%;
 }
 
 .input__wrapper {
   display: grid;
-  grid-template-columns: 12% 70%;
-  gap: 30px;
-  align-items: center;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 10px 10px;
+  grid-template-areas: 
+    "error error"
+    "email input"
+    "email input";
+  gap: 10px;
 }
 
 .label {
-  justify-self: end;
-  grid-area: 1/1/2/2;
+  grid-area: email;
   font-size: 23px;
   text-align: right;
-  padding-right: 10px;
+  padding-right: 25px;
 }
 
 .input {
-  grid-area: 1/2/2/3;
+  grid-area: input;
   border: 1px solid #ccc;
   width: 130%;
   height: 30px;
@@ -55,7 +59,6 @@
   background-color: rgb(224, 194, 27);
 }
 .input__empty {
-  grid-area: 1/2/2/3;
   width: 100%;
   height: 30px;
   border-radius: 10px;
@@ -64,9 +67,12 @@
 }
 
 .error {
-  font-size: 26px;
+  grid-area: error;
+  font-size: 16px;
   -webkit-text-stroke: 1px rgb(224, 194, 27);
   white-space: nowrap;
+  font-family: $fontLifehackRegular;
+  margin-left: 27%;
 }
 
 .button__container {
@@ -74,12 +80,13 @@
   display: flex;
   gap: 10px;
   justify-content: center;
+  margin-left: 15%;
 }
 
 .button__submit {
   width: 100%;
   max-width: 200px;
-  height: 50px;
+  height: 45px;
   margin-top: 10px;
   background-color: transparent;
   border: 2px solid $header-text-color;
@@ -102,7 +109,7 @@
 .button__back {
   width: 100%;
   max-width: 200px;
-  height: 50px;
+  height: 45px;
   margin-top: 10px;
   background-color: transparent;
   border: 2px solid $header-text-color;
@@ -165,16 +172,28 @@
   }
 
   .form {
-    max-width: 100%;
+    max-width: 90%;
     gap: 15px;
     margin-bottom: 30px;
   }
 
   .input__wrapper {
-    grid-template-columns: 20% 65%;
+    grid-template-columns: 20% 50%;
     gap: 5px;
   }
+  .input__empty {
+width: 90%;
+  }
+  .imput{
+    width: 90%;
+  }
 
+  .error {
+    font-size: 20px;
+    -webkit-text-stroke: 1px rgb(224, 194, 27);
+    white-space: nowrap;
+    margin-left: 85px;
+  }
   .header {
     font-size: 48px;
     margin-top: 15%;
@@ -192,20 +211,39 @@
     max-width: 96%;
   }
 
-  .form {
-    max-width: 100%;
+  .button__container {
+    width: 70%;
     gap: 10px;
+    display: flex;
+    justify-self: center;
+    margin-left: 15%;
+  }
+  .button__submit:hover{
+    font-size: 24px;
+  }
+  .button__back{
+    font-size: 24px;
+  }
+
+  .error {
+    font-size: 16px;
+    -webkit-text-stroke: 1px rgb(224, 194, 27);
+    white-space: nowrap;
+    margin-left: 40%;
+  }
+
+  .form {
+    max-width: 90%;
+    gap: 5px;
     margin-bottom: 20px;
     margin-top: 10px;
   }
 
-  .input__wrapper {
-    grid-template-columns: 25% 50%;
-    gap: 5px;
+ .input__wrapper {
+    width: 90%;
   }
-
   .header {
-    font-size: 34px;
+    font-size: 24px;
     margin-top: 90px;
   }
 

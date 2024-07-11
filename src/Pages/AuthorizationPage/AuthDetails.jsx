@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { clearUser } from "../../store/slice/UserAuthSlice.js";
 import { auth } from "../../main.jsx";
 
-const LogoutButton = () => {
+const AuthDetails = () => {
   const dispatch = useDispatch();
 
   const handleLogout = async () => {
@@ -19,4 +19,4 @@ const LogoutButton = () => {
   return <button onClick={handleLogout}>Выйти</button>;
 };
 
-export default LogoutButton;
+export default AuthDetails;

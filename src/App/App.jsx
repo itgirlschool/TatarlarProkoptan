@@ -12,6 +12,7 @@ import {
   WeAreTogether,
   AuthorizationPage,
   RegistrationPage,
+  RestorePassword,
 } from "../Pages";
 import Header from "../Components/Header/Header.jsx";
 import Footer from "../Components/Footer/Footer.jsx";
@@ -34,6 +35,7 @@ function App() {
           <Route path="/we-are-together" element={<WeAreTogether />} />
           <Route path="/authorizationpage" element={<AuthorizationPage/>} />
           <Route path="/registrationpage" element={<RegistrationPage/>} />
+          <Route path="/restorepassword" element={<RestorePassword/>} />
         </Routes>
       </main>
       <Footer />

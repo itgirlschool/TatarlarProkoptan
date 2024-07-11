@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setUser } from "../../store/slice/UserAuthSlice.js";
+import { setUserAuth } from "../../store/slice/UserAuthSlice.js";
 import style from "./RegistrationPage.module.scss";
-import { addUserAutonomy } from "../../Services/AutonomyFB/autonomy.js";
+import { addUserAuth } from "../../Services/UsersFB/AuthService.js";
+import ModalAuth from "../../Components/ModalWindow/ModalAuth.jsx";
 
 const schema = yup.object().shape({
   firstName: yup.string().required("Требуется имя"),
@@ -21,7 +22,7 @@ const schema = yup.object().shape({
     .required("Требуется пароль"),
   confirmPassword: yup
     .string()
-    .oneOf([yup.ref('password'), null], 'Пароли должны совпадать')
+    .oneOf([yup.ref("password"), null], "Пароли должны совпадать")
     .required("Подтвердите пароль"),
 });
 
@@ -38,20 +39,41 @@ const RegistrationPage = () => {
 
   const users = useSelector((state) => state.autonomy.users);
 
+  const [showModal, setShowModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
+  const [success, setSuccess] = useState(false);
+
   const onSubmit = async (data) => {
     const { firstName, lastName, email, password } = data;
     try {
-      const user = await addUserAutonomy({ firstName, lastName, email, password });
-      dispatch(setUser(user));
-      alert(`Вы успешно зарегистрированы, ${user.email}`);
-      navigate("/home");
+      const user = await addUserAuth({
+        firstName,
+        lastName,
+        email,
+        password,
+      });
+      console.log("Registered user:", user);
+      dispatch(setUserAuth(user));
+      setModalMessage(`Вы успешно зарегистрированы, ${user.email}`);
+      setSuccess(true);
+      setShowModal(true);
     } catch (error) {
-      alert("Ошибка регистрации: " + error.message);
+      console.error("Registration error:", error); 
+      setModalMessage("Ошибка регистрации: " + error.message);
+      setSuccess(false);
+      setShowModal(true);
     }
   };
 
   const handleBackClick = () => {
-    navigate("/home");
+    navigate("/authorizationpage");
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    if (success) {
+      navigate("/");
+    }
   };
 
   return (
@@ -64,6 +86,9 @@ const RegistrationPage = () => {
       <h2 className={style.header}>Регистрация</h2>
       <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={style.input__wrapper}>
+          {errors.firstName && (
+            <p className={style.error}>{errors.firstName.message}</p>
+          )}
           <label className={style.label} htmlFor="firstName">
             Имя
           </label>
@@ -74,11 +99,11 @@ const RegistrationPage = () => {
             placeholder="Имя"
             {...register("firstName")}
           />
-          {errors.firstName && (
-            <p className={style.error}>{errors.firstName.message}</p>
-          )}
         </div>
         <div className={style.input__wrapper}>
+          {errors.lastName && (
+            <p className={style.error}>{errors.lastName.message}</p>
+          )}
           <label className={style.label} htmlFor="lastName">
             Фамилия
           </label>
@@ -89,11 +114,11 @@ const RegistrationPage = () => {
             placeholder="Фамилия"
             {...register("lastName")}
           />
-          {errors.lastName && (
-            <p className={style.error}>{errors.lastName.message}</p>
-          )}
         </div>
         <div className={style.input__wrapper}>
+          {errors.email && (
+            <p className={style.error}>{errors.email.message}</p>
+          )}
           <label className={style.label} htmlFor="email">
             Email
           </label>
@@ -104,11 +129,11 @@ const RegistrationPage = () => {
             placeholder="E-mail"
             {...register("email")}
           />
-          {errors.email && (
-            <p className={style.error}>{errors.email.message}</p>
-          )}
         </div>
         <div className={style.input__wrapper}>
+          {errors.password && (
+            <p className={style.error}>{errors.password.message}</p>
+          )}
           <label className={style.label} htmlFor="password">
             Пароль
           </label>
@@ -119,24 +144,23 @@ const RegistrationPage = () => {
             placeholder="Пароль"
             {...register("password")}
           />
-          {errors.password && (
-            <p className={style.error}>{errors.password.message}</p>
-          )}
         </div>
         <div className={style.input__wrapper}>
+          {errors.confirmPassword && (
+            <p className={style.error}>{errors.confirmPassword.message}</p>
+          )}
           <label className={style.label} htmlFor="confirmPassword">
-            Подтвердите пароль
+            Пароль
           </label>
           <input
-            className={errors.confirmPassword ? style.input__empty : style.input}
+            className={
+              errors.confirmPassword ? style.input__empty : style.input
+            }
             type="password"
             id="confirmPassword"
             placeholder="Подтвердите пароль"
             {...register("confirmPassword")}
           />
-          {errors.confirmPassword && (
-            <p className={style.error}>{errors.confirmPassword.message}</p>
-          )}
         </div>
         <div className={style.button__container}>
           <button
@@ -144,17 +168,23 @@ const RegistrationPage = () => {
             className={style.button__submit}
             disabled={isSubmitting}
           >
-            Подтвердить
+            Зарегистрироваться
           </button>
           <button
             type="button"
             className={style.button__back}
-            onClick={handleBackClick} // Исправлено: теперь onClick вызывает handleBackClick
+            onClick={handleBackClick}
           >
             Назад
           </button>
         </div>
       </form>
+      <ModalAuth
+        showModal={showModal}
+        closeModal={closeModal}
+        success={success}
+        message={modalMessage}
+      />
     </div>
   );
 };

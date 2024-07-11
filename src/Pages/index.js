@@ -7,5 +7,6 @@ import Sabantui from "./Sabantui/Sabantui.jsx";
 import WeAreTogether from "./WeAreTogether/WeAreTogether.jsx";
 import AuthorizationPage from "./AuthorizationPage/AuthorizationPage.jsx";
 import RegistrationPage from "./AuthorizationPage/RegistrationPage.jsx";
+import RestorePassword from "./AuthorizationPage/RestorePassword.jsx";
 
-export   {HomePage,Charity,Culture,Events,Partners,Sabantui,WeAreTogether,AuthorizationPage,RegistrationPage};
+export   {HomePage,Charity,Culture,Events,Partners,Sabantui,WeAreTogether,AuthorizationPage,RegistrationPage,RestorePassword};

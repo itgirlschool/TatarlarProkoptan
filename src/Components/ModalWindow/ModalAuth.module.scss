@@ -1,0 +1,52 @@
+@import "../../style/vars";
+
+.modal__container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #090808f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal__message__success {
+    background: #fffffff6;
+    font-weight: bold;
+    font-family: $fontLifehackRegular;
+    font-size: 30px;
+    font-weight: 400;
+    color: rgb(224, 194, 27);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  .modal__message__error{
+    font-weight: bold;
+    font-family: $fontLifehackRegular;
+    font-size: 30px;
+    font-weight: 400;
+    background:  #fffffff6;;
+    color: rgb(237, 61, 26);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  .button__submit {
+    width: 100%;
+    max-width: 200px;
+    height: 45px;
+    margin-top: 10px;
+    background-color: transparent;
+    border: 2px solid $header-text-color;
+    border-color: $fontLifehackRegular;
+    border-radius: 10px;
+    font-weight: bold;
+    font-family: $fontLifehackRegular;
+    font-size: 30px;
+    font-weight: 400;
+    color: $header-text-color;
+    cursor: pointer;
+  }

@@ -1,19 +1,19 @@
-
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import style from "./AuthorizationPage.module.scss"; 
+import style from "./AuthorizationPage.module.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { setUser } from "../../store/slice/UserAuthSlice";
+import { setUserAuth } from "../../store/slice/UserAuthSlice";
 import { Link } from "react-router-dom";
-import { getAutonomyAllUsers } from "../../Services/UsersFB/users"; 
 import { useNavigate } from "react-router-dom";
+import ModalAuth from "../../Components/ModalWindow/ModalAuth.jsx";
+import { signInUser } from "../../Services/UsersFB/AuthService.js";
 
 const schema = yup.object().shape({
   email: yup
     .string()
-    .email("Не верный email адрес")
+    .email("Неверный email адрес")
     .required("Требуется email"),
   password: yup
     .string()
@@ -24,21 +24,47 @@ const schema = yup.object().shape({
 const AuthorizationPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm({
     resolver: yupResolver(schema),
   });
 
   const users = useSelector((state) => state.autonomy.users);
-  
+  const [modalData, setModalData] = useState({
+    showModal: false,
+    success: false,
+    message: "",
+    type: "",
+  });
+
   const onSubmit = async (data) => {
     const { email, password } = data;
     try {
-      const user = await getAutonomyAllUsers(email, password);
-      dispatch(setUser(user));
-      alert(`Вы успешно авторизованы, ${user.email}`);
-      navigate("/home");
+      const user = await signInUser(email, password);
+      dispatch(setUserAuth(user));
+      setModalData({
+        showModal: true,
+        success: true,
+        message: "Успешная авторизация",
+        type: "authorization",
+      });
     } catch (error) {
-      alert("Ошибка авторизации: " + error.message);
+      setModalData({
+        showModal: true,
+        success: false,
+        message: error.message,
+        type: "authorization",
+      });
+    }
+  };
+
+  const handleCloseModal = () => {
+    setModalData({ ...modalData, showModal: false });
+    if (modalData.success) {
+      navigate("/");
     }
   };
 
@@ -81,6 +107,12 @@ const AuthorizationPage = () => {
             <p className={style.error}>{errors.password.message}</p>
           )}
         </div>
+        <div className={style.restore__container}>
+          Забыли пароль?
+          <Link to="/restorepassword">
+            <p className={style.restore__link}>Восстановить пароль</p>
+          </Link>
+        </div>
         <div className={style.button__container}>
           <button
             type="submit"
@@ -90,13 +122,20 @@ const AuthorizationPage = () => {
             Войти
           </button>
         </div>
-        <div className={style.link__container}> 
+        <div className={style.link__container}>
           Нет аккаунта?
           <Link to="/registrationpage">
             <p className={style.link}>Регистрация</p>
           </Link>
         </div>
       </form>
+      <ModalAuth
+        showModal={modalData.showModal}
+        closeModal={handleCloseModal}
+        success={modalData.success}
+        message={modalData.message}
+        type={modalData.type}
+      />
     </div>
   );
 };
