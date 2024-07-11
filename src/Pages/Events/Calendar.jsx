@@ -1,55 +1,31 @@
 import React from 'react';
-import { Badge, Calendar } from 'antd';
+import { Badge, Calendar, Divider } from 'antd';
 import style from "./Events.module.scss";
 
 const getListData = (value) => {
   let listData;
   switch (value.date()) {
-    case 1:
+    case 8:
       listData = [
         {
           type: 'Event',
-          content: 'Участие и проведение праздника День защиты детей',
+          content: 'Мини-Сабантуй',
         },
       ];
       break;
-    case 12:
+    case 14:
       listData = [
         {
           type: 'Event',
-          content: 'Участие в городских мероприятиях, посвященных Дню России',
+          content: 'День памяти ушедших',
         },
       ];
       break;
-    case 17:
-      listData = [
-        {
-          type: 'Event',
-          content: 'Курбан Байрам',
-        },
-      ];
-      break;
-    case 21:
+      case 27:
         listData = [
           {
             type: 'Event',
-            content: 'Татар-Пати (татарская дискотека), посвященная Дню Молодёжи',
-          },
-        ];
-        break;
-      case 23:
-        listData = [
-          {
-            type: 'Event',
-            content: 'Участие в городском празднике День Молодёжи',
-          },
-        ];
-        break;
-      case 30:
-        listData = [
-          {
-            type: 'Event',
-            content: 'Международный федеральный Шахтерский Сабантуй',
+            content: 'Татарская рыбалка и уха',
           },
         ];
         break;
@@ -77,16 +53,16 @@ const EventsCalendar = () => {
     return (
         <div>
           {listData.map((item) => (
-            <p key={item.content} className={style.events}>
-              <Badge status={item.type} text={item.content} />
-            </p>
+            <div key={item.content} className={style.events}>
+              <Badge status={item.type} text={item.content} className={style.events}/>
+            </div>
           ))}
         </div>
     );
   };
   const cellRender = (current, info) => {
     if (info.type === 'date') return dateCellRender(current);
-    if (info.type === 'month') return monthCellRender(current);
+    // if (info.type === 'month') return monthCellRender(current);
     return info.originNode;
   };
   return <Calendar cellRender={cellRender}  className={style.calendar}/>;

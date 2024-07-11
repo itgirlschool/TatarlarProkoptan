@@ -1,14 +1,15 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import styles from "./BurgerMenu.module.scss";
 
 const links = [
-  "О нас",
-  "Мероприятия",
-  "Культура",
-  "Сабантуй",
-  "Благотворительность",
-  "Мы вместе",
-  "Войти",
+  { label: "О нас", path: "/" },
+  { label: "Мероприятия", path: "/events" },
+  { label: "Культура", path: "/culture" },
+  { label: "Сабантуй", path: "/sabantui" },
+  { label: "Благотворительность", path: "/charity" },
+  { label: "Мы вместе", path: "/we-are-together" },
+  { label: "Войти", path: "/authorizationpage" },
 ];
 
 function BurgerMenu() {
@@ -17,11 +18,6 @@ function BurgerMenu() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const isOpen = isMenuOpen ? styles.open : "";
-
-  const onClick = (href) => {
-    toggleMenu();
-    console.log(`Clicked on ${href}`);
-  };
 
   return (
     <>
@@ -33,14 +29,15 @@ function BurgerMenu() {
       <div className={`${styles.menu} ${isOpen}`}>
         <nav>
           {links.map((link, index) => (
-            <a
-              key={link}
+            <NavLink
+              key={link.label}
+              to={link.path}
               className={isMenuOpen ? styles.appear : ""}
               style={{ animationDelay: `0.${index + 1}s` }}
-              onClick={() => onClick(link)}
+              onClick={toggleMenu}
             >
-              {link}
-            </a>
+              {link.label}
+            </NavLink>
           ))}
         </nav>
       </div>
