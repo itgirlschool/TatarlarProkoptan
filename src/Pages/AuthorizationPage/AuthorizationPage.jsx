@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+// import { yupResolver } from "@hookform/resolvers/yup";
+// import * as yup from "yup";
 import style from "./AuthorizationPage.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserAuth } from "../../store/slice/UserAuthSlice";
@@ -10,16 +10,16 @@ import { useNavigate } from "react-router-dom";
 import ModalAuth from "../../Components/ModalWindow/ModalAuth.jsx";
 import { signInUser } from "../../Services/UsersFB/AuthService.js";
 
-const schema = yup.object().shape({
-  email: yup
-    .string()
-    .email("Неверный email адрес")
-    .required("Требуется email"),
-  password: yup
-    .string()
-    .min(6, "Пароль должен содержать от 6 символов")
-    .required("Требуется пароль"),
-});
+// const schema = yup.object().shape({
+//   email: yup
+//     .string()
+//     .email("Неверный email адрес")
+//     .required("Требуется email"),
+//   password: yup
+//     .string()
+//     .min(6, "Пароль должен содержать от 6 символов")
+//     .required("Требуется пароль"),
+// });
 
 const AuthorizationPage = () => {
   const dispatch = useDispatch();

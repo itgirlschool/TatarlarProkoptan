@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+// import { yupResolver } from "@hookform/resolvers/yup";
+// import * as yup from "yup";
 import style from "./RestorePassword.module.scss";
 import { checkEmailExists } from "../../Services/UsersFB/AuthService";
 import { Link, useNavigate } from "react-router-dom";
 import ModalAuth from "../../Components/ModalWindow/ModalAuth";
 
-const schema = yup.object().shape({
-  email: yup
-    .string()
-    .email("Неверный email адрес")
-    .required("Введите email адрес"),
-});
+// const schema = yup.object().shape({
+//   email: yup
+//     .string()
+//     .email("Неверный email адрес")
+//     .required("Введите email адрес"),
+// });
 
 const RestorePassword = () => {
   const {

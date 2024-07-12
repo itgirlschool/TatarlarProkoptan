@@ -81,6 +81,9 @@ function App() {
           <Route path="/partners" element={<Partners />} />
           <Route path="/sabantui" element={<Sabantui />} />
           <Route path="/we-are-together" element={<WeAreTogether />} />
+          <Route path="/registrationpage" element={<RegistrationPage />} />
+          <Route path="/authorizationpage" element={<AuthorizationPage />} />
+          <Route path="/restorepassword" element={<RestorePassword/>} />
           <Route path="/autonomy" element={<ModalFormAutonomyMobile />} />
           <Route path="/homePageMobile" element={<HomePageMobile />} />
         </Routes>
