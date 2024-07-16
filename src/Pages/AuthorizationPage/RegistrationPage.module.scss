@@ -1,4 +1,3 @@
-
 @import "../../style/vars";
 
 .container {
@@ -29,7 +28,7 @@
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: 10px 10px;
-  grid-template-areas: 
+  grid-template-areas:
     "error error"
     "email input"
     "email input";
@@ -182,9 +181,9 @@
     gap: 5px;
   }
   .input__empty {
-width: 90%;
+    width: 90%;
   }
-  .imput{
+  .imput {
     width: 90%;
   }
 
@@ -218,10 +217,10 @@ width: 90%;
     justify-self: center;
     margin-left: 15%;
   }
-  .button__submit:hover{
+  .button__submit:hover {
     font-size: 24px;
   }
-  .button__back{
+  .button__back {
     font-size: 24px;
   }
 
@@ -239,7 +238,7 @@ width: 90%;
     margin-top: 10px;
   }
 
- .input__wrapper {
+  .input__wrapper {
     width: 90%;
   }
   .header {

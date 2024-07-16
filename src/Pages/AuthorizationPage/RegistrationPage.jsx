@@ -1,32 +1,33 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-// import { yupResolver } from "@hookform/resolvers/yup";
-// import * as yup from "yup";
-import { useDispatch, useSelector } from "react-redux";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setUserAuth } from "../../store/slice/UserAuthSlice.js";
 import style from "./RegistrationPage.module.scss";
 import { addUserAuth } from "../../Services/UsersFB/AuthService.js";
 import ModalAuth from "../../Components/ModalWindow/ModalAuth.jsx";
+import middlewareListenersUsers from "../../store/middleware/middleWareUsers.js";
 
-// const schema = yup.object().shape({
-//   firstName: yup.string().required("Требуется имя"),
-//   lastName: yup.string().required("Требуется фамилия"),
-//   email: yup
-//     .string()
-//     .email("Не верный email адрес")
-//     .required("Требуется email"),
-//   password: yup
-//     .string()
-//     .min(6, "Пароль должен содержать от 6 символов")
-//     .required("Требуется пароль"),
-//   confirmPassword: yup
-//     .string()
-//     .oneOf([yup.ref("password"), null], "Пароли должны совпадать")
-//     .required("Подтвердите пароль"),
-// });
+const schema = yup.object().shape({
+  firstName: yup.string().required("Требуется имя"),
+  lastName: yup.string().required("Требуется фамилия"),
+  email: yup
+    .string()
+    .email("Не верный email адрес")
+    .required("Требуется email"),
+  password: yup
+    .string()
+    .min(6, "Пароль должен содержать от 6 символов")
+    .required("Требуется пароль"),
+  confirmPassword: yup
+    .string()
+    .oneOf([yup.ref("password"), null], "Пароли должны совпадать")
+    .required("Подтвердите пароль"),
+});
 
-const RegistrationPage = () => {
+const RegistrationPage = ({ database }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const {
@@ -36,8 +37,6 @@ const RegistrationPage = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
-
-  const users = useSelector((state) => state.autonomy.users);
 
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
@@ -57,8 +56,12 @@ const RegistrationPage = () => {
       setModalMessage(`Вы успешно зарегистрированы, ${user.email}`);
       setSuccess(true);
       setShowModal(true);
+
+      middlewareListenersUsers(database)(dispatch)({
+        type: "SUBSCRIBE_TO_USERS",
+      });
     } catch (error) {
-      console.error("Registration error:", error); 
+      console.error("Registration error:", error);
       setModalMessage("Ошибка регистрации: " + error.message);
       setSuccess(false);
       setShowModal(true);
@@ -184,6 +187,7 @@ const RegistrationPage = () => {
         closeModal={closeModal}
         success={success}
         message={modalMessage}
+        type="registration"
       />
     </div>
   );
