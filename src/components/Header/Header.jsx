@@ -80,6 +80,11 @@ const Header = () => {
                 Мы вместе
               </NavLink>
             </li>
+            <li className={style.nav__link}>
+              <NavLink style={getStyle} to="/signup">
+                Войти
+              </NavLink>
+            </li>
           </ul>
           <BurgerMenu />
         </nav>

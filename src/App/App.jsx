@@ -19,6 +19,7 @@ import {
   WeAreTogether,
   ModalFormAutonomyMobile,
 } from "../Pages";
+import SignUp from "../Pages/Authorization/SignUp";
 import HomePageMobile from "../Pages/HomePage/HomePageMobile.jsx";
 import Header from "../Components/Header/Header.jsx";
 import Footer from "../Components/Footer/Footer.jsx";
@@ -80,6 +81,7 @@ function App() {
           <Route path="/we-are-together" element={<WeAreTogether />} />
           <Route path="/autonomy" element={<ModalFormAutonomyMobile />} />
           <Route path="/homePageMobile" element={<HomePageMobile />} />
+          <Route path="/signup" element={<SignUp />} />
         </Routes>
       </main>
       <Footer />

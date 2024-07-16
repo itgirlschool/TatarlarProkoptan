@@ -7,5 +7,6 @@ import Partners from "./Partners/Partners.jsx";
 import Sabantui from "./Sabantui/Sabantui.jsx";
 import WeAreTogether from "./WeAreTogether/WeAreTogether.jsx";
 import ModalFormAutonomyMobile from "./ModalFormAutonomyMobile/ModalFormAutonomyMobile.jsx";
+import SignIn from "./Authorization/SingIn.jsx";
 
-export { HomePage, Charity, CharityModal, Culture, Events, Partners, Sabantui, WeAreTogether, ModalFormAutonomyMobile }
+export { HomePage, Charity, CharityModal, Culture, Events, Partners, Sabantui, WeAreTogether, ModalFormAutonomyMobile, SignIn };
