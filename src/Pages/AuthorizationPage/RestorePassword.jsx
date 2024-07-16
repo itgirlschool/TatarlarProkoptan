@@ -3,10 +3,11 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import style from "./RestorePassword.module.scss";
-import { checkEmailExists } from "../../Services/UsersFB/AuthService";
+import { checkEmailExists, sendPasswordResetEmail } from "../../Services/UsersFB/AuthService";
 import { Link, useNavigate } from "react-router-dom";
 import ModalAuth from "../../Components/ModalWindow/ModalAuth";
 import { setUsers } from "../../store/slice/UsersSlice";
+import { getAllUsers } from "../../Services/UsersFB/AuthService";
 
 const schema = yup.object().shape({
   email: yup
@@ -39,7 +40,9 @@ const RestorePassword = ({ middlewareListenersUsers }) => {
       if (!emailExists) {
         throw new Error("Пользователь с таким email не найден");
       }
+      
       await sendPasswordResetEmail(email);
+
       setModalData({
         showModal: true,
         success: true,

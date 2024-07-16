@@ -8,6 +8,8 @@ import { setUserAuth } from "../../store/slice/UserAuthSlice";
 import { Link, useNavigate } from "react-router-dom";
 import ModalAuth from "../../Components/ModalWindow/ModalAuth.jsx";
 import { signInUser } from "../../Services/UsersFB/AuthService.js";
+import { getAllUsers } from "../../Services/UsersFB/AuthService.js";
+import { setUsers } from "../../store/slice/UsersSlice";
 
 const schema = yup.object().shape({
   email: yup.string().email("Неверный email адрес").required("Требуется email"),
@@ -41,6 +43,9 @@ const AuthorizationPage = () => {
       const user = await signInUser(email, password);
       dispatch(setUserAuth(user));
       console.log("Signed in user:", user);
+      const allUsers = await getAllUsers();
+      dispatch(setUsers(allUsers));
+      
       setModalData({
         showModal: true,
         success: true,

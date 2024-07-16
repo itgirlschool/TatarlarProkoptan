@@ -1,12 +1,26 @@
+import {
+  getAuth,
+  sendPasswordResetEmail as sendResetEmail,
+} from "firebase/auth";
 import { database } from "../../store/index.js";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
-export async function getAuthAllUsers() {
+export async function sendPasswordResetEmail(email) {
+  const auth = getAuth();
+  try {
+    await sendResetEmail(auth, email);
+    console.log("Отправка письма с ссылкой для сброса пароля");
+  } catch (error) {
+    console.error("Ошибка отправки ссылки для сброса пароля:", error);
+    throw error;
+  }
+}
+
+export async function getAllUsers() {
   try {
     const snapshot = await database.ref("users").once("value");
     return snapshot.val();
   } catch (error) {
-    console.error("Error getting users:", error);
+    console.error("Ошибка получения пользователей:", error);
     throw error;
   }
 }
@@ -19,7 +33,7 @@ export async function addUserAuth(userData) {
     await ref.set(dataWithKey);
     return newKey;
   } catch (error) {
-    console.error("Error adding user:", error);
+    console.error("Ошибка добавления пользователя:", error);
     throw error;
   }
 }
@@ -34,7 +48,7 @@ export async function signInUser(email, password) {
     );
     return userCredential.user;
   } catch (error) {
-    console.error("Error signing in:", error);
+    console.error("Ошибка авторизации:", error);
     throw error;
   }
 }
@@ -43,9 +57,9 @@ export async function signOutUser() {
   const auth = getAuth();
   try {
     await signOut(auth);
-    console.log("User signed out successfully.");
+    console.log("Пользователь разлогинился");
   } catch (error) {
-    console.error("Error signing out:", error);
+    console.error("Ошибка при попытке разлогиниться:", error);
     throw error;
   }
 }
