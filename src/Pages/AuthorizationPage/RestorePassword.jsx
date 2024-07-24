@@ -7,6 +7,7 @@ import style from "./RestorePassword.module.scss";
 import { Link, useNavigate } from "react-router-dom";
 import ModalAuth from "../../Components/ModalWindow/ModalAuth";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+import ornaments from '../../assets/pictures/tatar_ornament.png'
 
  const schema = yup.object().shape({
    email: yup
@@ -53,7 +54,7 @@ const RestorePassword = () => {
   return (
     <div className={style.container}>
       <img
-        src="src/assets/pictures/tatar_ornament.png"
+        src={ornaments}
         className={style.tatar__ornament}
         alt="tatar ornament"
       />
