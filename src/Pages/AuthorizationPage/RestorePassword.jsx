@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
  import { yupResolver } from "@hookform/resolvers/yup";
  import * as yup from "yup";
+ import {useSelector} from "react-redux";
 import style from "./RestorePassword.module.scss";
-import { checkEmailExists } from "../../Services/UsersFB/AuthService";
 import { Link, useNavigate } from "react-router-dom";
 import ModalAuth from "../../Components/ModalWindow/ModalAuth";
+import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 
  const schema = yup.object().shape({
    email: yup
@@ -22,7 +23,9 @@ const RestorePassword = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
+  const {users} = useSelector((state) => state.users);
 
+  const auth = getAuth();
   const navigate = useNavigate();
   const [modalData, setModalData] = useState({
     showModal: false,
@@ -33,26 +36,10 @@ const RestorePassword = () => {
 
   const onSubmit = async (data) => {
     const { email } = data;
-    try {
-      const emailExists = await checkEmailExists(email);
-      if (!emailExists) {
-        throw new Error("Пользователь с таким email не найден");
+    const verificationUser = users.find((user) => user.email === email);
+    if(verificationUser) {
+      sendPasswordResetEmail(auth,email)
     }
-    await sendPasswordResetEmail(email);
-    setModalData({
-        showModal: true,
-        success: true,
-        message: "Инструкция по смене пароля отправлена на указанный email",
-        type: "restorePassword",
-    });
-  } catch (error) {
-    setModalData({
-        showModal: true,
-        success: false,
-        message: error.message,
-        type: "restorePassword",
-    });
-}
 };
 
   const handleCloseModal = () => {

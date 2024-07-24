@@ -50,12 +50,4 @@ export async function signOutUser() {
 }
 
 
-export async function checkEmailExists(email) {
-  try {
-      const snapshot = await database.ref('auth').orderByChild('email').equalTo(email).once('value');
-      return snapshot.exists();
-  } catch (error) {
-      console.error(error);
-      throw new Error('Ошибка проверки email');
-  }
-}
+
