@@ -1,4 +1,5 @@
 import style from "./Header.module.scss";
+import {useEffect} from "react";
 import logo from "../../assets/images/logo.png";
 import BurgerMenu from "./BurgerMenu";
 import TelegramIcon from "../../assets/images/telegram.svg";
@@ -6,20 +7,33 @@ import MailIcon from "../../assets/images/mail.svg";
 import PhoneIcon from "../../assets/images/phone.svg";
 import FamilyIconImage from "../../assets/images/family.svg";
 import { useState } from "react";
+import { getAuth, signOut,onAuthStateChanged} from "firebase/auth";
 import { NavLink } from "react-router-dom";
 import ModalFormAutonomy from "../ModalForm/ModalFormAutonomy";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [isModalOpened, setIsModalOpen] = useState(false);
+  const [opacityExit ,setOpacityExit] = useState(false)
   const navigate = useNavigate();
   const location = useLocation();
   const screenWidth = window.screen.width;
   const [isMobile, setIsMobile] = useState(screenWidth);
+  const auth = getAuth();
 
   window.onresize = () => {
     setIsMobile(screenWidth);
   };
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) setOpacityExit(true);
+    })
+
+    return () => {
+      setOpacityExit(false);
+    }
+  },[])
 
   const openModal = () => {
     if (isMobile <= 530 && location.pathname !== "/autonomy") {
@@ -29,6 +43,11 @@ const Header = () => {
       document.body.style.overflow = "hidden";
     }
   };
+
+  const exitAccount = () => {
+    signOut(auth);
+    setOpacityExit(false)
+  }
 
   const closeModal = (value) => {
     if (screenWidth > 530) {
@@ -79,6 +98,11 @@ const Header = () => {
               <NavLink style={getStyle} to="/we-are-together">
                 Мы вместе
               </NavLink>
+            </li>
+            <li className={style.nav__link}>
+              {opacityExit && <NavLink style={getStyle} to="#" onClick={exitAccount} >
+                 Выйти
+              </NavLink>}
             </li>
           </ul>
           <BurgerMenu />

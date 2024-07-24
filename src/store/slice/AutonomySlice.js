@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const autonomySlice = createSlice({
     name: "autonomy",
     initialState: {
-        users:null
+        users: []
     },
     reducers: {
         setUserAutonomy(state, action) {

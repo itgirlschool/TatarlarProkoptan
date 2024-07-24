@@ -9,6 +9,7 @@ const links = [
   { label: "Сабантуй", path: "/sabantui" },
   { label: "Благотворительность", path: "/charity" },
   { label: "Мы вместе", path: "/we-are-together" },
+  { label: "Войти", path: "/authorizationpage" },
 ];
 
 function BurgerMenu() {

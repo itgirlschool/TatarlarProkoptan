@@ -11,6 +11,7 @@ import firebaseConfig from "../../firebaseConfig.js";
 import 'firebase/compat/database';
 import { initializeApp } from "firebase/app";
 
+
 initializeApp(firebaseConfig);
 export const database = firebase.initializeApp(firebaseConfig).database()
 const listenerMiddlewareAutonomy = middlewareListenersAutonomyUsers(database);

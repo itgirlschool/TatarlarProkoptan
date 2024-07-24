@@ -1,0 +1,67 @@
+@import "../../style/vars";
+
+.modal__container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  overflow: auto;
+  animation: appearance 0.3s ease-in-out;
+}
+
+@keyframes appearance {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.modal__message {
+  background:  #39a4a5;
+  color: white;
+  font-family: $fontLifehackRegular;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+.title {
+  font-family: $fontLifehackRegular;
+  color: white;
+  font-size: 3vw;
+}
+.modal__message__success {
+  font-weight: bold;
+  font-family: $fontLifehackRegular;
+  font-size: 30px;
+  font-weight: 400;
+  color: rgb(224, 194, 27);
+}
+
+.modal__message__error {
+  font-weight: bold;
+  font-family: $fontLifehackRegular;
+  font-size: 30px;
+  font-weight: 400;
+  color: rgb(237, 61, 26);
+}
+
+.button__submit {
+  width: 100%;
+  max-width: 200px;
+  height: 45px;
+  margin-top: 10px;
+  background-color: transparent;
+  border: 2px solid $header-text-color;
+  border-radius: 10px;
+  font-weight: bold;
+  font-family: $fontLifehackRegular;
+  font-size: 30px;
+  font-weight: 400;
+  color: $header-text-color;
+  cursor: pointer;
+}
