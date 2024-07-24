@@ -1,27 +1,26 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import tatarOrnament from '../../assets/pictures/tatar_ornament.png'
- import { yupResolver } from "@hookform/resolvers/yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import style from "./AuthorizationPage.module.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { setUserAuth } from "../../store/slice/UserAuthSlice";
+import { Link, useNavigate } from "react-router-dom";
 import ModalAuth from "../../Components/ModalWindow/ModalAuth.jsx";
 import { signInUser } from "../../Services/UsersFB/AuthService.js";
+import { getAllUsers } from "../../Services/UsersFB/AuthService.js";
+import { setUsers } from "../../store/slice/UsersSlice";
 
 const schema = yup.object().shape({
-   email: yup
-     .string()
-     .email("Неверный email адрес")
-     .required("Требуется email"),
-   password: yup
-     .string()
-     .min(6, "Пароль должен содержать от 6 символов")
-     .required("Требуется пароль"),
- });
+  email: yup.string().email("Неверный email адрес").required("Требуется email"),
+  password: yup
+    .string()
+    .min(6, "Пароль должен содержать от 6 символов")
+    .required("Требуется пароль"),
+});
 
 const AuthorizationPage = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const {
     register,
@@ -31,17 +30,42 @@ const AuthorizationPage = () => {
     resolver: yupResolver(schema),
   });
 
-  const users = useSelector((state) => state.autonomy.users);
   const [modalData, setModalData] = useState({
     showModal: false,
     success: false,
     message: "",
-    type: "",
+    type: "authorization",
   });
 
   const onSubmit = async (data) => {
     const { email, password } = data;
-    signInUser(email, password,navigate);
+    try {
+      const user = await signInUser(email, password);
+      dispatch(setUserAuth(user));
+      console.log("Signed in user:", user);
+      const allUsers = await getAllUsers();
+      dispatch(setUsers(allUsers));
+      
+      setModalData({
+        showModal: true,
+        success: true,
+        message: "Успешная авторизация",
+        type: "authorization",
+      });
+    } catch (error) {
+      console.error("Error signing in:", error);
+      let errorMessage = "Ошибка при входе. Проверьте ваши учетные данные.";
+      if (error.code === "auth/invalid-credential") {
+        errorMessage =
+          "Неверные учетные данные. Пожалуйста, проверьте email и пароль.";
+      }
+      setModalData({
+        showModal: true,
+        success: false,
+        message: errorMessage,
+        type: "authorization",
+      });
+    }
   };
 
   const handleCloseModal = () => {
@@ -54,7 +78,7 @@ const AuthorizationPage = () => {
   return (
     <div className={style.container}>
       <img
-        src={tatarOrnament}
+        src="src/assets/pictures/tatar_ornament.png"
         className={style.tatar__ornament}
         alt="tatar ornament"
       />

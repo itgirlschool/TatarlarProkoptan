@@ -22,7 +22,7 @@ const ModalAuth = ({ showModal, closeModal, success, message, type }) => {
     <div className={style.modal__container}>
       <div className={style.modal__message}>
         <h2>{titles[type]}</h2>
-        <p className={success ? style.success : style.error}>{messages[type]}</p>
+        <p className={success ? style.success__message__success : style.modal__message__error}>{messages[type]}</p>
         <button onClick={closeModal} className={style.button__submit}>Закрыть</button>
       </div>
     </div>
