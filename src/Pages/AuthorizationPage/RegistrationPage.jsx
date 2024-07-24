@@ -1,33 +1,32 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-// import { yupResolver } from "@hookform/resolvers/yup";
-// import * as yup from "yup";
-import { useDispatch, useSelector } from "react-redux";
+import  oranament  from '../../assets/pictures/tatar_ornament.png'
+ import { yupResolver } from "@hookform/resolvers/yup";
+ import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
-import { setUserAuth } from "../../store/slice/UserAuthSlice.js";
-import style from "./RegistrationPage.module.scss";
-import { addUserAuth } from "../../Services/UsersFB/AuthService.js";
+import {createUser} from "../../Services/UsersFB/AuthService.js";
 import ModalAuth from "../../Components/ModalWindow/ModalAuth.jsx";
 
-// const schema = yup.object().shape({
-//   firstName: yup.string().required("Требуется имя"),
-//   lastName: yup.string().required("Требуется фамилия"),
-//   email: yup
-//     .string()
-//     .email("Не верный email адрес")
-//     .required("Требуется email"),
-//   password: yup
-//     .string()
-//     .min(6, "Пароль должен содержать от 6 символов")
-//     .required("Требуется пароль"),
-//   confirmPassword: yup
-//     .string()
-//     .oneOf([yup.ref("password"), null], "Пароли должны совпадать")
-//     .required("Подтвердите пароль"),
-// });
+import style from "./RegistrationPage.module.scss";
+
+ const schema = yup.object().shape({
+   firstName: yup.string().required("Требуется имя"),
+   lastName: yup.string().required("Требуется фамилия"),
+   email: yup
+     .string()
+     .email("Не верный email адрес")
+     .required("Требуется email"),
+   password: yup
+     .string()
+     .min(6, "Пароль должен содержать от 6 символов")
+     .required("Требуется пароль"),
+   confirmPassword: yup
+     .string()
+     .oneOf([yup.ref("password"), null], "Пароли должны совпадать")
+     .required("Подтвердите пароль"),
+ });
 
 const RegistrationPage = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const {
     register,
@@ -37,32 +36,18 @@ const RegistrationPage = () => {
     resolver: yupResolver(schema),
   });
 
-  const users = useSelector((state) => state.autonomy.users);
-
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
   const [success, setSuccess] = useState(false);
 
   const onSubmit = async (data) => {
     const { firstName, lastName, email, password } = data;
-    try {
-      const user = await addUserAuth({
-        firstName,
-        lastName,
+     await createUser({
         email,
+        displayName: `${firstName} ${lastName}`,
         password,
-      });
-      console.log("Registered user:", user);
-      dispatch(setUserAuth(user));
-      setModalMessage(`Вы успешно зарегистрированы, ${user.email}`);
-      setSuccess(true);
-      setShowModal(true);
-    } catch (error) {
-      console.error("Registration error:", error); 
-      setModalMessage("Ошибка регистрации: " + error.message);
-      setSuccess(false);
-      setShowModal(true);
-    }
+        date: new Date(),
+      },navigate,{setModalMessage,setSuccess,setShowModal})
   };
 
   const handleBackClick = () => {
@@ -79,7 +64,7 @@ const RegistrationPage = () => {
   return (
     <div className={style.container}>
       <img
-        src="src/assets/pictures/tatar_ornament.png"
+        src={oranament}
         className={style.tatar__ornament}
         alt="tatar ornament"
       />

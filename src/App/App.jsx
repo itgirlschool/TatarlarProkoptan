@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import  {useSelector} from "react-redux";
 import { useDispatch } from "react-redux";
+import  {setUserAuth} from "../store/slice/UserAuthSlice.js";
 import { Route, Routes, Link } from "react-router-dom";
 import TatarCulture from "../Pages/Culture/TatarCulture/TatarCulture";
 import Mosques from "../Pages/Culture/Mosques/Mosques";
@@ -32,8 +34,8 @@ import HelpMobile from "../Pages/WeAreTogether/Mobile/HelpMobile";
 import GalleryMobile from "../Pages/WeAreTogether/Mobile/GalleryMobile";
 
 function App() {
-  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -42,27 +44,9 @@ function App() {
     dispatch({ type: "SUBSCRIBE_TO_USERS" });
   }, [dispatch]);
 
-  useEffect(() => {
-    const auth = getAuth();
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
-      } else {
-        setUser(null);
-      }
-      setLoading(false);
-    });
 
-    return () => unsubscribe();
-  }, []);
 
-  if (loading) {
-    return (
-      <div className={style.loaderContainer}>
-        <Loader />
-      </div>
-    );
-  }
+
   return (
     <div className={style.app}>
       <Header />

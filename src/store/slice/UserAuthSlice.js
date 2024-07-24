@@ -6,10 +6,7 @@ const userAuthSlice = createSlice({
         email: null,
         displayName: null,
         password: null,
-        phone: null,
-        date: null,
-        statusUser: null,
-        id: null,
+        userId: null,
         key: null,
     },
     reducers: {
@@ -17,10 +14,7 @@ const userAuthSlice = createSlice({
             state.email = action.payload.email
             state.displayName = action.payload.displayName
             state.password = action.payload.password
-            state.phone = action.payload.phone
-            state.date = action.payload.date
-            state.statusUser = action.payload.statusUser
-            state.id = action.payload.id
+            state.userId = action.payload.id
             state.key = action.payload.key
 
 
@@ -30,10 +24,7 @@ const userAuthSlice = createSlice({
             state.id = null
             state.displayName = null
             state.password = null
-            state.phone = null
-            state.date = null
-            state.statusUser = null
-            state.id = null
+            state.userId = null
             state.key = null
         }
     },
