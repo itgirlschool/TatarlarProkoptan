@@ -1,7 +1,7 @@
 import {database} from "../../store/index.js";
 import { getAuth, signInWithEmailAndPassword,signOut,createUserWithEmailAndPassword} from "firebase/auth";
 
-const auth = getAuth();
+
 export async function addUserAuth(userData,id,navigate) {
   try {
       const ref = database.ref('users').push();
@@ -15,12 +15,14 @@ export async function addUserAuth(userData,id,navigate) {
 }
 
 export async function signInUser(email, password,navigate) {
+    const auth = getAuth();
       signInWithEmailAndPassword(auth, email, password)
           .then(user => {navigate('/events')})
           .catch(error => console.log(error))
 }
 
 export  async function createUser(data,navigate,valid) {
+    const auth = getAuth();
     createUserWithEmailAndPassword(auth, data.email, data.password)
         .then((user)=>{
             addUserAuth(data,user.user.uid,)

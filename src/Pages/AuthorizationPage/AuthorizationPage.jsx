@@ -3,13 +3,10 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import style from "./AuthorizationPage.module.scss";
-import { useDispatch, useSelector } from "react-redux";
-import { setUserAuth } from "../../store/slice/UserAuthSlice";
 import { Link, useNavigate } from "react-router-dom";
 import ModalAuth from "../../Components/ModalWindow/ModalAuth.jsx";
 import { signInUser } from "../../Services/UsersFB/AuthService.js";
-import { getAllUsers } from "../../Services/UsersFB/AuthService.js";
-import { setUsers } from "../../store/slice/UsersSlice";
+
 
 const schema = yup.object().shape({
   email: yup.string().email("Неверный email адрес").required("Требуется email"),
@@ -20,7 +17,6 @@ const schema = yup.object().shape({
 });
 
 const AuthorizationPage = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const {
     register,
@@ -39,33 +35,7 @@ const AuthorizationPage = () => {
 
   const onSubmit = async (data) => {
     const { email, password } = data;
-    try {
-      const user = await signInUser(email, password);
-      dispatch(setUserAuth(user));
-      console.log("Signed in user:", user);
-      const allUsers = await getAllUsers();
-      dispatch(setUsers(allUsers));
-      
-      setModalData({
-        showModal: true,
-        success: true,
-        message: "Успешная авторизация",
-        type: "authorization",
-      });
-    } catch (error) {
-      console.error("Error signing in:", error);
-      let errorMessage = "Ошибка при входе. Проверьте ваши учетные данные.";
-      if (error.code === "auth/invalid-credential") {
-        errorMessage =
-          "Неверные учетные данные. Пожалуйста, проверьте email и пароль.";
-      }
-      setModalData({
-        showModal: true,
-        success: false,
-        message: errorMessage,
-        type: "authorization",
-      });
-    }
+    signInUser(email, password,navigate);
   };
 
   const handleCloseModal = () => {
