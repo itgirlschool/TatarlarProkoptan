@@ -1,38 +1,26 @@
 import { useForm } from "react-hook-form";
 import style from "./ModalForm.module.scss";
 import { useState } from "react";
-import Checkbox from "../../assets/images/checkboxLight.svg";
 import postData from "./postData";
 import Loader from "../Loader/Loader";
 import FeedbackWindow from "./FeedBackWindow";
-import mask from "./inputPhone";
+import mask from "../../Common/inputPhone";
 import { isPhoneTaken } from "./postData";
 import { isEmailTaken } from "./postData";
 import { useSelector } from "react-redux";
 
 export default function ModalFormAutonomy({ onClose }) {
-  const [statusChecked, setStatusChecked] = useState(false);
-  const checkboxClasses = [style.checkbox, style.checkbox__hidden];
-  const [statusCheckbox, setStatusCheckbox] = useState(checkboxClasses[0]);
   const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
   const [responseStatus, setResponseStatus] = useState(false);
 
   const usersAutonomy = useSelector((state) => state.autonomy.users);
 
-  const onHandleChecked = () => {
-    setStatusChecked(!statusChecked);
-    if (statusCheckbox === checkboxClasses[0]) {
-      setStatusCheckbox(checkboxClasses[1]);
-    } else {
-      setStatusCheckbox(checkboxClasses[0]);
-    }
-  };
   const {
     register,
     handleSubmit,
     setError,
     reset,
-    formState: { errors, isSubmitting, isSubmittSuccessful },
+    formState: { errors, isSubmitting },
   } = useForm({
     defaultValues: {
       lastName: "",
@@ -40,9 +28,20 @@ export default function ModalFormAutonomy({ onClose }) {
       surName: "",
       phone: "",
       email: "",
+      agreeToTerms: false,
     },
   });
-  const onSubmit = async ({ lastName, firstName, surName, phone, email }) => {
+
+  const onSubmit = async (data) => {
+    const { lastName, firstName, surName, phone, email, agreeToTerms } = data;
+
+    if (!agreeToTerms) {
+      setError("agreeToTerms", {
+        message: "",
+      });
+      return;
+    }
+
     try {
       const isPhoneNumberTaken = await isPhoneTaken(phone, usersAutonomy);
       const isEmailAddressTaken = await isEmailTaken(email, usersAutonomy);
@@ -60,8 +59,6 @@ export default function ModalFormAutonomy({ onClose }) {
       } else {
         await postData(lastName, firstName, surName, phone, email);
         reset();
-        setStatusChecked(!statusChecked);
-        setStatusCheckbox(`${style.checkbox}`);
         setIsFeedbackOpen(true);
         setResponseStatus(true);
       }
@@ -80,6 +77,9 @@ export default function ModalFormAutonomy({ onClose }) {
         className={style.modal__container}
         onClick={(e) => e.stopPropagation()}
       >
+        <button className={style.close} onClick={() => onClose(false)}>
+          &times;
+        </button>
         <form
           className={style.container__form}
           onSubmit={handleSubmit(onSubmit)}
@@ -90,10 +90,14 @@ export default function ModalFormAutonomy({ onClose }) {
               <label className={style.label} htmlFor="lastName">
                 Фамилия
               </label>
+              {errors.lastName && (
+                <p className={style.error}>{errors.lastName.message}</p>
+              )}
               <input
                 className={style.input}
                 type="text"
                 id="lastName"
+                placeholder="Фамилия"
                 {...register("lastName", {
                   required: "Пожалуйста, заполните поле",
                   pattern: {
@@ -102,18 +106,19 @@ export default function ModalFormAutonomy({ onClose }) {
                   },
                 })}
               />
-              {errors.lastName && (
-                <p className={style.error}>{errors.lastName.message}</p>
-              )}
             </div>
             <div className={style.input__wrapper}>
               <label className={style.label} htmlFor="firstName">
                 Имя
               </label>
+              {errors.firstName && (
+                <p className={style.error}>{errors.firstName.message}</p>
+              )}
               <input
                 className={style.input}
                 type="text"
                 id="firstName"
+                placeholder="Имя"
                 {...register("firstName", {
                   required: "Пожалуйста, заполните поле",
                   pattern: {
@@ -122,18 +127,19 @@ export default function ModalFormAutonomy({ onClose }) {
                   },
                 })}
               />
-              {errors.firstName && (
-                <p className={style.error}>{errors.firstName.message}</p>
-              )}
             </div>
             <div className={style.input__wrapper}>
               <label className={style.label} htmlFor="surName">
                 Отчество
               </label>
+              {errors.surName && (
+                <p className={style.error}>{errors.surName.message}</p>
+              )}
               <input
                 className={style.input}
                 type="text"
                 id="surName"
+                placeholder="Отчество"
                 {...register("surName", {
                   required: "Пожалуйста, заполните поле",
                   pattern: {
@@ -142,17 +148,18 @@ export default function ModalFormAutonomy({ onClose }) {
                   },
                 })}
               />
-              {errors.surName && (
-                <p className={style.error}>{errors.surName.message}</p>
-              )}
             </div>
             <div className={style.input__wrapper}>
               <label className={style.label} htmlFor="phone">
                 Номер телефона
               </label>
+              {errors.phone && (
+                <p className={style.error}>{errors.phone.message}</p>
+              )}
               <input
                 className={style.input}
                 type="text"
+                placeholder="+..."
                 onInput={mask}
                 onClick={mask}
                 onFocus={mask}
@@ -166,17 +173,18 @@ export default function ModalFormAutonomy({ onClose }) {
                   },
                 })}
               />
-              {errors.phone && (
-                <p className={style.error}>{errors.phone.message}</p>
-              )}
             </div>
             <div className={style.input__wrapper}>
               <label className={style.label} htmlFor="email">
                 Электронная почта
               </label>
+              {errors.email && (
+                <p className={style.error}>{errors.email.message}</p>
+              )}
               <input
                 className={style.input}
                 type="text"
+                placeholder="E-MAIL"
                 id="email"
                 {...register("email", {
                   required: "Пожалуйста, заполните поле",
@@ -187,44 +195,38 @@ export default function ModalFormAutonomy({ onClose }) {
                   },
                 })}
               />
-              {errors.email && (
-                <p className={style.error}>{errors.email.message}</p>
-              )}
             </div>
-            <div className={style.container__agreement}>
-              {statusChecked && (
-                <img src={Checkbox} alt="checkbox" className={style.checked} />
-              )}
-              <input
-                onClick={onHandleChecked}
-                className={
-                  errors.agreement ? style.checkbox__empty : statusCheckbox
-                }
-                type="checkbox"
-                id="agreement"
-                {...register("agreement", {
-                  required: "Пожалуйста, заполните поле",
-                })}
-              />
-              <label htmlFor="agreement" className={style.agreement}>
+            <div className={style.confident}>
+              <label className={style.confident__checkbox}>
+                <input
+                  className={style.confident__checkbox_input}
+                  id="checkbox"
+                  type="checkbox"
+                  name="agreeToTerms"
+                  {...register("agreeToTerms", {
+                    required: true,
+                  })}
+                />
+                <span
+                  className={`${style.confident__checkmark} ${
+                    errors.agreeToTerms
+                      ? style.confident__checkmark_invalid
+                      : ""
+                  }`}
+                ></span>
+              </label>
+              <p className={style.confident__text}>
                 Я соглашаюсь с политикой конфиденциальности и обработки
                 персональных данных
-              </label>
+              </p>
             </div>
           </div>
           <div className={style.container__buttons}>
-            <button
-              onClick={() => onClose(false)}
-              className={style.button__cancel}
-            >
-              ОТМЕНА
+            <button onClick={() => onClose(false)} className={style.btn}>
+              Отмена
             </button>
-            <button
-              disabled={isSubmitting}
-              className={style.button__submit}
-              type="submit"
-            >
-              {isSubmitting ? <Loader /> : "ОТПРАВИТЬ"}
+            <button disabled={isSubmitting} className={style.btn} type="submit">
+              {isSubmitting ? <Loader /> : "Отправить"}
             </button>
           </div>
         </form>

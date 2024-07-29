@@ -1,20 +1,33 @@
 @import '../../style/vars';
 
 .modal {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: fixed;
-    z-index: 1;
+    z-index: 100;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.4);
-
-    @media (max-width:767px) {
-        position: static;
-        background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.4);
+    animation: appearance 0.3s ease-in-out;
+  }
+@keyframes appearance {
+    0% {
+      opacity: 0;
     }
-}
+    100% {
+      opacity: 1;
+    }
+  }
+  .overlay {
+    position: fixed;
+    width: 100%;
+    min-height: 100%;
+    z-index: 1;
+    overflow: hidden;
+  }
 .content {
     position: relative;
     display: flex;
@@ -27,6 +40,7 @@
     border-radius: 15px;
     background-color: $header-background-color;
     box-sizing: border-box;
+    z-index: 2;
 
     @media (max-width: 768px) {
         width: 100%;
@@ -371,7 +385,7 @@
     }
 
     .button__wrap {
-        flex-direction: column;
+        flex-direction: column-reverse;
         gap: 15px;
 
         &_btn {

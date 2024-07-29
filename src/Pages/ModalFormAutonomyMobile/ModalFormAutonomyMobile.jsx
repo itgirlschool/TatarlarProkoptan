@@ -5,7 +5,7 @@ import Checkbox from "../../assets/images/checkboxGreen.svg";
 import postData from "../../Components/ModalForm/postData";
 import Loader from "../../Components/Loader/Loader";
 import FeedbackWindowMobile from "./FeedBackWindowMobile";
-import mask from "../../Components/ModalForm/inputPhone";
+import mask from "../../Common/inputPhone";
 import { isPhoneTaken } from "../../Components/ModalForm/postData";
 import { isEmailTaken } from "../../Components/ModalForm/postData";
 import { useSelector } from "react-redux";
