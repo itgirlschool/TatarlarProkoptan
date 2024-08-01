@@ -1,0 +1,8 @@
+[
+    { "id": "1", "src": "mosques1Img", "alt": "Мечеть1" },
+    { "id": "2", "src": "mosques2Img", "alt": "Мечеть2" },
+    { "id": "3", "src": "mosques3Img", "alt": "Мечеть3" },
+    { "id": "4", "src": "mosques4Img", "alt": "Мечеть4" },
+    { "id": "5", "src": "mosques5Img", "alt": "Мечеть5" },
+    { "id": "6", "src": "mosques6Img", "alt": "Мечеть6" }
+]

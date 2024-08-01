@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "src": "chakChakImg",
+    "alt": "чак-чак",
+    "name": "ЧАК-ЧАК",
+    "recipe": "ChakChak"
+  },
+  {
+    "id": "2",
+    "src": "echpochmakImg",
+    "alt": "эчпочмак",
+    "name": "ЭЧПОЧМАК",
+    "recipe": "Echpochmak"
+  },
+  {
+    "id": "3",
+    "src": "kostybaiImg",
+    "alt": "костыбай",
+    "name": "КОСТЫБАЙ",
+    "recipe": "Kostybai"
+  }
+]

@@ -1,0 +1,8 @@
+[
+    { "id": "1", "src": "cult1Img", "alt": "Культура 1" },
+    { "id": "2", "src": "cult2Img", "alt": "Культура 2" },
+    { "id": "3", "src": "cult3Img", "alt": "Культура 3" },
+    { "id": "4", "src": "cult4Img", "alt": "Культура 4" },
+    { "id": "5", "src": "cult5Img", "alt": "Культура 5" },
+    { "id": "6", "src": "cult6Img", "alt": "Культура 6" }
+]
