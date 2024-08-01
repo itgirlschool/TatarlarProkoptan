@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
- import { yupResolver } from "@hookform/resolvers/yup";
- import * as yup from "yup";
- import {useSelector} from "react-redux";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { useSelector } from "react-redux";
 import style from "./RestorePassword.module.scss";
 import { Link, useNavigate } from "react-router-dom";
 import ModalAuth from "../../Components/ModalWindow/ModalAuth";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
-import ornaments from '../../assets/pictures/tatar_ornament.png'
+import ornaments from "../../assets/pictures/tatar_ornament.png";
 
- const schema = yup.object().shape({
-   email: yup
-     .string()
-     .email("Неверный email адрес")
-     .required("Введите email адрес"),
- });
+const schema = yup.object().shape({
+  email: yup
+    .string()
+    .email("Укажите корректный email адрес")
+    .required("Введите email адрес"),
+});
 
 const RestorePassword = () => {
   const {
@@ -24,7 +24,7 @@ const RestorePassword = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
-  const {users} = useSelector((state) => state.users);
+  const { users } = useSelector((state) => state.users);
 
   const auth = getAuth();
   const navigate = useNavigate();
@@ -38,10 +38,10 @@ const RestorePassword = () => {
   const onSubmit = async (data) => {
     const { email } = data;
     const verificationUser = users.find((user) => user.email === email);
-    if(verificationUser) {
-      sendPasswordResetEmail(auth,email)
+    if (verificationUser) {
+      sendPasswordResetEmail(auth, email);
     }
-};
+  };
 
   const handleCloseModal = () => {
     setModalData({ ...modalData, showModal: false });

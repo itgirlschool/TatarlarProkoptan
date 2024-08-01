@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addCharityUser } from "../../store/slice/CharitySlice";
 import { database } from "../../store/index";
-import mask from "../../Common/inputPhone";
-import Checkbox from "../../assets/images/checkboxLight.svg";
-
 import style from "./CharityModal.module.scss";
 
 const CharityModal = ({ closeModal, updateCounter }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const modalRef = useRef(null);
 
   const [formData, setFormData] = useState({
     lastName: "",
@@ -23,14 +21,6 @@ const CharityModal = ({ closeModal, updateCounter }) => {
   const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState("");
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  const [modalIsOpen, setModalIsOpen] = useState(true);
-
-  useEffect(() => {
-    document.body.style.overflow = modalIsOpen ? "hidden" : "unset";
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [modalIsOpen]);
 
   const validate = () => {
     const newErrors = {};
@@ -77,7 +67,6 @@ const CharityModal = ({ closeModal, updateCounter }) => {
         setShowSuccessMessage(true);
         setTimeout(() => {
           closeModal();
-          setModalIsOpen(false);
           setFormData({
             lastName: "",
             firstName: "",
@@ -102,7 +91,6 @@ const CharityModal = ({ closeModal, updateCounter }) => {
   const handleCancel = () => {
     navigate("/charity");
     closeModal();
-    setModalIsOpen(false);
     setFormData({
       lastName: "",
       firstName: "",
@@ -114,13 +102,24 @@ const CharityModal = ({ closeModal, updateCounter }) => {
     setErrors({});
   };
 
+  const handleClickOutside = (e) => {
+    if (modalRef.current && !modalRef.current.contains(e.target)) {
+      closeModal();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
     <div className={style.modal}>
-      <div className={style.overlay} onClick={handleCancel}></div>
-      <div className={style.content}>
+      <div ref={modalRef} className={style.content}>
         <button className={style.close} onClick={handleCancel}>
           &times;
         </button>
+
         {showSuccessMessage ? (
           <div className={style.success}>
             <h2 className={style.success__title}>{successMessage}</h2>
@@ -128,6 +127,7 @@ const CharityModal = ({ closeModal, updateCounter }) => {
         ) : (
           <>
             <h2 className={style.content__title}>Стать волонтером</h2>
+
             <form className={style.form} onSubmit={handleSubmit}>
               <div className={style.form__field}>
                 <label className={style.form__label}>Фамилия</label>
@@ -157,6 +157,7 @@ const CharityModal = ({ closeModal, updateCounter }) => {
                   onChange={handleChange}
                 />
               </div>
+
               <div className={style.form__field}>
                 <label className={style.form__label}>Отчество</label>
                 {errors.middleName && (
@@ -171,21 +172,20 @@ const CharityModal = ({ closeModal, updateCounter }) => {
                   onChange={handleChange}
                 />
               </div>
+
               <div className={style.form__field}>
-                <label className={style.form__label}>Номер телефона</label>
+                <label className={style.form__label}>Телефон</label>
                 {errors.phone && <p className={style.error}>{errors.phone}</p>}
                 <input
                   className={style.form__input}
                   type="tel"
                   name="phone"
                   placeholder="+..."
-                  onInput={mask}
-                  onClick={mask}
-                  onFocus={mask}
                   value={formData.phone}
                   onChange={handleChange}
                 />
               </div>
+
               <div className={style.form__field}>
                 <label className={style.form__label}>Электронная почта</label>
                 {errors.email && <p className={style.error}>{errors.email}</p>}
@@ -198,8 +198,10 @@ const CharityModal = ({ closeModal, updateCounter }) => {
                   onChange={handleChange}
                 />
               </div>
+
               <div className={style.confident}>
                 <label className={style.confident__checkbox}>
+                  <label htmlFor="checkbox"></label>
                   <input
                     className={style.confident__checkbox_input}
                     id="checkbox"
@@ -216,11 +218,13 @@ const CharityModal = ({ closeModal, updateCounter }) => {
                     }`}
                   ></span>
                 </label>
+
                 <p className={style.confident__text}>
                   Я соглашаюсь с политикой конфиденциальности и обработки
                   персональных данных
                 </p>
               </div>
+
               <div className={style.button__wrap}>
                 <button
                   className={style.button__wrap_btn}

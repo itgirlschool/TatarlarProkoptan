@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import style from "./ModalForm.module.scss";
+import style from "./ModalFormAutonomy.module.scss";
 import { useState } from "react";
 import postData from "./postData";
 import Loader from "../Loader/Loader";
@@ -168,8 +168,7 @@ export default function ModalFormAutonomy({ onClose }) {
                   required: "Пожалуйста, заполните поле",
                   pattern: {
                     value: /^\+7[\d]{10}$/,
-                    message:
-                      "Пожалуйста, введите номер телефона в формате +79999999999",
+                    message: "Формат номера +79999999999",
                   },
                 })}
               />
@@ -190,12 +189,12 @@ export default function ModalFormAutonomy({ onClose }) {
                   required: "Пожалуйста, заполните поле",
                   pattern: {
                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                    message:
-                      "Адрес должен быть написан латинскими буквами, содержать символы @ и .",
+                    message: "Только латинские буквы и символы @ и .",
                   },
                 })}
               />
             </div>
+
             <div className={style.confident}>
               <label className={style.confident__checkbox}>
                 <input

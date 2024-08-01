@@ -36,6 +36,8 @@ export default function Footer() {
                 href="https://vk.com/tatar_prk"
                 className={styles.contacts__vkontakte}
                 aria-label="Перейти на страницу ВКонтакте"
+                target="_blank"
+                rel="noopener noreferrer"
               ></a>
             </div>
           </div>

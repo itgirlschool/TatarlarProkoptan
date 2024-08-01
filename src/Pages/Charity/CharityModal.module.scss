@@ -1,5 +1,8 @@
 @import '../../style/vars';
-
+.no-scroll {
+    overflow: hidden;
+  }
+  
 .modal {
     display: flex;
     justify-content: center;
@@ -21,13 +24,7 @@
       opacity: 1;
     }
   }
-  .overlay {
-    position: fixed;
-    width: 100%;
-    min-height: 100%;
-    z-index: 1;
-    overflow: hidden;
-  }
+
 .content {
     position: relative;
     display: flex;
@@ -40,11 +37,10 @@
     border-radius: 15px;
     background-color: $header-background-color;
     box-sizing: border-box;
-    z-index: 2;
+    z-index: 101;
 
     @media (max-width: 768px) {
         width: 100%;
-        max-height: none;
         padding: 20px;
         border-radius: 0;
     }
@@ -128,7 +124,7 @@
         font-family: $fontLifehackRegular;
         font-weight: 400;
         font-size: 24px;
-        .error{
+        .error {
             position: absolute;
             grid-area: 1/2/2/2;
             top: -20px;
@@ -137,7 +133,10 @@
             margin: 0;
             color: red;
             font-size: 20px;
+            text-align: center;
+            width: 100%;
         }
+        
 
         @media (max-width: 768px) {
             grid-template-columns: 100%;

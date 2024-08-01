@@ -76,6 +76,7 @@
   font-size: 24px;
 }
 .input__wrapper {
+  position: relative;
   display: grid;
   grid-template-columns: 30% 70%;
   align-items: center;
@@ -85,17 +86,20 @@
     align-items: flex-start;
   }
 }
+.error {
+  width: 100%;
+  text-align: end;
+  position: absolute;
+  bottom: 32px;
+  font-size: 14px;
+  color: red;
+  font-weight: 500;
+}
 .label {
   min-width: 150px;
   grid-area: 1/1/2/2;
   position: relative;
   text-align: start;
-}
-.label::after {
-  content: "*";
-  position: absolute;
-  font-size: 60%;
-  font-weight: lighter;
 }
 .container__inputs {
   width: 100%;
@@ -139,99 +143,117 @@ input:-webkit-autofill:focus {
   background-color: $header-text-color;
   transition: background-color 5000s ease-in-out 0s;
 }
-.button__cancel {
-  width: 100%;
-  max-width: 200px;
-  height: 50px;
-  background-color: transparent;
-  border: none;
-  color: rgb(216, 90, 90);
-  font-weight: bold;
+.btn {
+  padding: 10px 30px;
   font-family: $fontLifehackRegular;
-  font-size: 30px;
-  font-weight: 400;
-  cursor: pointer;
-}
-.button__cancel:hover {
-  scale: 1.1;
-  transition: all 0.5s;
-}
-.button__submit {
-  width: 100%;
-  max-width: 200px;
-  height: 50px;
-  background-color: transparent;
+  font-size: 24px;
+  color:white;
+  text-align: center;
+  border-radius: 9px;
+  background-color: $header-background-color;
   border: none;
-  font-weight: bold;
-  font-family: $fontLifehackRegular;
-  font-size: 30px;
-  font-weight: 400;
-  color: $header-background-color;
   cursor: pointer;
+  transition: 0.4s;
+
+  &:hover{
+    box-shadow: 7px 5px 56px -14px white;
 }
-.button__submit:hover {
-  scale: 1.1;
-  transition: all 0.5s ease-in-out;
 }
-.error {
-  grid-area: 2/2/3/3;
-  margin: 0;
-  font-size: 15px;
-  color: rgb(151, 51, 51);;
-  font-weight: 500;
-}
-.container__agreement {
-  display: grid;
-  grid-template-columns: 30% 70%;
+.confident {
+  display: flex;
   align-items: center;
-  gap: 10px;
-  @media screen and (max-width: 530px) {
-    display: flex;
+  gap: 30px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+
+  &__checkbox {
+      position: relative;
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+
+      cursor: pointer;
+
+      &_input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+
+          &:checked + .confident__checkmark {
+              background-color: #39a4a6;
+              border-color: white;
+
+              &:after {
+                  display: block;
+              }
+          }
+      }
   }
-}
-.checkbox {
-  grid-area: 1/1/2/2;
-  justify-self: flex-end;
-}
-.checkbox__empty {
-  grid-area: 1/1/2/2;
-  justify-self: flex-end;
-  border-radius: 5px;
-  outline: 1.5px solid rgb(151, 51, 51);
-}
-.agreement {
-  max-width: 375px;
-  grid-area: 1/2/2/3;
-  position: relative;
-  font-size: 16px;
-}
-.agreement::after {
-  content: "*";
-  position: absolute;
-  font-size: 60%;
-  font-weight: lighter;
-}
-.checkbox__hidden {
-  grid-area: 1/1/2/2;
-  opacity: 0;
-}
-.checked {
-  grid-area: 1/1/2/2;
-  justify-self: flex-end;
-  height: 30px;
-  width: 30px;
-  animation: checked 1s;
-  @media screen and (max-width: 428px) {
-    height: 20px;
-    width: 20px;
+
+  &__checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 24px;
+      width: 24px;
+      background-color: white;
+      border: 2px solid #39a4a6;
+      border-radius: 9px;
+      transition: 0.4s;
+
+      &:after {
+          content: "";
+          position: absolute;
+          display: none;
+          left: 8px;
+          top: 4px;
+          width: 5px;
+          height: 10px;
+          border: solid white;
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg);
+      }
+
+      &:hover {
+          box-shadow: 7px 5px 56px -14px white;
+      }
+
+      &:active {
+          transform: scale(0.97);
+          box-shadow: 7px 5px 56px -10px white;
+      }
+
+      &_invalid{
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 24px;
+          width: 24px;
+          background-color: red;
+          border: 2px solid red;
+          border-radius: 9px;
+          transition: 0.4s;
+
+          &:after{
+              position: absolute;
+              display: block;
+              left: 8px;
+              top: 4px;
+              width: 5px;
+              height: 10px;
+              border: solid white;
+              border-width: 0 2px 2px 0;
+              transform: rotate(45deg);
+          }
+          
+      }
   }
-}
-@keyframes checked {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
+
+  &__text{
+      &_error{
+        display: none;
+          
+      }
   }
 }
 .feedback__image {
