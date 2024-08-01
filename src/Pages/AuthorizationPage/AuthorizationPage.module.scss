@@ -93,13 +93,18 @@
   outline: none;
   font-family: $fontLifehackRegular;
   font-size: 25px;
-  padding-left: 10px;
+  padding-left: 15px;
   
   &::placeholder {
     font-family: $fontLifehackRegular;
     font-size: 25px;
   }
 }
+.input:focus::placeholder,
+.input__empty:focus::placeholder {
+  opacity: 0;
+}
+
 .error {
   grid-area: error;
   margin-left: 20%;

@@ -55,6 +55,7 @@ const Header = () => {
       document.body.style.overflow = "auto";
     }
   };
+
   const getStyle = ({ isActive }) => {
     return {
       borderBottom: isActive ? "1px solid #f5e9e1" : "",
@@ -101,8 +102,13 @@ const Header = () => {
             </li>
             <li className={style.nav__link}>
               {opacityExit && (
-                <NavLink style={getStyle} to="#" onClick={exitAccount}>
-                  Выйти
+                <NavLink
+                  style={getStyle}
+                  to="#"
+                  onClick={exitAccount}
+                  className={style.yellowText}
+                >
+                  Выйти из аккаунта
                 </NavLink>
               )}
             </li>

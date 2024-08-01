@@ -6,7 +6,6 @@ import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { createUser } from "../../Services/UsersFB/AuthService.js";
 import ModalAuth from "../../Components/ModalWindow/ModalAuth.jsx";
-
 import style from "./RegistrationPage.module.scss";
 
 const schema = yup.object().shape({
@@ -42,16 +41,28 @@ const RegistrationPage = () => {
 
   const onSubmit = async (data) => {
     const { firstName, lastName, email, password } = data;
-    await createUser(
-      {
-        email,
-        displayName: `${firstName} ${lastName}`,
-        password,
-        date: new Date(),
-      },
-      navigate,
-      { setModalMessage, setSuccess, setShowModal }
-    );
+
+    try {
+      await createUser(
+        {
+          email,
+          displayName: `${firstName} ${lastName}`,
+          password,
+          date: new Date(),
+        },
+        navigate,
+        { setModalMessage, setSuccess, setShowModal }
+      );
+      setModalMessage("Успешная регистрация.");
+      setSuccess(true);
+      setShowModal(true);
+    } catch (error) {
+      setModalMessage(
+        "Произошла ошибка при регистрации. Пожалуйста, попробуйте еще раз."
+      );
+      setSuccess(false);
+      setShowModal(true);
+    }
   };
 
   const handleBackClick = () => {
@@ -173,6 +184,7 @@ const RegistrationPage = () => {
         closeModal={closeModal}
         success={success}
         message={modalMessage}
+        type="registration"
       />
     </div>
   );

@@ -6,8 +6,7 @@ import style from "./AuthorizationPage.module.scss";
 import { Link, useNavigate } from "react-router-dom";
 import ModalAuth from "../../Components/ModalWindow/ModalAuth.jsx";
 import { signInUser } from "../../Services/UsersFB/AuthService.js";
-import ornaments from './../../assets/pictures/tatar_ornament.png'
-
+import ornaments from "./../../assets/pictures/tatar_ornament.png";
 
 const schema = yup.object().shape({
   email: yup.string().email("Неверный email адрес").required("Требуется email"),
@@ -36,7 +35,33 @@ const AuthorizationPage = () => {
 
   const onSubmit = async (data) => {
     const { email, password } = data;
-    signInUser(email, password,navigate);
+
+    try {
+      const response = await signInUser(email, password);
+
+      if (response.success) {
+        setModalData({
+          showModal: true,
+          success: true,
+          message: "Авторизация успешна!",
+          type: "authorization",
+        });
+      } else {
+        setModalData({
+          showModal: true,
+          success: false,
+          message: response.message || "Ошибка авторизации",
+          type: "authorization",
+        });
+      }
+    } catch (error) {
+      setModalData({
+        showModal: true,
+        success: false,
+        message: "Проверьте свои данные и попробуйте снова.",
+        type: "authorization",
+      });
+    }
   };
 
   const handleCloseModal = () => {

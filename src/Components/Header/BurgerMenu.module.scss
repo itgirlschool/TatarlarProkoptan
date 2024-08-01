@@ -84,6 +84,9 @@
   cursor: pointer;
   transition: 0.4s;
 }
+.menu a.yellowText {
+  color: rgb(224, 194, 27);
+}
 
 .menu.open a {
   opacity: 1;
