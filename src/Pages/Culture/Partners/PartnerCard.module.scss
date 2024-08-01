@@ -5,7 +5,7 @@
   margin: 10px;
   padding: 20px;
   font-family: $fontLifehackRegular;
-  border: 1px solid #ddd;
+  border: 1px solid $header-background-color;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -58,6 +58,12 @@ h1 {
   margin-left: 10%;
   overflow: hidden;
   border: 3px solid $header-background-color;
+}
+
+.map_button {
+  font-family: $fontLifehackRegular;
+  background: $footer-yellow-color;
+  border: 2px solid $header-background-color ;
 }
 
 @media (max-width: 768px) {
