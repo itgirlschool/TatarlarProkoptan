@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PartnerCard from './PartnerCard';
 import styles from './Partners.module.scss';
-import partnerData from '../../../Services/CultureData/partners.json';
+import partnerData from '../../../Common/CultureData/partners.json';
 
 function Partners() {
   return (

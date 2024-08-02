@@ -1,11 +1,19 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Cuisine.module.scss';
-import cuisineData from '../../../Services/CultureData/cuisine.json';
+import cuisineData from '../../../Common/CultureData/cuisine.json';
 import ChakChak from './Recipe/ChakChak';
 import Echpochmak from './Recipe/Echpochmak';
 import Kostybai from './Recipe/Kostybai';
+import chakChakImg from '../../../assets/cultureImg/chak.jpg';
+import echpochmakImg from '../../../assets/cultureImg/culture4.jpg';
+import kostybaiImg from '../../../assets/cultureImg/costybai.jpg';
 
+const images = {
+  chakChakImg,
+  echpochmakImg,
+  kostybaiImg
+};
 
 function Cuisine() {
   return (
@@ -48,7 +56,7 @@ function TemplateCuisine({ image }) {
     <div className={`${styles.card_container} ${isFlipped ? styles.flipped : ''}`} onClick={handleClick}>
       <div className={styles.card}>
         <div className={styles.card_front}>
-          <img src={image.src} alt={image.alt} className={styles.cuisine_image} />
+          <img src={images[image.src]} alt={image.alt} className={styles.cuisine_image} />
         </div>
         <div className={styles.card_back}>
           <h3>{image.name}</h3>
