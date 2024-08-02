@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
- import { yupResolver } from "@hookform/resolvers/yup";
- import * as yup from "yup";
- import {useSelector} from "react-redux";
-import style from "./RestorePassword.module.scss";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { useSelector } from "react-redux";
+import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
 import ModalAuth from "../../Components/ModalWindow/ModalAuth";
-import { getAuth, sendPasswordResetEmail } from "firebase/auth";
-import ornaments from '../../assets/pictures/tatar_ornament.png'
+import ornaments from "../../assets/pictures/tatar_ornament.png";
+import style from "./RestorePassword.module.scss";
 
- const schema = yup.object().shape({
-   email: yup
-     .string()
-     .email("Неверный email адрес")
-     .required("Введите email адрес"),
- });
+const schema = yup.object().shape({
+  email: yup
+    .string()
+    .email("Укажите корректный email адрес")
+    .required("Введите email адрес"),
+});
 
 const RestorePassword = () => {
   const {
@@ -24,8 +24,8 @@ const RestorePassword = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
-  const {users} = useSelector((state) => state.users);
 
+  const { users } = useSelector((state) => state.users);
   const auth = getAuth();
   const navigate = useNavigate();
   const [modalData, setModalData] = useState({
@@ -38,10 +38,33 @@ const RestorePassword = () => {
   const onSubmit = async (data) => {
     const { email } = data;
     const verificationUser = users.find((user) => user.email === email);
-    if(verificationUser) {
-      sendPasswordResetEmail(auth,email)
+
+    if (verificationUser) {
+      try {
+        await sendPasswordResetEmail(auth, email);
+        setModalData({
+          showModal: true,
+          success: true,
+          message: "Ссылка для восстановления пароля отправлена на ваш email.",
+          type: "restorePassword",
+        });
+      } catch (error) {
+        setModalData({
+          showModal: true,
+          success: false,
+          message: "Не удалось отправить ссылку для восстановления пароля.",
+          type: "restorePassword",
+        });
+      }
+    } else {
+      setModalData({
+        showModal: true,
+        success: false,
+        message: "Пользователь с таким email не найден.",
+        type: "restorePassword",
+      });
     }
-};
+  };
 
   const handleCloseModal = () => {
     setModalData({ ...modalData, showModal: false });
@@ -103,7 +126,7 @@ const RestorePassword = () => {
         closeModal={handleCloseModal}
         success={modalData.success}
         message={modalData.message}
-        type={modalData.type}
+        type="restorePassword"
       />
     </div>
   );

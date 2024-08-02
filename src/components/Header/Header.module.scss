@@ -41,7 +41,11 @@
   cursor: pointer;
   text-decoration: none;
 }
-
+.nav__link a.yellowText {
+  color: rgb(224, 194, 27);
+  border-bottom: none !important;
+  letter-spacing: -1px;
+}
 
 .action__container {
   display: flex;

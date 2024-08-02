@@ -9,7 +9,7 @@ const links = [
   { label: "Сабантуй", path: "/sabantui" },
   { label: "Благотворительность", path: "/charity" },
   { label: "Мы вместе", path: "/we-are-together" },
-  { label: "Войти", path: "/authorizationpage" },
+  { label: "Выйти из аккаунта", path: "/authorizationpage" },
 ];
 
 function BurgerMenu() {
@@ -32,7 +32,9 @@ function BurgerMenu() {
             <NavLink
               key={link.label}
               to={link.path}
-              className={isMenuOpen ? styles.appear : ""}
+              className={`${isMenuOpen ? styles.appear : ""} ${
+                link.label === "Выйти из аккаунта" ? styles.yellowText : ""
+              }`}
               style={{ animationDelay: `0.${index + 1}s` }}
               onClick={toggleMenu}
             >

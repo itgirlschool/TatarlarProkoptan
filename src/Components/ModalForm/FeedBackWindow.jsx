@@ -1,4 +1,4 @@
-import style from "./ModalForm.module.scss";
+import style from "./ModalFormAutonomy.module.scss";
 import Reject from "../../assets/images/errorrequest.svg";
 import Document from "../../assets/images/document.svg";
 

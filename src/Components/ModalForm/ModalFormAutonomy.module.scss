@@ -1,21 +1,74 @@
 @import "../../style/vars.scss";
-.modal__container {
-  max-width: 1800px;
+.modal__window {
+  position: absolute;
   display: flex;
   width: 100%;
-  padding: 20px 50px;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 100;
   overflow: hidden;
-  border-radius: 0px;
-  align-items: stretch;
-  background-color: $body-background-color;
-  color: $header-background-color;
+  animation: appearance 0.3s ease-in-out;
   font-family: $fontLifehackRegular;
+  font-size: 24px;
+  color: white;  
+}
+@keyframes appearance {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.modal__container {
+  position: relative;
+  padding-top: 40px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $header-background-color;
+  z-index: 2;
+  overflow: hidden;
+  border-radius: 15px;
+  font-family: $fontLifehackRegular;
+  width: 610px;
+}
+.close{
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-family: $fontLifehackRegular;
+  font-size: 38px;
+  font-weight: bold;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s;
+
+  &:hover {
+      color: #888;
+  }
+
+  @media (max-width: 768px) {
+      top: 5px;
+      right: 10px;
+      font-size: 32px;
+  }
+}
+.overlay {
+  position: fixed;
+  width: 100%;
+  min-height: 100%;
+  z-index: 1;
+  overflow: hidden;
 }
 .feedback__wrapper {
   width: auto;
   display: grid;
   grid-template-columns: 150px 1fr;
-  margin: auto;
   align-items: center;
   justify-items: center;
   @media screen and (max-width: 530px) {
@@ -33,22 +86,23 @@
   animation: appearance 1s ease-in-out;
 }
 .button__feedback {
-  width: 100%;
   font-family: $fontLifehackRegular;
-  font-size: 20px;
+  width: 100%;
   padding: 10px 18px;
   cursor: pointer;
   border-radius: 20px;
   background-color: $header-text-color;
   color: $header-background-color;
   border: none;
+  margin-bottom: 55px;
 }
 .header {
   align-self: center;
   width: 100%;
   text-align: center;
-  font-weight: 400;
-  font-size: 30px;
+  font-weight: 700;
+  font-size: 36px;
+  padding-bottom: 24px;
 }
 .header__feedback {
   align-self: center;
@@ -59,81 +113,52 @@
 .paragragh__feedback {
   max-width: 400px;
   margin-top: 0;
-  font-size: 24px;
-  @media screen and (max-width: 530px) {
-    font-size: 20px;
-  }
 }
 .container__form {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  gap: 20px;
-  width: 100%;
-  max-width: 900px;
-  margin: 30px auto;
-  font-family: $fontLifehackRegular;
-  font-size: 24px;
+  width: 87%;
+
+  @media screen and (max-width: 530px) {
+    align-items: stretch;
+  }
 }
 .input__wrapper {
   position: relative;
   display: grid;
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 40% 60%;
   align-items: center;
+
   @media screen and (max-width: 530px) {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
   }
 }
-.error {
-  width: 100%;
-  text-align: end;
-  position: absolute;
-  bottom: 32px;
-  font-size: 14px;
-  color: red;
-  font-weight: 500;
-}
 .label {
-  min-width: 150px;
-  grid-area: 1/1/2/2;
+  grid-area: 2/1/2/2;
   position: relative;
   text-align: start;
+  font-weight: 400;
 }
 .container__inputs {
-  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-}
-.container__buttons {
-  display: flex;
-  justify-content: space-between;
-  gap: 20%;
+  gap: 20px;
 }
 .container__input {
   position: relative;
 }
 .input {
-  grid-area: 1/2/2/3;
+  grid-area: 2/2/2/3;
   width: 100%;
-  min-width: 250px;
-  max-width: 375px;
   height: 30px;
   padding-left: 5%;
   border: none;
   border-radius: 10px;
+  background-color: $header-text-color;
   font-family: $fontLifehackRegular;
-  outline: none;
   font-size: 24px;
-  color: $header-background-color;
-  min-width: 100%;
-  height: 35px;
-  border:1.5px solid $header-background-color;
-}
-.input::placeholder {
-  color: $header-background-color;
 }
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -142,27 +167,11 @@ input:-webkit-autofill:focus {
   background-color: $header-text-color;
   transition: background-color 5000s ease-in-out 0s;
 }
-.btn {
-  padding: 10px 30px;
-  font-family: $fontLifehackRegular;
-  font-size: 24px;
-  color:white;
-  text-align: center;
-  border-radius: 9px;
-  background-color: $header-background-color;
-  border: none;
-  cursor: pointer;
-  transition: 0.4s;
-
-  &:hover{
-    box-shadow: 7px 5px 56px -14px white;
-}
-}
 .confident {
   display: flex;
   align-items: center;
-  gap: 30px;
-  margin-top: 10px;
+  justify-content: space-between;
+  gap: 10px;
   margin-bottom: 15px;
 
   &__checkbox {
@@ -170,7 +179,7 @@ input:-webkit-autofill:focus {
       display: inline-block;
       width: 24px;
       height: 24px;
-
+      margin-left: auto;
       cursor: pointer;
 
       &_input {
@@ -249,14 +258,43 @@ input:-webkit-autofill:focus {
   }
 
   &__text{
+      flex: 0 0 60%; 
+      margin: 0;
       &_error{
         display: none;
           
       }
   }
 }
-.feedback__image {
-  width: 80%;
-  opacity: 0;
-  animation: checked 2s forwards;
+.container__buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  margin-bottom: 45px;
 }
+.btn {
+  padding: 10px 30px;
+  font-family: $fontLifehackRegular;
+  font-size: 24px;
+  color:white;
+  text-align: center;
+  border-radius: 9px;
+  background-color: transparent;
+  border: 2px solid white;
+  cursor: pointer;
+  transition: 0.4s;
+
+  &:hover{
+    box-shadow: 7px 5px 56px -14px white;
+}
+}
+.error {
+  width: 140%;
+  text-align: center;
+  position: absolute;
+  bottom: 26px;
+  font-size: 20px;
+  color: red;
+}
+

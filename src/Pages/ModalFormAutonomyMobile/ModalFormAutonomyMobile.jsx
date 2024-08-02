@@ -5,7 +5,7 @@ import Checkbox from "../../assets/images/checkboxGreen.svg";
 import postData from "../../Components/ModalForm/postData";
 import Loader from "../../Components/Loader/Loader";
 import FeedbackWindowMobile from "./FeedBackWindowMobile";
-import mask from "../../Components/ModalForm/inputPhone";
+import mask from "../../Common/inputPhone";
 import { isPhoneTaken } from "../../Components/ModalForm/postData";
 import { isEmailTaken } from "../../Components/ModalForm/postData";
 import { useSelector } from "react-redux";
@@ -157,8 +157,7 @@ export default function ModalFormAutonomyMobile() {
                 required: "Пожалуйста, заполните поле",
                 pattern: {
                   value: /^\+7[\d]{10}$/,
-                  message:
-                    "Пожалуйста, введите номер телефона в формате +79999999999",
+                  message: "Формат +79999999999",
                 },
               })}
             />
@@ -178,8 +177,7 @@ export default function ModalFormAutonomyMobile() {
                 required: "Пожалуйста, заполните поле",
                 pattern: {
                   value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                  message:
-                    "Адрес должен быть написан латинскими буквами, содержать символы @ и .",
+                  message: "Только латинские буквы и символы @ и .",
                 },
               })}
             />
@@ -187,36 +185,34 @@ export default function ModalFormAutonomyMobile() {
               <p className={style.error}>{errors.email.message}</p>
             )}
           </div>
-          <div className={style.container__agreement}>
-            {statusChecked && (
-              <img src={Checkbox} alt="checkbox" className={style.checked} />
-            )}
-            <input
-              onClick={onHandleChecked}
-              className={
-                errors.agreement ? style.checkbox__empty : statusCheckbox
-              }
-              type="checkbox"
-              id="agreement"
-              {...register("agreement", {
-                required: "Пожалуйста, заполните поле",
-              })}
-            />
-            <label htmlFor="agreement" className={style.agreement}>
+          <div className={style.confident}>
+            <label className={style.confident__checkbox}>
+              <input
+                className={style.confident__checkbox_input}
+                id="checkbox"
+                type="checkbox"
+                name="agreeToTerms"
+                {...register("agreeToTerms", {
+                  required: true,
+                })}
+              />
+              <span
+                className={`${style.confident__checkmark} ${
+                  errors.agreeToTerms ? style.confident__checkmark_invalid : ""
+                }`}
+              ></span>
+            </label>
+            <p className={style.confident__text}>
               Я соглашаюсь с политикой конфиденциальности и обработки
               персональных данных
-            </label>
+            </p>
           </div>
         </div>
         <div className={style.container__buttons}>
-          <button onClick={() => navigate(-1)} className={style.button__cancel}>
+          <button onClick={() => navigate(-1)} className={style.btn}>
             ОТМЕНА
           </button>
-          <button
-            disabled={isSubmitting}
-            className={style.button__submit}
-            type="submit"
-          >
+          <button disabled={isSubmitting} className={style.btn} type="submit">
             {isSubmitting ? <Loader /> : "ОТПРАВИТЬ"}
           </button>
         </div>

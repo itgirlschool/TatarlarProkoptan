@@ -1,5 +1,5 @@
 import style from "./Header.module.scss";
-import {useEffect} from "react";
+import { useEffect } from "react";
 import logo from "../../assets/images/logo.png";
 import BurgerMenu from "./BurgerMenu";
 import TelegramIcon from "../../assets/images/telegram.svg";
@@ -7,14 +7,14 @@ import MailIcon from "../../assets/images/mail.svg";
 import PhoneIcon from "../../assets/images/phone.svg";
 import FamilyIconImage from "../../assets/images/family.svg";
 import { useState } from "react";
-import { getAuth, signOut,onAuthStateChanged} from "firebase/auth";
+import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 import { NavLink } from "react-router-dom";
 import ModalFormAutonomy from "../ModalForm/ModalFormAutonomy";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [isModalOpened, setIsModalOpen] = useState(false);
-  const [opacityExit ,setOpacityExit] = useState(false)
+  const [opacityExit, setOpacityExit] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const screenWidth = window.screen.width;
@@ -28,12 +28,12 @@ const Header = () => {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) setOpacityExit(true);
-    })
+    });
 
     return () => {
       setOpacityExit(false);
-    }
-  },[])
+    };
+  }, []);
 
   const openModal = () => {
     if (isMobile <= 530 && location.pathname !== "/autonomy") {
@@ -46,8 +46,8 @@ const Header = () => {
 
   const exitAccount = () => {
     signOut(auth);
-    setOpacityExit(false)
-  }
+    setOpacityExit(false);
+  };
 
   const closeModal = (value) => {
     if (screenWidth > 530) {
@@ -55,6 +55,7 @@ const Header = () => {
       document.body.style.overflow = "auto";
     }
   };
+
   const getStyle = ({ isActive }) => {
     return {
       borderBottom: isActive ? "1px solid #f5e9e1" : "",
@@ -100,9 +101,16 @@ const Header = () => {
               </NavLink>
             </li>
             <li className={style.nav__link}>
-              {opacityExit && <NavLink style={getStyle} to="#" onClick={exitAccount} >
-                 Выйти
-              </NavLink>}
+              {opacityExit && (
+                <NavLink
+                  style={getStyle}
+                  to="#"
+                  onClick={exitAccount}
+                  className={style.yellowText}
+                >
+                  Выйти из аккаунта
+                </NavLink>
+              )}
             </li>
           </ul>
           <BurgerMenu />
