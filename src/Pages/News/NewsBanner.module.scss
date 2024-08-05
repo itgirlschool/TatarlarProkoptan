@@ -1,21 +1,19 @@
 .banner{
-    margin: 30px;
-    border: 2px solid black;
     width: 40vw;
+    padding: 20px;
 }
 .banner_img{
     width: 100%;
     height: auto;
-    background-color: rgb(143, 139, 133);  
+    background-color: darkgrey;
+    padding: 10px;
 }
 .img{
-    top: 0;
-    left: 0;
-    object-fit: cover;
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 .banner_text{
-    width: 100%;
     padding: 10px;
+    width: 80%;
 }

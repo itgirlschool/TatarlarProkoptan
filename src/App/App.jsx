@@ -32,6 +32,7 @@ import Loader from "../Components/Loader/Loader.jsx";
 import ChildrenMobile from "../Pages/WeAreTogether/Mobile/ChildrenMobile";
 import HelpMobile from "../Pages/WeAreTogether/Mobile/HelpMobile";
 import GalleryMobile from "../Pages/WeAreTogether/Mobile/GalleryMobile";
+import News from "../Pages/News/News.jsx";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -70,6 +71,7 @@ function App() {
           <Route path="/restorepassword" element={<RestorePassword/>} />
           <Route path="/autonomy" element={<ModalFormAutonomyMobile />} />
           <Route path="/homePageMobile" element={<HomePageMobile />} />
+          <Route path="/news" element={<News/>}/>
         </Routes>
       </main>
       <Footer />
