@@ -18,6 +18,9 @@
   &__outer {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    @media (max-width: 524px) {
+        display: flex;
+      }
   }
   &__title {
     max-width: 635px;
