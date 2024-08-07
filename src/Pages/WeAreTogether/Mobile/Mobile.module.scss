@@ -1,68 +1,56 @@
-@import '../../../style/vars.scss';
+@import "../../../style/vars.scss";
 
-.active__modal{
-    height: 100vh;
-    width: 100vw;
-    @media screen and (max-width: 540px){
-        height: 50vh;
-     }
-
+.active__modal {
+  height: 100%;
+  width: 100vw;
 }
-.carousel__modal{
-    border-radius: 3px;
-    background-color: rgba(41, 40, 40, 0.8);
-    width: 100vw;
+.carousel__modal {
+  border-radius: 3px;
+  background-color: rgba(41, 40, 40, 0.8);
+  width: 100vw;
+
+  @media screen and (max-width: 540px) {
     height: 100%;
-   
-    @media screen and (max-width: 540px){
-        height: 100%;
-        padding-bottom: 10px;
-     }
+    padding-bottom: 10px;
+  }
 }
 
 .gallery__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 5px;
-    margin: 0 auto;
-    padding-top: 30px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 5px;
+  margin: 0 auto;
+  padding-top: 30px;
 
-    @media screen and (max-width: 540px){
-        height: 50%;
-        padding-top: 10px;
-    
-    }
-
-   
+  @media screen and (max-width: 540px) {
+    height: 50%;
+    padding-top: 10px;
   }
-  .gallery__content {
-    background-position: center;
-    padding: 10px;
-    width: 80vw;
-    height: 80vh;
-    margin: 0 auto;
-   
-         
-  }
+}
+.gallery__content {
+  background-position: center;
+  padding: 10px;
+  width: 80vw;
+  height: 80vh;
+  margin: 0 auto;
+}
 
-  .close__button{
-    width: 60px;
-    padding: 5px;
-    margin-left: 10px;
-    text-decoration: none;
-    text-align: center;
-    color: $footer-text-color-green;
-    font-size: 15px;
-    font-weight: bolder;
-    background: $body-background-color;
-    border-radius: 2px;
-    border: none;
-   
-    }
-  
-  .close__button:hover{
-      color: $body-background-color;
-      background-color:$footer-text-color-green;
-      cursor: pointer;
-    }
+.close__button {
+  width: 60px;
+  margin-left: 20px;
+  padding: 5px;
+  text-decoration: none;
+  text-align: center;
+  color: $header-background-color;
+  font-size: 15px;
+  background: $body-background-color;
+  border-radius: 2px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.close__button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 30px $header-background-color;
+  cursor: pointer;
+}

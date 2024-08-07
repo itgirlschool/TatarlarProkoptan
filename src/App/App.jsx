@@ -70,6 +70,9 @@ function App() {
           <Route path="/restorepassword" element={<RestorePassword/>} />
           <Route path="/autonomy" element={<ModalFormAutonomyMobile />} />
           <Route path="/homePageMobile" element={<HomePageMobile />} />
+          <Route path="/childrenMobile" element={<ChildrenMobile />} />
+          <Route path="/helpMobile" element={<HelpMobile />} />
+          <Route path="/galleryMobile" element={<GalleryMobile />} />
         </Routes>
       </main>
       <Footer />
