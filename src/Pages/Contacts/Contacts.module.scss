@@ -16,8 +16,8 @@
   align-items: flex-start;
 
   &__outer {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
   &__title {
     max-width: 635px;
@@ -26,6 +26,15 @@
     font-size: 50px;
     font-weight: 700;
     color: $header-background-color;
+    @media (max-width: 1440px) {
+      font-size: 32px;
+    }
+    @media (max-width: 768px) {
+      font-size: 28px;
+    }
+    @media (max-width: 375px) {
+      font-size: 24px;
+    }
   }
 
   &__name {
@@ -35,6 +44,12 @@
     font-weight: 600;
     font-size: 24px;
     color: black;
+    @media (max-width: 768px) {
+      font-size: 20px;
+    }
+    @media (max-width: 375px) {
+      font-size: 18px;
+    }
   }
 
   &__contacts {
@@ -45,6 +60,15 @@
     font-weight: 400;
     font-size: 24px;
     color: black;
+    @media (max-width: 1440px) {
+      font-size: 22px;
+    }
+    @media (max-width: 768px) {
+      font-size: 20px;
+    }
+    @media (max-width: 375px) {
+      font-size: 18px;
+    }
     &_data {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -56,21 +80,15 @@
     &_dataname {
       font-weight: bolder;
     }
-
-    .link {
-      color: black;
-      text-decoration: none;
-    }
   }
-
   &__charter {
-    margin: 0 auto;
-    max-width: 1200px;
-    box-sizing: border-box;
     display: flex;
-    margin: auto;
     flex-direction: row;
     align-items: center;
+    margin: auto;
+    @media (max-width: 1440px) {
+      gap: 40px;
+    }
     &_btn {
       display: flex;
       width: 250px;
@@ -96,17 +114,34 @@
         transform: scale(0.97);
         box-shadow: 7px 5px 56px -10px $header-background-color;
       }
-    }
-    &_icon {
-      width: 40px;
-      height: 40px;
+      @media (max-width: 1440px) {
+        font-size: 22px;
+      }
+      @media (max-width: 768px) {
+        width: 200px;
+        font-size: 20px;
+      }
+      @media (max-width: 375px) {
+        font-size: 18px;
+      }
     }
     &_name {
-        font-weight: bolder;
+      font-weight: bolder;
+    }
+    &_icon {
+        width: 30px;
+      height: 30px;
       }
   }
 }
-
+.link {
+  color: black;
+  text-decoration: none;
+}
+.icon{
+    width: 30px;
+      height: 30px;
+}
 .pictures {
   display: flex;
   justify-content: center;
@@ -115,113 +150,21 @@
   &__img {
     width: 100%;
     height: auto;
+    max-height: 50%;
+    animation: pulse 2s infinite;
   }
-  @media (max-width: 768px) {
-display: none;
-  }
-}
-
-@media (max-width: 1440px) {
-  .container {
-    width: 90%;
-  }
-
-  .content {
-    &__title {
-      font-size: 32px;
-    }
-
-    &__text,
-    &__contacts {
-      font-size: 22px;
-    }
-
-    &__charter {
-      gap: 40px;
-      &_btn {
-        font-size: 22px;
-      }
-    }
+  @media (max-width: 524px) {
+    display: none;
   }
 }
-
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .content {
-    align-items: center;
-    text-align: center;
-
-    &__title {
-      font-size: 28px;
-      padding-bottom: 16px;
+@keyframes pulse {
+    0% {
+        transform: scale(1);
     }
-
-    &__text,
-    &__contacts {
-      font-size: 20px;
-      padding-bottom: 16px;
+    50% {
+        transform: scale(1.05);
     }
-
-    &__contacts {
-      margin-bottom: 20px;
-      &_data {
-        margin-bottom: 16px;
-        gap: 16px;
-      }
+    100% {
+        transform: scale(1);
     }
-
-    &__charter {
-      flex-direction: column;
-      gap: 20px;
-
-      &_btn {
-        font-size: 20px;
-        padding: 8px 20px;
-      }
-    }
-  }
-}
-
-@media (max-width: 375px) {
-  .container {
-    width: 100%;
-    padding: 2vw 0;
-  }
-
-  .content {
-    margin: 2vw 0;
-
-    &__title {
-      font-size: 24px;
-      padding-bottom: 12px;
-    }
-
-    &__text,
-    &__contacts {
-      font-size: 18px;
-      padding-bottom: 12px;
-    }
-
-    &__contacts {
-      margin-bottom: 10px;
-
-      &_data {
-        margin-bottom: 12px;
-        gap: 12px;
-      }
-    }
-
-    &__charter {
-      gap: 10px;
-
-      &_btn {
-        font-size: 18px;
-        padding: 6px 16px;
-      }
-    }
-  }
 }

@@ -72,18 +72,18 @@ export default function Charter({ isOpen }) {
               <p className={style.header__text}>УТВЕРЖДЕН</p>
             </div>
             <div className={style.header__textblock}>
-              <p className={style.text}>
+              <p className={style.header__text_item}>
                 Учредительным собранием общественной организации
               </p>
-              <p className={style.text}>
+              <p className={style.header__text_item}>
                 «Местная национально-культурная автономия татар» г.Прокопьевск
               </p>
-              <p className={style.text}>Протокол №1 от. 28.04.2024г.</p>
+              <p className={style.header__text_item}>Протокол №1 от. 28.04.2024г.</p>
             </div>
           </div>
           <div className={style.main__textblock}>
             <p className={style.main__title}>УСТАВ</p>
-            <p className={style.text}>
+            <p className={style.main__text}>
               Общественная организация «Местная национально-культурная aвтономия
               татар» г. Прокопьевск
             </p>
@@ -578,7 +578,7 @@ export default function Charter({ isOpen }) {
             </ol>
           )}
         </div>
-        <div className={style.footer__last}>
+        <div className={style.footer__buttons}>
           <button className={style.close_button} onClick={onHandleUp}>
             В начало
           </button>
