@@ -102,6 +102,11 @@ const Header = () => {
               </NavLink>
             </li>
             <li className={style.nav__link}>
+              <NavLink style={getStyle} to="/our-activists">
+                Наши активисты
+              </NavLink>
+            </li>
+            <li className={style.nav__link}>
               {opacityExit && (
                 <NavLink
                   style={getStyle}
