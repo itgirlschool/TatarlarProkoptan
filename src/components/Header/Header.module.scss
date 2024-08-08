@@ -8,6 +8,9 @@
   background-color: $header-background-color;
   font-size: $header-font-size;
   padding: 10px;
+  @media (max-width: 530px) {
+    gap: 5px;
+  } 
 }
 
 .logo__container {
@@ -51,23 +54,34 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  justify-content: center;
 
   @media (max-width: 1200px) {
     padding-left: 20px;
     padding-right: 55px;
   }
+  @media (max-width: 530px) {
+    padding-left: 10px;
+  } 
 }
 
 .icons {
   display: flex;
   gap: 10px;
   margin-bottom: 10px;
+  @media (max-width: 530px) {
+    gap: 5px;
+  } 
 }
 
 .icon {
   width: 32px;
   height: 32px;
   cursor: pointer;
+  @media (max-width: 375px) {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 .family__icon {
@@ -93,6 +107,9 @@
   background-color: $header-text-color;
   color: #39a4a6;
   border: none;
+  @media (max-width: 325px) {
+    padding: 5px 10px;
+  }
 }
 
 @media (min-width: 1201px) {
@@ -105,9 +122,6 @@
   .nav {
     display: none;
   }
-}
-.nav__a{
-
 }
 
 .active{

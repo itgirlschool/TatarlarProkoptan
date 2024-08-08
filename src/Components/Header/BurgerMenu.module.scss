@@ -23,6 +23,10 @@
   transition: background-image 0.3s;
   outline: none;
   border: none;
+  @media (max-width: 420px) {
+    width: 40px;
+  height: 40px;
+  } 
 }
 
 .burger.open {
