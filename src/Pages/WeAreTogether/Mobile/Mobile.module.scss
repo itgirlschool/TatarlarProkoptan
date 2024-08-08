@@ -1,17 +1,31 @@
 @import "../../../style/vars.scss";
 
 .active__modal {
-  height: 100%;
   width: 100vw;
 }
 .carousel__modal {
   border-radius: 3px;
-  background-color: rgba(41, 40, 40, 0.8);
+  background-color: $body-background-color;
   width: 100vw;
-
   @media screen and (max-width: 540px) {
-    height: 100%;
     padding-bottom: 10px;
+  }
+}
+[class~="ant-carousel"] {
+  [class~="slick-prev"] {
+    color: $header-background-color;
+  }
+}
+[class~="ant-carousel"] {
+  [class~="slick-next"] {
+    color: $header-background-color;
+  }
+}
+[class~="ant-carousel"] {
+  [class~="slick-dots"] {
+    li button {
+      background-color: $header-background-color;
+    }
   }
 }
 
@@ -32,7 +46,7 @@
   background-position: center;
   padding: 10px;
   width: 80vw;
-  height: 80vh;
+  height: 100%;
   margin: 0 auto;
 }
 
