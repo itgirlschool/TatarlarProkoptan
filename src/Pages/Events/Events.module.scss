@@ -38,6 +38,13 @@
     overflow: hidden;
 }
 
+@media screen and (max-width: 1920px) {
+    .eventsPageMobile {
+        margin-left: 30%;
+        margin-right: 30%;
+    }
+}
+
 @media screen and (max-width: 769px) {
     .eventsPageMobile {
         margin-left: 20%;

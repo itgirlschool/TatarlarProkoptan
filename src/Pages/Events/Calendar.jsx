@@ -1,6 +1,11 @@
 import React from 'react';
 import { Badge, Calendar, Divider } from 'antd';
 import style from "./Events.module.scss";
+import ModalSingUp from "../../Components/ModalSingUp/ModalFormSingUp.jsx";
+
+// const ModalEvent = ({props}) => {
+//   return ModalSingUp(props);
+// }
 
 const getListData = (value) => {
   let listData;
@@ -53,8 +58,9 @@ const EventsCalendar = () => {
     return (
         <div>
           {listData.map((item) => (
-            <div key={item.content} className={style.events}>
-              <Badge status={item.type} text={item.content} className={style.events}/>
+            <div key={item.content} className={style.events} >
+              <Badge status={item.type} text={item.content} className={style.events}  />
+            {/* <button className={style.button_test} onClick={ModalEvent}>Test</button> */}
             </div>
           ))}
         </div>
