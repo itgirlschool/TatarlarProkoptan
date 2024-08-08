@@ -25,7 +25,6 @@
     .card {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
         position: relative;
         transition: transform 0.3s ease-out;
@@ -34,10 +33,15 @@
             flex-direction: column;
             align-items: center;
             gap: .5em;
-            .image {
-                display: block;
-                border-radius: 10px;
-                transition: box-shadow 0.3s ease-out;
+            .frame{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .image {
+                    display: block;
+                    border-radius: 10px;
+                    transition: box-shadow 0.3s ease-out;
+                }
             }
             .name {
                 width: 80%;
@@ -80,7 +84,7 @@
             }
             &:hover .more {
                 opacity: 1;
-                box-shadow: 0 4px 18px 0 $body-background-color;
+                box-shadow: 0 4px 30px 0 $body-background-color;
             }
         }    
         &:hover .wrappBtn .more {
@@ -113,14 +117,22 @@
     }
     .content {
         grid-template-columns: repeat(1, 1fr);
-    }
-    .card {
-        &__details {
-            .name {
-                font-size: 20px;
+        .card {
+            &__details {
+                .name {
+                    font-size: 20px;
+                }
+                .job {
+                    font-size: 18px;
+                }
             }
-            .job {
-                font-size: 18px;
+            .wrappBtn {
+                bottom: 18%;
+                left: 50%;
+                .more {
+                    width: 40px;
+                    height: 40px;
+                }
             }
         }
     }
@@ -132,25 +144,27 @@
     }
     .content {
         gap: 20px;
-    }
-    .card {
-        &__details {
-            .name {
-                font-size: 18px;
+        .card {
+            &__details {
+                .name {
+                    font-size: 18px;
+                }
+                .job {
+                    font-size: 16px;
+                }
             }
-            .job {
-                font-size: 16px;
-            }
-        }
-        .wrappBtn {
-            bottom: 10%;
-            .more {
-                width: 30px;
-                height: 30px;
+            .wrappBtn {
+                bottom: 15%;
+                left: 50%;
+                .more {
+                    width: 40px;
+                    height: 40px;
+                }
             }
         }
     }
 }
+
 .scrollToTop {
     position: fixed;
     display: flex;
