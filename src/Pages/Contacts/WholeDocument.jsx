@@ -1,0 +1,17 @@
+import style from "./Charter.module.scss";
+import { useRef } from "react";
+import common from "../../Common/Charter/common.json";
+import goals from "../../Common/Charter/goals.json";
+import tasks from "../../Common/Charter/tasks.json";
+import activities from "../../Common/Charter/activities.json";
+import possibilities from "../../Common/Charter/possibilities.json";
+import exclusiveRights from "../../Common/Charter/exclusiveRights.json";
+import liabilities from "../../Common/Charter/liabilities.json";
+import rights from "../../Common/Charter/rights.json";
+import membersLiabilities from "../../Common/Charter/membersLiabilities.json";
+import membersRights from "../../Common/Charter/membersRights.json";
+import membershipEnd from "../../Common/Charter/membershipEnd.json";
+import govenance from "../../Common/Charter/govenance.json";
+import chairman from "../../Common/Charter/chairman.json";
+import sources from "../../Common/Charter/sources.json";
+import reorganisation from "../../Common/Charter/reorganisation.json";

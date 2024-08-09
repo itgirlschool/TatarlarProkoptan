@@ -107,6 +107,11 @@ const Header = () => {
               </NavLink>
             </li>
             <li className={style.nav__link}>
+              <NavLink style={getStyle} to="/contacts">
+                Контакты
+              </NavLink>
+            </li>
+            <li className={style.nav__link}>
               {opacityExit && (
                 <NavLink
                   style={getStyle}
@@ -136,8 +141,11 @@ const Header = () => {
             <a href="tel:+79050698829">
               <img src={PhoneIcon} alt="Phone" className={style.icon} />
             </a>
-            <a href="https://ok.ru/group/70000007558287" target="_blank"
-              rel="noopener noreferrer">
+            <a
+              href="https://ok.ru/group/70000007558287"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img src={OkIcon} alt="Odnoklassniki" className={style.icon} />
             </a>
           </div>
