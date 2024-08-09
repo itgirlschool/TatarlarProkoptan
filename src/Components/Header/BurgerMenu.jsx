@@ -9,6 +9,7 @@ const links = [
   { label: "Сабантуй", path: "/sabantui" },
   { label: "Благотворительность", path: "/charity" },
   { label: "Мы вместе", path: "/we-are-together" },
+  { label: "Наши активисты", path: "/our-activists" },
   { label: "Контакты", path: "/contacts" },
   { label: "Выйти из аккаунта", path: "/authorizationpage" },
 ];

@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import logo from "../../assets/images/logo.png";
 import BurgerMenu from "./BurgerMenu";
 import TelegramIcon from "../../assets/images/telegram.svg";
+import OkIcon from "../../assets/images/odnoklassniki.svg";
 import MailIcon from "../../assets/images/mail.svg";
 import PhoneIcon from "../../assets/images/phone.svg";
 import FamilyIconImage from "../../assets/images/family.svg";
@@ -101,6 +102,11 @@ const Header = () => {
               </NavLink>
             </li>
             <li className={style.nav__link}>
+              <NavLink style={getStyle} to="/our-activists">
+                Наши активисты
+              </NavLink>
+            </li>
+            <li className={style.nav__link}>
               <NavLink style={getStyle} to="/contacts">
                 Контакты
               </NavLink>
@@ -134,6 +140,13 @@ const Header = () => {
             </a>
             <a href="tel:+79050698829">
               <img src={PhoneIcon} alt="Phone" className={style.icon} />
+            </a>
+            <a
+              href="https://ok.ru/group/70000007558287"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={OkIcon} alt="Odnoklassniki" className={style.icon} />
             </a>
           </div>
           <div className={style.family__and__button}>

@@ -1,0 +1,198 @@
+@import '../../style/vars';
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; 
+    padding: 3.3vw 0;
+    max-width: 1200px;
+    box-sizing: border-box;
+    .title {
+        font-family: $fontLifehackRegular;
+        font-weight: 700;
+        font-size: 2.5rem;
+        color: $header-background-color;
+    }
+}
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    padding: 30px 0;
+    .card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        transition: transform 0.3s ease-out;
+        &__details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: .5em;
+            .frame{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .image {
+                    display: block;
+                    border-radius: 10px;
+                    transition: box-shadow 0.3s ease-out;
+                }
+            }
+            .name {
+                width: 80%;
+                font-family: $fontLifehackRegular;
+                font-weight: 700;
+                font-size: 24px;
+                color: $header-background-color;
+                text-align: center;
+            }
+            .job {
+                width: 80%;
+                font-family: $fontLifehackRegular;
+                font-weight: 500;
+                font-size: 20px;
+                color: black;
+                text-align: center;
+            }
+        }
+        .wrappBtn{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            position: absolute;
+            bottom: 30%;
+            left: 50%;
+            transform: translate(-50%);
+            .more {
+                width: 40px;
+                height: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 8px;
+                border: 2px solid $header-background-color;
+                background-color: $body-background-color;
+                opacity: 0;
+                transition: 0.3s ease-out;
+                cursor: pointer;
+            }
+            &:hover .more {
+                opacity: 1;
+                box-shadow: 0 4px 30px 0 $body-background-color;
+            }
+        }    
+        &:hover .wrappBtn .more {
+            transform: translateY(-50%);
+        }
+        &:hover .image {
+            box-shadow: 0 4px 18px 0 $header-background-color;
+        }
+    }
+}
+
+@media (max-width: 1920px) {
+    .container {
+        max-width: 1600px;
+    }
+}
+
+@media (max-width: 1440px) {
+    .container {
+        max-width: 1200px;
+    }
+    .content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 700px;
+    }
+    .content {
+        grid-template-columns: repeat(1, 1fr);
+        .card {
+            &__details {
+                .name {
+                    font-size: 20px;
+                }
+                .job {
+                    font-size: 18px;
+                }
+            }
+            .wrappBtn {
+                bottom: 18%;
+                left: 50%;
+                .more {
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    .container {
+        max-width: 350px;
+    }
+    .content {
+        gap: 20px;
+        .card {
+            &__details {
+                .name {
+                    font-size: 18px;
+                }
+                .job {
+                    font-size: 16px;
+                }
+            }
+            .wrappBtn {
+                bottom: 15%;
+                left: 50%;
+                .more {
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+        }
+    }
+}
+
+.scrollToTop {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    bottom: 20px;
+    right: 20px;
+    border: 2px solid $header-background-color;
+    background-color: $body-background-color;
+    color: $header-background-color;
+    border-radius: 10px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    &.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+    .arrowUp {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 768px) {
+    .scrollToTop {
+        display: none;
+    }
+}
