@@ -9,11 +9,11 @@
   },
   {
     "id": "2",
-    "img": "./imgs/gallery2.jpg"
+    "img": "./imgs/gallery2.webp"
   },
   {
     "id": "4",
-    "img": "./imgs/gallery4.jpg"
+    "img": "./imgs/gallery4.webp"
   },
   {
     "id": "5",
@@ -21,7 +21,7 @@
   },
   {
     "id": "6",
-    "img": "./imgs/gallery6.jpg"
+    "img": "./imgs/gallery6.webp"
   },
   {
     "id": "7",
@@ -41,7 +41,7 @@
   },
   {
     "id": "13",
-    "img": "./imgs/gallery13.jpg"
+    "img": "./imgs/gallery13.webp"
   },
   {
     "id": "16",

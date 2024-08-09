@@ -1,7 +1,7 @@
 import style from "./WeAreTogether.module.scss";
 import childrenImg from "../../assets/images/children9.jpg";
 import helpImg from "../../assets/images/help.jpg";
-import galleryImg from "../../assets/images/gallery4.jpg";
+import galleryImg from "../../assets/images/gallery4.webp";
 import { useState, useEffect } from "react";
 import ChildrenModule from "./ChildrenModule";
 import HelpModal from "./HelpModal";

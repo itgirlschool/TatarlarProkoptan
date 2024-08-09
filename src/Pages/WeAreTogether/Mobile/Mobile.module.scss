@@ -11,23 +11,6 @@
     padding-bottom: 10px;
   }
 }
-[class~="ant-carousel"] {
-  [class~="slick-prev"] {
-    color: $header-background-color;
-  }
-}
-[class~="ant-carousel"] {
-  [class~="slick-next"] {
-    color: $header-background-color;
-  }
-}
-[class~="ant-carousel"] {
-  [class~="slick-dots"] {
-    li button {
-      background-color: $header-background-color;
-    }
-  }
-}
 
 .gallery__img {
   width: 100%;
