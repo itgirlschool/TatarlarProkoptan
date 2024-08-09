@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import styles from './TatarCulture.module.scss';
 import tatarData from '../../../Common/CultureData/culture.json';
 
-import cult1Img from '../../../assets/cultureImg/cult1.jpg';
-import cult2Img from '../../../assets/cultureImg/cult2.jpg';
-import cult3Img from '../../../assets/cultureImg/cult3.jpg';
-import cult4Img from '../../../assets/cultureImg/cult4.jpg';
-import cult5Img from '../../../assets/cultureImg/cult5.jpg';
-import cult6Img from '../../../assets/cultureImg/cult6.jpg';
+import cult1Img from '../../../assets/cultureImg/cult1.webp';
+import cult2Img from '../../../assets/cultureImg/cult2.webp';
+import cult3Img from '../../../assets/cultureImg/cult3.webp';
+import cult4Img from '../../../assets/cultureImg/cult4.webp';
+import cult5Img from '../../../assets/cultureImg/cult5.webp';
+import cult6Img from '../../../assets/cultureImg/cult6.webp';
 
 const images = {
   cult1Img,

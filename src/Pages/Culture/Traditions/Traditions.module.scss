@@ -3,8 +3,7 @@
 .traditions {
   max-width: 1000px;
   margin: 0 auto;
-  padding-top: 30px;
-  margin-bottom: 20px;
+  padding-top: 10px;
   font-family: $fontLifehackRegular;
 }
 
@@ -109,8 +108,6 @@
   .traditions {
     max-width: 1000px;
     height: auto;
-    margin-left: 10px;
-    margin-right: 10px;
   }
 
   .traditions_images {
@@ -123,6 +120,8 @@
     max-width: 700px;
     height: auto;
     padding-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
   }
 
   .traditions_images {
