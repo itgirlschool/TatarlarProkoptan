@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import  {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import  {setUserAuth} from "../store/slice/UserAuthSlice.js";
+import { setUserAuth } from "../store/slice/UserAuthSlice.js";
 import { Route, Routes, Link } from "react-router-dom";
 import TatarCulture from "../Pages/Culture/TatarCulture/TatarCulture";
 import Mosques from "../Pages/Culture/Mosques/Mosques";
@@ -32,7 +32,7 @@ import Loader from "../Components/Loader/Loader.jsx";
 import ChildrenMobile from "../Pages/WeAreTogether/Mobile/ChildrenMobile";
 import HelpMobile from "../Pages/WeAreTogether/Mobile/HelpMobile";
 import GalleryMobile from "../Pages/WeAreTogether/Mobile/GalleryMobile";
-import News from "../Pages/News/News.jsx";
+import OurActivists from "../Pages/OurActivists/OurActivists.jsx";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -66,9 +66,10 @@ function App() {
           <Route path="/partners" element={<Partners />} />
           <Route path="/sabantui" element={<Sabantui />} />
           <Route path="/we-are-together" element={<WeAreTogether />} />
+          <Route path="/our-activists" element={<OurActivists />} />
           <Route path="/registrationpage" element={<RegistrationPage />} />
           <Route path="/authorizationpage" element={<AuthorizationPage />} />
-          <Route path="/restorepassword" element={<RestorePassword/>} />
+          <Route path="/restorepassword" element={<RestorePassword />} />
           <Route path="/autonomy" element={<ModalFormAutonomyMobile />} />
           <Route path="/homePageMobile" element={<HomePageMobile />} />
           <Route path="/news" element={<News/>}/>
