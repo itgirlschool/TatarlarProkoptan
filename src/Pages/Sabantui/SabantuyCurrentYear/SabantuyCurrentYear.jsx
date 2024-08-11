@@ -1,25 +1,61 @@
 import { useState } from "react";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 import currentData from "../../../Common/Sabantuy/sabantuyCurrent";
+
 import style from "./SabantuyCurrentYear.module.scss";
+import NavigationButtons from "../NavigationsButton";
 
 export default function SabantuyCurrentYear() {
-  const [fullscreenPhoto, setFullscreenPhoto] = useState(null);
+  const [fullscreenPhotoIndex, setFullscreenPhotoIndex] = useState(null);
 
-  const handlePhotoClick = (photo) => {
-    setFullscreenPhoto(photo);
+  const handlePhotoClick = (index) => {
+    setFullscreenPhotoIndex(index);
   };
 
   const closeFullscreen = () => {
-    setFullscreenPhoto(null);
+    setFullscreenPhotoIndex(null);
+  };
+
+  const handlePrev = (event) => {
+    event.stopPropagation();
+    setFullscreenPhotoIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : currentData.length - 1));
+  };
+
+  const handleNext = (event) => {
+    event.stopPropagation();
+    setFullscreenPhotoIndex((prevIndex) => (prevIndex < currentData.length - 1 ? prevIndex + 1 : 0));
   };
 
   return (
     <div className={style.block__currentyear}>
-      <div className={style.button__current}>
-      <Link to="/sabantui" className={style.back__button__current}>назад</Link>
+
+      <div className={style.back__button}>
+        <Link to="/sabantui" className={style.back__button_current}>назад</Link>
       </div>
-      <h1 className={style.title__current}>Сабантуй 2024</h1>
+
+      <div className={style.current}>
+        <h1 className={style.current__title}>Сабантуй 2024</h1>
+        <div className={style.current__text}>
+          <p className={style.current__text_descr}>30 июня в Прокопьевске прошел <strong>4 Международный шахтерский Сабантуй</strong> .</p>
+          <p className={style.current__text_descr}>Перед гостями парадом прошли почетные шахтеры, работники угольной отрасли разных регионов
+            страны. Свою национальную культуру, традиции, быт и кухню продемонстрировали татары и другие национальности. Было выставлено более 10 разных подворий. Национально-культурная
+            автономия татар Прокопьевска оформила подворье в самой большой палатке, где были
+            выставлены на столах оформленных старинными вышитыми скатертями национальные
+            различные блюда, самовар и татарский чай с молоком, с медом. Оформлена выставка тюбетеек,
+            платков. Представлена сцена с прядением пряжи на старинной прялке, укачиванием ребенка в
+            люльке и много других атрибутов быта татарской семьи.</p>
+          <p className={style.current__text_descr}>Весь день праздник сопровождался концертной программой с национальными песнями артистов
+            г.Лениногорска и лучшими творческими коллективами Кузбасса .</p>
+          <p className={style.current__text_descr}>Работали площадки с национальными играми, ярмарка ремесленников, отдельная программа для
+            детей. Свои умения показали наездницы в зрелищном виде спорта-конкуре. Много болельщиков
+            собрал традиционная борьба на поясах-корэш.</p>
+          <p className={style.current__text_descr}>Этот день надолго останется в памяти участников.</p>
+          <p className={style.current__text_descr}>Большое спасибо ЗУР РАХМЭТ Организаторам и всем участникам Международного шахтерского
+            Сабантуя.</p>
+
+        </div>
+      </div>
+
       <div className={style.gallery__current}>
         {currentData.map((photo, index) => (
           <img
@@ -27,17 +63,33 @@ export default function SabantuyCurrentYear() {
             src={photo.img}
             alt={`Sabantuy photo ${index + 1}`}
             className={style.photo__current}
-            onClick={() => handlePhotoClick(photo)}
+            onClick={() => handlePhotoClick(index)}
           />
         ))}
       </div>
-      {fullscreenPhoto && (
+
+      <div className={style.btn}>
+        <a
+          href="https://disk.yandex.ru/d/RIAwYFuwVNY5hA"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={style.btn__more}
+        >
+          Смотреть фото больше
+        </a>
+      </div>
+
+      {fullscreenPhotoIndex !== null && (
         <div className={style.fullscreen__overlay} onClick={closeFullscreen}>
+          <button className={style.close__button} onClick={closeFullscreen}>
+            &times;
+          </button>
           <img
-            src={fullscreenPhoto.img}
-            alt="Fullscreen"
+            src={currentData[fullscreenPhotoIndex].img}
+            alt={currentData[fullscreenPhotoIndex].alt || "Fullscreen"}
             className={style.fullscreen__photo}
           />
+          <NavigationButtons onPrev={handlePrev} onNext={handleNext} />
         </div>
       )}
     </div>

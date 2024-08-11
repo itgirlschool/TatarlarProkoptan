@@ -18,7 +18,7 @@ export default function SabantuyCollection() {
   return (
     <div className={style.block__collection}>
       <div className={style.button__collection}>
-      <Link to="/sabantui" className={style.back__button__collection}>назад</Link>
+        <Link to="/sabantui" className={style.back__button__collection}>назад</Link>
       </div>
       <h1 className={style.title__collection}>Коллекция Сабантуев</h1>
       <div className={style.gallery__video}>

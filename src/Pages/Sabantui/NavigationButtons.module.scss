@@ -1,0 +1,25 @@
+@import "../../style/vars";
+
+.navigation__buttons {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.nav__button {
+    background: $header-background-color;
+    color: $body-background-color;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 5px;
+    &:hover {
+        background: $body-background-color;
+        color: $header-background-color;
+    }
+}

@@ -1,62 +1,92 @@
 @import "../../../style/vars";
 
 .block__currentyear {
-  margin: 1% auto;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
   font-family: $fontLifehackRegular;
 }
 
-.button__current {
-  position: absolute;
-  padding: 1%;
+.back__button {
+  &_current {
+    display: inline-block;
+    width: 100px;
+    text-decoration: none;
+    text-align: center;
+    color: $header-background-color;
+    font-size: 36px;
+    font-weight: bolder;
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background 0.5s ease-in-out;
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 30px $header-background-color;
+    }
+  }
 }
 
-.back__button__current {
-  display: inline-block;
-  width: 100px;
-  text-decoration: none;
-  text-align: center;
-  color: $header-background-color;
-  font-size: 36px;
-  font-weight: bolder;
-  background: #fff;
-  border-radius: 2px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: background 0.5s ease-in-out;
-}
+.current{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  &__title{
+    color: $header-background-color;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 700;
+  }
+  &__text{
+    width: 70%;
+    text-indent: 20px;
+    font-family: $fontLifehackRegular;
+    font-weight: 400;
+    font-size: 24px;
+    color: black;
+    &_descr{
 
-.back__button__current:hover {
-  transform: scale(1.1);
-  box-shadow: 0 4px 30px $header-background-color;
-}
-
-.title__current {
-  color: $header-background-color;
-  text-align: center;
-  font-size: 50px;
-  font-weight: 700;
+    }
+  }
 }
 
 .gallery__current {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: center;
 }
 
 .photo__current {
-  max-width: 500px;
-  max-height: 300px;
-  object-fit: cover;
-  margin: 15px;
-  border: 2px solid #ccc;
+  max-width: 100%;
   border-radius: 8px;
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
-.photo__current:hover {
-  transform: scale(1.1);
+.btn{
+  display: flex;
+  align-items: center;
+  border: none;
+  &__more {
+    padding: 10px 20px;
+    background-color: $header-background-color;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    &:hover {
+      background-color: $header-background-color;
+    }
+  }
 }
 
 .fullscreen__overlay {
@@ -65,7 +95,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
