@@ -2,8 +2,10 @@ import { useState } from "react";
 import { Link } from "react-router-dom"
 import currentData from "../../../Common/Sabantuy/sabantuyCurrent";
 
-import style from "./SabantuyCurrentYear.module.scss";
 import NavigationButtons from "../NavigationsButton";
+import ScrollToTopButton from "../ScrollToTopButton";
+
+import style from "./SabantuyCurrentYear.module.scss";
 
 export default function SabantuyCurrentYear() {
   const [fullscreenPhotoIndex, setFullscreenPhotoIndex] = useState(null);
@@ -34,7 +36,7 @@ export default function SabantuyCurrentYear() {
       </div>
 
       <div className={style.current}>
-        <h1 className={style.current__title}>Сабантуй 2024</h1>
+        <h2 className={style.current__title}>Сабантуй 2024</h2>
         <div className={style.current__text}>
           <p className={style.current__text_descr}>30 июня в Прокопьевске прошел <strong>4 Международный шахтерский Сабантуй</strong> .</p>
           <p className={style.current__text_descr}>Перед гостями парадом прошли почетные шахтеры, работники угольной отрасли разных регионов
@@ -52,7 +54,6 @@ export default function SabantuyCurrentYear() {
           <p className={style.current__text_descr}>Этот день надолго останется в памяти участников.</p>
           <p className={style.current__text_descr}>Большое спасибо ЗУР РАХМЭТ Организаторам и всем участникам Международного шахтерского
             Сабантуя.</p>
-
         </div>
       </div>
 
@@ -62,7 +63,7 @@ export default function SabantuyCurrentYear() {
             key={photo.id}
             src={photo.img}
             alt={`Sabantuy photo ${index + 1}`}
-            className={style.photo__current}
+            className={style.gallery__current_photo}
             onClick={() => handlePhotoClick(index)}
           />
         ))}
@@ -70,7 +71,7 @@ export default function SabantuyCurrentYear() {
 
       <div className={style.btn}>
         <a
-          href="https://disk.yandex.ru/d/RIAwYFuwVNY5hA"
+          href="https://vk.com/album-2329819_303579940"
           target="_blank"
           rel="noopener noreferrer"
           className={style.btn__more}
@@ -87,11 +88,12 @@ export default function SabantuyCurrentYear() {
           <img
             src={currentData[fullscreenPhotoIndex].img}
             alt={currentData[fullscreenPhotoIndex].alt || "Fullscreen"}
-            className={style.fullscreen__photo}
+            className={style.fullscreen__overlay_photo}
           />
           <NavigationButtons onPrev={handlePrev} onNext={handleNext} />
         </div>
       )}
+      <ScrollToTopButton />
     </div>
   );
 }

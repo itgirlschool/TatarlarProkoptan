@@ -6,20 +6,68 @@
     position: absolute;
     top: 50%;
     width: 100%;
-    padding: 0 20px;
+    padding: 0 7%;
     box-sizing: border-box;
 }
 
 .nav__button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
     background: $header-background-color;
     color: $body-background-color;
     border: none;
+    border-radius: 9px;
     font-size: 2em;
+    font-weight: 700;
     cursor: pointer;
-    padding: 15px;
-    border-radius: 5px;
     &:hover {
         background: $body-background-color;
         color: $header-background-color;
     }
+}
+
+@media (max-width: 1920px) {
+    .navigation__buttons{
+        .nav__button {
+            width: 40px;
+            height: 40px;
+            font-size: 1.6em;
+        }
+    }
+}
+
+@media (max-width: 1440px) {
+    .navigation__buttons{
+        .nav__button {
+            width: 35px;
+            height: 35px;
+            font-size: 1.4em;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .navigation__buttons{
+        padding: 0 1%;
+        .nav__button {
+            width: 30px;
+            height: 30px;
+            font-size: 1.2em;
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    .navigation__buttons{
+        .nav__button {
+            width: 25px;
+            height: 25px;
+            font-size: 1.0em;
+        }
+    }
+    
 }

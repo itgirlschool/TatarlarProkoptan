@@ -10,7 +10,7 @@
 			<rect id="originalNoText" width="1024.000000" height="512.000000" fill="white" fill-opacity="0"/>
 		</clipPath>
 	</defs>
-	<rect id="originalNoText" width="1024.000000" height="512.000000" fill="#FFFFFF" fill-opacity="1.000000"/>
+	<rect id="originalNoText" width="1024.000000" height="512.000000" fill="none" fill-opacity="1.000000"/>
 	<g clip-path="url(#clip27_2392)">
 		<g clip-path="url(#clip27_2393)">
 			<path id="path" d="M409.06 234.13L437.62 205.21C437.67 205.15 437.76 205.15 437.82 205.21C437.88 205.26 437.88 205.36 437.82 205.41L409.27 234.34C409.21 234.4 409.12 234.4 409.06 234.34C409.01 234.28 409 234.19 409.06 234.13Z" fill="#000000" fill-opacity="1.000000" fill-rule="nonzero"/>

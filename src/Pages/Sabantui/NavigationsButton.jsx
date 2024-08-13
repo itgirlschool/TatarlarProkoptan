@@ -1,4 +1,3 @@
-
 import style from './NavigationButtons.module.scss';
 
 const NavigationButtons = ({ onPrev, onNext }) => {
