@@ -18,15 +18,6 @@ const useResize = () => {
   };
 
   const Events = () => {
-    const auth = getAuth();
-  const  navigate = useNavigate();
-    useEffect(() => {
-      const unsubscribe = onAuthStateChanged(auth, (user) => {
-        if (!user) navigate('/authorizationpage');
-      });
-      return () => unsubscribe();
-    }, []);
-
     if (window.innerWidth > 768) {
       return <div className={style.eventsPage}>
       <h1 className={style.h1_events}>Узнай о наших ближайших мероприятиях</h1>
