@@ -5,11 +5,7 @@ import ModalFormSingUp from "../../Components/ModalSingUp/ModalFormSingUp.jsx";
 import style from './Events.module.scss';
 
   const Events = () => {
-    const [modalActive, setModalActive] = useState(false);
-    const handleClick = (e) => {
-          setModalActive(true);
-          e.preventDefault();
-    }
+    if (window.innerWidth > 768) {
       return <div className={style.eventsPage}>
       <h1 className={style.h1_events}>Узнай о наших ближайших мероприятиях</h1>
       <> {modalActive?
