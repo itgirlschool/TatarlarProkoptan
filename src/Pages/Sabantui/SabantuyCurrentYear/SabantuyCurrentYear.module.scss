@@ -1,131 +1,249 @@
 @import "../../../style/vars";
 
 .block__currentyear {
-  margin: 1% auto;
-  text-align: center;
-  font-family: $fontLifehackRegular;
-}
-
-.button__current {
-  position: absolute;
-  padding: 1%;
-}
-
-.back__button__current {
-  display: inline-block;
-  width: 100px;
-  text-decoration: none;
-  text-align: center;
-  color: $header-background-color;
-  font-size: 36px;
-  font-weight: bolder;
-  background: #fff;
-  border-radius: 2px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: background 0.5s ease-in-out;
-}
-
-.back__button__current:hover {
-  transform: scale(1.1);
-  box-shadow: 0 4px 30px $header-background-color;
-}
-
-.title__current {
-  color: $header-background-color;
-  text-align: center;
-  font-size: 50px;
-  font-weight: 700;
-}
-
-.gallery__current {
+  position: relative;
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-}
-
-.photo__current {
-  max-width: 500px;
-  max-height: 300px;
-  object-fit: cover;
-  margin: 15px;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.3s ease-in-out;
-}
-
-.photo__current:hover {
-  transform: scale(1.1);
-}
-
-.fullscreen__overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.9);
-  display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  z-index: 1000;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 0;
+  font-family: $fontLifehackRegular;
+
+  .back__button {
+    position: absolute;
+    top: 1%;
+    align-self: flex-start;
+
+    &_current {
+        padding: 5px 10px;
+        text-decoration: none;
+        color: $header-background-color;
+        font-size: 20px;
+        font-weight: 700;
+        background: $body-background-color;
+        border-radius: 9px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: background 0.5s ease;
+
+        &:hover {
+          transform: scale(1.1);
+          box-shadow: 0 4px 30px $header-background-color;
+        }
+      }
+    }
+  
+  .current{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    &__title{
+      color: $header-background-color;
+      text-align: center;
+      font-size: 48px;
+      font-weight: 700;
+    }
+
+    &__text{
+      max-width: 70%;
+      text-indent: 20px;
+      font-family: $fontLifehackRegular;
+      font-weight: 400;
+      font-size: 24px;
+      color: black;
+    }
+  }
+  
+  .gallery__current {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: center;
+
+    &_photo{
+      max-width: 100%;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+
+      &:hover {
+        transform: scale(1.1);
+        box-shadow: 0 4px 30px $header-background-color;
+      }
+    }
+  }
+  
+  .btn{
+    display: flex;
+    align-items: center;
+    border: none;
+    &__more {
+      padding: 10px 20px;
+      background-color: $header-background-color;
+      color: $body-background-color;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 24px;
+      &:hover {
+        background-color: $header-background-color;
+      }
+    }
+  }
+  
+  .fullscreen__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+
+    &_photo {
+      max-width: 100%;
+      max-height: 90%;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .close__button {
+      position: absolute;
+      top: 5%;
+      right: 8%;
+      width: 40px;
+      height: 40px;
+      background: $body-background-color;
+      border: 1px solid $body-background-color;
+      border-radius: 9px;
+      color: $header-background-color;
+      font-size: 32px;
+      cursor: pointer;
+
+      &:hover{
+        background: $header-background-color;
+        color: $body-background-color;
+      }
+    }
+  }
 }
 
-.fullscreen__photo {
-  max-width: 90%;
-  max-height: 90%;
+@media (max-width: 1920px) {
+  .block__currentyear {
+    .current__title {
+      font-size: 42px;
+    }
+    .current__text {
+      font-size: 22px;
+    }
+    .btn__more {
+      font-size: 22px;
+    }
+  }
 }
 
 @media (max-width: 1440px) {
-  .back__button__current {
-    width: 70px;
-    font-size: 24px;
-  }
-
-  .title__current {
-    font-size: 40px;
-  }
-
-  .photo__current {
-    max-width: 350px;
-    max-height: 220px;
+  .block__currentyear {
+    .current__title {
+      font-size: 36px;
+    }
+    .current__text {
+      font-size: 20px;
+    }
+    .btn__more {
+      font-size: 20px;
+    }
+    .fullscreen__overlay {
+      padding: 0 10px;
+      .close__button {
+        top: 3%;
+        right: 7%;
+        width: 35px;
+        height: 35px;
+        font-size: 24px;
+      }
+    }
   }
 }
 
 @media (max-width: 768px) {
-  .back__button__current {
-    width: 50px;
-    font-size: 20px;
-  }
-
-  .title__current {
-    font-size: 30px;
-  }
-
   .block__currentyear {
-    max-width: 90%;
-  }
+    padding: 30px 20px;
 
-  .photo__current {
-    max-width: 300px;
-    max-height: 190px;
+    .back__button{
+      top: .8%;
+    }
+
+    .current__title {
+      font-size: 32px;
+    }
+
+    .current__text {
+      font-size: 20px;
+      max-width: 95%;
+    }
+
+    .gallery__current {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .btn__more {
+      font-size: 20px;
+    }
+
+    .fullscreen__overlay {
+      padding: 0 10px;
+      .close__button {
+        top: 6.5%;
+        right: 3%;
+        width: 30px;
+        height: 30px;
+        font-size: 24px;
+      }
+    }
   }
 }
 
 @media (max-width: 375px) {
-  .back__button__current {
-    width: 30px;
-    font-size: 14px;
-  }
+  .block__currentyear {
+    .back__button{
+      top: .4%;
+    }
 
-  .title__current {
-    font-size: 20px;
-  }
+    .current__title {
+      font-size: 28px;
+    }
 
-  .photo__current {
-    max-width: 100%;
-    max-height: auto;
-    margin: 10px 0;
+    .current__text {
+      font-size: 20px;
+      max-width: 90%;
+    }
+
+    .gallery__current {
+      grid-template-columns: 1fr;
+    }
+
+    .btn__more {
+      font-size: 20px;
+    }
+
+    .fullscreen__overlay {
+      padding: 0 10px;
+      .close__button {
+        top: 3%;
+        right: 5%;
+        width: 25px;
+        height: 25px;
+        font-size: 24px;
+      }
+    }
   }
 }
+

@@ -65,6 +65,8 @@ function App() {
           <Route path="/events" element={<Events />} />
           <Route path="/partners" element={<Partners />} />
           <Route path="/sabantui" element={<Sabantui />} />
+          <Route path="/collection" element={<SabantuyCollection />} />
+          <Route path="/current" element={<SabantuyCurrentYear />} />
           <Route path="/we-are-together" element={<WeAreTogether />} />
           <Route path="/our-activists" element={<OurActivists />} />
           <Route path="/registrationpage" element={<RegistrationPage />} />

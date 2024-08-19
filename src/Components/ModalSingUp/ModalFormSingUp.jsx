@@ -1,5 +1,5 @@
 import style from './ModalFormSingUp.module.scss'
-import mask from '../ModalForm/inputTel';
+import mask from "../../Common/inputPhone";
 import { useForm } from "react-hook-form";
 
 const ModalFormSingUp = (props) =>{

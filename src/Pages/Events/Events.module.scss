@@ -38,6 +38,20 @@
     overflow: hidden;
 }
 
+@media screen and (max-width: 1920px) {
+    .eventsPageMobile {
+        margin-left: 30%;
+        margin-right: 30%;
+    }
+}
+
+@media screen and (max-width: 940px) {
+    .eventsPageMobile {
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+}
+
 @media screen and (max-width: 769px) {
     .eventsPageMobile {
         margin-left: 20%;
@@ -81,9 +95,9 @@
 }
 
 .button_events {
-    background-color: $footer-text-color-green;
+    background-color: $header-background-color;
     border-radius: 3px;
-    border-color: $footer-text-color-green;
+    border-color: $header-background-color;
     font-family: $fontLifehackRegular;
     max-width: 50px;
     max-height: 35px;
