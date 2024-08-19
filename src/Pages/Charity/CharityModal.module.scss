@@ -15,13 +15,28 @@
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.4);
 	animation: appearance 0.3s ease-in-out;
+	@media (min-width: 560px) and (max-width: 768px) {
+		height: 100%;
+	}
+	@media (max-width: 560px) {
+		height: 95%;
+	}
+	@media (max-width: 505px) {
+		height: 90%;
+	}
+	@media (max-width: 459px) {
+		height: 83%;
+	}
+	@media (max-width: 395px) {
+		height: 78%;
+	}
 	@media (max-width: 768px) {
 		position: absolute;
 		justify-content: center;
 		z-index: 72;
 		left: 0px;
 		top: 141px;
-		height: 84%;
+		/* 	height: 84%; */
 		animation: ___appearance_rfqoo_1_o3tm6_1_1he1v_1 0.3s ease-in-out;
 		max-width: 1778px;
 		display: flex;
@@ -57,14 +72,18 @@
 	background-color: $header-background-color;
 	box-sizing: border-box;
 	z-index: 101;
-
+	@media (max-width: 395px) {
+		height: 78%;
+		top: 50px;
+		height: 84%;
+	}
 	@media (max-width: 768px) {
 		justify-content: center;
 		position: absolute;
 		z-index: 72;
 		left: 3px;
-		top: 60px;
-		height: 81%;
+		top: 36px;
+		height: 89%;
 		animation: ___appearance_rfqoo_1_145wm_1_xsjao_1 0.3s ease-in-out;
 		display: flex;
 		padding: 20px 17px;
@@ -298,6 +317,7 @@
 	&__text {
 		flex: 0 0 60%;
 		margin: 0;
+
 		&_error {
 			color: red;
 		}
@@ -380,6 +400,7 @@
 
 	.form__input {
 		grid-area: 2/1/2/2;
+		border: 1.5px solid #39a4a6;
 	}
 
 	.confident {
@@ -390,6 +411,7 @@
 		}
 		&__text {
 			flex: 1 0 60%;
+			color: #39a4a6;
 		}
 	}
 
