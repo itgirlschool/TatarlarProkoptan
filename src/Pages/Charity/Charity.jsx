@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { updateCounter } from "../../store/slice/CharitySlice";
 
 import CharityModal from "./CharityModal";
+import MobileCharityModal from "./MobileCharityModal";
 
 import style from "./Charity.module.scss";
 
@@ -22,9 +23,19 @@ const Charity = () => {
   }, [dispatch]);
 
   const [modalOpen, setModalOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
-    if (modalOpen) {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (modalOpen && !isMobile) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
@@ -33,10 +44,10 @@ const Charity = () => {
     return () => {
       document.body.style.overflow = "";
     };
-  }, [modalOpen]);
+  }, [modalOpen, isMobile]);
 
   const openModal = () => {
-    if (window.innerWidth <= 768) {
+    if (isMobile) {
       navigate("/modal");
     } else {
       setModalOpen(true);
@@ -44,7 +55,11 @@ const Charity = () => {
   };
 
   const closeModal = () => {
-    setModalOpen(false);
+    if (isMobile) {
+      setIsMobile(false);
+    } else {
+      setModalOpen(false);
+    }
   };
 
   const handlerUpdateCounter = () => {
@@ -104,13 +119,18 @@ const Charity = () => {
           />
         </div>
       </div>
-
-      {modalOpen && (
-        <CharityModal
-          openModal={modalOpen}
-          closeModal={closeModal}
-          updateCounter={handlerUpdateCounter}
-        />
+      {isMobile ? (
+        <MobileCharityModal closeModal={closeModal} />
+      ) : (
+        !isMobile &&
+        modalOpen && (
+          <CharityModal
+            openModal={modalOpen}
+            closeModal={closeModal}
+            updateCounter={handlerUpdateCounter}
+            isMobile={isMobile}
+          />
+        )
       )}
     </section>
   );

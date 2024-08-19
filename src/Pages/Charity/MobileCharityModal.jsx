@@ -1,15 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addCharityUser } from "../../store/slice/CharitySlice";
+import { addCharityUser, updateCounter } from "../../store/slice/CharitySlice";
 import { database } from "../../store/index";
-
 import style from "./CharityModal.module.scss";
 
-const CharityModal = ({ closeModal, updateCounter, isMobile }) => {
+const MobileCharityModal = ({ closeModal }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const location = useLocation();
   const modalRef = useRef(null);
 
   const [formData, setFormData] = useState({
@@ -23,17 +21,6 @@ const CharityModal = ({ closeModal, updateCounter, isMobile }) => {
   const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState("");
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-
-  useEffect(() => {
-    if (isMobile) {
-      const state = location.state;
-      if (state && typeof state.updateCounter === "function") {
-        updateCounter = state.updateCounter;
-      } else {
-        console.error("updateCounter не передана или не является функцией");
-      }
-    }
-  }, [isMobile, location]);
 
   const validate = () => {
     const newErrors = {};
@@ -76,13 +63,10 @@ const CharityModal = ({ closeModal, updateCounter, isMobile }) => {
         dispatch(addCharityUser(formData));
         console.log("Данные отправлены");
         setSuccessMessage("Заявка успешно отправлена!");
-        updateCounter();
-        // dispatch(updateCounter());
+        dispatch(updateCounter());
         setShowSuccessMessage(true);
         setTimeout(() => {
-          if (isMobile) {
-            navigate("/charity");
-          }
+          navigate("/charity");
           closeModal();
           setFormData({
             lastName: "",
@@ -119,7 +103,7 @@ const CharityModal = ({ closeModal, updateCounter, isMobile }) => {
   };
 
   const handleClickOutside = (e) => {
-    if (!isMobile && modalRef.current && !modalRef.current.contains(e.target)) {
+    if (modalRef.current && !modalRef.current.contains(e.target)) {
       if (typeof closeModal === "function") {
         closeModal();
       } else {
@@ -129,12 +113,9 @@ const CharityModal = ({ closeModal, updateCounter, isMobile }) => {
   };
 
   useEffect(() => {
-    if (!isMobile) {
-      document.addEventListener("mousedown", handleClickOutside);
-      return () =>
-        document.removeEventListener("mousedown", handleClickOutside);
-    }
-  }, [isMobile]);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <div className={style.modal}>
@@ -268,4 +249,4 @@ const CharityModal = ({ closeModal, updateCounter, isMobile }) => {
   );
 };
 
-export default CharityModal;
+export default MobileCharityModal;
