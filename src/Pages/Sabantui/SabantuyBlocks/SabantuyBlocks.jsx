@@ -9,13 +9,13 @@ export default function SabantuyBlocks() {
       <div className={style.card}>
         <Link to="/collection" className={style.card__link}>
           <img src={cover} alt="ava" className={style.cover__image} />
-          <p className={style.card__title}>Коллекция Сабантуев</p>
+          <span className={style.card__link_title}>Коллекция Сабантуев</span>
         </Link>
       </div>
       <div className={style.card}>
         <Link to="/current" className={style.card__link}>
           <img src={cover2} alt="ava" className={style.cover__image} />
-          <p className={style.card__title}>Сабантуй 2024</p>
+          <span className={style.card__link_title}>Сабантуй 2024</span>
         </Link>
       </div>
     </div>

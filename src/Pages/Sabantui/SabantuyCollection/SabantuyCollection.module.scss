@@ -1,211 +1,285 @@
 @import "../../../style/vars";
 
 .block__collection {
-  text-align: center;
-  font-family: $fontLifehackRegular;
-  margin: 1% auto;
-}
-
-.button__collection {
-  position: absolute;
-  padding: 1%;
-}
-
-.back__button__collection {
-  display: inline-block;
-  width: 100px;
-  text-decoration: none;
-  text-align: center;
-  color: $header-background-color;
-  font-size: 36px;
-  font-weight: bolder;
-  background: #fff;
-  border-radius: 2px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: background 0.5s ease-in-out;
-}
-
-.back__button__collection:hover {
-  transform: scale(1.1);
-  box-shadow: 0 4px 30px $header-background-color;
-}
-
-.title__collection {
-  color: $header-background-color;
-  font-size: 50px;
-  font-weight: 700;
-}
-
-.suptitle__collection {
-  font-size: 40px;
-  font-weight: 700;
-}
-
-.gallery__video {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px;
-}
-
-.video {
+  gap: 30px;
+  max-width: 1200px;
   margin: 0 auto;
-  max-width: 500px;
-  width: 100%;
-  height: auto;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  cursor: pointer;
+  padding: 30px 0;
+  font-family: $fontLifehackRegular;
+
+  .back__button {
+    position: absolute;
+    top: 2%;
+    align-self: flex-start;
+
+    &_collection {
+      padding: 5px 10px;
+      text-decoration: none;
+      color: $header-background-color;
+      font-size: 20px;
+      font-weight: 700;
+      background: $body-background-color;
+      border-radius: 9px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: background 0.5s ease;
+
+      &:hover {
+        transform: scale(1.1);
+        box-shadow: 0 4px 30px $header-background-color;
+      }
+    }
+  }
+
+  .title {
+    color: $header-background-color;
+    font-size: 48px;
+    font-weight: 700;
+  }
+  
+  .text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 70%;
+    font-size: 24px;
+    font-weight: 400;
+
+    &__descr{
+      text-indent: 20px;
+
+      &_link{
+        color: black;
+      }
+    }
+  }
+
+  .btn{
+    display: flex;
+    align-items: center;
+    border: none;
+
+    &__more {
+      padding: 10px 30px;
+      background-color: $header-background-color;
+      color: $body-background-color;
+      text-decoration: none;
+      border-radius: 9px;
+      font-size: 24px;
+    }
+
+    &:hover{
+      box-shadow: 7px 5px 56px -14px $header-background-color;
+    }
+
+    &:active{
+      transform: scale(0.97);
+      box-shadow: 7px 5px 56px -10px $header-background-color;
+    }
+
+    .pulse{
+      animation: pulse 1.5s infinite;
+    }
+  }
+
+  .gallery__photo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    &_title{
+      color: $header-background-color;
+      font-size: 32px;
+      font-weight: 700;
+    }
+
+    &_items{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      align-items: center;
+
+      .photo {
+        max-width: 100%;
+        border-radius: 9px;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+
+        &:hover {
+          transform: scale(1.1);
+          box-shadow: 0 4px 30px $header-background-color;
+        }
+      }
+    }
+  }
+
+  .fullscreen__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+
+    &_photo{
+      max-width: 100%;
+      max-height: 90%;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .close__button {
+      position: absolute;
+      top: 5%;
+      right: 8%;
+      width: 40px;
+      height: 40px;
+      background: $body-background-color;
+      border: 1px solid $body-background-color;
+      border-radius: 9px;
+      color: $header-background-color;
+      font-size: 32px;
+      cursor: pointer;
+
+      &:hover{
+        background: $header-background-color;
+        color: $body-background-color;
+    }
+    }
+  }
 }
 
-.link__video {
-  width: 10%;
-  text-align: center;
-  margin: 20px;
-  padding: 5px;
-  font-size: 20px;
-  font-weight: bold;
-  border: 2px solid #ccc;
-  background-color: #f4f0f0;
-  border-radius: 10px;
-  color: black;
-  text-decoration: none;
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
-.link__video:hover {
-  background-color: #ccc;
-  color: blue;
-  text-decoration: underline blue;
-}
-
-.gallery__photo {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.photo {
-  max-width: 350px;
-  max-height: 200px;
-  width: 100%;
-  object-fit: cover;
-  margin: 5px;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: transform 0.3s ease-in-out;
-}
-
-.photo:hover {
-  transform: scale(1.1);
-}
-
-.fullscreen__overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.9);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.fullscreen__photo {
-  max-width: 90%;
-  max-height: 90%;
+@media (max-width: 1920px) {
+  .block__collection {
+    .title {
+      font-size: 42px;
+    }
+    .text {
+      font-size: 22px;
+    }
+    .btn__more {
+      font-size: 22px;
+    }
+    .gallery__photo_title {
+      font-size: 28px;
+    }
+  }
 }
 
 @media (max-width: 1440px) {
-  .back__button__collection {
-    width: 70px;
-    font-size: 24px;
-  }
-
-  .title__collection {
-    font-size: 40px;
-  }
-
-  .suptitle__collection {
-    font-size: 35px;
-  }
-
-  .photo {
-    max-width: 300px;
-    max-height: 175px;
-  }
-
-  .link__video {
-    width: 15%;
-    font-size: 18px;
+  .block__collection {
+    padding: 30px 20px;
+    .title {
+      font-size: 36px;
+    }
+    .text {
+      font-size: 20px;
+    }
+    .btn__more {
+      font-size: 20px;
+    }
+    .gallery__photo_title {
+      font-size: 26px;
+    }
+    .fullscreen__overlay {
+      padding: 0 10px;
+      .close__button {
+        top: 3%;
+        right: 7%;
+        width: 35px;
+        height: 35px;
+        font-size: 24px;
+      }
+    }
   }
 }
 
 @media (max-width: 768px) {
-  .back__button__collection {
-    width: 50px;
-    font-size: 20px;
-  }
-
-  .title__collection {
-    font-size: 30px;
-  }
-
-  .suptitle__collection {
-    font-size: 25px;
-  }
-
-  .gallery__video {
-    margin: 10px;
-  }
-
-  video {
-    max-width: 300px;
-  }
-
-  .link__video {
-    width: 30%;
-    font-size: 16px;
-  }
-
-  .photo {
-    max-width: 250px;
-    max-height: 150px;
+  .block__collection {
+    .back__button{
+      top: 1.5%;
+    }
+    .title {
+      font-size: 32px;
+    }
+    .text {
+      font-size: 20px;
+      max-width: 90%;
+    }
+    .btn__more {
+      font-size: 20px;
+    }
+    .gallery__photo_title {
+      font-size: 28px;
+    }
+    .gallery__photo_items {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .fullscreen__overlay {
+      padding: 0 10px;
+      .close__button {
+        top: 6.5%;
+        right: 3%;
+        width: 30px;
+        height: 30px;
+        font-size: 24px;
+      }
+    }
   }
 }
 
 @media (max-width: 375px) {
-  .back__button__collection {
-    width: 30px;
-    font-size: 14px;
-  }
-
-  .title__collection {
-    font-size: 20px;
-  }
-
-  .suptitle__collection {
-    font-size: 16px;
-  }
-
-  .gallery__video {
-    margin: 5px;
-  }
-
-  video {
-    max-width: 250px;
-  }
-
-  .link__video {
-    width: 50%;
-    font-size: 14px;
-  }
-
-  .photo {
-    max-width: 200px;
-    max-height: 125px;
+  .block__collection {
+    .back__button{
+      top: .9%;
+    }
+    .title {
+      font-size: 28px;
+    }
+    .text {
+      font-size: 20px;
+      max-width: 90%;
+    }
+    .btn__more {
+      font-size: 20px;
+    }
+    .gallery__photo_title {
+      font-size: 28px;
+    }
+    .gallery__photo_items {
+      grid-template-columns: 1fr;
+    }
+    .fullscreen__overlay {
+      padding: 0 10px;
+      .close__button {
+        top: 3%;
+        right: 5%;
+        width: 25px;
+        height: 25px;
+        font-size: 24px;
+      }
+    }
   }
 }

@@ -1,60 +1,148 @@
 @import "../../style/vars";
 
 .sabantuy__container {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 1% 2% 2% 2%;
-  text-align: center;
+  padding: 30px 0;
   font-family: $fontLifehackRegular;
 }
 
 .sabantuy_title {
   color: $header-background-color;
   text-align: center;
-  font-size: 50px;
+  font-size: 48px;
   font-weight: 700;
 }
 
+.sabantuy__photo{
+  max-width: 100%;
+  box-shadow: 0 4px 30px $header-background-color;
+}
+
 .sabantuy__text {
-  font-size: 28px;
+  width: 70%;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
 }
 
 .sabantuy__name {
-  color: red;
+  color: $header-background-color;
+  font-size: 28px;
   font-weight: bold;
 }
 
 .sabantuy__photo {
   width: 25%;
-  border: 5px solid #ccc;
+  border: none;
   border-radius: 10px;
-  margin: 1%;
 }
 
-@media (max-width: 768px) {
+.scrollToTop {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  bottom: 20px;
+  right: 20px;
+  border: 2px solid $header-background-color;
+  background-color: $body-background-color;
+  color: $header-background-color;
+  border-radius: 10px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+
+  &.visible {
+      opacity: 1;
+      visibility: visible;
+  }
+
+  .arrowUp {
+      font-size: 20px;
+  }
+}
+
+@media (max-width: 1920px) {
   .sabantuy_title {
-    font-size: 35px;
+    font-size: 42px;
   }
 
   .sabantuy__text {
     font-size: 22px;
   }
 
-  .sabantuy__photo {
-    width: 40%;
+  .sabantuy__name {
+    font-size: 26px;
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 1440px) {
   .sabantuy_title {
-    font-size: 30px;
+    font-size: 36px;
   }
 
   .sabantuy__text {
     font-size: 20px;
   }
 
+  .sabantuy__name {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sabantuy_title {
+    font-size: 32px;
+  }
+
+  .sabantuy__text {
+    font-size: 18px;
+    width: 90%;
+  }
+
+  .sabantuy__name {
+    font-size: 22px;
+  }
+
   .sabantuy__photo {
-    width: 80%;
+    width: 50%;
+  }
+}
+
+@media (max-width: 375px) {
+  .sabantuy_title {
+    font-size: 28px;
+  }
+
+  .sabantuy__text {
+    font-size: 20px;
+    width: 95%;
+  }
+
+  .sabantuy__name {
+    font-size: 20px;
+  }
+
+  .sabantuy__photo {
+    width: 70%;
+  }
+  
+  .scrollToTop {
+    width: 30px;
+    height: 30px;
+    bottom: 10px;
+    right: 10px;
+    .arrowUp {
+      font-size: 18px;
+    }
   }
 }
