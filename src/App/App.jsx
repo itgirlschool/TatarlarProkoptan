@@ -24,6 +24,7 @@ import {
   RestorePassword,
   ModalFormAutonomyMobile,
 } from "../Pages";
+import Contacts from '../Pages/Contacts/Contacts.jsx';
 import HomePageMobile from "../Pages/HomePage/HomePageMobile.jsx";
 import Header from "../Components/Header/Header.jsx";
 import Footer from "../Components/Footer/Footer.jsx";
@@ -74,6 +75,7 @@ function App() {
           <Route path="/restorepassword" element={<RestorePassword />} />
           <Route path="/autonomy" element={<ModalFormAutonomyMobile />} />
           <Route path="/homePageMobile" element={<HomePageMobile />} />
+          <Route path="/contacts" element={<Contacts />} />
         </Routes>
       </main>
       <Footer />
