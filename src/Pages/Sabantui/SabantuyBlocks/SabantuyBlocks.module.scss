@@ -1,80 +1,99 @@
+@import "../../../style/vars";
+
 .sabantuy__blocks {
   display: flex;
   margin: 0 auto;
   padding: 20px;
   gap: 20px;
   width: 70%;
-}
 
-.cover__image {
-  object-fit: cover;
-  width: 100%;
-}
-
-.card {
-  margin: 0 auto;
-  width: 30%;
-  border: 3px solid #ccc;
-  border-radius: 10px;
-  background-color: white;
-  transition: transform 0.5s ease-in-out;
-}
-
-.card:hover {
-  text-decoration: underline blue;
-  transform: scale(1.1);
-  .card__title {
-    color: blue;
-  }
-}
-
-.card__title {
-  font-size: 30px;
-  font-weight: bold;
-  margin-top: 0;
-  color: black;
-}
-
-.card__link {
-  text-decoration: none;
-}
-
-@media (max-width: 1024px) {
   .card {
-    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    border: 1px solid $header-background-color;
+    border-radius: 10px;
+    background-color: $body-background-color;
+    box-shadow: 0 4px 30px $header-background-color;
+    transition: transform 0.5s ease-in-out;
+  
+    &__link {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      padding: 10px;
+  
+      .cover__image {
+        object-fit: cover;
+        width: 100%;
+      }
+  
+      &_title {
+        font-size: 24px;
+        font-weight: 700;
+        margin-top: 0;
+        color: black;
+  
+        &:hover {
+          text-decoration: underline $header-background-color;
+          color: $header-background-color;
+          transform: scale(1.1);
+        }
+      }
+    }
+  
+    &:hover {
+      transform: scale(1.1);
+    }
   }
+}
 
-  .card__title {
-    font-size: 20px;
+@media (max-width: 1920px) {
+  .sabantuy__blocks {
+    width: 80%;
+    .card__link_title {
+      font-size: 22px;
+    }
+  }
+}
+
+@media (max-width: 1440px) {
+  .sabantuy__blocks {
+    width: 90%;
+    .card__link_title {
+      font-size: 22px;
+    }
   }
 }
 
 @media (max-width: 768px) {
-  .card {
-    width: 40%;
-  }
-
-  .card__title {
-    font-size: 20px;
-  }
-}
-
-@media (max-width: 425px) {
-  .card {
-    width: 50%;
-  }
-
-  .card__title {
-    font-size: 16px;
+  .sabantuy__blocks {
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+    .card {
+      width: 80%;
+      margin: 0 auto;
+      &__link_title {
+        font-size: 22px;
+      }
+    }
   }
 }
 
 @media (max-width: 375px) {
-  .card {
-    width: 80%;
-  }
-
-  .card__title {
-    font-size: 14px;
+  .sabantuy__blocks {
+    padding: 5px;
+    .card {
+      width: 90%;
+      &__link_title {
+        font-size: 16px;
+      }
+    }
   }
 }
+
+

@@ -24,6 +24,7 @@ import {
   RestorePassword,
   ModalFormAutonomyMobile,
 } from "../Pages";
+import Contacts from '../Pages/Contacts/Contacts.jsx';
 import HomePageMobile from "../Pages/HomePage/HomePageMobile.jsx";
 import Header from "../Components/Header/Header.jsx";
 import Footer from "../Components/Footer/Footer.jsx";
@@ -65,6 +66,8 @@ function App() {
           <Route path="/events" element={<Events />} />
           <Route path="/partners" element={<Partners />} />
           <Route path="/sabantui" element={<Sabantui />} />
+          <Route path="/collection" element={<SabantuyCollection />} />
+          <Route path="/current" element={<SabantuyCurrentYear />} />
           <Route path="/we-are-together" element={<WeAreTogether />} />
           <Route path="/our-activists" element={<OurActivists />} />
           <Route path="/registrationpage" element={<RegistrationPage />} />
@@ -73,6 +76,7 @@ function App() {
           <Route path="/autonomy" element={<ModalFormAutonomyMobile />} />
           <Route path="/homePageMobile" element={<HomePageMobile />} />
           <Route path="/news" element={<News/>}/>
+          <Route path="/contacts" element={<Contacts />} />
         </Routes>
       </main>
       <Footer />
