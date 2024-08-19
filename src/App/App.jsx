@@ -75,6 +75,7 @@ function App() {
           <Route path="/restorepassword" element={<RestorePassword />} />
           <Route path="/autonomy" element={<ModalFormAutonomyMobile />} />
           <Route path="/homePageMobile" element={<HomePageMobile />} />
+          <Route path="/news" element={<News/>}/>
           <Route path="/contacts" element={<Contacts />} />
         </Routes>
       </main>
