@@ -11,6 +11,7 @@ const links = [
   { label: "Мы вместе", path: "/we-are-together" },
   { label: "Наши активисты", path: "/our-activists" },
   { label: "Контакты", path: "/contacts" },
+    { label: "Новвости", path: "/news" },
   { label: "Выйти из аккаунта", path: "/authorizationpage" },
 ];
 

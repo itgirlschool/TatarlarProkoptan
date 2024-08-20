@@ -77,6 +77,11 @@ const Header = () => {
               </NavLink>
             </li>
             <li className={style.nav__link}>
+              <NavLink style={getStyle} to="/news">
+                Новости
+              </NavLink>
+            </li>
+            <li className={style.nav__link}>
               <NavLink style={getStyle} to="/events">
                 Мероприятия
               </NavLink>
@@ -113,23 +118,23 @@ const Header = () => {
             </li>
             <li className={style.nav__link}>
               {opacityExit && (
-                <NavLink
-                  style={getStyle}
-                  to="#"
-                  onClick={exitAccount}
-                  className={style.yellowText}
-                >
-                  Выйти из аккаунта
-                </NavLink>
+                  <NavLink
+                      style={getStyle}
+                      to="#"
+                      onClick={exitAccount}
+                      className={style.yellowText}
+                  >
+                    Выйти из аккаунта
+                  </NavLink>
               )}
             </li>
           </ul>
-          <BurgerMenu />
+          <BurgerMenu/>
         </nav>
         <div className={style.action__container}>
           <div className={style.icons}>
             <a
-              href="https://t.me/yourtelegram"
+                href="https://t.me/yourtelegram"
               target="_blank"
               rel="noopener noreferrer"
             >

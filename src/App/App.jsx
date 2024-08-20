@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { setUserAuth } from "../store/slice/UserAuthSlice.js";
 import { Route, Routes, Link } from "react-router-dom";
 import TatarCulture from "../Pages/Culture/TatarCulture/TatarCulture";
 import Mosques from "../Pages/Culture/Mosques/Mosques";
@@ -12,6 +9,7 @@ import Partners from "../Pages/Culture/Partners/Partners";
 import SabantuyCollection from "../Pages/Sabantui/SabantuyCollection/SabantuyCollection";
 import SabantuyCurrentYear from "../Pages/Sabantui/SabantuyCurrentYear/SabantuyCurrentYear";
 import {
+  News,
   HomePage,
   Charity,
   CharityModal,
@@ -23,16 +21,17 @@ import {
   RegistrationPage,
   RestorePassword,
   ModalFormAutonomyMobile,
+    Contacts
 } from "../Pages";
+import ChildrenMobile from "../Pages/WeAreTogether/Mobile/ChildrenMobile.jsx";
+import HelpMobile from "../Pages/WeAreTogether/Mobile/HelpMobile.jsx";
 import HomePageMobile from "../Pages/HomePage/HomePageMobile.jsx";
+import GalleryMobile from "../Pages/WeAreTogether/Mobile/GalleryMobile.jsx";
 import Header from "../Components/Header/Header.jsx";
 import Footer from "../Components/Footer/Footer.jsx";
 import style from "./App.module.scss";
-import Loader from "../Components/Loader/Loader.jsx";
-import ChildrenMobile from "../Pages/WeAreTogether/Mobile/ChildrenMobile";
-import HelpMobile from "../Pages/WeAreTogether/Mobile/HelpMobile";
-import GalleryMobile from "../Pages/WeAreTogether/Mobile/GalleryMobile";
 import OurActivists from "../Pages/OurActivists/OurActivists.jsx";
+
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -75,8 +74,11 @@ function App() {
           <Route path="/autonomy" element={<ModalFormAutonomyMobile />} />
           <Route path="/homePageMobile" element={<HomePageMobile />} />
           <Route path="/childrenMobile" element={<ChildrenMobile />} />
+          <Route path="/news" element={<News />} />
           <Route path="/helpMobile" element={<HelpMobile />} />
           <Route path="/galleryMobile" element={<GalleryMobile />} />
+          <Route path="/contacts" element={<Contacts />} />
+
         </Routes>
       </main>
       <Footer />
