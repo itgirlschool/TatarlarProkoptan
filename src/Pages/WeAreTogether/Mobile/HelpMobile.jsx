@@ -1,4 +1,4 @@
-import help from "../../../Common/help.json";
+import help from "../../../Common/WeAreTogether/help.json";
 import { Carousel } from "antd";
 import style from "../Mobile/Mobile.module.scss";
 import { Link } from "react-router-dom";
@@ -13,13 +13,13 @@ export default function HelpMobile() {
               <Link to="/we-are-together" className={style.close__button}>
                 Назад
               </Link>
-              <h3 className={style.gallery__content}>
+              <div className={style.gallery__content}>
                 <img
                   className={style.gallery__img}
                   src={item.img}
                   alt="фотографии помощи бойцам сво"
                 />
-              </h3>
+              </div>
             </div>
           );
         })}

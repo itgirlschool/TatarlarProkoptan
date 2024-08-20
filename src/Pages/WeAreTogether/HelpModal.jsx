@@ -1,4 +1,4 @@
-import help from "../../Common/help.json";
+import help from "../../Common/WeAreTogether/help.json";
 import { Carousel } from "antd";
 import style from "./HelpModal.module.scss";
 
