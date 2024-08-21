@@ -65,7 +65,7 @@
   text-decoration: none;
   text-align: center;
   color: $header-background-color;
-  font-size: 15px;
+  font-size: 20px;
   background: $body-background-color;
   border-radius: 2px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -73,21 +73,5 @@
     transform: scale(1.1);
     box-shadow: 0 4px 30px $header-background-color;
     cursor: pointer;
-  }
-
-  @media (max-width: 560px) {
-    font-size: 14px;
-  }
-
-  @media (max-width: 505px) {
-    font-size: 13px;
-  }
-
-  @media (max-width: 459px) {
-    font-size: 12px;
-  }
-
-  @media (max-width: 395px) {
-    font-size: 11px;
   }
 }
