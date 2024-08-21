@@ -21,8 +21,9 @@ import {
   RegistrationPage,
   RestorePassword,
   ModalFormAutonomyMobile,
-    Contacts
-} from "../Pages";
+  Contacts, 
+  } from "../Pages";
+import AdminPage from "../Pages/AdminPage/AdminPage.jsx";
 import ChildrenMobile from "../Pages/WeAreTogether/Mobile/ChildrenMobile.jsx";
 import HelpMobile from "../Pages/WeAreTogether/Mobile/HelpMobile.jsx";
 import HomePageMobile from "../Pages/HomePage/HomePageMobile.jsx";
@@ -78,7 +79,7 @@ function App() {
           <Route path="/helpMobile" element={<HelpMobile />} />
           <Route path="/galleryMobile" element={<GalleryMobile />} />
           <Route path="/contacts" element={<Contacts />} />
-
+          <Route path="/auth" element={<AdminPage />} />
         </Routes>
       </main>
       <Footer />

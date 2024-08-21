@@ -26,6 +26,11 @@ export async function signInUser(email, password) {
       password
     );
     const user = userCredential.user;
+    if (email === "admin@gmail.com" && password === "12345678") {
+      navigate("/auth");
+   } else {
+      navigate("/events");
+   }
     return { success: true, user };
   } catch (error) {
     let errorMessage = "Проверьте корректность данных.";

@@ -11,10 +11,12 @@ import { useState } from "react";
 import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 import { NavLink } from "react-router-dom";
 import ModalFormAutonomy from "../ModalForm/ModalFormAutonomy";
+import ModalFormAuth from "../ModalForm/ModalFormAuth";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [isModalOpened, setIsModalOpen] = useState(false);
+  const [isLoginModalOpened, setIsLoginModalOpened] = useState(false);
   const [opacityExit, setOpacityExit] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -22,11 +24,11 @@ const Header = () => {
   const [isMobile, setIsMobile] = useState(screenWidth);
   const auth = getAuth();
 
-  window.onresize = () => {
-    setIsMobile(screenWidth);
-  };
-
   useEffect(() => {
+    window.onresize = () => {
+      setIsMobile(window.screen.width);
+    };
+    
     onAuthStateChanged(auth, (user) => {
       if (user) setOpacityExit(true);
     });
@@ -34,9 +36,10 @@ const Header = () => {
     return () => {
       setOpacityExit(false);
     };
-  }, []);
+  }, [auth]);
 
   const openModal = () => {
+    setIsLoginModalOpened(false);
     if (isMobile <= 530 && location.pathname !== "/autonomy") {
       navigate("/autonomy");
     } else if (isMobile > 530) {
@@ -45,10 +48,31 @@ const Header = () => {
     }
   };
 
-  const exitAccount = () => {
-    signOut(auth);
-    setOpacityExit(false);
+  const openLoginModal = () => {
+    setIsModalOpen(false);
+    if (isMobile <= 530 && location.pathname !== "/authorizationpage") {
+      navigate("/authorizationpage");
+    } else if (isMobile > 530) {   
+    setIsLoginModalOpened(true);
+    document.body.style.overflow = "hidden";
+    }
   };
+
+  const closeLoginModal = () => {
+    setIsLoginModalOpened(false);
+    document.body.style.overflow = "auto";
+  };
+ 
+  const exitAccount = () => {
+    signOut(auth)
+    .then(() => {
+      setOpacityExit(false);
+      navigate("/");
+    })
+    .catch((error) => {
+      console.error("Ошибка при выходе из аккаунта:", error);
+    });
+};
 
   const closeModal = (value) => {
     if (screenWidth > 530) {
@@ -117,6 +141,11 @@ const Header = () => {
               </NavLink>
             </li>
             <li className={style.nav__link}>
+              <NavLink style={getStyle} onClick={openLoginModal}>
+                Авторизация
+              </NavLink>
+            </li>
+            <li className={style.nav__link}>
               {opacityExit && (
                   <NavLink
                       style={getStyle}
@@ -167,6 +196,7 @@ const Header = () => {
         </div>
       </header>
       {isModalOpened && <ModalFormAutonomy onClose={closeModal} />}
+      {isLoginModalOpened && <ModalFormAuth onClose={closeLoginModal} />}
     </>
   );
 };

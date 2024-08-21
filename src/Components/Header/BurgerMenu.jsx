@@ -11,16 +11,19 @@ const links = [
   { label: "Мы вместе", path: "/we-are-together" },
   { label: "Наши активисты", path: "/our-activists" },
   { label: "Контакты", path: "/contacts" },
-    { label: "Новвости", path: "/news" },
-  { label: "Выйти из аккаунта", path: "/authorizationpage" },
-];
+  { label: "Новости", path: "/news" },
+  { label: "Авторизация", path: "/authorizationpage" },
+   ];
 
 function BurgerMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const [isAuthenticated, setIsAuthenticated] = useState(false); 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
   const isOpen = isMenuOpen ? styles.open : "";
+  const visibleLinks = isAuthenticated
+    ? [...links, { label: "Выйти из аккаунта", path: "/logout" }]
+    : links;
 
   return (
     <>
@@ -31,7 +34,7 @@ function BurgerMenu() {
       <div className={`${styles.background} ${isOpen}`}></div>
       <div className={`${styles.menu} ${isOpen}`}>
         <nav>
-          {links.map((link, index) => (
+          {visibleLinks.map((link, index) => (
             <NavLink
               key={link.label}
               to={link.path}
