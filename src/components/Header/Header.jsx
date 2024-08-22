@@ -57,11 +57,6 @@ const Header = () => {
     document.body.style.overflow = "hidden";
     }
   };
-
-  const closeLoginModal = () => {
-    setIsLoginModalOpened(false);
-    document.body.style.overflow = "auto";
-  };
  
   const exitAccount = () => {
     signOut(auth)
@@ -76,8 +71,15 @@ const Header = () => {
 
   const closeModal = (value) => {
     if (screenWidth > 530) {
-      setIsModalOpen(value);
-      document.body.style.overflow = "auto";
+    setIsModalOpen(value);
+    document.body.style.overflow = "auto";
+    }
+  };
+
+  const closeLoginModal = (value) => {
+    if (screenWidth > 530) {
+    setIsLoginModalOpened(value);
+    document.body.style.overflow = "auto";
     }
   };
 

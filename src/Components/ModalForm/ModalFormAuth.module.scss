@@ -1,21 +1,18 @@
 @import "../../style/vars.scss";
 
-.modal__container {
+.modal__window {
   position: absolute;
-  width: 90%;
-  max-width: 800px;
-  margin: 40px auto;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0 2px 5px rgb(83, 83, 80);
-  border-radius: 10px;
-  color: $header-text-color;
-  position: relative;
-  background-color: $header-background-color;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 100;
+  overflow: hidden;
+  animation: appearance 0.3s ease-in-out;
   font-family: $fontLifehackRegular;
+  font-size: 24px;
+  color: white;  
 }
-
 @keyframes appearance {
   0% {
     opacity: 0;
@@ -23,6 +20,21 @@
   100% {
     opacity: 1;
   }
+}
+.modal__container {
+  position: relative;
+  padding-top: 40px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $header-background-color;
+  z-index: 2;
+  overflow: hidden;
+  border-radius: 15px;
+  font-family: $fontLifehackRegular;
+  width: 610px;
 }
 
 .form {
@@ -36,8 +48,7 @@
      
 }
 .header {
-  margin-top: 150px;
-  margin-bottom: 10px;
+  margin: 20px 0 10px 0;
   font-family: $fontLifehackRegular;
   align-self: center;
   width: 100%;
