@@ -6,14 +6,14 @@ import style from './Events.module.scss';
 
   const Events = () => {
     const [modalActive, setModalActive] = useState(false);
-    const handleClick = (e) => {
+    const handleClick = () => {
           setModalActive(true);
 
     }
       return <div className={style.eventsPage}>
       <h1 className={style.h1_events}>Узнай о наших ближайших мероприятиях</h1>
       <> {modalActive?
-            <ModalFormSingUp  />:
+            <ModalFormSingUp closeModal={modalActive} setCloseModal ={setModalActive} />:
         <div className={style.eventsPageMobile}>
             {options.map((option)=> (
             <EventsForm key={options.id} options={option} handleClick={handleClick} />

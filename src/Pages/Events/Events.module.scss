@@ -11,7 +11,7 @@
 
 .h1_events {
     text-align: center;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
 }
 
 .calendar {
@@ -92,6 +92,10 @@
 .mobile_events {
     width: 60%;
     text-align: left;
+    font-size: 30px;
+}
+.date{
+    font-size: 30px;
 }
 
 .button_events {
@@ -99,8 +103,9 @@
     border-radius: 3px;
     border-color: $header-background-color;
     font-family: $fontLifehackRegular;
-    max-width: 50px;
+    max-width: 85px;
     max-height: 35px;
+    font-size: 25px;
 }
 
 .events .ant-badge-status {
