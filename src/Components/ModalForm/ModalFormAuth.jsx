@@ -6,7 +6,6 @@ import { signInUser } from "../../Services/UsersFB/AuthService.js";
 import { useNavigate } from "react-router-dom";
 import ornaments from "./../../assets/pictures/tatar_ornament.png";
 import ModalAuth from "../../Components/ModalWindow/ModalAuth.jsx";
-import ModalFormAutonomy from "./ModalFormAutonomy.jsx";
 import Loader from "../Loader/Loader";
 import {Link} from 'react-router-dom';
 
@@ -19,8 +18,7 @@ export default function ModalFormAuth({ onClose }) {
     message: "",
     type: "authorization",
   });
-  const [showRegisterModal, setShowRegisterModal] = useState(false);
-
+  
   const {
     register,
     handleSubmit,
@@ -69,15 +67,7 @@ export default function ModalFormAuth({ onClose }) {
   const handleCloseModal = () => {
     setModalData({ ...modalData, showModal: false });
     onClose(false);
-    if (modalData.success) {
-      navigate("/");
-    }
   };
-
-  // const handleOpenRegister = () => {
-  //   onClose(false);
-  //   setShowRegisterModal(true);
-  // };
 
   return (
     <>
@@ -121,7 +111,7 @@ export default function ModalFormAuth({ onClose }) {
             </div>
             <div className={style.restore__container}>
               Забыли пароль?
-              <Link to="/restorepassword" >
+          <Link to="/restorepassword" >
             <p className={style.restore__link} onClick={() => onClose(false)}>Восстановить пароль</p>
           </Link>
             </div>
@@ -130,14 +120,13 @@ export default function ModalFormAuth({ onClose }) {
                 type="submit"
                 className={style.button__submit}
                 disabled={isSubmitting}
-                onClick={() => onClose(false)}
-              >
+               >
                 {isSubmitting ? <Loader /> : "Войти"}
               </button>
             </div>
             <div className={style.link__container}>
               Нет аккаунта?
-              <Link to="/registrationpage">
+          <Link to="/registrationpage">
             <p className={style.link}  onClick={() => onClose(false)}>Регистрация</p>
           </Link>
             </div>
@@ -152,9 +141,6 @@ export default function ModalFormAuth({ onClose }) {
         </div>
         <div className={style.overlay}></div>
       </div>
-      {showRegisterModal && (
-        <ModalFormAutonomy onClose={() => setShowRegisterModal(false)} />
-      )}
     </>
   );
 }

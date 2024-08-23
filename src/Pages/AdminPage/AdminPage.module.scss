@@ -1,6 +1,15 @@
 @import "../../style/vars";
 
 .container {
-    background-color: $header-background-color;
+    text-align: center;
+    background-color: $body-background-color;
+   
+}
+
+.title {
+    margin-top: 300px;
     font-family: $fontLifehackRegular;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: $header-background-color;
 }

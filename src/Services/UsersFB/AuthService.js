@@ -26,10 +26,10 @@ export async function signInUser(email, password,navigate) {
       password
     );
     const user = userCredential.user;
-    if (email === "admin@gmail.com" && password === "12345678") {
+    if (email === "tais@mail.ru" && password === "147852") {
       navigate("/auth");
    } else {
-      navigate("/events");
+      navigate("/");
    }
     return { success: true, user };
   } catch (error) {
