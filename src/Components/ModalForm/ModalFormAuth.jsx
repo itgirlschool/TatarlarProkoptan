@@ -1,11 +1,15 @@
-import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import style from "./ModalFormAuth.module.scss";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { getAuth, signInWithEmailAndPassword, } from "firebase/auth";
 import { signInUser } from "../../Services/UsersFB/AuthService.js";
+import { useNavigate } from "react-router-dom";
 import ornaments from "./../../assets/pictures/tatar_ornament.png";
 import ModalAuth from "../../Components/ModalWindow/ModalAuth.jsx";
 import ModalFormAutonomy from "./ModalFormAutonomy.jsx";
+import Loader from "../Loader/Loader";
+import {Link} from 'react-router-dom';
+
 
 export default function ModalFormAuth({ onClose }) {
   const navigate = useNavigate();
@@ -23,38 +27,21 @@ export default function ModalFormAuth({ onClose }) {
     setError,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
 
-  // Функция для проверки корректности email
-  const validateEmail = (email) => {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email) ? null : "Неверный email адрес";
-  };
-
-  // Функция для проверки корректности пароля
-  const validatePassword = (password) => {
-    return password.length >= 6 ? null : "Пароль должен содержать от 6 символов";
-  };
-
-  const onSubmit = async (data) => {
+    const onSubmit = async (data) => {
     const { email, password } = data;
 
-   const emailError = validateEmail(email);
-    if (emailError) {
-      setError("email", { type: "manual", message: emailError });
-      return;
-    }
-
-   const passwordError = validatePassword(password);
-    if (passwordError) {
-      setError("password", { type: "manual", message: passwordError });
-      return;
-    }
-
    try {
-      const response = await signInUser(email, password);
+      const response = await signInUser(email, password, navigate);
       if (response.success) {
         reset();
+        onClose(true);
         setModalData({
           showModal: true,
           success: true,
@@ -87,10 +74,10 @@ export default function ModalFormAuth({ onClose }) {
     }
   };
 
-  const handleOpenRegister = () => {
-    onClose(false);
-    setShowRegisterModal(true);
-  };
+  // const handleOpenRegister = () => {
+  //   onClose(false);
+  //   setShowRegisterModal(true);
+  // };
 
   return (
     <>
@@ -134,24 +121,25 @@ export default function ModalFormAuth({ onClose }) {
             </div>
             <div className={style.restore__container}>
               Забыли пароль?
-              <p className={style.restore__link} onClick={() => navigate("/restorepassword")}>
-                Восстановить пароль
-              </p>
+              <Link to="/restorepassword" >
+            <p className={style.restore__link} onClick={() => onClose(false)}>Восстановить пароль</p>
+          </Link>
             </div>
             <div className={style.button__container}>
               <button
                 type="submit"
                 className={style.button__submit}
                 disabled={isSubmitting}
+                onClick={() => onClose(false)}
               >
-                {isSubmitting ? "Загрузка..." : "Войти"}
+                {isSubmitting ? <Loader /> : "Войти"}
               </button>
             </div>
             <div className={style.link__container}>
               Нет аккаунта?
-              <p className={style.link} onClick={handleOpenRegister}>
-                Регистрация
-              </p>
+              <Link to="/registrationpage">
+            <p className={style.link}  onClick={() => onClose(false)}>Регистрация</p>
+          </Link>
             </div>
           </form>
           <ModalAuth

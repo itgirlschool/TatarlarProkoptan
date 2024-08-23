@@ -17,7 +17,7 @@ export async function addUserAuth(userData, id) {
   }
 }
 
-export async function signInUser(email, password) {
+export async function signInUser(email, password,navigate) {
   const auth = getAuth();
   try {
     const userCredential = await signInWithEmailAndPassword(
