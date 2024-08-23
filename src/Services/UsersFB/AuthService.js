@@ -26,7 +26,7 @@ export async function signInUser(email, password,navigate) {
       password
     );
     const user = userCredential.user;
-    if (email === "tais@mail.ru" && password === "147852") {
+    if (email === "admin@gmail.com" && password === "123456789") {
       navigate("/auth");
    } else {
       navigate("/");
