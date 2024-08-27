@@ -7,7 +7,9 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	box-shadow: 0 2px 5px rgb(83, 83, 80);
+	box-shadow: 0 2px
+		5px
+		rgb(83, 83, 80);
 	border-radius: 10px;
 	color: $header-text-color;
 	position: relative;
@@ -72,7 +74,8 @@
 
 .input {
 	grid-area: input;
-	border: 1px solid #ccc;
+	border: 1px solid
+		#ccc;
 	width: 97%;
 	height: 30px;
 	border-radius: 10px;
@@ -91,7 +94,8 @@
 	width: 97%;
 	height: 30px;
 	border-radius: 10px;
-	border: 1px solid $header-text-color;
+	border: 1px solid
+		$header-text-color;
 	outline: none;
 	font-family: $fontLifehackRegular;
 	font-size: 25px;
@@ -110,7 +114,11 @@
 .error {
 	grid-area: error;
 	margin-left: 20%;
-	font-size: clamp(18px, 3vw, 20px);
+	font-size: clamp(
+		18px,
+		3vw,
+		20px
+	);
 	color: red;
 	white-space: nowrap;
 }
@@ -124,14 +132,21 @@
 	font-size: 15px;
 }
 .restore__link {
-	color: rgb(224, 194, 27);
+	color: rgb(
+		224,
+		194,
+		27
+	);
 	display: flex;
 	flex-direction: row;
 	text-decoration: none;
 }
 .restore__link:hover {
-	transform: scale(1.05);
-	transition: all 0.3s ease-in-out;
+	transform: scale(
+		1.05
+	);
+	transition: all
+		0.3s ease-in-out;
 	text-decoration: none;
 }
 .button__container {
@@ -146,7 +161,8 @@
 	height: 45px;
 	margin-top: 10px;
 	background-color: transparent;
-	border: 2px solid $header-text-color;
+	border: 2px solid
+		$header-text-color;
 	border-color: $fontLifehackRegular;
 	border-radius: 10px;
 	font-weight: bold;
@@ -159,7 +175,8 @@
 
 .button__submit:hover {
 	transition: 0.4s;
-	box-shadow: 7px 5px 56px -14px white;
+	box-shadow: 7px 5px
+		56px -14px white;
 }
 
 .tatar__ornament {
@@ -178,11 +195,18 @@
 }
 
 .link {
-	color: rgb(224, 194, 27);
+	color: rgb(
+		224,
+		194,
+		27
+	);
 	text-decoration: none;
 }
 .link:hover {
-	transform: scale(1.05);
-	transition: all 0.3s ease-in-out;
+	transform: scale(
+		1.05
+	);
+	transition: all
+		0.3s ease-in-out;
 	text-decoration: none;
 }

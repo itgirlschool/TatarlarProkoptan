@@ -20,7 +20,8 @@
 	background-repeat: no-repeat;
 	background-position: center;
 	cursor: pointer;
-	transition: background-image 0.3s;
+	transition: background-image
+		0.3s;
 	outline: none;
 	border: none;
 	@media (max-width: 420px) {
@@ -81,7 +82,8 @@
 .menu a {
 	color: $header-text-color;
 	font-size: 24px;
-	padding: 10px 10px 10px 0;
+	padding: 10px 10px
+		10px 0;
 	text-decoration: none;
 	font-family: $fontLifehackRegular;
 	opacity: 0;
@@ -89,7 +91,11 @@
 	transition: 0.4s;
 }
 .menu a.yellowText {
-	color: rgb(224, 194, 27);
+	color: rgb(
+		224,
+		194,
+		27
+	);
 }
 
 .menu.open a {
@@ -99,7 +105,9 @@
 @keyframes appear {
 	0% {
 		opacity: 0;
-		transform: translateY(-30px);
+		transform: translateY(
+			-30px
+		);
 	}
 	100% {
 		opacity: 1;
@@ -107,7 +115,8 @@
 }
 
 .appear {
-	animation: appear 0.35s backwards;
+	animation: appear
+		0.35s backwards;
 }
 
 @media (min-width: 1201px) {
