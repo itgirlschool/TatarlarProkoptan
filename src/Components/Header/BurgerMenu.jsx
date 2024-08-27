@@ -8,8 +8,7 @@ const links = [
 		path: "/",
 	},
 	{
-		label:
-			"Мероприятия",
+		label: "Мероприятия",
 		path: "/events",
 	},
 	{
@@ -21,21 +20,16 @@ const links = [
 		path: "/sabantui",
 	},
 	{
-		label:
-			"Благотворительность",
+		label: "Благотворительность",
 		path: "/charity",
 	},
 	{
-		label:
-			"Мы вместе",
-		path:
-			"/we-are-together",
+		label: "Мы вместе",
+		path: "/we-are-together",
 	},
 	{
-		label:
-			"Наши активисты",
-		path:
-			"/our-activists",
+		label: "Наши активисты",
+		path: "/our-activists",
 	},
 	{
 		label: "Контакты",
@@ -46,89 +40,41 @@ const links = [
 		path: "/news",
 	},
 	{
-		label:
-			"Выйти из аккаунта",
-		path:
-			"/authorizationpage",
+		label: "Выйти из аккаунта",
+		path: "/authorizationpage",
 	},
 ];
 
 function BurgerMenu() {
-	const [
-		isMenuOpen,
-		setIsMenuOpen,
-	] =
-		useState(false);
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-	const toggleMenu =
-		() =>
-			setIsMenuOpen(
-				!isMenuOpen
-			);
+	const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-	const isOpen =
-		isMenuOpen
-			? styles.open
-			: "";
+	const isOpen = isMenuOpen ? styles.open : "";
 
 	return (
 		<>
-			<button
-				className={`${styles.burger} ${isOpen}`}
-				onClick={
-					toggleMenu
-				}
-			></button>
-			<div
-				className={`${styles.background} ${isOpen}`}
-			></div>
-			<div
-				className={`${styles.menu} ${isOpen}`}
-			>
+			<button className={`${styles.burger} ${isOpen}`} onClick={toggleMenu}></button>
+			<div className={`${styles.background} ${isOpen}`}></div>
+			<div className={`${styles.menu} ${isOpen}`}>
 				<nav>
-					{links.map(
-						(
-							link,
-							index
-						) => (
-							<NavLink
-								key={
-									link.label
-								}
-								to={
-									link.path
-								}
-								className={({
-									isActive,
-								}) =>
-									`${
-										isMenuOpen
-											? styles.appear
-											: ""
-									} ${
-										link.label ===
-										"Выйти из аккаунта"
-											? styles.yellowText
-											: ""
-									} ${
-										isActive
-											? styles.active
-											: ""
-									}`
-								}
-								style={{
-									animationDelay: `0.${
-										index + 1
-									}s`,
-								}}
-								onClick={
-									toggleMenu
-								}
-							>
-								{link.label}
-							</NavLink>
-						)
-					)}
+					{links.map((link, index) => (
+						<NavLink
+							key={link.label}
+							to={link.path}
+							className={({ isActive }) =>
+								`${isMenuOpen ? styles.appear : ""} ${
+									link.label === "Выйти из аккаунта" ? styles.yellowText : ""
+								} ${isActive ? styles.active : ""}`
+							}
+							style={{
+								animationDelay: `0.${index + 1}s`,
+							}}
+							onClick={toggleMenu}
+						>
+							{link.label}
+						</NavLink>
+					))}
 				</nav>
 			</div>
 		</>
