@@ -1,5 +1,5 @@
 import style from "./ChildrenModal.module.scss";
-import children from "../../Common/children.json";
+import children from "../../Common/WeAreTogether/children.json";
 import { Carousel } from "antd";
 
 export default function ChildrenModule({ active, setActive }) {

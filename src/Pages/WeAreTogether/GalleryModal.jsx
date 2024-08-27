@@ -1,4 +1,4 @@
-import gallery from "../../Common/gallery.json";
+import gallery from "../../Common/WeAreTogether/gallery.json";
 import { Carousel } from "antd";
 import style from "./GalleryModal.module.scss";
 
