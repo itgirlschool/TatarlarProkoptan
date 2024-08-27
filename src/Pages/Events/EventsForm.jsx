@@ -4,7 +4,7 @@ const EventsForm = ({options,handleClick }) => {
     console.log(options);
     return  (
 <form className={style.mobileForm}>
-            <div>{options.title}</div>
+            <div className={style.date}>{options.title}</div>
             <p className={style.mobile_events}>{options.label}</p>
             <button onClick={(event)=>{
                 event.preventDefault();

@@ -1,7 +1,7 @@
-import style from "../Mobile/Mobile.module.scss";
-import children from "../../../Common/children.json";
-import { Carousel } from "antd";
+import style from "./Mobile.module.scss";
+import children from "../../../Common/WeAreTogether/children.json";
 import { Link } from "react-router-dom";
+import { Carousel } from "antd";
 
 export default function ChildrenMobile() {
   return (
@@ -9,17 +9,17 @@ export default function ChildrenMobile() {
       <Carousel className={style.carousel__modal} effect="fade" autoplay arrows>
         {children.map((item) => {
           return (
-            <div key={item.id}>
+            <div className={style.wrapp} key={item.id}>
               <Link to="/we-are-together" className={style.close__button}>
                 Назад
               </Link>
-              <h3 className={style.gallery__content}>
+              <div className={style.gallery__content}>
                 <img
                   className={style.gallery__img}
                   src={item.img}
                   alt="фотографии с нашей молодежью"
                 />
-              </h3>
+              </div>
             </div>
           );
         })}
@@ -27,3 +27,5 @@ export default function ChildrenMobile() {
     </article>
   );
 }
+
+

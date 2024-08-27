@@ -1,9 +1,11 @@
 import style from './ModalFormSingUp.module.scss'
 import mask from "../../Common/inputPhone";
 import { useForm } from "react-hook-form";
+import { useState } from 'react';
 
 const ModalFormSingUp = (props) =>{
-	const { closeModal, sentForm } = props
+	const { sentForm, closeModal, setCloseModal } = props
+
 	const {
 		register,
 		formState: {
@@ -20,7 +22,7 @@ const ModalFormSingUp = (props) =>{
 		reset();
 	}
 	return(
-		<aside className={style.modal}>
+		<aside className={closeModal ?  `${style.modal}` : `${style.close__modal}`}>
 			<div className={style.modal_container}>
 				<h2 className={style.title}>Записаться на мероприятие</h2>
 				<form className={style.form_container}
@@ -99,7 +101,7 @@ const ModalFormSingUp = (props) =>{
 						{errors?.email && <p className={style.errors}>{errors?.email.message}</p>}
 					</div>
 					<div className={style.buttons}>
-						<button className={style.cancel} onClick={closeModal}>Отмена</button>
+						<button className={style.cancel} onClick={()=>setCloseModal(false)}>Отмена</button>
 						<input className={style.submit} onClick={sentForm} type="submit" disabled={!isValid}/>
 					</div>
 				</form>
