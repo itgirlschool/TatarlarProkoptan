@@ -1,8 +1,7 @@
-import gallery from "../../../Common/gallery.json";
+import gallery from "../../../Common/WeAreTogether/gallery.json";
 import { Carousel } from "antd";
 import style from "./Mobile.module.scss";
 import { Link } from "react-router-dom";
-import React from "react";
 
 export default function GalleryMobile() {
   return (
@@ -14,13 +13,13 @@ export default function GalleryMobile() {
               <Link to="/we-are-together" className={style.close__button}>
                 Назад
               </Link>
-              <h3 className={style.gallery__content}>
+              <div className={style.gallery__content}>
                 <img
                   className={style.gallery__img}
                   src={item.img}
                   alt="фотографии людей"
                 />
-              </h3>
+              </div>
             </div>
           );
         })}

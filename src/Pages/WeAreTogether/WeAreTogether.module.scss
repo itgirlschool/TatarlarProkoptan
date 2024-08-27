@@ -80,8 +80,7 @@
   display: flex;
   gap: 10px;
   margin: 0 auto;
-  padding-bottom: 50px;
-  padding-top: 50px;
+  padding: 50px 0;
 
   @media screen and (max-width: 720px) {
     flex-direction: column;
