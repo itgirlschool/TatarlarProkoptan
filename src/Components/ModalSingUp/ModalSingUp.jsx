@@ -22,7 +22,7 @@ const ModalSingUp = (props) =>{
 			<div className={style.container}>
 			<h2 className={style.title}> название мероприятия{eventName}</h2>
 			<button className={style.button} onClick={showModal}>Записаться</button>
-			<button className={style.button} onClick={cancelModal}>Отмена</button>
+			<button className={style.button} onClick={handleCancel}>Отмена</button>
 			</div>}
 		</>
 	);
