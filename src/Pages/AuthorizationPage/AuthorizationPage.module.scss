@@ -23,17 +23,23 @@
   justify-content: center;
   gap: 20px;
   margin-bottom: 40px;
+
   @media (max-width: 768px) {
-      gap: 15px;
-      margin-bottom: 30px;
-    }
-    @media (max-width: 480px) {
-        max-width: 90%;
-        margin-bottom: 20px;
-        margin-top: 10px;      
-    }
-    
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+
+  @media (max-width: 480px) {
+    max-width: 90%;
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
+
+  @media (max-width: 700px) {
+    width: 90%;
+  }
 }
+
 .header {
   margin-top: 150px;
   margin-bottom: 10px;
@@ -43,10 +49,12 @@
   text-align: center;
   font-weight: 400;
   font-size: 40px;
+
   @media (max-width: 480px) {
-      margin-top: 90px;    
+    margin-top: 90px;
   }
 }
+
 .input__wrapper {
   display: grid;
   grid-template-columns: 1fr 5fr;
@@ -56,13 +64,13 @@
     "email input"
     "email input";
   gap: 10px;
-  
-  @media (max-width: 480px) {
-      width: 100%;  
-    }
-    }
 
-.label {  
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+}
+
+.label {
   justify-self: start;
   grid-area: email;
   font-size: 23px;
@@ -78,7 +86,7 @@
   font-family: $fontLifehackRegular;
   font-size: 25px;
   padding-left: 15px;
-  
+
   &::placeholder {
     font-family: $fontLifehackRegular;
     font-size: 25px;
@@ -94,12 +102,13 @@
   font-family: $fontLifehackRegular;
   font-size: 25px;
   padding-left: 15px;
-  
+
   &::placeholder {
     font-family: $fontLifehackRegular;
     font-size: 25px;
   }
 }
+
 .input:focus::placeholder,
 .input__empty:focus::placeholder {
   opacity: 0;
@@ -108,10 +117,13 @@
 .error {
   grid-area: error;
   margin-left: 20%;
-  font-size: clamp(18px, 3vw, 20px);
+  font-size: clamp(18px,
+      3vw,
+      20px);
   color: red;
   white-space: nowrap;
 }
+
 .restore__container {
   width: 100%;
   display: flex;
@@ -121,23 +133,29 @@
   text-decoration: none;
   font-size: 15px;
 }
+
 .restore__link {
-  color: rgb(224, 194, 27);
+  color: rgb(224,
+      194,
+      27);
   display: flex;
   flex-direction: row;
   text-decoration: none;
 }
+
 .restore__link:hover {
   transform: scale(1.05);
   transition: all 0.3s ease-in-out;
   text-decoration: none;
 }
+
 .button__container {
   width: 100%;
   display: flex;
   gap: 10px;
   justify-content: center;
 }
+
 .button__submit {
   width: 100%;
   max-width: 200px;
@@ -176,9 +194,12 @@
 }
 
 .link {
-  color: rgb(224, 194, 27);
+  color: rgb(224,
+      194,
+      27);
   text-decoration: none;
 }
+
 .link:hover {
   transform: scale(1.05);
   transition: all 0.3s ease-in-out;
