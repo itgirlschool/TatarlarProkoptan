@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { Route, Routes, Link } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import TatarCulture from "../Pages/Culture/TatarCulture/TatarCulture";
 import Mosques from "../Pages/Culture/Mosques/Mosques";
 import Traditions from "../Pages/Culture/Traditions/Traditions";
@@ -36,8 +36,7 @@ import OurActivists from "../Pages/OurActivists/OurActivists.jsx";
 
 function App() {
   const [loading, setLoading] = useState(true);
-
-
+  const location = useLocation();  
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch({ type: "SUBSCRIBE_TO_AUTONOMY_USERS" });
@@ -45,12 +44,11 @@ function App() {
     dispatch({ type: "SUBSCRIBE_TO_USERS" });
   }, [dispatch]);
 
-
-
+  const isAdminPage = location.pathname === "/auth";
 
   return (
     <div className={style.app}>
-      <Header />
+      {!isAdminPage && <Header />}
       <main className={style.main}>
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -82,7 +80,7 @@ function App() {
           <Route path="/auth" element={<AdminPage />} />
         </Routes>
       </main>
-      <Footer />
+      {!isAdminPage && <Footer />}
     </div>
   );
 }
