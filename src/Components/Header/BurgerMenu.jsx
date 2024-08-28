@@ -26,13 +26,13 @@ function BurgerMenu() {
   const handleLogin = () => {
     setIsAuthenticated(true);
     toggleMenu();
-    navigate("/");  // Redirect after login
+    navigate("/"); 
   };
 
   const handleLogout = () => {
     setIsAuthenticated(false);
     toggleMenu();
-    navigate("/");  // Redirect after logout
+    navigate("/"); 
   };
 
   const visibleLinks = isAuthenticated
