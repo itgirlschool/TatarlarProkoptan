@@ -11,16 +11,28 @@ const links = [
   { label: "Мы вместе", path: "/we-are-together" },
   { label: "Наши активисты", path: "/our-activists" },
   { label: "Контакты", path: "/contacts" },
-    { label: "Новвости", path: "/news" },
-  { label: "Выйти из аккаунта", path: "/authorizationpage" },
-];
+  { label: "Новости", path: "/news" },
+  // { label: "Авторизация", path: "/authorizationpage" },
+   ];
 
 function BurgerMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const [isAuthenticated, setIsAuthenticated] = useState(false); 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
   const isOpen = isMenuOpen ? styles.open : "";
+  const handleLogin = () => {
+    setIsAuthenticated(true); 
+    toggleMenu();  };
+
+  const handleLogout = () => {
+    setIsAuthenticated(false); 
+    navigate("/");
+  };
+  
+  
+  const visibleLinks = isAuthenticated
+    ? [...links, { label: "Выйти", path: "/", onClick: handleLogout }]
+    : [...links, { label: "Авторизация", path: "/authorizationpage", onClick: handleLogin }];
 
   return (
     <>
@@ -31,15 +43,15 @@ function BurgerMenu() {
       <div className={`${styles.background} ${isOpen}`}></div>
       <div className={`${styles.menu} ${isOpen}`}>
         <nav>
-          {links.map((link, index) => (
+          {visibleLinks.map((link, index) => (
             <NavLink
               key={link.label}
               to={link.path}
               className={`${isMenuOpen ? styles.appear : ""} ${
-                link.label === "Выйти из аккаунта" ? styles.yellowText : ""
+                link.label === "Выйти" ? styles.yellowText : ""
               }`}
               style={{ animationDelay: `0.${index + 1}s` }}
-              onClick={toggleMenu}
+              onClick={link.onClick || toggleMenu}
             >
               {link.label}
             </NavLink>
