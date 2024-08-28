@@ -22,11 +22,11 @@ const Header = () => {
   const [isMobile, setIsMobile] = useState(screenWidth);
   const auth = getAuth();
 
-  window.onresize = () => {
-    setIsMobile(screenWidth);
-  };
-
   useEffect(() => {
+    window.onresize = () => {
+      setIsMobile(window.screen.width);
+    };
+    
     onAuthStateChanged(auth, (user) => {
       if (user) setOpacityExit(true);
     });
@@ -34,7 +34,7 @@ const Header = () => {
     return () => {
       setOpacityExit(false);
     };
-  }, []);
+  }, [auth]);
 
   const openModal = () => {
     if (isMobile <= 530 && location.pathname !== "/autonomy") {
@@ -45,19 +45,26 @@ const Header = () => {
     }
   };
 
+ 
   const exitAccount = () => {
-    signOut(auth);
-    setOpacityExit(false);
-  };
+    signOut(auth)
+    .then(() => {
+      setOpacityExit(false);
+      navigate("/");
+    })
+    .catch((error) => {
+      console.error("Ошибка при выходе из аккаунта:", error);
+    });
+};
 
   const closeModal = (value) => {
     if (screenWidth > 530) {
-      setIsModalOpen(value);
-      document.body.style.overflow = "auto";
+    setIsModalOpen(value);
+    document.body.style.overflow = "auto";
     }
   };
 
-  const getStyle = ({ isActive }) => {
+    const getStyle = ({ isActive }) => {
     return {
       borderBottom: isActive ? "1px solid #f5e9e1" : "",
     };
@@ -114,6 +121,11 @@ const Header = () => {
             <li className={style.nav__link}>
               <NavLink style={getStyle} to="/contacts">
                 Контакты
+              </NavLink>
+            </li>
+            <li className={style.nav__link}>
+              <NavLink style={getStyle} to="/authorizationpage">
+                Авторизация
               </NavLink>
             </li>
             <li className={style.nav__link}>

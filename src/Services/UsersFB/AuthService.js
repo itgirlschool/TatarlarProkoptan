@@ -17,7 +17,7 @@ export async function addUserAuth(userData, id) {
   }
 }
 
-export async function signInUser(email, password) {
+export async function signInUser(email, password, navigate) {
   const auth = getAuth();
   try {
     const userCredential = await signInWithEmailAndPassword(
@@ -26,6 +26,11 @@ export async function signInUser(email, password) {
       password
     );
     const user = userCredential.user;
+    if (email === "admin@gmail.com" && password === "123456789") {
+      navigate("/auth");
+   } else {
+      navigate("/");
+   }
     return { success: true, user };
   } catch (error) {
     let errorMessage = "Проверьте корректность данных.";
