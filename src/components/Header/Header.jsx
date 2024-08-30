@@ -1,6 +1,6 @@
 import style from "./Header.module.scss";
 import { useEffect } from "react";
-import logo from "../../assets/images/logo.png";
+import logo from "../../assets/images/logo.webp";
 import BurgerMenu from "./BurgerMenu";
 import TelegramIcon from "../../assets/images/telegram.svg";
 import OkIcon from "../../assets/images/odnoklassniki.svg";
@@ -26,7 +26,7 @@ const Header = () => {
     window.onresize = () => {
       setIsMobile(window.screen.width);
     };
-    
+
     onAuthStateChanged(auth, (user) => {
       if (user) setOpacityExit(true);
     });
@@ -45,26 +45,26 @@ const Header = () => {
     }
   };
 
- 
+
   const exitAccount = () => {
     signOut(auth)
-    .then(() => {
-      setOpacityExit(false);
-      navigate("/");
-    })
-    .catch((error) => {
-      console.error("Ошибка при выходе из аккаунта:", error);
-    });
-};
+      .then(() => {
+        setOpacityExit(false);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error("Ошибка при выходе из аккаунта:", error);
+      });
+  };
 
   const closeModal = (value) => {
     if (screenWidth > 530) {
-    setIsModalOpen(value);
-    document.body.style.overflow = "auto";
+      setIsModalOpen(value);
+      document.body.style.overflow = "auto";
     }
   };
 
-    const getStyle = ({ isActive }) => {
+  const getStyle = ({ isActive }) => {
     return {
       borderBottom: isActive ? "1px solid #f5e9e1" : "",
     };
@@ -130,23 +130,23 @@ const Header = () => {
             </li>
             <li className={style.nav__link}>
               {opacityExit && (
-                  <NavLink
-                      style={getStyle}
-                      to="#"
-                      onClick={exitAccount}
-                      className={style.yellowText}
-                  >
-                    Выйти из аккаунта
-                  </NavLink>
+                <NavLink
+                  style={getStyle}
+                  to="#"
+                  onClick={exitAccount}
+                  className={style.yellowText}
+                >
+                  Выйти из аккаунта
+                </NavLink>
               )}
             </li>
           </ul>
-          <BurgerMenu/>
+          <BurgerMenu />
         </nav>
         <div className={style.action__container}>
           <div className={style.icons}>
             <a
-                href="https://t.me/yourtelegram"
+              href="https://t.me/yourtelegram"
               target="_blank"
               rel="noopener noreferrer"
             >

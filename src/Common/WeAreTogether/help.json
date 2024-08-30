@@ -1,26 +1,26 @@
 [
 	{
 		"id": "0",
-		"img": "src/assets/images/WeAreTogether/Help/help.jpg"
+		"img": "imgs/Help/help.webp"
 	},
 	{
 		"id": "1",
-		"img": "src/assets/images/WeAreTogether/Help/help1.jpg"
+		"img": "imgs/Help/help1.webp"
 	},
 	{
 		"id": "2",
-		"img": "src/assets/images/WeAreTogether/Help/help2.jpg"
+		"img": "imgs/Help/help2.webp"
 	},
 	{
 		"id": "3",
-		"img": "src/assets/images/WeAreTogether/Help/help3.jpg"
+		"img": "imgs/Help/help3.webp"
 	},
 	{
 		"id": "4",
-		"img": "src/assets/images/WeAreTogether/Help/help4.jpg"
+		"img": "imgs/Help/help4.webp"
 	},
 	{
 		"id": "5",
-		"img": "src/assets/images/WeAreTogether/Help/help5.jpg"
+		"img": "imgs/Help/help5.webp"
 	}
 ]

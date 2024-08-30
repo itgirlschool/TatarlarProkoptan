@@ -1,70 +1,70 @@
 [
 	{
 		"id": "0",
-		"img": "src/assets/images/WeAreTogether/Children/children.jpg"
+		"img": "imgs/Children/children.webp"
 	},
 	{
 		"id": "1",
-		"img": "/src/assets/images/WeAreTogether/Children/children1.jpg"
+		"img": "imgs/Children/children1.webp"
 	},
 	{
 		"id": "2",
-		"img": "/src/assets/images/WeAreTogether/Children/children2.jpg"
+		"img": "imgs/Children/children2.webp"
 	},
 	{
 		"id": "3",
-		"img": "/src/assets/images/WeAreTogether/Children/children3.jpg"
+		"img": "imgs/Children/children3.webp"
 	},
 	{
 		"id": "4",
-		"img": "/src/assets/images/WeAreTogether/Children/children4.jpg"
+		"img": "imgs/Children/children4.webp"
 	},
 	{
 		"id": "5",
-		"img": "/src/assets/images/WeAreTogether/Children/children5.jpg"
+		"img": "imgs/Children/children5.webp"
 	},
 	{
 		"id": "6",
-		"img": "/src/assets/images/WeAreTogether/Children/children6.jpg"
+		"img": "imgs/Children/children6.webp"
 	},
 	{
 		"id": "7",
-		"img": "/src/assets/images/WeAreTogether/Children/children7.jpg"
+		"img": "imgs/Children/children7.webp"
 	},
 	{
 		"id": "8",
-		"img": "/src/assets/images/WeAreTogether/Children/children8.jpg"
+		"img": "imgs/Children/children8.webp"
 	},
 	{
 		"id": "9",
-		"img": "/src/assets/images/WeAreTogether/Children/children9.jpg"
+		"img": "imgs/Children/children9.webp"
 	},
 	{
 		"id": "10",
-		"img": "/src/assets/images/WeAreTogether/Children/children10.jpg"
+		"img": "imgs/Children/children10.webp"
 	},
 	{
 		"id": "11",
-		"img": "/src/assets/images/WeAreTogether/Children/children11.jpg"
+		"img": "imgs/Children/children11.webp"
 	},
 	{
 		"id": "12",
-		"img": "/src/assets/images/WeAreTogether/Children/children12.jpg"
+		"img": "imgs/Children/children12.webp"
 	},
 	{
 		"id": "13",
-		"img": "/src/assets/images/WeAreTogether/Children/children13.jpg"
+		"img": "imgs/Children/children13.webp"
 	},
 	{
 		"id": "14",
-		"img": "/src/assets/images/WeAreTogether/Children/children14.jpg"
+		"img": "imgs/Children/children14.webp"
 	},
 	{
 		"id": "15",
-		"img": "/src/assets/images/WeAreTogether/Children/children15.jpg"
+		"img": "imgs/Children/children15.webp"
 	},
 	{
 		"id": "16",
-		"img": "/src/assets/images/WeAreTogether/Children/children16.jpg"
+		"img": "imgs/Children/children16.webp"
 	}
 ]

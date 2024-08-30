@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
-import prokopevsk from "../../assets/prokopevsk.jpg";
+import prokopevsk from "../../assets/images/prokopevsk.webp";
 import closeImg from "../../assets/images/icon-black.svg";
-import carousel1 from "../../assets/images/carousel1.jpg";
-import carousel2 from "../../assets/images/carousel2.jpg";
-import carousel3 from "../../assets/images/carousel3.jpg";
-import carousel4 from "../../assets/images/carousel4.jpg";
-import carousel5 from "../../assets/images/carousel5.jpg";
-import carousel6 from "../../assets/images/carousel6.jpg";
-import carousel7 from "../../assets/images/carousel7.jpg";
-import carousel8 from "../../assets/images/carousel8.jpg";
+import carousel1 from "../../assets/images/carousel1.webp";
+import carousel2 from "../../assets/images/carousel2.webp";
+import carousel3 from "../../assets/images/carousel3.webp";
+import carousel4 from "../../assets/images/carousel4.webp";
+import carousel5 from "../../assets/images/carousel5.webp";
+import carousel6 from "../../assets/images/carousel6.webp";
+import carousel7 from "../../assets/images/carousel7.webp";
+import carousel8 from "../../assets/images/carousel8.webp";
 import style from "./ModalHomePage.module.scss";
 
 export default function ModalHomePage({ active, setActive }) {

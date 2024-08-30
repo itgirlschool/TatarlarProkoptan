@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom';
 import styles from './Traditions.module.scss';
 import traditionData from '../../../Common/CultureData/traditions.json';
 
-import tr1Img from '../../../assets/cultureImg/tr1.jpg';
-import tr2Img from '../../../assets/cultureImg/tr4.jpg';
-import tr3Img from '../../../assets/cultureImg/tr6.jpg';
-import tr4Img from '../../../assets/cultureImg/tr7.jpg';
-import tr5Img from '../../../assets/cultureImg/tr10.jpg';
-import tr6Img from '../../../assets/cultureImg/tr11.jpg';
-import tr7Img from '../../../assets/cultureImg/tr14.jpg';
-import tr8Img from '../../../assets/cultureImg/tr17.jpg';
-import tr9Img from '../../../assets/cultureImg/tr18.jpg';
+import tr1Img from '../../../assets/cultureImg/tr1.webp';
+import tr2Img from '../../../assets/cultureImg/tr4.webp';
+import tr3Img from '../../../assets/cultureImg/tr6.webp';
+import tr4Img from '../../../assets/cultureImg/tr7.webp';
+import tr5Img from '../../../assets/cultureImg/tr10.webp';
+import tr6Img from '../../../assets/cultureImg/tr11.webp';
+import tr7Img from '../../../assets/cultureImg/tr14.webp';
+import tr8Img from '../../../assets/cultureImg/tr17.webp';
+import tr9Img from '../../../assets/cultureImg/tr18.webp';
 
 const images = {
   tr1Img,

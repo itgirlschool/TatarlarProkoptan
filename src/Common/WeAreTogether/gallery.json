@@ -1,206 +1,202 @@
 [
   {
     "id": "0",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery.jpg"
+    "img": "imgs/Gallery/gallery.webp"
   },
   {
     "id": "1",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery1.jpg"
+    "img": "imgs/Gallery/gallery1.webp"
   },
   {
     "id": "2",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery2.jpg"
+    "img": "imgs/Gallery/gallery2.webp"
   },
   {
     "id": "4",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery4.jpg"
+    "img": "imgs/Gallery/gallery4.webp"
   },
   {
     "id": "5",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery5.jpg"
+    "img": "imgs/Gallery/gallery5.webp"
   },
   {
     "id": "6",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery6.jpg"
+    "img": "imgs/Gallery/gallery6.webp"
   },
   {
     "id": "7",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery7.jpg"
+    "img": "imgs/Gallery/gallery7.webp"
   },
   {
     "id": "8",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery8.jpg"
+    "img": "imgs/Gallery/gallery8.webp"
   },
   {
     "id": "9",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery13.jpg"
+    "img": "imgs/Gallery/gallery13.webp"
   },
   {
     "id": "10",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery16.jpg"
+    "img": "imgs/Gallery/gallery16.webp"
   },
   {
     "id": "13",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery17.jpg"
+    "img": "imgs/Gallery/gallery17.webp"
   },
   {
     "id": "16",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery18.jpg"
+    "img": "imgs/Gallery/gallery18.webp"
   },
   {
     "id": "17",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery19.jpg"
+    "img": "imgs/Gallery/gallery19.webp"
   },
   {
     "id": "18",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery20.jpg"
+    "img": "imgs/Gallery/gallery20.webp"
   },
   {
     "id": "19",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery21.jpg"
+    "img": "imgs/Gallery/gallery21.webp"
   },
   {
     "id": "20",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery22.jpg"
+    "img": "imgs/Gallery/gallery22.webp"
   },
   {
     "id": "21",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery23.jpg"
+    "img": "imgs/Gallery/gallery23.webp"
   },
   {
     "id": "22",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery24.jpg"
+    "img": "imgs/Gallery/gallery24.webp"
   },
   {
     "id": "23",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery25.jpg"
+    "img": "imgs/Gallery/gallery25.webp"
   },
   {
     "id": "24",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery26.jpg"
+    "img": "imgs/Gallery/gallery26.webp"
   },
   {
     "id": "25",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery27.jpg"
+    "img": "imgs/Gallery/gallery27.webp"
   },
   {
     "id": "26",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery28.jpg"
+    "img": "imgs/Gallery/gallery28.webp"
   },
   {
     "id": "27",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery29.jpg"
+    "img": "imgs/Gallery/gallery29.webp"
   },
   {
     "id": "28",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery30.jpg"
+    "img": "imgs/Gallery/gallery30.webp"
   },
   {
     "id": "29",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery31.jpg"
+    "img": "imgs/Gallery/gallery31.webp"
   },
   {
     "id": "30",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery32.jpg"
+    "img": "imgs/Gallery/gallery32.webp"
   },
   {
     "id": "31",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery33.jpg"
+    "img": "imgs/Gallery/gallery33.webp"
   },
   {
     "id": "32",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery34.jpg"
+    "img": "imgs/Gallery/gallery34.webp"
   },
   {
     "id": "33",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery35.jpg"
+    "img": "imgs/Gallery/gallery35.webp"
   },
   {
     "id": "34",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery36.jpg"
+    "img": "imgs/Gallery/gallery36.webp"
   },
   {
     "id": "35",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery37.jpg"
+    "img": "imgs/Gallery/gallery37.webp"
   },
   {
     "id": "36",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery38.jpg"
+    "img": "imgs/Gallery/gallery38.webp"
   },
   {
     "id": "37",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery39.jpg"
+    "img": "imgs/Gallery/gallery39.webp"
   },
   {
     "id": "38",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery40.jpg"
+    "img": "imgs/Gallery/gallery40.webp"
   },
   {
     "id": "39",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery41.jpg"
+    "img": "imgs/Gallery/gallery41.webp"
   },
   {
     "id": "40",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery42.jpg"
+    "img": "imgs/Gallery/gallery42.webp"
   },
   {
     "id": "41",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery43.jpg"
+    "img": "imgs/Gallery/gallery43.webp"
   },
   {
     "id": "42",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery44.jpg"
+    "img": "imgs/Gallery/gallery44.webp"
   },
   {
     "id": "43",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery45.jpg"
+    "img": "imgs/Gallery/gallery45.webp"
   },
   {
     "id": "44",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery46.jpg"
+    "img": "imgs/Gallery/gallery46.webp"
   },
   {
     "id": "45",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery47.jpg"
+    "img": "imgs/Gallery/gallery47.webp"
   },
   {
     "id": "46",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery48.jpg"
+    "img": "imgs/Gallery/gallery48.webp"
   },
   {
     "id": "47",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery49.jpg"
+    "img": "imgs/Gallery/gallery49.webp"
   },
   {
     "id": "48",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery50.jpg"
+    "img": "imgs/Gallery/gallery50.webp"
   },
   {
     "id": "49",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery51.jpg"
+    "img": "imgs/Gallery/gallery51.webp"
   },
   {
     "id": "50",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery52.jpg"
+    "img": "imgs/Gallery/gallery52.webp"
   },
   {
     "id": "51",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery53.jpg"
+    "img": "imgs/Gallery/gallery54.webp"
   },
   {
     "id": "52",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery54.jpg"
+    "img": "imgs/Gallery/gallery55.webp"
+  },
+  {
+    "id": "53",
+    "img": "imgs/Gallery/gallery56.webp"
   },
   {
     "id": "54",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery55.jpg"
-  },
-  {
-    "id": "55",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery56.jpg"
-  },
-  {
-    "id": "56",
-    "img": "src/assets/images/WeAreTogether/Gallery/gallery57.jpg"
+    "img": "imgs/Gallery/gallery57.webp"
   }
 ]

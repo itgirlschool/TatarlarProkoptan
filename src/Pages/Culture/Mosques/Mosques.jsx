@@ -4,12 +4,12 @@ import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
 import styles from './Mosques.module.scss';
 import mosquesData from '../../../Common/CultureData/mosques.json';
 
-import mosques1Img from '../../../assets/cultureImg/mosques1.jpg';
-import mosques2Img from '../../../assets/cultureImg/mosques2.jpg';
-import mosques3Img from '../../../assets/cultureImg/mosques3.jpg';
-import mosques4Img from '../../../assets/cultureImg/mosques4.jpg';
-import mosques5Img from '../../../assets/cultureImg/mosques5.jpg';
-import mosques6Img from '../../../assets/cultureImg/mosques6.jpg';
+import mosques1Img from '../../../assets/cultureImg/mosques1.webp';
+import mosques2Img from '../../../assets/cultureImg/mosques2.webp';
+import mosques3Img from '../../../assets/cultureImg/mosques3.webp';
+import mosques4Img from '../../../assets/cultureImg/mosques4.webp';
+import mosques5Img from '../../../assets/cultureImg/mosques5.webp';
+import mosques6Img from '../../../assets/cultureImg/mosques6.webp';
 
 const images = {
   mosques1Img,
