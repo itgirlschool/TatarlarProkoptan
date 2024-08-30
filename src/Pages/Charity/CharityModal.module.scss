@@ -1,4 +1,5 @@
 @import "../../style/vars";
+
 .no-scroll {
   overflow: hidden;
 }
@@ -13,30 +14,100 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0,
+      0,
+      0,
+      0.4);
   animation: appearance 0.3s ease-in-out;
-  @media (min-width: 560px) and (max-width: 768px) {
-    height: 100%;
+
+  @media (min-width: 320px) {
+    height: 86% !important;
+    width: 100% !important;
   }
-  @media (max-width: 560px) {
-    height: 95%;
-  }
-  @media (max-width: 505px) {
+
+  @media (width: 353px) {
     height: 90%;
   }
-  @media (max-width: 459px) {
-    height: 83%;
+
+  @media (width: 360px) {
+    height: 106% !important;
+    width: 100% !important;
   }
+
+  @media (width: 375px) {
+    height: 92% !important;
+    width: 100% !important;
+  }
+
+  @media (width: 384px) {
+    height: 115% !important;
+  }
+
+  @media (width: 390px) {
+    height: 87% !important;
+  }
+
+  @media (width: 393px) {
+    height: 95% !important;
+  }
+
   @media (max-width: 395px) {
     height: 78%;
   }
-  @media (max-width: 768px) {
+
+  @media (width: 414px) {
+    height: 85% !important;
+  }
+
+  @media (width: 412px) {
+    height: 94% !important;
+  }
+
+  @media (width: 425px) {
+    height: 100% !important;
+  }
+
+  @media (width: 430px) {
+    height: 85% !important;
+  }
+
+  @media (max-width: 459px) {
+    height: 83%;
+  }
+
+  @media (width: 480px) {
+    height: 95%;
+    width: 100% !important;
+    left: 6px !important;
+  }
+
+  @media (max-width: 505px) {
+    height: 90%;
+  }
+
+  @media (max-width: 560px) {
+    height: 95%;
+  }
+
+  @media (min-width: 560px) and (max-width: 768px) {
+    height: 100%;
+  }
+
+  @media (min-width: 600px) {
+    width: 100%;
+    height: 91% !important;
+  }
+
+  @media (min-width: 712px) {
+    height: 80% !important;
+  }
+
+  @media (max-width: 767px) {
     position: absolute;
     justify-content: center;
     z-index: 72;
     left: 0px;
     top: 141px;
-    /* 	height: 84%; */
     animation: ___appearance_rfqoo_1_o3tm6_1_1he1v_1 0.3s ease-in-out;
     max-width: 1778px;
     display: flex;
@@ -49,11 +120,25 @@
     color: #39a4a6;
     font-family: "Lifehack Sans Regular";
   }
+
+  @media (min-width: 767px) {
+    height: 100% !important;
+  }
+
+  @media (width: 800px) {
+    height: 100% !important;
+  }
+
+  @media (min-width: 1920px) {
+    height: 100% !important;
+  }
 }
+
 @keyframes appearance {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -72,12 +157,52 @@
   background-color: $header-background-color;
   box-sizing: border-box;
   z-index: 101;
+
+  @media (width: 375px) {
+    width: 100% !important;
+    margin: 5% auto;
+    padding: 12px !important;
+  }
+
+  @media (width: 384px) {
+    width: 100% !important;
+  }
+
+  @media (width: 390px) {
+    width: 102% !important;
+  }
+
+  @media (width: 393px) {
+    width: 100% !important;
+  }
+
   @media (max-width: 395px) {
     height: 78%;
     top: 50px;
-    height: 84%;
   }
-  @media (max-width: 768px) {
+
+  @media (width: 412px) {
+    width: 103% !important;
+  }
+
+  @media (width: 414px) {
+    width: 99% !important;
+  }
+
+  @media (width: 425px) {
+    width: 100% !important;
+  }
+
+  @media (width: 430px) {
+    width: 100% !important;
+  }
+
+  @media (min-width: 600px) {
+    width: 95% !important;
+    left: 20px !important;
+  }
+
+  @media (max-width: 767px) {
     justify-content: center;
     position: absolute;
     z-index: 72;
@@ -96,6 +221,14 @@
     align-items: center;
   }
 
+  @media (max-width: 800px) {
+    left: 0px !important;
+  }
+
+  @media (min-width: 1920px) {
+    width: 680px !important;
+  }
+
   &__title {
     padding-bottom: 24px;
     font-family: $fontLifehackRegular;
@@ -103,7 +236,7 @@
     font-size: 36px;
     color: white;
 
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
       font-size: 28px;
       color: #39a4a6;
     }
@@ -126,7 +259,7 @@
       color: #888;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
       top: 5px;
       right: 10px;
       font-size: 32px;
@@ -145,6 +278,7 @@
   border-radius: 15px;
   background-color: $header-background-color;
   box-sizing: border-box;
+
   &__title {
     padding-bottom: 24px;
     font-family: $fontLifehackRegular;
@@ -177,6 +311,11 @@
     font-family: $fontLifehackRegular;
     font-weight: 400;
     font-size: 24px;
+
+    @media (max-width: 384px) {
+      font-size: 20px;
+    }
+
     .error {
       position: absolute;
       grid-area: 1/2/2/2;
@@ -193,6 +332,7 @@
     @media (max-width: 768px) {
       grid-template-columns: 100%;
       gap: 10px;
+
       .error {
         grid-area: 2/1/2/2;
       }
@@ -202,7 +342,7 @@
   &__label {
     grid-area: 2/1/2/2;
 
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
       grid-area: 1/1/1/1;
       color: #39a4a6;
     }
@@ -219,6 +359,10 @@
     border: none;
     border-radius: 10px;
     box-sizing: border-box;
+
+    @media (max-width: 384px) {
+      font-size: 20px;
+    }
 
     @media (max-width: 768px) {
       grid-area: 2/1/2/2;
@@ -245,7 +389,7 @@
       width: 0;
       height: 0;
 
-      &:checked + .confident__checkmark {
+      &:checked+.confident__checkmark {
         background-color: #39a4a6;
         border-color: white;
 
@@ -332,6 +476,15 @@
   font-weight: 400;
   gap: 60px;
 
+  @media (max-width: 360px) {
+    gap: 10px;
+    padding: 8px 1px !important;
+  }
+
+  @media (width: 393px) {
+    width: 105%;
+  }
+
   &_btn {
     padding: 10px 30px;
     font-family: $fontLifehackRegular;
@@ -343,6 +496,24 @@
     border: 2px solid white;
     cursor: pointer;
     transition: 0.4s;
+
+    @media (max-width: 320px) {
+      font-size: 17px;
+      width: 76% !important;
+      height: 105% !important;
+    }
+
+    @media (width: 360px) {
+      font-size: 20px;
+      width: 75% !important;
+      height: 103% !important;
+    }
+
+    @media (width: 375px) {
+      width: 60%;
+      height: 95% !important;
+      font-size: 19px !important;
+    }
 
     &:hover {
       box-shadow: 7px 5px 56px -14px white;
@@ -361,16 +532,16 @@
   }
 }
 
-@media (max-width: 1920px) {
+@media (min-width: 1920px) {
   .content {
-    width: 40%;
+    width: 30% !important;
     margin: 8% auto;
   }
 }
 
-@media (max-width: 1440px) {
+@media (min-width: 1440px) {
   .content {
-    width: 50%;
+    width: 40% !important;
     margin: 10% auto;
   }
 }
@@ -389,6 +560,7 @@
     display: grid;
     grid-template-columns: 100%;
     gap: 10px;
+
     .error {
       grid-area: 2/1/2/2;
     }
@@ -405,10 +577,12 @@
 
   .confident {
     margin-bottom: 20px;
+
     &__checkbox {
       display: block;
       margin: 0;
     }
+
     &__text {
       flex: 1 0 60%;
       color: #39a4a6;
@@ -438,11 +612,48 @@
   }
 
   .button__wrap {
-    flex-direction: column-reverse;
+    flex-direction: revert;
     gap: 15px;
 
     &_btn {
-      width: 100%;
+      width: 60%;
+      height: 40%;
     }
+  }
+}
+
+@media (max-width: 360px) {
+  .content {
+    width: 100%;
+    margin: 2% auto;
+    padding: 15px;
+    height: 115%;
+  }
+
+  .form__label {
+    font-size: 20px;
+  }
+
+  .form__input {
+    font-size: 20px;
+    width: 93%;
+  }
+}
+
+@media (max-width: 320px) {
+  .content {
+    width: 100%;
+    margin: 2% auto;
+    padding: 15px;
+    height: 100%;
+  }
+
+  .form__label {
+    font-size: 20px;
+  }
+
+  .form__input {
+    font-size: 20px;
+    width: 93%;
   }
 }
