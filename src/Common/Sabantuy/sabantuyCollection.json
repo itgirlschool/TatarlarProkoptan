@@ -1,38 +1,38 @@
 [
   {
     "id": 0,
-    "img": "../src/assets/images/Sabantuy/SabantuyCollection/2.jpg"
+    "img": "imgs/SabantuyCollection/2.jpg"
   },
   {
     "id": 1,
-    "img": "../src/assets/images/Sabantuy/SabantuyCollection/3.jpg"
+    "img": "imgs/SabantuyCollection/3.jpg"
   },
   {
     "id": 2,
-    "img": "../src/assets/images/Sabantuy/SabantuyCollection/4.jpg"
+    "img": "imgs/SabantuyCollection/4.jpg"
   },
   {
     "id": 3,
-    "img": "../src/assets/images/Sabantuy/SabantuyCollection/5.jpg"
+    "img": "imgs/SabantuyCollection/5.jpg"
   },
   {
     "id": 4,
-    "img": "../src/assets/images/Sabantuy/SabantuyCollection/6.jpg"
+    "img": "imgs/SabantuyCollection/6.jpg"
   },
   {
     "id": 5,
-    "img": "../src/assets/images/Sabantuy/SabantuyCollection/7.jpg"
+    "img": "imgs/SabantuyCollection/7.jpg"
   },
   {
     "id": 6,
-    "img": "../src/assets/images/Sabantuy/SabantuyCollection/8.jpg"
+    "img": "imgs/SabantuyCollection/8.jpg"
   },
   {
     "id": 7,
-    "img": "../src/assets/images/Sabantuy/SabantuyCollection/9.jpg"
+    "img": "imgs/SabantuyCollection/9.jpg"
   },
   {
     "id": 8,
-    "img": "../src/assets/images/Sabantuy/SabantuyCollection/10.jpg"
+    "img": "imgs/SabantuyCollection/10.jpg"
   }
 ]
