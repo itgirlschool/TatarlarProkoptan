@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Culture.module.scss';
-import culture1 from '../../assets/cultureImg/culture1.jpg';
-import culture2 from '../../assets/cultureImg/culture2.jpg';
-import culture3 from '../../assets/cultureImg/culture3.jpg';
-import culture4 from '../../assets/cultureImg/culture4.jpg';
-import culture5 from '../../assets/cultureImg/culture5.jpg';
+import culture1 from '../../assets/cultureImg/culture1.webp';
+import culture2 from '../../assets/cultureImg/culture2.webp';
+import culture3 from '../../assets/cultureImg/culture3.webp';
+import culture4 from '../../assets/cultureImg/culture4.webp';
+import culture5 from '../../assets/cultureImg/culture5.webp';
 
 function Culture() {
   return (

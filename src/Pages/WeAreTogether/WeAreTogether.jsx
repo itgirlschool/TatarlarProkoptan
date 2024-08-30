@@ -1,6 +1,6 @@
 import style from "./WeAreTogether.module.scss";
-import childrenImg from "../../assets/images/children9.jpg";
-import helpImg from "../../assets/images/help.jpg";
+import childrenImg from "../../assets/images/children9.webp";
+import helpImg from "../../../public/imgs/Help/help.webp";
 import galleryImg from "../../assets/images/gallery4.webp";
 import { useState, useEffect } from "react";
 import ChildrenModule from "./ChildrenModule";

@@ -5,9 +5,9 @@ import cuisineData from '../../../Common/CultureData/cuisine.json';
 import ChakChak from './Recipe/ChakChak';
 import Echpochmak from './Recipe/Echpochmak';
 import Kostybai from './Recipe/Kostybai';
-import chakChakImg from '../../../assets/cultureImg/chak.jpg';
-import echpochmakImg from '../../../assets/cultureImg/culture4.jpg';
-import kostybaiImg from '../../../assets/cultureImg/costybai.jpg';
+import chakChakImg from '../../../assets/cultureImg/chak.webp';
+import echpochmakImg from '../../../assets/cultureImg/culture4.webp';
+import kostybaiImg from '../../../assets/cultureImg/costybai.webp';
 
 const images = {
   chakChakImg,
