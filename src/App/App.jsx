@@ -9,20 +9,21 @@ import Partners from "../Pages/Culture/Partners/Partners";
 import SabantuyCollection from "../Pages/Sabantui/SabantuyCollection/SabantuyCollection";
 import SabantuyCurrentYear from "../Pages/Sabantui/SabantuyCurrentYear/SabantuyCurrentYear";
 import {
-  News,
-  HomePage,
-  Charity,
-  CharityModal,
-  Culture,
-  Events,
-  Sabantui,
-  WeAreTogether,
-  AuthorizationPage,
-  RegistrationPage,
-  RestorePassword,
-  ModalFormAutonomyMobile,
-  Contacts, 
-  } from "../Pages";
+	News,
+	HomePage,
+	Charity,
+	CharityModal,
+	Culture,
+	Events,
+	Sabantui,
+	WeAreTogether,
+	AuthorizationPage,
+	RegistrationPage,
+	RestorePassword,
+	ModalFormAutonomyMobile,
+	Contacts,
+} from "../Pages";
+import AdminNews from "../Pages/AdminNews/AdminNews.jsx";
 import AdminPage from "../Pages/AdminPage/AdminPage.jsx";
 import ChildrenMobile from "../Pages/WeAreTogether/Mobile/ChildrenMobile.jsx";
 import HelpMobile from "../Pages/WeAreTogether/Mobile/HelpMobile.jsx";
@@ -33,56 +34,56 @@ import Footer from "../Components/Footer/Footer.jsx";
 import style from "./App.module.scss";
 import OurActivists from "../Pages/OurActivists/OurActivists.jsx";
 
-
 function App() {
-  const [loading, setLoading] = useState(true);
-  const location = useLocation();  
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch({ type: "SUBSCRIBE_TO_AUTONOMY_USERS" });
-    dispatch({ type: "SUBSCRIBE_TO_CHARITY_USERS" });
-    dispatch({ type: "SUBSCRIBE_TO_USERS" });
-  }, [dispatch]);
+	const [loading, setLoading] = useState(true);
+	const location = useLocation();
+	const dispatch = useDispatch();
+	useEffect(() => {
+		dispatch({ type: "SUBSCRIBE_TO_AUTONOMY_USERS" });
+		dispatch({ type: "SUBSCRIBE_TO_CHARITY_USERS" });
+		dispatch({ type: "SUBSCRIBE_TO_USERS" });
+	}, [dispatch]);
 
-  const isAdminPage = location.pathname === "/auth";
+	const isAdminPage = location.pathname === "/auth";
 
-  return (
-    <div className={style.app}>
-      {!isAdminPage && <Header />}
-      <main className={style.main}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/charity" element={<Charity />} />
-          <Route path="/modal" element={<CharityModal />} />
-          <Route path="/culture" element={<Culture />} />
-          <Route path="/culture/tatar_culture" element={<TatarCulture />} />
-          <Route path="/culture/mosques" element={<Mosques />} />
-          <Route path="/culture/traditions" element={<Traditions />} />
-          <Route path="/culture/cuisine" element={<Cuisine />} />
-          <Route path="/culture/partners" element={<Partners />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/partners" element={<Partners />} />
-          <Route path="/sabantui" element={<Sabantui />} />
-          <Route path="/collection" element={<SabantuyCollection />} />
-          <Route path="/current" element={<SabantuyCurrentYear />} />
-          <Route path="/we-are-together" element={<WeAreTogether />} />
-          <Route path="/our-activists" element={<OurActivists />} />
-          <Route path="/registrationpage" element={<RegistrationPage />} />
-          <Route path="/authorizationpage" element={<AuthorizationPage />} />
-          <Route path="/restorepassword" element={<RestorePassword />} />
-          <Route path="/autonomy" element={<ModalFormAutonomyMobile />} />
-          <Route path="/homePageMobile" element={<HomePageMobile />} />
-          <Route path="/childrenMobile" element={<ChildrenMobile />} />
-          <Route path="/news" element={<News />} />
-          <Route path="/helpMobile" element={<HelpMobile />} />
-          <Route path="/galleryMobile" element={<GalleryMobile />} />
-          <Route path="/contacts" element={<Contacts />} />
-          <Route path="/auth" element={<AdminPage />} />
-        </Routes>
-      </main>
-      {!isAdminPage && <Footer />}
-    </div>
-  );
+	return (
+		<div className={style.app}>
+			{!isAdminPage && <Header />}
+			<main className={style.main}>
+				<Routes>
+					<Route path="/" element={<HomePage />} />
+					<Route path="/charity" element={<Charity />} />
+					<Route path="/modal" element={<CharityModal />} />
+					<Route path="/culture" element={<Culture />} />
+					<Route path="/culture/tatar_culture" element={<TatarCulture />} />
+					<Route path="/culture/mosques" element={<Mosques />} />
+					<Route path="/culture/traditions" element={<Traditions />} />
+					<Route path="/culture/cuisine" element={<Cuisine />} />
+					<Route path="/culture/partners" element={<Partners />} />
+					<Route path="/events" element={<Events />} />
+					<Route path="/partners" element={<Partners />} />
+					<Route path="/sabantui" element={<Sabantui />} />
+					<Route path="/collection" element={<SabantuyCollection />} />
+					<Route path="/current" element={<SabantuyCurrentYear />} />
+					<Route path="/we-are-together" element={<WeAreTogether />} />
+					<Route path="/our-activists" element={<OurActivists />} />
+					<Route path="/registrationpage" element={<RegistrationPage />} />
+					<Route path="/authorizationpage" element={<AuthorizationPage />} />
+					<Route path="/restorepassword" element={<RestorePassword />} />
+					<Route path="/autonomy" element={<ModalFormAutonomyMobile />} />
+					<Route path="/homePageMobile" element={<HomePageMobile />} />
+					<Route path="/childrenMobile" element={<ChildrenMobile />} />
+					<Route path="/news" element={<News />} />
+					<Route path="/helpMobile" element={<HelpMobile />} />
+					<Route path="/galleryMobile" element={<GalleryMobile />} />
+					<Route path="/contacts" element={<Contacts />} />
+					<Route path="/auth" element={<AdminPage />} />
+					<Route path="/auth/news" element={<AdminNews />} />
+				</Routes>
+			</main>
+			{!isAdminPage && <Footer />}
+		</div>
+	);
 }
 
 export default App;
