@@ -1,26 +1,17 @@
 @import '../../style/vars.scss';
-// .modal {
-//   position:relative;
-//   display: flex;
-//   justify-content: center;
-//   align-items: start;
-//   width: 100%;
-//   z-index: 100;
-//   overflow: auto;
-//   animation: appearance 0.3s ease-in-out;
-//   border: 1px solid black;
-// }
-// .close__modal{
-//   display: none;
-// }
-// @keyframes appearance {
-//   0% {
-//     opacity: 0;
-//   }
-//   100% {
-//     opacity: 1;
-//   }
-// }
+
+.modal__container {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  overflow: hidden;
+  animation: appearance 0.3s ease-in-out;
+}
 
 .modal__overlay {
   position: fixed;
@@ -35,16 +26,95 @@
 }
 
 .modal {
-  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  background-color: $header-background-color;
+  color: white;
+  font-family: $fontLifehackRegular;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.previewContainer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.previewImage {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.fileInput {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  padding: 5px;
+}
+
+.textarea {
+  width: 50vw;
+  height: 50vh;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid $header-text-color;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  
+  &:hover {
+    color: red;
+  }
+}
+
+.title {
+  font-family: $fontLifehackRegular;
+  color: white;
+  font-size: 3vw;
+}
+
+.button__submit {
   width: 100%;
-  text-align: center;
+  max-width: 200px;
+  height: 45px;
+  margin-top: 10px;
+  background-color: transparent;
+  border: 2px solid $header-text-color;
+  border-radius: 10px;
+  font-weight: bold;
+  font-family: $fontLifehackRegular;
+  font-size: 30px;
+  font-weight: 400;
+  color: $header-text-color;
+  cursor: pointer;
+
+  &:hover {
+    transition: 0.4s;
+    box-shadow: 7px 5px 56px -14px white;
+  }
 }
 
-.modal__container {
-  border: 1px solid black;
-}
-
+// @keyframes appearance {
+//   from {
+//     opacity: 0;
+//   }
+//   to {
+//     opacity: 1;
+//   }
+// }
