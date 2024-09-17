@@ -1,0 +1,66 @@
+@import "../../../style/vars";
+
+.autonomia {
+
+    margin: 0 auto;
+    width: 70%;
+    font-family: $fontLifehackRegular;
+    font-size: 20px;
+
+    h1 {
+        text-align: center;
+        margin-bottom: 2rem;
+        margin-top: 1rem;
+    }
+}
+
+.user {
+    padding: 0.5rem 1rem;
+    border: 1px solid black;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.info {
+    flex-grow: 1;
+}
+
+.info_names {
+    font-weight: bolder;
+}
+
+.autonomia_flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+}
+
+.autonomia_btn {
+    appearance: none;
+    font-family: "Lifehack Sans Regular";
+    font-size: 20px;
+    padding: 10px 18px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 20px;
+    background-color: #39a4a6;
+    color: #f5e9e1;
+    border: none;
+    margin-bottom: 2rem;
+
+}
+
+
+@media (max-width: 770px) {
+    .user {
+        display: block;
+    }
+}
+
+@media (max-width: 423px) {
+    .autonomia {
+        font-size: 16px;
+    }
+}
