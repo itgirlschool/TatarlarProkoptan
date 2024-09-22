@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { updateCounter } from "../../store/slice/CharitySlice";
 
 import CharityModal from "./CharityModal";
 import MobileCharityModal from "./MobileCharityModal";
@@ -60,10 +59,6 @@ const Charity = () => {
     } else {
       setModalOpen(false);
     }
-  };
-
-  const handlerUpdateCounter = () => {
-    dispatch(updateCounter());
   };
 
   return (
@@ -127,7 +122,6 @@ const Charity = () => {
           <CharityModal
             openModal={modalOpen}
             closeModal={closeModal}
-            updateCounter={handlerUpdateCounter}
             isMobile={isMobile}
           />
         )
