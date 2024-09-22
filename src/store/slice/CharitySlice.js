@@ -1,27 +1,29 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const charitySlice = createSlice({
-    name: "charity",
-    initialState: {
-        users: null,
-        counter: 0
+  name: "charity",
+  initialState: {
+    users: [],
+    counter: 0,
+  },
+  reducers: {
+    setUserCharity(state, action) {
+      state.users = Object.values(action.payload);
+      state.counter = state.users.length;
     },
-    reducers: {
-        setUserCharity(state, action) {
-            state.users = Object.values(action.payload);
-        },
-        addCharityUser(state, action) {
-            state.users.push(action.payload);
-        },
-        setCounter(state, action) {
-            state.counter = action.payload;
-        },
-        updateCounter(state) {
-            state.counter += 1;
-        }
+    addCharityUser(state, action) {
+      if (!state.users) {
+        state.users = [];
+      }
+      state.users.push(action.payload);
     },
+    setCounter(state) {
+      state.counter = state.users.length;
+    },
+  },
+});
 
-})
-export const { setUserCharity, addCharityUser, setCounter, updateCounter } = charitySlice.actions
+export const { setUserCharity, addCharityUser, setCounter } =
+  charitySlice.actions;
 
-export default charitySlice.reducer
+export default charitySlice.reducer;

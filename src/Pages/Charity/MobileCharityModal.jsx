@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addCharityUser, updateCounter } from "../../store/slice/CharitySlice";
+import { addCharityUser } from "../../store/slice/CharitySlice";
 import { database } from "../../store/index";
 import style from "./CharityModal.module.scss";
 
@@ -59,12 +59,19 @@ const MobileCharityModal = ({ closeModal }) => {
     const newErrors = validate();
     if (Object.keys(newErrors).length === 0) {
       try {
-        await database.ref("charity").push(formData);
-        dispatch(addCharityUser(formData));
+        const currentDateTime = new Date().toLocaleDateString();
+
+        const userDataWithTimestamp = {
+          ...formData,
+          createdAt: currentDateTime,
+        };
+
+        await database.ref("charity").push(userDataWithTimestamp);
+        dispatch(addCharityUser(userDataWithTimestamp));
         console.log("Данные отправлены");
         setSuccessMessage("Заявка успешно отправлена!");
-        dispatch(updateCounter());
         setShowSuccessMessage(true);
+
         setTimeout(() => {
           navigate("/charity");
           closeModal();

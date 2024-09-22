@@ -13,6 +13,7 @@ import {
   HomePage,
   Charity,
   CharityModal,
+  CharityAdminPage,
   Culture,
   Events,
   Sabantui,
@@ -21,8 +22,8 @@ import {
   RegistrationPage,
   RestorePassword,
   ModalFormAutonomyMobile,
-  Contacts, 
-  } from "../Pages";
+  Contacts,
+} from "../Pages";
 import AdminPage from "../Pages/AdminPage/AdminPage.jsx";
 import ChildrenMobile from "../Pages/WeAreTogether/Mobile/ChildrenMobile.jsx";
 import HelpMobile from "../Pages/WeAreTogether/Mobile/HelpMobile.jsx";
@@ -33,10 +34,9 @@ import Footer from "../Components/Footer/Footer.jsx";
 import style from "./App.module.scss";
 import OurActivists from "../Pages/OurActivists/OurActivists.jsx";
 
-
 function App() {
   const [loading, setLoading] = useState(true);
-  const location = useLocation();  
+  const location = useLocation();
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch({ type: "SUBSCRIBE_TO_AUTONOMY_USERS" });
@@ -54,6 +54,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/charity" element={<Charity />} />
           <Route path="/modal" element={<CharityModal />} />
+          <Route path="/charity_admin" element={<CharityAdminPage />} />
           <Route path="/culture" element={<Culture />} />
           <Route path="/culture/tatar_culture" element={<TatarCulture />} />
           <Route path="/culture/mosques" element={<Mosques />} />

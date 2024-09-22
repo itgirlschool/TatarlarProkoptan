@@ -6,7 +6,7 @@ import { database } from "../../store/index";
 
 import style from "./CharityModal.module.scss";
 
-const CharityModal = ({ closeModal, updateCounter, isMobile }) => {
+const CharityModal = ({ closeModal, isMobile }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
@@ -72,13 +72,20 @@ const CharityModal = ({ closeModal, updateCounter, isMobile }) => {
     const newErrors = validate();
     if (Object.keys(newErrors).length === 0) {
       try {
-        await database.ref("charity").push(formData);
-        dispatch(addCharityUser(formData));
+        const currentDateTime = new Date().toLocaleString();
+
+        const userDataWithTimestamp = {
+          ...formData,
+          createdAt: currentDateTime,
+        };
+        await database.ref("charity").push(userDataWithTimestamp);
+        dispatch(addCharityUser(userDataWithTimestamp));
+
         console.log("Данные отправлены");
         setSuccessMessage("Заявка успешно отправлена!");
-        updateCounter();
-        // dispatch(updateCounter());
+
         setShowSuccessMessage(true);
+
         setTimeout(() => {
           if (isMobile) {
             navigate("/charity");
