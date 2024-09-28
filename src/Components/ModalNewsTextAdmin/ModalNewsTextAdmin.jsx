@@ -2,8 +2,7 @@ import style from "./ModalForNewsText.module.scss";
 import { useState } from "react";
 
 export default function ModalForNewsText({ onClose, initialText, onSave }) {
-	const [text, setText] = useState(initialText); // Устанавливаем начальный текст
-
+	const [text, setText] = useState(initialText);
 	const handleTextChange = (e) => {
 		setText(e.target.value);
 	};

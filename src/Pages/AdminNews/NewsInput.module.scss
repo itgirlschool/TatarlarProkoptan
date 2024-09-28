@@ -1,8 +1,15 @@
 @import '../../style/vars.scss';
 
+.adminNews_wrapper{
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
+}
+
 .banner{
     width: 40vw;
-    padding: 10px;
+    padding: 20px;
     border: 1px solid $header-background-color;
     border-radius: 3px;
     background-color: $footer-text-color-white;
@@ -32,6 +39,10 @@
 }
 
 @media screen and (max-width:650px){
+    .adminNews_wrapper{
+        display: flex;
+        flex-direction: column;}
+    
     .banner{
         width: 80vw;
     }
