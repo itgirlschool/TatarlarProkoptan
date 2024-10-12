@@ -1,0 +1,184 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 3.3vw 0;
+  max-width: 1200px;
+  box-sizing: border-box;
+}
+.container .title {
+  font-family: "Lifehack Sans Regular";
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #39a4a6;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+  padding: 30px 0;
+}
+.content .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: transform 0.3s ease-out;
+}
+.content .card__details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+}
+.content .card__details .frame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content .card__details .frame .image {
+  display: block;
+  border-radius: 10px;
+  transition: box-shadow 0.3s ease-out;
+}
+.content .card__details .name {
+  width: 80%;
+  font-family: "Lifehack Sans Regular";
+  font-weight: 700;
+  font-size: 24px;
+  color: #39a4a6;
+  text-align: center;
+}
+.content .card__details .job {
+  width: 80%;
+  font-family: "Lifehack Sans Regular";
+  font-weight: 500;
+  font-size: 20px;
+  color: black;
+  text-align: center;
+}
+.content .card .wrappBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: absolute;
+  bottom: 30%;
+  left: 50%;
+  transform: translate(-50%);
+}
+.content .card .wrappBtn .more {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: 2px solid #39a4a6;
+  background-color: #f5e9e1;
+  opacity: 0;
+  transition: 0.3s ease-out;
+  cursor: pointer;
+}
+.content .card .wrappBtn:hover .more {
+  opacity: 1;
+  box-shadow: 0 4px 30px 0 #f5e9e1;
+}
+.content .card:hover .wrappBtn .more {
+  transform: translateY(-50%);
+}
+.content .card:hover .image {
+  box-shadow: 0 4px 18px 0 #39a4a6;
+}
+
+@media (max-width: 1920px) {
+  .container {
+    max-width: 1600px;
+  }
+}
+@media (max-width: 1440px) {
+  .container {
+    max-width: 1200px;
+  }
+  .content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    max-width: 700px;
+  }
+  .content {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .content .card__details .name {
+    font-size: 20px;
+  }
+  .content .card__details .job {
+    font-size: 18px;
+  }
+  .content .card .wrappBtn {
+    bottom: 18%;
+    left: 50%;
+  }
+  .content .card .wrappBtn .more {
+    width: 40px;
+    height: 40px;
+  }
+}
+@media (max-width: 375px) {
+  .container {
+    max-width: 350px;
+  }
+  .content {
+    gap: 20px;
+  }
+  .content .card__details .name {
+    font-size: 18px;
+  }
+  .content .card__details .job {
+    font-size: 16px;
+  }
+  .content .card .wrappBtn {
+    bottom: 15%;
+    left: 50%;
+  }
+  .content .card .wrappBtn .more {
+    width: 40px;
+    height: 40px;
+  }
+}
+.scrollToTop {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  bottom: 20px;
+  right: 20px;
+  border: 2px solid #39a4a6;
+  background-color: #f5e9e1;
+  color: #39a4a6;
+  border-radius: 10px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+.scrollToTop.visible {
+  opacity: 1;
+  visibility: visible;
+}
+.scrollToTop .arrowUp {
+  font-size: 20px;
+}
+
+@media (min-width: 768px) {
+  .scrollToTop {
+    display: none;
+  }
+}/*# sourceMappingURL=OurActivists.module.css.map */
