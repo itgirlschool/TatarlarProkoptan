@@ -1,0 +1,60 @@
+.modal__containerMobile {
+  background-color: #f5e9e1;
+  color: #39a4a6;
+  font-family: "Lifehack Sans Regular";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.feedback__wrapperMobile {
+  margin-top: 50%;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 90%;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.feedback__infoMobile {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.feedback__imageMobile {
+  display: none;
+}
+
+.header__feedbackMobile {
+  align-self: center;
+  font-weight: 400;
+  font-size: 30px;
+}
+
+.paragragh__feedback {
+  max-width: 400px;
+  margin-top: 0;
+  font-size: 24px;
+}
+@media screen and (max-width: 530px) {
+  .paragragh__feedback {
+    font-size: 20px;
+  }
+}
+
+.button__feedbackMobile {
+  font-family: "Lifehack Sans Regular";
+  font-size: 20px;
+  padding: 8px 30px;
+  cursor: pointer;
+  border-radius: 20px;
+  background-color: #f5e9e1;
+  color: #39a4a6;
+  border: 2px solid #39a4a6;
+}/*# sourceMappingURL=FeedbackWindowMobile.module.css.map */

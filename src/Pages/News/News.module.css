@@ -1,0 +1,14 @@
+.news_board {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+@media screen and (max-width: 650px) {
+  .news_board {
+    flex-direction: column;
+    align-items: center;
+  }
+}/*# sourceMappingURL=News.module.css.map */

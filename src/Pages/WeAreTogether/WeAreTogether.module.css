@@ -1,0 +1,158 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Lifehack Sans Regular";
+  background: #f5e9e1;
+}
+
+.content__img {
+  text-align: center;
+}
+
+.header__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+@media screen and (max-width: 560px) {
+  .header__content {
+    align-items: center;
+  }
+}
+
+.header,
+.header__img {
+  color: #39a4a6;
+  margin: 0;
+  padding: 20px;
+}
+
+.header {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: right;
+  width: 100%;
+  padding-right: 80px;
+  padding-top: 50px;
+}
+@media screen and (max-width: 720px) {
+  .header {
+    padding-right: 80px;
+  }
+}
+@media screen and (max-width: 560px) {
+  .header {
+    text-align: center;
+    padding-right: 0;
+  }
+}
+
+.header__img {
+  font-size: 1.8rem;
+  color: #faf0df;
+  display: flex;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #39a4a6;
+  opacity: 0;
+  transition: all 0.7s ease-in-out;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.text {
+  color: black;
+  font-size: 1.7rem;
+  font-weight: 600;
+  width: 60%;
+  text-align: right;
+  padding-right: 80px;
+}
+@media screen and (max-width: 560px) {
+  .text {
+    text-align: center;
+    padding-right: 0;
+  }
+}
+
+.article__content {
+  display: flex;
+  gap: 10px;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+@media screen and (max-width: 720px) {
+  .article__content {
+    flex-direction: column;
+  }
+}
+
+.carousel {
+  width: 25vw;
+  border-radius: 3px;
+}
+@media screen and (max-width: 720px) {
+  .carousel {
+    width: 50vw;
+  }
+}
+@media screen and (max-width: 560px) {
+  .carousel {
+    width: 60vw;
+  }
+}
+
+.carousel__module {
+  width: 30vw;
+}
+
+.gallery__content {
+  background-position: center;
+  height: 30vw;
+  margin: 0;
+}
+
+.gallery__img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.img__block {
+  width: 27vw;
+  height: 30vw;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  border-radius: 3px;
+}
+@media screen and (max-width: 720px) {
+  .img__block {
+    width: 50vw;
+  }
+}
+@media screen and (max-width: 560px) {
+  .img__block {
+    width: 60vw;
+  }
+}
+
+.img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+  display: block;
+  position: relative;
+}
+
+.img__block:hover .header__img {
+  opacity: 1;
+}/*# sourceMappingURL=WeAreTogether.module.css.map */
