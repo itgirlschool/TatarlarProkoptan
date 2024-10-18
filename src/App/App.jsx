@@ -49,7 +49,7 @@ function App() {
 
   return (
     <div className={style.app}>
-      {!isAdminPage && <Header/>}
+      {!isAdminPage && <Header />}
       <main className={style.main}>
         <Routes>
           <Route path="/" element={<HomePage />} />
