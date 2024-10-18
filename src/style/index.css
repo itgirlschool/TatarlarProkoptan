@@ -1,15 +1,8 @@
 @font-face {
-  font-family: "Lifehack Sans Regular";
-  src: url("../assets/fonts/Lifehack Sans Regular.ttf") format("truetype");
+  font-family: "Mono";
+  src: url("../assets/fonts/MonoTC.ttf") format("ttf");
 }
-* {
-  margin: 0;
-}
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+@font-face {
+  font-family: "SansMono";
+  src: url("../assets/fonts/SansMono.ttf") format("ttf");
 }/*# sourceMappingURL=index.css.map */
